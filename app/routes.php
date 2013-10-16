@@ -10,17 +10,22 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+/** ------------------------------------------
+ *  Route model binding
+ *  - for each model add one entry
+ *  ------------------------------------------
+ */
+Route::model('users', 'User');
 
-Route::get('/', function() {
-	return View::make('home');
-});
 
-Route::get('users', function() {
-	$users = User::all();
+//this one to handle custom methods in controller
+Route::controller('users', 'UserController');
 
-	return View::make('users')->with('users', $users);
-});
+//this one to handle standard methods in controller
+Route::resource('users', 'UserController');
 
-Route::get('my/page', function() {
-    return 'Hello World!';
-});
+Route::resource('photos', 'PhotoController');
+
+
+/*HOME PAGE ROUTE*/
+Route::get('/', 'HomeController@showWelcome');
