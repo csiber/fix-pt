@@ -29,6 +29,15 @@ class UserController extends BaseController {
                 )));
     }
     
+    public function getShowUser($id) {
+        $user = User::find(1);
+        
+        return View::make('users.show-user', array('dataUser'=>array(
+            'userArray' => $user,
+            'id'=>$id
+                )));
+    }
+    
     /**
      * Show the profile for the given user.
      */
