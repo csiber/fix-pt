@@ -14,26 +14,47 @@ class UserController extends BaseController {
       |
      */
 
+    /**
+     * Index displays all users of the system
+     * @return Response
+     */
     public function index() {
-        
+
         $users = User::all();
         return View::make('users.index', array('usersArray' => $users));
     }
 
+    /**
+     * Show the form for creating a new user.
+     *
+     * @return Response
+     */
+    public function create() {
+        
+    }
+
     public function show($id) {
         $user = User::find(1);
-        
-        return View::make('users.show', array('data'=>array(
-            'userArray' => $user,
-            'id'=>$id
-                )));
+
+        return View::make('users.show', array('data' => array(
+                        'userArray' => $user,
+                        'id' => $id
+        )));
     }
-    
+
+    public function getShowUser($id) {
+        $user = User::find(1);
+
+        return View::make('users.show-user', array('dataUser' => array(
+                        'userArray' => $user,
+                        'id' => $id
+        )));
+    }
+
     /**
      * Show the profile for the given user.
      */
-    public function getProfile($id)
-    {
+    public function getProfile($id) {
         $user = User::find($id);
 
         return View::make('users.profile', array('user' => $user));

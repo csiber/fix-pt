@@ -1,8 +1,25 @@
 @extends('layout')
 
 @section('content')
-	@foreach($usersArray as $user)
-		<p>{{ $user->name }}</p>
-	@endforeach
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $count = 1;?>
+        
+        @foreach($usersArray as $user)
+        <tr>
+            <td><? echo $count++; ?>   </td>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email}}</td></tr>
+        
+        @endforeach
+    </tbody>
+</table>
+
 @stop
-               
