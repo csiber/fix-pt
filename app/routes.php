@@ -10,6 +10,8 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
+
 /** ------------------------------------------
  *  Route model binding
  *  - for each model add one entry
@@ -29,3 +31,10 @@ Route::resource('photos', 'PhotoController');
 
 /*HOME PAGE ROUTE*/
 Route::get('/', 'HomeController@showWelcome');
+
+
+/* TEMPORARY ROUTES */
+
+Route::get('fix-requests/create', function(){
+    return View::make('fix-requests/create');
+});
