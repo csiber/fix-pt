@@ -1,6 +1,5 @@
 @extends('layout')
 
-
 @section('content')
 <table class="table">
     <thead>
