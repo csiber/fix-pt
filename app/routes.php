@@ -38,3 +38,6 @@ Route::get('/', 'HomeController@showWelcome');
 Route::get('fix-requests/create', function(){
     return View::make('fix-requests/create');
 });
+
+Route::resource('fix-requests/index', 'FixRequestsController');
+Route::controller('fix-requests/index', 'FixRequestsController');
