@@ -12,6 +12,7 @@
             <td>#</td>
             <td>Title</td>
             <td>Text</td>
+            <td>Posted by</td>
             <td>Date</td>
         </tr>
     </thead>
@@ -23,7 +24,9 @@
             <td><?php echo $count++; ?> </td>
             <td>Sem titulo</td>
             <td>{{ $request->text}}</td>
+            <td>{{ $request->name}}</td>
             <td>{{ $request->creation_date}}</td>
+
         </tr>
         
         @endforeach
