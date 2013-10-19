@@ -1,7 +1,10 @@
-<?php
+@extends('layout')
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+@section('content')
+{{ Form::open(array('url' => 'users/create')) }}
+echo Form::text('username');
+echo Form::email($name, $value = null, $attributes = array());
+echo Form::password('password');
+
+{{ Form::close() }}
+@stop
