@@ -33,8 +33,14 @@ Route::resource('photos', 'PhotoController');
 Route::get('/', 'HomeController@showWelcome');
 
 
-/* TEMPORARY ROUTES */
+/* TEMPORARY ROUTES --> */
 
 Route::get('fix-requests/create', function(){
     return View::make('fix-requests/create');
 });
+
+Route::get('fix-requests/list', function(){
+    return View::make('fix-requests/list');
+});
+
+/* <-- TEMPORARY ROUTES */
