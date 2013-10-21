@@ -24,6 +24,25 @@ class UserController extends BaseController {
         return View::make('users.index', array('usersArray' => $users));
     }
 
+    public function getLogin() {
+        return View::make("users.login");
+    }
+
+//    public function postLogin() {
+//
+//        $validator = Validator::make(Input::all(), [
+//                    "username" => "required",
+//                    "password" => "required"
+//        ]);
+//        if ($validator->passes()) {
+//            echo "Validation passed!";
+//        } else {
+//            echo "Validation failed!";
+//        }
+//
+//        return View::make("users.login");
+//    }
+
     /**
      * Show the form for creating a new user.
      *
