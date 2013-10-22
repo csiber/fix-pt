@@ -6,7 +6,7 @@
         <meta name="description" content="Fix.pt">
         <meta name="author" content="ldsot3g3">
         <link rel="shortcut icon" href="../../assets/ico/favicon.png">
-        
+
 
         <title>Fix.PT</title>
 
@@ -19,8 +19,11 @@
 
     <body>
         <div id="wrap"> <!-- this is for the sticky footer -->
-            @include('header')
-            @yield('content')
+            @include('header')            
+            <div class="container">
+                @include('alerts');
+                @yield('content')
+            </div>          
         </div><!-- /.wrap -->
 
         @include('footer')

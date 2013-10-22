@@ -25,23 +25,52 @@ class UserController extends BaseController {
     }
 
     public function getLogin() {
+
+        $user = Auth::user();
+        if (!empty($user->id)) {
+            return Redirect::to("users/profile");
+        }
+
         return View::make("users.login");
     }
 
-//    public function postLogin() {
-//
-//        $validator = Validator::make(Input::all(), [
-//                    "username" => "required",
-//                    "password" => "required"
-//        ]);
-//        if ($validator->passes()) {
-//            echo "Validation passed!";
-//        } else {
-//            echo "Validation failed!";
-//        }
-//
-//        return View::make("users.login");
-//    }
+    public function postLogin() {
+
+        $data = [];
+
+        $credentials = [
+            "username" => Input::get("username"),
+            "password" => Input::get("password")
+        ];
+        if (Auth::attempt($credentials)) {
+            return Redirect::to("users/profile");
+        }
+
+        return View::make("users.login", $data);
+    }
+    
+    /**
+     * Show the profile for the current user.
+     */
+    public function getProfile() {
+        if (Auth::check()) {
+            $user = User::find(Auth::user()->id);
+            return View::make('users.profile', array('user' => $user));
+        } else {
+            Session::flash('error', 'You do not have permissions to access this content!');
+            return View::make('users.login');
+        }
+    }
+    
+    /**
+     * Log the user out of the application.
+     *
+     */
+    public function getLogout()
+    {
+        Auth::logout();
+        return Redirect::to('/');
+    }
 
     /**
      * Show the form for creating a new user.
@@ -70,13 +99,6 @@ class UserController extends BaseController {
         )));
     }
 
-    /**
-     * Show the profile for the given user.
-     */
-    public function getProfile($id) {
-        $user = User::find($id);
-
-        return View::make('users.profile', array('user' => $user));
-    }
+    
 
 }

@@ -1,6 +1,19 @@
 @extends("layout")
 
 @section("content")
-<h2>User Login</h2>
-
+    {{ Form::open([    
+        "url"        => "users/login",
+        "method"    => "post",
+        "autocomplete" => "off"
+    ]) }}
+        {{ Form::label("username", "Username") }}
+        {{ Form::text("username", Input::old("username"), [
+            "placeholder" => "john.smith"
+        ]) }}
+        {{ Form::label("password", "Password") }}
+        {{ Form::password("password", [
+            "placeholder" => "●●●●●●●●●●"
+        ]) }}
+        {{ Form::submit("login") }}
+    {{ Form::close() }}
 @stop
