@@ -42,7 +42,8 @@ class FixRequestsController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$requests = DB::select('select * from fix_requests, posts, users where fix_requests.post_id=posts.id and posts.user_id=users.id and fix_requests.id=?',array($id));
+        return View::make('fix-requests.index', array('requestsArray' => $requests));
 	}
 
 	/**
