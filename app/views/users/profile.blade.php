@@ -3,9 +3,9 @@
 @section('content')
 
 <h2>User Profile</h2>
-<pre>
-    <? print_r($user); ?>
-</pre>
+
+{{Auth::user()->id}}
+{{Auth::user()->username}}
 
 @stop
 

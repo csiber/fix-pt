@@ -19,7 +19,6 @@
  */
 Route::model('users', 'User');
 
-
 //this one to handle custom methods in controller
 Route::controller('users', 'UserController');
 
