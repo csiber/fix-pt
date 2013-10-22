@@ -4,7 +4,8 @@
 
 <h2>User Profile</h2>
 
-{{Auth::guest()}}
+{{Auth::user()->id}}
+{{Auth::user()->username}}
 
 @stop
 

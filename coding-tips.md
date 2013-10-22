@@ -14,3 +14,7 @@ The message in the session could also be an array
 {{ Session::get('warning') }}
 
 
+###Users
+admin admin
+christopher.pitt okidoki
+

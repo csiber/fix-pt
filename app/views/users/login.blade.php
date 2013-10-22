@@ -14,6 +14,11 @@
         {{ Form::password("password", [
             "placeholder" => "●●●●●●●●●●"
         ]) }}
+        @if ($error = $errors->first("password"))
+            <div class="error">
+                {{ $error }}
+            </div>
+        @endif
         {{ Form::submit("login") }}
     {{ Form::close() }}
 @stop

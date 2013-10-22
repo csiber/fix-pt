@@ -28,7 +28,7 @@ class UserController extends BaseController {
 
         $user = Auth::user();
         if (!empty($user->id)) {
-            return Redirect::to("users/profile");
+            return Redirect::to('/');
         }
 
         return View::make("users.login");
