@@ -1,6 +1,6 @@
 <header>
     <div class="navbar navbar-inverse navbar-fixed-top">
-
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
@@ -15,15 +15,17 @@
                 <li class="active"><a href="{{{ URL::to('/') }}}">Home</a></li>
                 <li><a href="{{{ URL::to('users') }}}">Users</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fix Requests <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">View Fix Requests</a></li>
+                        <li><a href="#">Search Fix Requests</a></li>
+                        <li><a href="#">Add Fix Request</a></li>
+                        <!--
                         <li class="divider"></li>
                         <li class="dropdown-header">Nav header</li>
                         <li><a href="#">Separated link</a></li>
                         <li><a href="#">One more separated link</a></li>
+                        -->
                     </ul>
                 </li>                
             </ul>
@@ -46,10 +48,11 @@
                     <input type="password" placeholder="Password" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-success">Sign In</button>
-                <button data-toggle="modal" href="#signUpModal" class="btn btn-danger">Sign Up</button>
+                <button data-toggle="modal" href="#signUpModal" class="btn btn-primary">Sign Up</button>
             </form>
             @endif
-        </div><!--/.nav-collapse -->        
+        </div><!--/.nav-collapse -->  
+    </div>      
     </div>
 </header>
 

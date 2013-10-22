@@ -32,10 +32,6 @@ Route::get('/', 'HomeController@showWelcome');
 
 /* TEMPORARY ROUTES --> */
 
-Route::get('fix-requests/create', function(){
-    return View::make('fix-requests/create');
-});
-
 Route::resource('fix-requests', 'FixRequestsController');
 Route::controller('fix-requests', 'FixRequestsController');
 

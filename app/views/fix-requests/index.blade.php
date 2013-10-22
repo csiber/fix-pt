@@ -19,7 +19,7 @@
     <tbody>
         <?php $count = 1;?>
         
-        @foreach($requestsArray as $request)
+        @foreach($requests as $request)
         <tr>
             <td><?php echo $count++; ?> </td>
             <td>Sem titulo</td>

@@ -11,7 +11,7 @@ class FixRequestsController extends BaseController {
 	{
 		//
 		$requests = DB::select('select * from fix_requests, posts, users where fix_requests.post_id=posts.id and posts.user_id=users.id');
-        return View::make('fix-requests/index', array('requests' => $requests));
+        return View::make('fix-requests.index', array('requests' => $requests));
 	}
 
 	/**
@@ -19,9 +19,8 @@ class FixRequestsController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
-		//
+	public function create() {
+		return View::make('fix-requests/create');
 	}
 
 	/**
