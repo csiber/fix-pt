@@ -1,6 +1,6 @@
 <?php
 
-class PostsController extends \BaseController {
+class FixRequestsController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,6 +10,8 @@ class PostsController extends \BaseController {
 	public function index()
 	{
 		//
+		$requests = DB::select('select * from fix_requests, posts, users where fix_requests.post_id=posts.id and posts.user_id=users.id');
+        return View::make('fix-requests/index', array('requests' => $requests));
 	}
 
 	/**

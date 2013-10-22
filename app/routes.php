@@ -26,8 +26,6 @@ Route::controller('users', 'UserController');
 //this one to handle standard methods in controller
 Route::resource('users', 'UserController');
 
-Route::resource('photos', 'PhotoController');
-
 
 /*HOME PAGE ROUTE*/
 Route::get('/', 'HomeController@showWelcome');
@@ -39,8 +37,7 @@ Route::get('fix-requests/create', function(){
     return View::make('fix-requests/create');
 });
 
-Route::get('fix-requests/list', function(){
-    return View::make('fix-requests/list');
-});
+Route::resource('fix-requests', 'FixRequestsController');
+Route::controller('fix-requests', 'FixRequestsController');
 
 /* <-- TEMPORARY ROUTES */
