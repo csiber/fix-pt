@@ -19,9 +19,8 @@ class UserController extends BaseController {
      * @return Response
      */
     public function index() {
-
         $users = User::all();
-        return View::make('users.index', array('usersArray' => $users));
+        return View::make('users.index', array('users' => $users));
     }
 
     public function getLogin() {

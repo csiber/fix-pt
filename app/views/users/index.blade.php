@@ -12,7 +12,7 @@
     <tbody>
         <?php $count = 1;?>
         
-        @foreach($usersArray as $user)
+        @foreach($users as $user)
         <tr>
             <td><? echo $count++; ?>   </td>
             <td>{{ $user->name }}</td>
