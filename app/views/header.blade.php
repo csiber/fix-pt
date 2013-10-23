@@ -1,58 +1,60 @@
 <header>
     <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{{ URL::to('/') }}}">Fix.PT</a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-
-                <li class="active"><a href="{{{ URL::to('/') }}}">Home</a></li>
-                <li><a href="{{{ URL::to('users') }}}">Users</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fix Requests <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">View Fix Requests</a></li>
-                        <li><a href="#">Search Fix Requests</a></li>
-                        <li><a href="#">Add Fix Request</a></li>
-                        <!--
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                        -->
-                    </ul>
-                </li>                
-            </ul>
-
-            @if (Auth::check())
-            <div class="user-loggedin">                
-                {{--@if (Auth::user()->hasRole('admin'))--}}
-                {{--<a href="{{{ URL::to('admin') }}}">Admin Panel</a>--}
-                {{--@endif--}}
-                <a href="{{{ URL::to('users/profile/') }}}">Logged in as {{{ Auth::user()->username }}}</a>
-                <a href="{{{ URL::to('users/logout') }}}">Logout</a>
-            
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{{ URL::to('/') }}}">Fix.PT</a>
             </div>
-            @else
-            <form class="navbar-form navbar-right">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+
+                    <li class="active"><a href="{{{ URL::to('/') }}}">Home</a></li>
+                    <li><a href="{{{ URL::to('users') }}}">Users</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fix Requests <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">View Fix Requests</a></li>
+                            <li><a href="#">Search Fix Requests</a></li>
+                            <li><a href="#">Add Fix Request</a></li>
+                            <!--
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                            -->
+                        </ul>
+                    </li>                
+                </ul>
+
+                @if (Auth::check())
+                <div class="user-loggedin">                
+                    <a href="{{{ URL::to('users/profile/') }}}">Logged in as {{{ Auth::user()->username }}}</a>
+                    <a href="{{{ URL::to('users/logout') }}}">Logout</a>
+                </div>
+                @else
+                
+                {{ Form::open(array(
+                    "url" => "users/login",                    
+                "class" => "navbar-form navbar-right"));}}
+                <form class="navbar-form navbar-right" action="users/login">
                 <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
+                    {{ Form::text("username", Input::old("username"), 
+                    ["placeholder" => "Email", "class"=>"form-control"]) }}
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
+                    {{ Form::password("password", ["placeholder" => "Password",
+                    "class"=>"form-control"]) }}
                 </div>
                 <button type="submit" class="btn btn-success">Sign In</button>
                 <button data-toggle="modal" href="#signUpModal" class="btn btn-primary">Sign Up</button>
-            </form>
-            @endif
-        </div><!--/.nav-collapse -->  
-    </div>      
+                {{ Form::close() }}
+                @endif
+            </div><!--/.nav-collapse -->  
+        </div>      
     </div>
 </header>
 
