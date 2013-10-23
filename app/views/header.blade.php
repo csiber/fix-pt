@@ -37,7 +37,6 @@
                 {{--@endif--}}
                 <a href="{{{ URL::to('users/profile/') }}}">Logged in as {{{ Auth::user()->username }}}</a>
                 <a href="{{{ URL::to('users/logout') }}}">Logout</a>
-            
             </div>
             @else
             <form class="navbar-form navbar-right">

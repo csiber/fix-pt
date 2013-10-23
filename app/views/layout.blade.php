@@ -21,7 +21,7 @@
         <div id="wrap"> <!-- this is for the sticky footer -->
             @include('header')            
             <div class="container">
-                @include('alerts');
+                @include('alerts')
                 @yield('content')
             </div>          
         </div><!-- /.wrap -->

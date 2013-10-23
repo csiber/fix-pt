@@ -34,5 +34,3 @@ Route::get('/', 'HomeController@showWelcome');
 
 Route::resource('fix-requests', 'FixRequestsController');
 Route::controller('fix-requests', 'FixRequestsController');
-
-/* <-- TEMPORARY ROUTES */
