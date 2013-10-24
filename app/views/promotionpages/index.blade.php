@@ -5,18 +5,18 @@
     <thead>
         <tr>
             <th>#</th>
-            <th>Text</th>
-            <th>Date</th>
+            <th>Name</th>
+            <th>Email</th>
         </tr>
     </thead>
     <tbody>
         <?php $count = 1;?>
         
-        @foreach($posts as $post)
+        @foreach($promotion_pages as $promotion_page)
         <tr>
             <td><? echo $count++; ?>   </td>
-            <td>{{ $post->name }}</td>
-            <td>{{ $post->email}}</td></tr>
+            <td>{{ $promotion_page->name }}</td>
+            <td>{{ $promotion_page->email}}</td></tr>
         
         @endforeach
     </tbody>

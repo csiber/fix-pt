@@ -1,10 +1,6 @@
 @extends('layout')
 
 @section('content')
-<div>SOMETHING</div>
-<div>SOMETHING</div>
-<div>SOMETHING</div>
-<div>SOMETHING</div>
 <table class="table">
     <thead>
 
@@ -19,7 +15,7 @@
     <tbody>
         <?php $count = 1;?>
         
-        @foreach($requests as $request)
+        @foreach($fixrequests as $request)
         <tr>
             <td><?php echo $count++; ?> </td>
             <td>Sem titulo</td>

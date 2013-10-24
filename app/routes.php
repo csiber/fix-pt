@@ -18,19 +18,29 @@
  *  ------------------------------------------
  */
 Route::model('users', 'User');
+Route::model('fixrequests', 'FixRequest');
+Route::model('comments', 'Comment');
+Route::model('directfixrequests', 'DirectFixRequest');
+Route::model('fixoffers', 'FixOffer');
+Route::model('notifiables', 'Notifiable');
+Route::model('posts', 'Post');
+Route::model('promotionpages', 'PromotionPage');
 
-//this one to handle custom methods in controller
+// RESTful controllers
 Route::controller('users', 'UserController');
+Route::controller('fixrequests', 'FixRequestController');
+Route::controller('comments', 'CommentController');
+Route::controller('directfixrequests', 'DirectFixRequestController');
+Route::controller('fixoffers', 'FixOfferController');
+Route::controller('notifiables', 'NotifiableController');
+Route::controller('posts', 'PostController');
+Route::controller('promotionpages', 'PromotionPageController');
 
 //this one to handle standard methods in controller
 Route::resource('users', 'UserController');
 
 
-/*HOME PAGE ROUTE*/
-Route::get('/', 'HomeController@showWelcome');
-
-
-/* TEMPORARY ROUTES --> */
-
-Route::resource('fix-requests', 'FixRequestsController');
-Route::controller('fix-requests', 'FixRequestsController');
+// Home page
+Route::get('/', function(){
+    return View::make('home');
+});
