@@ -1,18 +1,13 @@
 <?php
 
 class UserController extends BaseController {
-    /*
-      |--------------------------------------------------------------------------
-      | Default Home Controller
-      |--------------------------------------------------------------------------
-      |
-      | You may wish to use controllers instead of, or in addition to, Closure
-      | based routes. That's great! Here is an example controller method to
-      | get you started. To route to this controller, just add the route:
-      |
-      |	Route::get('/', 'HomeController@showWelcome');
-      |
-     */
+
+    public $rules = array(
+        'username' => 'required|alpha_dash|unique:users',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|between:4,11',
+        'confirm_password' => 'same:password',
+    );
 
     /**
      * Index displays all users of the system
@@ -47,7 +42,7 @@ class UserController extends BaseController {
 
         return View::make("users.login", $data);
     }
-    
+
     /**
      * Show the profile for the current user.
      */
@@ -60,13 +55,12 @@ class UserController extends BaseController {
             return View::make('users.login');
         }
     }
-    
+
     /**
      * Log the user out of the application.
      *
      */
-    public function getLogout()
-    {
+    public function getLogout() {
         Auth::logout();
         return Redirect::to('/');
     }
@@ -76,8 +70,32 @@ class UserController extends BaseController {
      *
      * @return Response
      */
-    public function create() {
-        
+    public function getCreate() {
+        return View::make('users.create');
+    }
+
+    /**
+     * Show the form for creating a new user.
+     *
+     * @return Response
+     */
+    public function postCreate() {
+
+        $validator = Validator::make(Input::all(), $this->rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('users/create')
+                            ->withInput()
+                            ->withErrors($validator);
+        } else {
+            $user = new User;
+            $user->email = Input::get('email');
+            $user->username = Input::get('username');
+            $user->password = Hash::make(Input::get('password'));
+            $user->save();
+            Auth::login($user);
+            return Redirect::to("users/profile");
+        }
     }
 
     public function show($id) {
@@ -97,7 +115,5 @@ class UserController extends BaseController {
                         'id' => $id
         )));
     }
-
-    
 
 }

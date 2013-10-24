@@ -34,11 +34,12 @@
                     <a href="{{{ URL::to('users/profile/') }}}">Logged in as {{{ Auth::user()->username }}}</a>
                     <a href="{{{ URL::to('users/logout') }}}">Logout</a>
                 </div>
-                @else
-                
+                @else                
                 {{ Form::open(array(
-                    "url" => "users/login",                    
-                "class" => "navbar-form navbar-right"));}}
+                    "autocomplete" => "off",
+                    "url" => "users/login",  
+                    "id"=>"login-form",
+                    "class" => "navbar-form navbar-right"))}}
                 <form class="navbar-form navbar-right" action="users/login">
                 <div class="form-group">
                     {{ Form::text("username", Input::old("username"), 
@@ -48,7 +49,7 @@
                     {{ Form::password("password", ["placeholder" => "Password",
                     "class"=>"form-control"]) }}
                 </div>
-                <button type="submit" class="btn btn-success">Sign In</button>
+                <button type="submit" form="login-form" class="btn btn-success">Sign In</button>
                 <button data-toggle="modal" href="#signUpModal" class="btn btn-primary">Sign Up</button>
                 {{ Form::close() }}
                 @endif
@@ -66,24 +67,30 @@
                 <h4 class="modal-title">Sign Up</h4>
             </div>
             <div class="modal-body">
-                <form id="signup-form" role="form">
+                {{ Form::open(array("url" => "users/create",
+                "autocomplete" => "off",
+                 "id"=>"signup-form","role"=>"form"))}}                
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Name</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+                        {{ Form::label("username", "Name") }}
+                        {{ Form::text("username", Input::old("username"), 
+                        ["placeholder" => "Enter Username", "class"=>"form-control", "id"=>"username"]) }}                        
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        {{ Form::label("email", "Email") }}
+                        {{ Form::text("email", Input::old("email"), 
+                        array("placeholder" => "Enter email", "class"=>"form-control", "id"=>"email")) }}                        
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <div class="form-group"> 
+                        {{ Form::label("password", "Password") }}
+                        {{ Form::password('password', array("class"=>"form-control", "placeholder"=>"Password"))}}
+                        
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Confirm Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
+                    <div class="form-group">                        
+                        {{ Form::label("confirm_password", "Confirm Password") }}
+                        {{ Form::password('confirm_password', array("class"=>"form-control", "placeholder"=>"Confirm Password"))}}
+                        
                     </div>
-                </form>
+                {{ Form::close() }}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
