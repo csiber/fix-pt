@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('fixrequests/layout')
 
 @section('content')
     <div class="container">

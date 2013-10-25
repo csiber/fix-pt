@@ -25,6 +25,7 @@
             </div>          
         </div><!-- /.wrap -->
 
+        
         @include('footer')
 
         <!-- Bootstrap core JavaScript
