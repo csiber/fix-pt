@@ -12,4 +12,9 @@ class CommentController extends BaseController {
         $comments = Comment::all();
         return View::make('comments.index', array('comments' => $comments));
     }
+
+    public function fixrequest() 
+    {
+        return $this->belongsTo('FixRequest');
+    }
 }

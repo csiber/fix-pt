@@ -6,17 +6,20 @@ class UserSeeder extends DatabaseSeeder {
         $users = [
             [
                 "username" => "christopher.pitt",
-                "password" => Hash::make("okidoki"),
                 "email" => "chris@example.com",
+                "password" => Hash::make("okidoki"),
+                "name" => "Christopher Pitt",
                 "permission" => 1
             ],
             [
                 "username" => "miguelgazela",
-                "password" => Hash::make("password"),
                 "email" => "miguelgazela",
+                "password" => Hash::make("password"),
+                "name" => "Miguel Oliveira",
                 "permission" => 1
             ]
         ];
+
         foreach ($users as $user) {
             User::create($user);
         }

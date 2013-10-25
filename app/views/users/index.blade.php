@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('users/layout')
 
 @section('content')
 <table class="table">
@@ -6,18 +6,22 @@
         <tr>
             <th>#</th>
             <th>Name</th>
+            <th>Username</th>
             <th>Email</th>
+            <th>Permission</th>
         </tr>
     </thead>
     <tbody>
-        <?php $count = 1;?>
+        <?php $counter = 1; ?>
         
         @foreach($users as $user)
         <tr>
-            <td><? echo $count++; ?>   </td>
+            <td><? echo $counter++; ?></td>
             <td>{{ $user->name }}</td>
-            <td>{{ $user->email}}</td></tr>
-        
+            <td>{{ $user->username }}</td>
+            <td>{{ $user->email }}</td>
+            <td>{{ $user->permission }}</td>
+        </tr>
         @endforeach
     </tbody>
 </table>

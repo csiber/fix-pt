@@ -12,14 +12,14 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
 
-                    <li class="active"><a href="{{{ URL::to('/') }}}">Home</a></li>
-                    <li><a href="{{{ URL::to('users') }}}">Users</a></li>
+                    <li><a href="{{{ URL::to('/') }}}" class="_home">Home</a></li>
+                    <li><a href="{{{ URL::to('users') }}}" class="_users">Users</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fix Requests <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="_fixrequests">Fix Requests <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">View Fix Requests</a></li>
                             <li><a href="#">Search Fix Requests</a></li>
-                            <li><a href="#">Add Fix Request</a></li>
+                            <li><a href="{{ URL::to('fixrequests/create') }}">Add Fix Request</a></li>
                             <!--
                             <li class="divider"></li>
                             <li class="dropdown-header">Nav header</li>

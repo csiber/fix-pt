@@ -40,4 +40,14 @@ class FixRequestController extends BaseController {
     {
         // handle the creation form
     }
+
+    public function comments() 
+    {
+        return $this->hasMany('Comment');
+    }
+
+    public function fixoffers() 
+    {
+        return $this->hasMany('FixOffer');
+    }
 }

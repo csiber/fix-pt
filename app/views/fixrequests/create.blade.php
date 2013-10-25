@@ -4,6 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
+
+                {{Form::open(array(
+                    "autocomplete" => "on",
+                    "url" => "fixrequests/create" ))}}
+
                 <form id="signup-form" role="form">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Title</label>

@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
 
-        <title>Fix.PT</title>
+        <title>Fix.PT - Fix Requests</title>
 
         <!-- Bootstrap core CSS -->        
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
