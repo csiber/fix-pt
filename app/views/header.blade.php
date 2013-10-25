@@ -30,29 +30,36 @@
                     </li>                
                 </ul>
                 @if (Auth::check())
-                <div class="user-loggedin">                
-                    <a href="{{{ URL::to('users/profile/') }}}">Logged in as {{{ Auth::user()->username }}}</a>
-                    <a href="{{{ URL::to('users/logout') }}}">Logout</a>
-                </div>
+                <ul class="nav navbar-nav navbar-right">                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logged in as <b>{{{ (Auth::user()->full_name)?Auth::user()->full_name:Auth::user()->username  }}} </b><b class="caret"></b></a>
+                        <ul class="dropdown-menu">   
+                            <li><a href="{{{ URL::to('users/dashboard') }}}">Fix.pt Dashboard</a></li>
+                            <li><a href="{{{ URL::to('users/profile') }}}">User Profile</a></li>
+                            <li><a href="{{{ URL::to('users/reset-password/') }}}">Change Password</a></li>
+                            <li><a href="{{{ URL::to('users/logout') }}}">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>                
                 @else                
                 {{ Form::open(array(
-                    "autocomplete" => "off",
-                    "url" => "users/login",  
-                    "id"=>"login-form",
-                    "class" => "navbar-form navbar-right"))}}
+                "autocomplete" => "off",
+                "url" => "users/login",  
+                "id"=>"login-form",
+                "class" => "navbar-form navbar-right"))}}
                 <form class="navbar-form navbar-right" action="users/login">
-                <div class="form-group">
-                    {{ Form::text("username", Input::old("username"), 
-                    ["placeholder" => "Email", "class"=>"form-control"]) }}
-                </div>
-                <div class="form-group">
-                    {{ Form::password("password", ["placeholder" => "Password",
-                    "class"=>"form-control"]) }}
-                </div>
-                <button type="submit" form="login-form" class="btn btn-success">Sign In</button>
-                <button data-toggle="modal" href="#signUpModal" class="btn btn-primary">Sign Up</button>
-                {{ Form::close() }}
-                @endif
+                    <div class="form-group">
+                        {{ Form::text("username", Input::old("username"), 
+                        ["placeholder" => "Email", "class"=>"form-control"]) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::password("password", ["placeholder" => "Password",
+                        "class"=>"form-control"]) }}
+                    </div>
+                    <button type="submit" form="login-form" class="btn btn-success">Sign In</button>
+                    <button data-toggle="modal" href="#signUpModal" class="btn btn-primary">Sign Up</button>
+                    {{ Form::close() }}
+                    @endif
             </div><!--/.nav-collapse -->  
         </div>      
     </div>
@@ -69,27 +76,27 @@
             <div class="modal-body">
                 {{ Form::open(array("url" => "users/create",
                 "autocomplete" => "off",
-                 "id"=>"signup-form","role"=>"form"))}}                
-                    <div class="form-group">
-                        {{ Form::label("username", "Name") }}
-                        {{ Form::text("username", Input::old("username"), 
-                        ["placeholder" => "Enter Username", "class"=>"form-control", "id"=>"username"]) }}                        
-                    </div>
-                    <div class="form-group">
-                        {{ Form::label("email", "Email") }}
-                        {{ Form::text("email", Input::old("email"), 
-                        array("placeholder" => "Enter email", "class"=>"form-control", "id"=>"email")) }}                        
-                    </div>
-                    <div class="form-group"> 
-                        {{ Form::label("password", "Password") }}
-                        {{ Form::password('password', array("class"=>"form-control", "placeholder"=>"Password"))}}
-                        
-                    </div>
-                    <div class="form-group">                        
-                        {{ Form::label("confirm_password", "Confirm Password") }}
-                        {{ Form::password('confirm_password', array("class"=>"form-control", "placeholder"=>"Confirm Password"))}}
-                        
-                    </div>
+                "id"=>"signup-form","role"=>"form"))}}                
+                <div class="form-group">
+                    {{ Form::label("username", "Name") }}
+                    {{ Form::text("username", Input::old("username"), 
+                    ["placeholder" => "Enter Username", "class"=>"form-control", "id"=>"username"]) }}                        
+                </div>
+                <div class="form-group">
+                    {{ Form::label("email", "Email") }}
+                    {{ Form::text("email", Input::old("email"), 
+                    array("placeholder" => "Enter email", "class"=>"form-control", "id"=>"email")) }}                        
+                </div>
+                <div class="form-group"> 
+                    {{ Form::label("password", "Password") }}
+                    {{ Form::password('password', array("class"=>"form-control", "placeholder"=>"Password"))}}
+
+                </div>
+                <div class="form-group">                        
+                    {{ Form::label("confirm_password", "Confirm Password") }}
+                    {{ Form::password('confirm_password', array("class"=>"form-control", "placeholder"=>"Confirm Password"))}}
+
+                </div>
                 {{ Form::close() }}
             </div>
             <div class="modal-footer">

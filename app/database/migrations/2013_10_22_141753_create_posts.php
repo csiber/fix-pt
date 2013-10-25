@@ -12,13 +12,13 @@ class CreatePosts extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('posts', function(Blueprint $table)
+		Schema::table('posts', function(Blueprint $table)
 		{
-			$table->increments('id');
+			//$table->increments('id');
 			$table->timestamps();
-			$table->unsignedInteger('user_id');
-			$table->foreign('user_id')->references('id')->on('users');
-			$table->text('body');
+			//$table->unsignedInteger('user_id');
+			//$table->foreign('user_id')->references('id')->on('users');
+			//$table->text('body');
 		});
 	}
 
@@ -29,6 +29,6 @@ class CreatePosts extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('posts');
+		//Schema::dropIfExists('posts');
 	}
 }

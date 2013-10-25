@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddFullNameColumnToUser' => $baseDir . '/app/database/migrations/2013_10_25_002054_add_full_name_column_to_user.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'ChangingDatabaseTablesNames' => $baseDir . '/app/database/migrations/2013_10_24_103828_changing_database_tables_names.php',
@@ -312,6 +313,7 @@ return array(
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'Illuminate\\Auth\\AuthManager' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/AuthManager.php',
     'Illuminate\\Auth\\AuthServiceProvider' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/AuthServiceProvider.php',
+    'Illuminate\\Auth\\Console\\ClearRemindersCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Console/ClearRemindersCommand.php',
     'Illuminate\\Auth\\Console\\MakeRemindersCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Console/MakeRemindersCommand.php',
     'Illuminate\\Auth\\DatabaseUserProvider' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/DatabaseUserProvider.php',
     'Illuminate\\Auth\\EloquentUserProvider' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/EloquentUserProvider.php',

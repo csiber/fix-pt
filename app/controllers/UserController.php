@@ -8,6 +8,10 @@ class UserController extends BaseController {
         'password' => 'required|between:4,11',
         'confirm_password' => 'same:password',
     );
+    public $loginRules = array(
+        'username' => 'required',
+        'password' => 'required',
+    );
 
     /**
      * Index displays all users of the system
@@ -30,17 +34,21 @@ class UserController extends BaseController {
 
     public function postLogin() {
 
-        $data = [];
+        $validator = Validator::make(Input::all(), $this->loginRules);
 
-        $credentials = [
-            "username" => Input::get("username"),
-            "password" => Input::get("password")
-        ];
-        if (Auth::attempt($credentials)) {
-            return Redirect::to("users/profile");
+        if ($validator->passes()) {
+            $credentials = [
+                "username" => Input::get("username"),
+                "password" => Input::get("password")
+            ];
+            if (Auth::attempt($credentials)) {
+                return Redirect::to("users/profile");
+            }
         }
-
-        return View::make("users.login", $data);
+        return Redirect::to('users/login')
+                        ->withInput()
+                        ->withErrors($validator);
+        //var_dump($error = $validator->errors()->all());
     }
 
     /**

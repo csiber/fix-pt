@@ -4,9 +4,7 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.0.*",
-	        "meido/form": "1.0.*",
-        	"meido/html": "1.0.*"
+		"laravel/framework": "4.0.*"
 	},
 	"autoload": {
 		"classmap": [
