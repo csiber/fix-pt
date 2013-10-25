@@ -41,7 +41,7 @@ class UserController extends BaseController {
                 "username" => Input::get("username"),
                 "password" => Input::get("password")
             ];
-            if (Auth::attempt($credentials)) {
+            if (Auth::attempt($credentials)) {                
                 return Redirect::to("users/profile");
             }
         }
