@@ -6,10 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AddFullNameColumnToUser' => $baseDir . '/app/database/migrations/2013_10_25_002054_add_full_name_column_to_user.php',
+    'AddLastLoginColumnToUser' => $baseDir . '/app/database/migrations/2013_10_25_095622_add_last_login_column_to_user.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
-    'ChangingDatabaseTablesNames' => $baseDir . '/app/database/migrations/2013_10_24_103828_changing_database_tables_names.php',
     'ClassPreloader\\Application' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Application.php',
     'ClassPreloader\\ClassList' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/ClassList.php',
     'ClassPreloader\\ClassLoader' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/ClassLoader.php',
@@ -22,10 +21,6 @@ return array(
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
     'Comment' => $baseDir . '/app/models/comment.php',
     'CommentController' => $baseDir . '/app/controllers/CommentController.php',
-    'CreateNotifiablesTable' => $baseDir . '/app/database/migrations/2013_10_22_141155_create_notifiables_table.php',
-    'CreatePosts' => $baseDir . '/app/database/migrations/2013_10_22_141753_create_posts.php',
-    'CreatePostsDescendants' => $baseDir . '/app/database/migrations/2013_10_22_150327_create_posts_descendants.php',
-    'CreateUsersTable' => $baseDir . '/app/database/migrations/2013_10_22_123925_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
     'DirectFixRequest' => $baseDir . '/app/models/directfixrequest.php',
     'DirectFixRequestController' => $baseDir . '/app/controllers/DirectFixRequestController.php',
