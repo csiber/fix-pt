@@ -50,7 +50,7 @@
                 <form class="navbar-form navbar-right" action="users/login">
                     <div class="form-group">
                         {{ Form::text("username", Input::old("username"), 
-                        ["placeholder" => "Email", "class"=>"form-control"]) }}
+                        ["placeholder" => "Username", "class"=>"form-control"]) }}
                     </div>
                     <div class="form-group">
                         {{ Form::password("password", ["placeholder" => "Password",
