@@ -12,9 +12,9 @@ class CreateNotifiablesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('notifiables', function(Blueprint $table)
+		Schema::create('notifiables', function(Blueprint $table)
 		{
-			
+			$table->increments('id');
 			$table->timestamps();
 		});
 	}
@@ -26,7 +26,7 @@ class CreateNotifiablesTable extends Migration {
 	 */
 	public function down()
 	{
-		//Schema::dropIfExists('notifiables');
+		Schema::dropIfExists('notifiables');
 	}
 
 }
