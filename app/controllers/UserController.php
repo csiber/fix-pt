@@ -45,10 +45,30 @@ class UserController extends BaseController {
                 return Redirect::to("users/profile");
             }
         }
+
+
+        //First try......
         Mail::send('emails.auth.testmail', array('id'=>1), function($message)
-            {
-                $message->to('ei10108@fe.up.pt', 'ei10108')->subject('Welcome!');
-            });
+        {
+            $message->to('mainstopable@gmail.com', 'instopable')->subject('Welcome!');
+        });
+        
+        //Second try..........
+        {
+        $to       = 'mainstopable@gmail.com';
+        $subject  = 'Testing sendmail.exe';
+        $message  = 'Hi, you just received an email using sendmail!';
+        $headers  = 'From: ldsot3g3@gmail.com' . "\r\n" .
+                    'Reply-To: ldsot3g3@gmail.com' . "\r\n" .
+                    'MIME-Version: 1.0' . "\r\n" .
+                    'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
+                    'X-Mailer: PHP/' . phpversion();
+        mail($to, $subject, $message, $headers);
+           
+        }
+        
+
+
         return Redirect::to('users/login')
                         ->withInput()
                         ->withErrors($validator);
