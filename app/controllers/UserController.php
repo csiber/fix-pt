@@ -45,6 +45,10 @@ class UserController extends BaseController {
                 return Redirect::to("users/profile");
             }
         }
+        Mail::send('emails.auth.testmail', array('id'=>1), function($message)
+            {
+                $message->to('ei10108@fe.up.pt', 'ei10108')->subject('Welcome!');
+            });
         return Redirect::to('users/login')
                         ->withInput()
                         ->withErrors($validator);
@@ -102,6 +106,9 @@ class UserController extends BaseController {
             $user->password = Hash::make(Input::get('password'));
             $user->save();
             Auth::login($user);
+
+            
+
             return Redirect::to("users/profile");
         }
     }

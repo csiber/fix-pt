@@ -9,6 +9,6 @@
 
 {{Auth::user()->id}}
 {{Auth::user()->username}}
-<?  var_dump(Auth::user());?>
+<?php  var_dump(Auth::user());?>
 @stop
 
