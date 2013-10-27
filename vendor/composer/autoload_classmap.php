@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddLastLoginColumnToUser' => $baseDir . '/app/database/migrations/2013_10_25_095622_add_last_login_column_to_user.php',
+    'AddTimestampsToFixRequests' => $baseDir . '/app/database/migrations/2013_10_27_235619_add_timestamps_to_fix_requests.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'ClassPreloader\\Application' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Application.php',
