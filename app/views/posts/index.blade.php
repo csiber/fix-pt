@@ -14,7 +14,7 @@
         
         @foreach($posts as $post)
         <tr>
-            <td><? echo $count++; ?>   </td>
+            <td><?php echo $count++; ?>   </td>
             <td>{{ $post->name }}</td>
             <td>{{ $post->email}}</td></tr>
         

@@ -16,7 +16,7 @@
         
         @foreach($users as $user)
         <tr>
-            <td><? echo $counter++; ?></td>
+            <td><?php echo $counter++; ?></td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->username }}</td>
             <td>{{ $user->email }}</td>
