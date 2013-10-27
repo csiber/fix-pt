@@ -38,7 +38,46 @@ class FixRequestController extends BaseController {
 
     public function postCreate() 
     {
-        // handle the creation form
+        $rules = array(
+            'title' => 'required|min:4',
+            'category' => 'required|in:1,2,3,4',
+            'description' => 'required|min:20',
+            'tags' => 'required',
+            'city' => 'required',
+            'daysForOffer' => 'required|numeric',
+            'value' => 'required|numeric'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if($validator->passes()) {
+            $fixrequest = new FixRequest();
+            $fixrequest->title = Input::get("title");
+            $fixrequest->state = "active";
+            $fixrequest->save();
+
+            $fix_request = array(
+                'title' => Input::get("title"),
+                'category' => Input::get("category"),
+                'description' => Input::get("description"),
+                'tags' => explode(',', Input::get('tags')),
+                'city' => Input::get('city'),
+                'daysForOffer' => Input::get('daysForOffer'),
+                'value' => Input::get('value')
+            );
+
+            echo json_encode($fix_request);
+        } else {
+            return Redirect::to('fixrequests/create')->withInput()->withErrors($validator);
+        }
+        
+        //$data = Input::all();
+
+        // return Input::file('photos')->getClientOriginalName();
+        // $file = Input::file('photos');
+
+        //echo json_encode($data);
+        //var_dump($file->getFileName());
     }
 
     public function comments() 

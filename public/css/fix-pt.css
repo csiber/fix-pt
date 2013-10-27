@@ -145,5 +145,9 @@ body._fixrequests .navbar-inverse .navbar-nav li > a._fixrequests,
   background-color: #fff;
 }
 
+textarea {
+  max-width: 100%;
+}
+
 
 

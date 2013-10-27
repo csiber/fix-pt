@@ -4,52 +4,89 @@
     <div class="row">
         <div class="col-md-8">
             <div class="well well-lg">
-
-                {{Form::open(array(
-                    "autocomplete" => "on",
-                    "url" => "fixrequests/create" ))}}
-
-                <form id="signup-form" role="form">
+                {{ Form::open(array(
+                    "url" => "fixrequests/create",
+                    "id" => "fixrequest-form",
+                    "role" => "form",
+                    "files" => true)
+                )}}
+                <!-- <form id="fix-request-form" action="{{ URL::to('fixrequests/create') }}" role="form" method="POST">
+                    {{ Form::token() }} -->
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Title</label>
-                        <input type="text" class="form-control" id="" placeholder="Enter title">
+                        {{ Form::label("title", "Title") }}
+                        {{ Form::text("title", "", array(
+                            "id" => "fixrequest-title",
+                            "placeholder" => "Enter title",
+                            "class" => "form-control"
+                        ))}}
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Category</label>
-                        <input type="text" class="form-control" id="" placeholder="Enter category">
+                        <label style="display: block;" for="exampleInputEmail1">Category</label>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary">
+                                {{ Form::radio("category", "1", array("id" => "option1")) }} Category 1
+                            </label>
+                            <label class="btn btn-primary">
+                                {{ Form::radio("category", "2", array("id" => "option1")) }} Category 2
+                            </label>
+                            <label class="btn btn-primary">
+                                {{ Form::radio("category", "3", array("id" => "option1")) }} Category 3
+                            </label>
+                            <label class="btn btn-primary">
+                                {{ Form::radio("category", "4", array("id" => "option1")) }} Category 4
+                            </label>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Description</label>
-                        <textarea class="form-control" rows="3"></textarea>
+                        {{ Form::label("description", "Description") }}
+                        {{ Form::textarea("description", "", array(
+                            "class" => "form-control",
+                            "rows" => 6,
+                            "placeholder" => "Enter description"
+                        ))}}
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Tags</label>
-                        <input type="text" class="form-control" id="" placeholder="Enter category">
+                        {{ Form::label("tags", "Tags") }}
+                        {{ Form::text("tags", "", array(
+                            "id" => "fixrequest-tags",
+                            "placeholder" => "Enter at least 1 tag, maximum is 3",
+                            "class" => "form-control",
+                            "data-role" => "tagsinput"
+                        ))}}
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">City</label>
-                        <input type="text" class="form-control" id="" placeholder="Enter category">
+                        {{ Form::label("city", "City") }}
+                        {{ Form::text("city", "", array(
+                            "class" => "form-control",
+                            "id" => "fixrequest-city",
+                            "placeholder" => "Enter city"
+                        ))}}
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Days to receive offer</label>
-                        <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
+                        {{ Form::label("daysForOffer", "Days to receive offer") }}
+                        {{ Form::select("daysForOffer", array(
+                            "1" => 1,
+                            "2" => 2,
+                            "3" => 3,
+                            "4" => 4,
+                            "5" => 5
+                        ), null, array("class" => "form-control"))}}
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Value</label>
-                        <input type="number" class="form-control" value="5" id="">
+                        {{ Form::label("value", "Value") }}
+                        {{ Form::text("value", "", array(
+                            "class" => "form-control",
+                            "placeholder" => "0,00",
+                            "id" => "fixrequest-value"
+                        ))}}
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Add photos</label>
-                        <input type="file" id="exampleInputFile">
-                        <p class="help-block">Example block-level help text here.</p>
+                        <!-- {{ Form::label("photos", "Add photos") }}
+                        {{ Form::file('photos[]', array('multiple' => true))}} -->
                     </div>
-                </form>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                <!-- </form> -->
+                {{ Form::close() }}
             </div>
         </div>
         <div class="col-md-4">
