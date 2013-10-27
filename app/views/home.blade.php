@@ -3,29 +3,122 @@
 @section('content')
     <div class="jumbotron">
       <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg">Learn more »</a></p>
+        <h1 class="text-center">Zombie ipsum reversus</h1>
+        <p class="text-center">De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia?</p>
+        <div class="row home-search">
+            <div class="col-lg-6">
+                <p>What?</p>
+                <input type="text" class="form-control" placeholder="Text input">
+            </div>
+            <div class="col-lg-3">
+                <p>Where?</p>
+                <input type="text" class="form-control" placeholder="Text input">
+            </div>
+            <div class="col-lg-3">
+                <button type="button" class="btn btn-danger">Search</button>
+            </div>
+        </div>
       </div>
     </div>
 
-    <div class="container">
-        <div class="row">
+    <div class="container small-top-padding">
+        <h1 class="text-center">How it works</h1>
+        <div class="row how-it-works">
             <div class="col-lg-4">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-default" href="#">View details »</a></p>
+                <img src="http://placehold.it/140x140" alt="..." class="img-circle">
+                <h2 class="brand-color">Ask</h2>
+                <p>Zombies reversus ab inferno, nam malum cerebro. De carne animata corpora quaeritis. Summus sit​​, morbo vel maleficia? De Apocalypsi undead dictum mauris.</p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-default" href="#">View details »</a></p>
+                <img src="http://placehold.it/140x140" alt="..." class="img-circle">
+                <h2 class="brand-color">Pick</h2>
+                <p>Zombies reversus ab inferno, nam malum cerebro. De carne animata corpora quaeritis. Summus sit​​, morbo vel maleficia? De Apocalypsi undead dictum mauris.</p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-default" href="#">View details »</a></p>
+                <img src="http://placehold.it/140x140" alt="..." class="img-circle">
+                <h2 class="brand-color">Get it</h2>
+                <p>Zombies reversus ab inferno, nam malum cerebro. De carne animata corpora quaeritis. Summus sit​​, morbo vel maleficia? De Apocalypsi undead dictum mauris.</p>
             </div>
+        </div>
+    </div>
+
+    <div class="white-bc">
+        <div class="container small-top-padding white-bc">
+            <h1 class="text-center">Popular</h1>
+            <div class="row">
+                <div class="col-lg-3">
+                    <img src="http://placehold.it/140x140" alt="...">
+                    <div class="caption">
+                        <h3>Title</h3>
+                        <p>...</p>
+                        <p><a href="#" class="btn btn-default">Button</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                     <img src="http://placehold.it/140x140" alt="...">
+                    <div class="caption">
+                        <h3>Title</h3>
+                        <p>...</p>
+                        <p><a href="#" class="btn btn-default">Button</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                     <img src="http://placehold.it/140x140" alt="...">
+                    <div class="caption">
+                        <h3>Title</h3>
+                        <p>...</p>
+                        <p><a href="#" class="btn btn-default">Button</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                     <img src="http://placehold.it/140x140" alt="...">
+                    <div class="caption">
+                        <h3>Title</h3>
+                        <p>...</p>
+                        <p><a href="#" class="btn btn-default">Button</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <img src="http://placehold.it/140x140" alt="...">
+                    <div class="caption">
+                        <h3>Title</h3>
+                        <p>...</p>
+                        <p><a href="#" class="btn btn-default">Button</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                     <img src="http://placehold.it/140x140" alt="...">
+                    <div class="caption">
+                        <h3>Title</h3>
+                        <p>...</p>
+                        <p><a href="#" class="btn btn-default">Button</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                     <img src="http://placehold.it/140x140" alt="...">
+                    <div class="caption">
+                        <h3>Title</h3>
+                        <p>...</p>
+                        <p><a href="#" class="btn btn-default">Button</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                     <img src="http://placehold.it/140x140" alt="...">
+                    <div class="caption">
+                        <h3>Title</h3>
+                        <p>...</p>
+                        <p><a href="#" class="btn btn-default">Button</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="brand-bc">
+        <div class="container small-top-padding">
+            <h1 class="text-center">What people are saying</h1>
         </div>
     </div>
 @stop

@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Fix.pt">
         <meta name="author" content="ldsot3g3">
+        <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+
         <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
 
@@ -20,10 +22,8 @@
     <body class="_home">
         <div id="wrap"> <!-- this is for the sticky footer -->
             @include('header')            
-            <div class="container">
                 @include('alerts')
                 @yield('content')
-            </div>          
         </div><!-- /.wrap -->
 
         @include('footer')

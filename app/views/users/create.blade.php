@@ -1,14 +1,6 @@
-@extends('layout')
+@extends('fixrequests/layout')
 
 @section('content')
-
-<!--<pre>
-    <?php
-//    var_dump($errors);
-//    var_dump(Input::old());
-    ?>
-
-
 
 </pre>-->
 <div class="modal-dialog">
