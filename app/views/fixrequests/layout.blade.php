@@ -16,7 +16,6 @@
         <link rel="stylesheet" href="{{ URL::asset('css/fix-pt.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-tagsinput.css') }}">
 
-
     </head>
 
     <body class="_fixrequests">
