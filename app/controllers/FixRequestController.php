@@ -68,6 +68,7 @@ class FixRequestController extends BaseController {
 
             echo json_encode($fix_request);
         } else {
+            var_dump($validator->errors()->all());
             return Redirect::to('fixrequests/create')->withInput()->withErrors($validator);
         }
         
