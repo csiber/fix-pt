@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @extends('promotionpages/layout')
 
 @section('content')
@@ -31,5 +30,3 @@
         </div>
     </div>
 @stop
-=======
->>>>>>> 913a392e836cb691be4076cb08aadc86c9d738df
