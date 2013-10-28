@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
         <!-- Fix.pt CSS -->
         <link rel="stylesheet" href="{{ URL::asset('css/fix-pt.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-tagsinput.css') }}">
 
     </head>
 
@@ -33,7 +34,8 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="{{ URL::asset('js/jquery-1.10.2.min.js') }}"></script>
-        <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>        
+        <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ URL::asset('js/bootstrap-tagsinput.min.js') }}"></script>     
     </body>
 </html>
 

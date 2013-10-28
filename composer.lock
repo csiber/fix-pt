@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "14256f4b7b12bf0b28f35c6a99f61268",
+    "hash": "5d922f43e98d2e5f3988f83b13761ecf",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -125,16 +125,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "d0e4447707a064a5814b18cb0dcc2f24185f6179"
+                "reference": "e16d7adf45664a50fa86f515b6d5e7f670130449"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/d0e4447707a064a5814b18cb0dcc2f24185f6179",
-                "reference": "d0e4447707a064a5814b18cb0dcc2f24185f6179",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/e16d7adf45664a50fa86f515b6d5e7f670130449",
+                "reference": "e16d7adf45664a50fa86f515b6d5e7f670130449",
                 "shasum": ""
             },
             "require": {
@@ -142,6 +142,10 @@
             },
             "conflict": {
                 "doctrine/common": ">2.2,<2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=3.7",
+                "satooshi/php-coveralls": "~0.6"
             },
             "type": "library",
             "extra": {
@@ -190,7 +194,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2013-09-26 19:23:25"
+            "time": "2013-10-25 19:04:14"
         },
         {
             "name": "doctrine/collections",
@@ -667,12 +671,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9cf9bd917cbac060ebeb46893b5a1364c9529265"
+                "reference": "aaf6d5b393beffacadd0dc1951c952c7bf116c8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9cf9bd917cbac060ebeb46893b5a1364c9529265",
-                "reference": "9cf9bd917cbac060ebeb46893b5a1364c9529265",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/aaf6d5b393beffacadd0dc1951c952c7bf116c8e",
+                "reference": "aaf6d5b393beffacadd0dc1951c952c7bf116c8e",
                 "shasum": ""
             },
             "require": {
@@ -772,7 +776,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-10-24 16:24:18"
+            "time": "2013-10-27 00:08:24"
         },
         {
             "name": "monolog/monolog",
@@ -1654,12 +1658,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "81191e354fe9dad0451036ccf0fdf283649d3f1e"
+                "reference": "c1c6c1f668b1255c5936e6596d3c5e50a3d8ed13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/81191e354fe9dad0451036ccf0fdf283649d3f1e",
-                "reference": "81191e354fe9dad0451036ccf0fdf283649d3f1e",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/c1c6c1f668b1255c5936e6596d3c5e50a3d8ed13",
+                "reference": "c1c6c1f668b1255c5936e6596d3c5e50a3d8ed13",
                 "shasum": ""
             },
             "require": {
@@ -1692,7 +1696,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2013-10-09 21:17:57"
+            "time": "2013-10-26 07:52:48"
         },
         {
             "name": "symfony/routing",

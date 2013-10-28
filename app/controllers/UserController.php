@@ -17,19 +17,13 @@ class UserController extends BaseController {
      * Index displays all users of the system
      * @return Response
      */
-    public function index() {
+    public function getIndex() {
         $users = User::all();
         return View::make('users.index', array('users' => $users));
     }
 
-    public function getLogin() {
-
-        $user = Auth::user();
-        if (!empty($user->id)) {
-            return Redirect::to('/');
-        }
-
-        return View::make("users.login");
+    public function getLogin() {        
+        return View::make("users.login");        
     }
 
     public function postLogin() {
@@ -45,6 +39,27 @@ class UserController extends BaseController {
                 return Redirect::to("users/profile");
             }
         }
+
+
+        //First try......
+//        Mail::send('emails.auth.testmail', array('id' => 1), function($message) {
+//                    $message->to('mainstopable@gmail.com', 'instopable')->subject('Welcome!');
+//                });
+        //Second try.......... 
+//        {
+//            $to = 'mainstopable@gmail.com';
+//            $subject = 'Testing sendmail.exe';
+//            $message = 'Hi, you just received an email using sendmail!';
+//            $headers = 'From: ldsot3g3@gmail.com' . "\r\n" .
+//                    'Reply-To: ldsot3g3@gmail.com' . "\r\n" .
+//                    'MIME-Version: 1.0' . "\r\n" .
+//                    'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
+//                    'X-Mailer: PHP/' . phpversion();
+//            mail($to, $subject, $message, $headers);
+//        }
+
+
+
         return Redirect::to('users/login')
                         ->withInput()
                         ->withErrors($validator);
@@ -55,13 +70,8 @@ class UserController extends BaseController {
      * Show the profile for the current user.
      */
     public function getProfile() {
-        if (Auth::check()) {
-            $user = User::find(Auth::user()->id);
-            return View::make('users.profile', array('user' => $user));
-        } else {
-            Session::flash('error', 'You do not have permissions to access this content!');
-            return View::make('users.login');
-        }
+        $user = User::find(Auth::user()->id);
+        return View::make('users.profile', array('user' => $user));
     }
 
     /**
@@ -71,6 +81,40 @@ class UserController extends BaseController {
     public function getLogout() {
         Auth::logout();
         return Redirect::to('/');
+    }
+
+    /**
+     * Show the form for editing user.
+     *
+     * @return Response
+     */
+    public function getEdit() {
+        $user = Auth::user();
+        return View::make('users.edit', compact('user'));
+    }
+
+    /**
+     * Show the form for editing user.
+     *
+     * @return Response
+     */
+    public function postEdit() {
+        var_dump(Input::all());
+        die;
+    }
+
+    /**
+     * Show the form for editing user.
+     *
+     * @return Response
+     */
+    public function getConfirmUser() {
+
+        $msg = 'An email with confirmation procedure was successfully sent to <b>' . Auth::user()->email . '</b>.
+            <br/>Please follow the instructions in the email to confirm the user!';
+
+        Session::flash('success', $msg);
+        return View::make('users.profile');
     }
 
     /**
@@ -102,6 +146,9 @@ class UserController extends BaseController {
             $user->password = Hash::make(Input::get('password'));
             $user->save();
             Auth::login($user);
+
+            
+
             return Redirect::to("users/profile");
         }
     }
