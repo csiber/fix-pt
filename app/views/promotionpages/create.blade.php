@@ -1,31 +1,64 @@
-@extends('promotionpages/layout')
+@extends('fixrequests/layout')
 
 @section('content')
-<div class="container">
-        <div class="row">
-            <div class="col-md-8">
-
-                {{Form::open(array(
-                    "autocomplete" => "on",
-                    "url" => "fixrequests/create" ))}}
-
-                <form id="promotionpage-form" role="form">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Title</label>
-                    <input type="text" class="form-control" id="" placeholder="Enter title">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Body</label>
-                    <textarea class="form-control" rows="20" placeholder="Enter text here"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Location</label>
-                    <input type="text" class="form-control" id="" placeholder="Enter your location">
-                </div>
-            </form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-lg">
+                {{ Form::open(array(
+                    "url" => "promotionpages/create",
+                    "id" => "promotionpage-form",
+                    "role" => "form",
+                    "files" => true)
+                )}}
+                <!-- <form id="fix-request-form" action="{{ URL::to('fixrequests/create') }}" role="form" method="POST">
+                    {{ Form::token() }} -->
+                    <div class="form-group">
+                        {{ Form::label("title", "Title") }}
+                        {{ Form::text("title", "", array(
+                            "id" => "promotionpage-title",
+                            "placeholder" => "Enter title",
+                            "class" => "form-control"
+                        ))}}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label("body", "Body") }}
+                        {{ Form::textarea("body", "", array(
+                            "class" => "form-control",
+                            "rows" => 20,
+                            "placeholder" => "Enter text here"
+                        ))}}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label("city", "City") }}
+                        {{ Form::text("city", "", array(
+                            "class" => "form-control",
+                            "id" => "fixrequest-city",
+                            "placeholder" => "Enter city"
+                        ))}}
+                    </div>
+                    <div class="form-group">
+                        <!-- {{ Form::label("photos", "Add photos") }}
+                        {{ Form::file('photos[]', array('multiple' => true))}} -->
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                <!-- </form> -->
+                {{ Form::close() }}
             </div>
-            <div class="col-md-4">
-                Help text can be added to this sidebar
+        </div>
+        <div class="col-md-4">
+            <div class="well well-sm sidebar-steps">
+                <ul>
+                    <li>Descreva o trabalho que precisa ver realizado</li>
+                    <li>Receba propostas dos nossos Prestadores de Serviço</li>
+                    <li>Compare e contrate o melhor</li>
+                </ul>
+            </div>
+            <div class="well well-sm sidebar-perks">
+                <ul>
+                    <li>Descreva o trabalho que precisa ver realizado</li>
+                    <li>Receba propostas dos nossos Prestadores de Serviço</li>
+                    <li>Compare e contrate o melhor</li>
+                </ul>
             </div>
         </div>
     </div>
