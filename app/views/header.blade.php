@@ -13,7 +13,7 @@
                 <ul class="nav navbar-nav">
 
                     <li><a href="{{{ URL::to('/') }}}" class="_home">Home</a></li>
-                    <li><a href="{{{ URL::to('users') }}}" class="_users">Users</a></li>
+                    <li><a href="{{{ URL::to('users/index') }}}" class="_users">Users</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle _fixrequests" data-toggle="dropdown">Fix Requests <b class="caret"></b></a>
                         <ul class="dropdown-menu">

@@ -26,7 +26,33 @@ Route::model('notifiables', 'Notifiable');
 Route::model('posts', 'Post');
 Route::model('promotionpages', 'PromotionPage');
 
-// RESTful controllers
+
+/** ------------------------------------------
+ *  Routes which requires authentication
+ *  ------------------------------------------
+ */
+Route::group(["before" => "auth"], function()
+{
+    # User Management    
+    Route::get('users/logout', 'UserController@getLogout');
+    
+    Route::get('users/index', 'UserController@getIndex');
+    
+    Route::get('users/profile','UserController@getProfile');
+
+    Route::get('users/confirm-user', 'UserController@getConfirmUser');
+    
+    Route::get('users/edit', 'UserController@getEdit');
+    
+    Route::post('users/edit', 'UserController@postEdit');
+
+});
+
+/** ------------------------------------------
+ *  Public routes
+ *  ------------------------------------------
+ */
+# RESTful Routes
 Route::controller('users', 'UserController');
 Route::controller('fixrequests', 'FixRequestController');
 Route::controller('comments', 'CommentController');
@@ -36,11 +62,10 @@ Route::controller('notifiables', 'NotifiableController');
 Route::controller('posts', 'PostController');
 Route::controller('promotionpages', 'PromotionPageController');
 
-//this one to handle standard methods in controller
-Route::resource('users', 'UserController');
-
-
 // Home page
 Route::get('/', function(){
     return View::make('home');
 });
+
+
+

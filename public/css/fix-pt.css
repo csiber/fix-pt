@@ -145,8 +145,29 @@ body._fixrequests .navbar-inverse .navbar-nav li > a._fixrequests,
   background-color: #fff;
 }
 
-textarea {
+.textarea {
   max-width: 100%;
+}
+
+.text-grey{
+    color: #515151;
+}
+
+.m-right5{    
+    margin-right: 5px;
+}
+
+.m-bottom15 {
+    margin-bottom: 15px;
+}
+
+.label-fix-pt{
+    padding: 4px 6px;
+    background-color: #e74c3c;
+}
+
+.p-shadow {    
+    color: #bbb;
 }
 
 
