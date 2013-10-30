@@ -51,10 +51,47 @@ class FixRequestController extends BaseController {
         $validator = Validator::make(Input::all(), $rules);
 
         if($validator->passes()) {
-            $fixrequest = new FixRequest();
-            $fixrequest->title = Input::get("title");
-            $fixrequest->state = "active";
-            $fixrequest->save();
+
+            DB::transaction(function()
+            {
+                $notifiable = new Notifiable();
+                $notifiable->save();
+
+                $post = new Post();
+                $fixrequest = new FixRequest();
+
+                $post->text = Input::get('description');
+                $post->notifiable_id = $notifiable->id;
+                $post->user_id = 1;
+                $post->save();
+
+                $fixrequest->post_id = $post->id;
+                $fixrequest->title = Input::get("title");
+                $fixrequest->state = "active";
+                $fixrequest->daysForOffer = Input::get('daysForOffer');
+                $fixrequest->value = Input::get('value');
+                $fixrequest->save();
+
+                $tag_list = explode(",", Input::get('tags'));
+                foreach($tag_list as $tag_name) {
+
+                    if (false) {
+                    // if(!Tag::exists($tag_name)) {
+                        $tag = new Tag();
+                        $tag->name = $tag_name;
+                        $tag->save();
+
+                        $fixrequesttag = new FixRequestsTag();
+                        $fixrequesttag->tag_id = $tag->id;
+                        $fixrequesttag->fix_request_id = $fixrequest->id;
+                        $fixrequesttag->save();
+                    } else {
+                        $tag = Tag::getTagByName($tag_name);
+                        
+                    }
+                }
+                
+            });
 
             $fix_request = array(
                 'title' => Input::get("title"),

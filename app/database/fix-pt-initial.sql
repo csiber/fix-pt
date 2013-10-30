@@ -168,11 +168,9 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 
 CREATE TABLE IF NOT EXISTS `notifiables` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `notification_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`),
-  KEY `notification_id` (`notification_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
@@ -184,8 +182,10 @@ CREATE TABLE IF NOT EXISTS `notifiables` (
 CREATE TABLE IF NOT EXISTS `notifications` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
+  `notifiable_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`)
+  KEY `user_id` (`user_id`),
+  KEY `notifiable_id` (`notifiable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -348,18 +348,13 @@ ALTER TABLE `jobs`
   ADD CONSTRAINT `jobs_ibfk_4` FOREIGN KEY (`notifiable_id`) REFERENCES `notifiables` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
   ADD CONSTRAINT `jobs_ibfk_5` FOREIGN KEY (`rate_id`) REFERENCES `rates` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
---
--- Constraints for table `notifiables`
---
-ALTER TABLE `notifiables`
-  ADD CONSTRAINT `notifiables_ibfk_1` FOREIGN KEY (`notification_id`) REFERENCES `notifications` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `notifications`
 --
 ALTER TABLE `notifications`
-  ADD CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
-
+  ADD CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `notification_ibfk_2` FOREIGN KEY (`notifiable_id`) REFERENCES `notifiables` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 --
 -- Constraints for table `posts`
 --

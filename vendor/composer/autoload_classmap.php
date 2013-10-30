@@ -6,9 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddColumnsToUser' => $baseDir . '/app/database/migrations/2013_10_27_205015_add_columns_to_user.php',
     'AddLastLoginColumnToUser' => $baseDir . '/app/database/migrations/2013_10_25_095622_add_last_login_column_to_user.php',
     'AddTimestampsToFixRequests' => $baseDir . '/app/database/migrations/2013_10_27_235619_add_timestamps_to_fix_requests.php',
     'AddingFieldsToFixRequests' => $baseDir . '/app/database/migrations/2013_10_28_091040_adding_fields_to_fix_requests.php',
+    'AddingSomeTimestamps' => $baseDir . '/app/database/migrations/2013_10_28_141302_adding_some_timestamps.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'ClassPreloader\\Application' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Application.php',
@@ -1572,6 +1574,7 @@ return array(
     'Symfony\\Component\\Translation\\Translator' => $vendorDir . '/symfony/translation/Symfony/Component/Translation/Translator.php',
     'Symfony\\Component\\Translation\\TranslatorInterface' => $vendorDir . '/symfony/translation/Symfony/Component/Translation/TranslatorInterface.php',
     'Symfony\\Component\\Translation\\Writer\\TranslationWriter' => $vendorDir . '/symfony/translation/Symfony/Component/Translation/Writer/TranslationWriter.php',
+    'Tag' => $baseDir . '/app/models/tag.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
     'User' => $baseDir . '/app/models/user.php',
     'UserController' => $baseDir . '/app/controllers/UserController.php',

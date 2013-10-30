@@ -13,7 +13,6 @@ class AddingFieldsToFixRequests extends Migration {
 	{
 		Schema::table('fix_requests', function($table)
 		{
-			$table->text('description');
 			$table->integer('daysForOffer');
 			$table->integer('value');
 		});
@@ -29,7 +28,6 @@ class AddingFieldsToFixRequests extends Migration {
 		Schema::table('fix_requests', function($table)
 		{
 			$table->dropColumn(
-				'description',
 				'daysForOffer',
 				'value'
 			);
