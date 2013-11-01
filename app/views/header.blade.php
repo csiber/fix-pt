@@ -57,6 +57,7 @@
                         "class"=>"form-control input-sm"]) }}
                     </div>
                     <button type="submit" form="login-form" class="btn btn-success btn-sm">Sign In</button>
+                    <a class="btn btn-sm btn-primary" href="{{ URL::to('users/fb') }}"><i class="fa fa-facebook-square"></i> Login with Facebook</a>
                     <button data-toggle="modal" href="#signUpModal" class="btn btn-default btn-sm">Sign Up</button>
                     {{ Form::close() }}
                     @endif

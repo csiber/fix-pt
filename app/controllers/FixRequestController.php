@@ -75,8 +75,7 @@ class FixRequestController extends BaseController {
                 $tag_list = explode(",", Input::get('tags'));
                 foreach($tag_list as $tag_name) {
 
-                    if (false) {
-                    // if(!Tag::exists($tag_name)) {
+                    if(!Tag::exists($tag_name)) {
                         $tag = new Tag();
                         $tag->name = $tag_name;
                         $tag->save();
@@ -87,7 +86,6 @@ class FixRequestController extends BaseController {
                         $fixrequesttag->save();
                     } else {
                         $tag = Tag::getTagByName($tag_name);
-                        
                     }
                 }
                 

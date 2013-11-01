@@ -9,7 +9,7 @@ class Tag extends Eloquent {
 
     public static function getTagByName($name)
     {
-        return Tag::where('name', '=', $name)->get()[0];
+        return Tag::where('name', '=', $name)->get();
     }
 }
 

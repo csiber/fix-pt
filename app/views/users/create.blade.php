@@ -2,7 +2,6 @@
 
 @section('content')
 
-</pre>-->
 <div class="modal-dialog">
     <div class="modal-content">
         {{ Form::open(array("url" => "users/create",

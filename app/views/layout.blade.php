@@ -5,15 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Fix.pt">
         <meta name="author" content="ldsot3g3">
-
         <link rel="shortcut icon" href="../../assets/ico/favicon.png">
-
-
         <title>Fix.PT</title>
 
-        <!-- Bootstrap core CSS -->        
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
-        <!-- Fix.pt CSS -->
+        <link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/fix-pt.css') }}">
 
     </head>

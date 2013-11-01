@@ -92,16 +92,9 @@
         <div class="col-md-4">
             <div class="well well-sm sidebar-steps">
                 <ul>
-                    <li>Descreva o trabalho que precisa ver realizado</li>
-                    <li>Receba propostas dos nossos Prestadores de Serviço</li>
-                    <li>Compare e contrate o melhor</li>
-                </ul>
-            </div>
-            <div class="well well-sm sidebar-perks">
-                <ul>
-                    <li>Descreva o trabalho que precisa ver realizado</li>
-                    <li>Receba propostas dos nossos Prestadores de Serviço</li>
-                    <li>Compare e contrate o melhor</li>
+                    <li>Describe the work that you need to be done</li>
+                    <li>Receive fix offers from our fixers</li>
+                    <li>Compare and chose the best</li>
                 </ul>
             </div>
         </div>
