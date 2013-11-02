@@ -1,4 +1,5 @@
 import requests
+import json
 from bs4 import BeautifulSoup
 
 URL = 'http://pt.wikipedia.org/wiki/Anexo:Lista_de_freguesias_de_Portugal'
@@ -16,12 +17,14 @@ def get_districts_dict(soup):
         districts[counter]['name'] = district.a.text.encode('utf-8').strip()
 
         children = district.parent.find_next_sibling('ul').children
-        for elem in children:
-            print elem
-            print elem.name
 
-        districts[counter]['freguesias'] = [elem.a.text.encode('utf-8').strip() 
-            for elem in district.parent.find_next_sibling('ul').children if elem.name == 'li']
+        districts[counter]['freguesias'] = []
+        for elem in district.parent.find_next_sibling('ul').children:
+            try:
+                if elem.name == 'li':
+                    districts[counter]['freguesias'].append(elem.a.text.encode('utf-8').strip())
+            except Exception, e:
+                pass
 
         counter += 1
 
@@ -33,8 +36,8 @@ def main():
     soup = get_soup(URL)
     districts = get_districts_dict(soup)
 
-    # for key,value in districts.items():
-    #     print key, value
+    with open("districts.json", "w") as f:
+        f.write(json.dumps(districts, sort_keys=True, indent=4, separators=(',', ": ")))
 
 if __name__ == '__main__':
     main()

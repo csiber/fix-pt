@@ -13,6 +13,7 @@ html,
 body {
   height: 100%;
   background-color: #e9e9e9;
+  color: #555;
   /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -65,7 +66,8 @@ body {
   color: #e74c3c;
 }
 
-.brand-bc {
+.brand-bc,
+.panel-default > .panel-heading.brand-bc {
   background-color: #e74c3c;
   color: white;
 }
@@ -102,6 +104,11 @@ body {
   color: #fff;
 }
 
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+
 .navbar-form {
   padding-left: 15px;
   padding-right: 0;
@@ -120,7 +127,7 @@ body._fixrequests .navbar-inverse .navbar-nav li > a._fixrequests,
 }
 
 #wrap > .container {
-  padding: 80px 15px 0;
+  padding: 80px 15px 40px;
 }
 
 #footer > .container {
@@ -137,8 +144,9 @@ body._fixrequests .navbar-inverse .navbar-nav li > a._fixrequests,
   background-color: #fff;
 }
 
-.well-lg {
-  border-radius: 3px;
+.well-lg,
+.well-sm {
+  border-radius: 1px;
 }
 
 .jumbotron {
@@ -170,5 +178,63 @@ body._fixrequests .navbar-inverse .navbar-nav li > a._fixrequests,
     color: #bbb;
 }
 
+.breadcrumb {
+  background-color: #fff;
+  border-radius: 1px;
+  border: 1px solid #e3e3e3;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+}
 
+.bootstrap-tagsinput {
+  margin-bottom: 0;
+}
+
+fieldset .form-group {
+  width: 49%;
+}
+
+fieldset .form.group:last-child {
+  width: 50%;
+}
+
+.sidebar-steps {
+  padding: 20px;
+}
+
+.sidebar-ol {
+  counter-reset: numList;
+  list-style: none;
+  padding-left: 40px;
+  overflow: hidden;
+}
+
+.sidebar-ol li {
+  padding: 8px 0;
+  position: relative;
+  line-height: 27px;
+  font-weight: bold;
+}
+
+.sidebar-ol li:before {
+  counter-increment: numList;
+  content: counter(numList);
+  float: left;
+  position: absolute;
+  left: -40px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  background-color: #e74c3c;
+  color: #fff;
+  font-size: 16px;
+  line-height: 27px;
+  border-radius: 999px;
+}
+
+.panel-default > .panel-heading {
+  color: #555;
+}
 

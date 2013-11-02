@@ -40,6 +40,10 @@ Route::group(["before" => "auth"], function()
     Route::get('users/confirm-user', 'UserController@getConfirmUser');
     Route::get('users/edit', 'UserController@getEdit');
     Route::post('users/edit', 'UserController@postEdit');
+
+    # Fix Requests management
+    // Route::get('fixrequests/create', 'FixRequestController@getCreate');
+    // Route::get('fixrequests/create', 'FixRequestController@postCreate');
 });
 
 /** ------------------------------------------

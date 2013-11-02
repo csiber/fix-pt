@@ -40,9 +40,7 @@ class UserController extends BaseController {
             }
         }
 
-
-        (new Email()).sendEmail();
-
+        //(new Email()).sendEmail();
 
         return Redirect::to('users/login')
                         ->withInput()

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('promotionpages/layout')
 
 @section('content')
 <table class="table">

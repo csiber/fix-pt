@@ -1,0 +1,5351 @@
+{
+    "1": {
+        "freguesias": [
+            "Abrantes (S\u00e3o Vicente e S\u00e3o Jo\u00e3o) e Alferrarede",
+            "Aldeia do Mato e Souto",
+            "Alvega e Concavada",
+            "Bemposta",
+            "Carvalhal",
+            "Fontes",
+            "Martinchel",
+            "Mouriscas",
+            "Pego",
+            "Rio de Moinhos",
+            "S\u00e3o Facundo e Vale das M\u00f3s",
+            "S\u00e3o Miguel do Rio Torto e Rossio ao Sul do Tejo",
+            "Tramagal"
+        ],
+        "name": "Abrantes"
+    },
+    "2": {
+        "freguesias": [
+            "Aguada de Cima",
+            "\u00c1gueda e Borralha",
+            "Barr\u00f4 e Aguada de Baixo",
+            "Belazaima do Ch\u00e3o, Castanheira do Vouga e Agad\u00e3o",
+            "Fermentelos",
+            "Macinhata do Vouga",
+            "Pr\u00e9stimo e Macieira de Alcoba",
+            "Recard\u00e3es e Espinhel",
+            "Travass\u00f4 e \u00d3is da Ribeira",
+            "Trofa, Segad\u00e3es e Lamas do Vouga",
+            "Valongo do Vouga"
+        ],
+        "name": "\u00c1gueda"
+    },
+    "3": {
+        "freguesias": [
+            "Aguiar da Beira e Coruche",
+            "Carapito",
+            "Corti\u00e7ada",
+            "Dornelas",
+            "Eirado",
+            "Forninhos",
+            "Pena Verde",
+            "Pinheiro",
+            "Sequeiros e Gradiz",
+            "Souto de Aguiar da Beira e Valverde"
+        ],
+        "name": "Aguiar da Beira"
+    },
+    "4": {
+        "freguesias": [
+            "Alandroal (Nossa Senhora da Concei\u00e7\u00e3o), S\u00e3o Br\u00e1s dos Matos (Mina do Bugalho) e Juromenha",
+            "Capelins (Santo Ant\u00f3nio)",
+            "Santiago Maior",
+            "Terena (S\u00e3o Pedro)"
+        ],
+        "name": "Alandroal"
+    },
+    "5": {
+        "freguesias": [
+            "Albergaria-a-Velha e Valmaior",
+            "Alquerubim",
+            "Angeja",
+            "Branca",
+            "Ribeira de Fr\u00e1guas",
+            "S\u00e3o Jo\u00e3o de Loure e Frossos"
+        ],
+        "name": "Albergaria-a-Velha"
+    },
+    "6": {
+        "freguesias": [
+            "Albufeira e Olhos de \u00c1gua",
+            "Ferreiras",
+            "Guia",
+            "Paderne"
+        ],
+        "name": "Albufeira"
+    },
+    "7": {
+        "freguesias": [
+            "Alc\u00e1cer do Sal (Santa Maria do Castelo e Santiago) e Santa Susana",
+            "Comporta",
+            "S\u00e3o Martinho",
+            "Torr\u00e3o"
+        ],
+        "name": "Alc\u00e1cer do Sal"
+    },
+    "8": {
+        "freguesias": [
+            "Alcanena e Vila Moreira",
+            "Bugalhos",
+            "Malhou, Louriceira e Espinheiro",
+            "Minde",
+            "Moitas Venda",
+            "Monsanto",
+            "Serra de Santo Ant\u00f3nio"
+        ],
+        "name": "Alcanena"
+    },
+    "9": {
+        "freguesias": [
+            "Alcoba\u00e7a e Vestiaria",
+            "Alfeizer\u00e3o",
+            "Aljubarrota",
+            "B\u00e1rrio",
+            "Benedita",
+            "Cela",
+            "C\u00f3s, Alpedriz e Montes",
+            "\u00c9vora de Alcoba\u00e7a",
+            "Maiorga",
+            "Pataias e Martingan\u00e7a",
+            "S\u00e3o Martinho do Porto",
+            "Turquel",
+            "Vimeiro"
+        ],
+        "name": "Alcoba\u00e7a"
+    },
+    "10": {
+        "freguesias": [
+            "Alcochete",
+            "Samouco",
+            "S\u00e3o Francisco"
+        ],
+        "name": "Alcochete"
+    },
+    "11": {
+        "freguesias": [
+            "Alcoutim e Pereiro",
+            "Gi\u00f5es",
+            "Martim Longo",
+            "Vaqueiros"
+        ],
+        "name": "Alcoutim"
+    },
+    "12": {
+        "freguesias": [
+            "Abrigada e Cabanas de Torres",
+            "Aldeia Galega da Merceana e Aldeia Gavinha",
+            "Alenquer (Santo Est\u00eav\u00e3o e Triana)",
+            "Carnota",
+            "Carregado e Cadafais",
+            "Meca",
+            "Olhalvo",
+            "Ota",
+            "Ribafria e Pereiro de Palhacana",
+            "Ventosa",
+            "Vila Verde dos Francos"
+        ],
+        "name": "Alenquer"
+    },
+    "13": {
+        "freguesias": [
+            "Agrobom, Saldonha e Vale Pereiro",
+            "Alf\u00e2ndega da F\u00e9",
+            "Cerejais",
+            "Euc\u00edsia, Gouveia e Valverde",
+            "Ferradosa e Sendim da Serra",
+            "Gebelim e Soeima",
+            "Parada e Sendim da Ribeira",
+            "Pombal e Vales",
+            "Sambade",
+            "Vilar Ch\u00e3o",
+            "Vilarelhos",
+            "Vilares de Vilari\u00e7a"
+        ],
+        "name": "Alf\u00e2ndega da F\u00e9"
+    },
+    "14": {
+        "freguesias": [
+            "Alij\u00f3",
+            "Carl\u00e3o e Amieiro",
+            "Castedo e Cotas",
+            "Favaios",
+            "Pegarinhos",
+            "Pinh\u00e3o",
+            "P\u00f3pulo e Ribalonga",
+            "S\u00e3o Mamede de Ribatua",
+            "Sanfins do Douro",
+            "Santa Eug\u00e9nia",
+            "Vale de Mendiz, Casal de Loivos e Vilarinho de Cotas",
+            "Vila Ch\u00e3",
+            "Vila Verde",
+            "Vilar de Ma\u00e7ada"
+        ],
+        "name": "Alij\u00f3"
+    },
+    "15": {
+        "freguesias": [
+            "Aljezur",
+            "Bordeira",
+            "Odeceixe",
+            "Rogil"
+        ],
+        "name": "Aljezur"
+    },
+    "16": {
+        "freguesias": [
+            "Aljustrel e Rio de Moinhos",
+            "Ervidel",
+            "Messejana",
+            "S\u00e3o Jo\u00e3o de Negrilhos"
+        ],
+        "name": "Aljustrel"
+    },
+    "17": {
+        "freguesias": [
+            "Almada, Cova da Piedade, Pragal e Cacilhas",
+            "Caparica e Trafaria",
+            "Charneca de Caparica e Sobreda",
+            "Costa da Caparica",
+            "Laranjeiro e Feij\u00f3"
+        ],
+        "name": "Almada"
+    },
+    "18": {
+        "freguesias": [
+            "Almeida",
+            "Amoreira, Parada e Cabreira",
+            "Azinhal, Peva e Vale Verde",
+            "Castelo Bom",
+            "Castelo Mendo, Ade, Monteperobolso e Mesquitela",
+            "Freineda",
+            "Freixo",
+            "Jun\u00e7a e Naves",
+            "Leomil, Mido, Senouras e Aldeia Nova",
+            "Malhada Sorda",
+            "Malpartida e Vale de Coelha",
+            "Miuzela e Porto de Ovelha",
+            "Nave de Haver",
+            "S\u00e3o Pedro de Rio Seco",
+            "Vale da Mula",
+            "Vilar Formoso"
+        ],
+        "name": "Almeida"
+    },
+    "19": {
+        "freguesias": [
+            "Almeirim",
+            "Benfica do Ribatejo",
+            "Fazendas de Almeirim",
+            "Raposa"
+        ],
+        "name": "Almeirim"
+    },
+    "20": {
+        "freguesias": [
+            "Aldeia dos Fernandes",
+            "Almod\u00f4var e Gra\u00e7a dos Padr\u00f5es",
+            "Ros\u00e1rio",
+            "S\u00e3o Barnab\u00e9",
+            "Santa Clara-a-Nova e Gomes Aires",
+            "Santa Cruz"
+        ],
+        "name": "Almod\u00f4var"
+    },
+    "21": {
+        "freguesias": [
+            "Alpiar\u00e7a"
+        ],
+        "name": "Alpiar\u00e7a"
+    },
+    "22": {
+        "freguesias": [
+            "Alter do Ch\u00e3o",
+            "Chancelaria",
+            "Cunheira",
+            "Seda"
+        ],
+        "name": "Alter do Ch\u00e3o"
+    },
+    "23": {
+        "freguesias": [
+            "Almoster",
+            "Alvai\u00e1zere",
+            "Ma\u00e7\u00e3s de Dona Maria",
+            "Pelm\u00e1",
+            "Pussos S\u00e3o Pedro"
+        ],
+        "name": "Alvai\u00e1zere"
+    },
+    "24": {
+        "freguesias": [
+            "Alvito",
+            "Vila Nova da Baronia"
+        ],
+        "name": "Alvito"
+    },
+    "25": {
+        "freguesias": [
+            "\u00c1guas Livres",
+            "Alfragide",
+            "Encosta do Sol",
+            "Falagueira-Venda Nova",
+            "Mina de \u00c1gua",
+            "Venteira"
+        ],
+        "name": "Amadora"
+    },
+    "26": {
+        "freguesias": [
+            "Aboadela, Sanche e V\u00e1rzea",
+            "Amarante (S\u00e3o Gon\u00e7alo), Madalena, Cepelos e Gat\u00e3o",
+            "Ansi\u00e3es",
+            "Bustelo, Carneiro e Carvalho de Rei",
+            "Candemil",
+            "Figueir\u00f3 (Santiago e Santa Cristina)",
+            "Fregim",
+            "Freixo de Cima e de Baixo",
+            "Frid\u00e3o",
+            "Gondar",
+            "Jazente",
+            "Lomba",
+            "Louredo",
+            "Lufrei",
+            "Mancelos",
+            "Olo e Canadelo",
+            "Padronelo",
+            "Real, Ata\u00edde e Oliveira",
+            "Rebordelo",
+            "Salvador do Monte",
+            "S\u00e3o Sim\u00e3o de Gouveia",
+            "Tel\u00f5es",
+            "Travanca",
+            "Vila Caiz",
+            "Vila Ch\u00e3 do Mar\u00e3o",
+            "Vila Garcia, Aboim e Chapa"
+        ],
+        "name": "Amarante"
+    },
+    "27": {
+        "freguesias": [
+            "Amares e Figueiredo",
+            "Barreiros",
+            "Bico",
+            "Caires",
+            "Caldelas, Sequeiros e Paranhos",
+            "Carrazedo",
+            "Dornelas",
+            "Ferreiros, Prozelo e Besteiros",
+            "Fiscal",
+            "Go\u00e3es",
+            "Lago",
+            "Rendufe",
+            "Santa Maria do Bouro",
+            "Santa Marta do Bouro",
+            "Torre e Portela",
+            "Vilela, Seramil e Paredes Secas"
+        ],
+        "name": "Amares"
+    },
+    "28": {
+        "freguesias": [
+            "Amoreira da G\u00e2ndara, Paredes do Bairro e Ancas",
+            "Arcos e Mogofores",
+            "Avel\u00e3s de Caminho",
+            "Avel\u00e3s de Cima",
+            "Moita",
+            "S\u00e3o Louren\u00e7o do Bairro",
+            "Sangalhos",
+            "Tamengos, Aguim e \u00d3is do Bairro",
+            "Vila Nova de Monsarros",
+            "Vilarinho do Bairro"
+        ],
+        "name": "Anadia"
+    },
+    "29": {
+        "freguesias": [
+            "Altares",
+            "Cinco Ribeiras",
+            "Doze Ribeiras",
+            "Feteira",
+            "Nossa Senhora da Concei\u00e7\u00e3o",
+            "Porto Judeu",
+            "Posto Santo",
+            "Raminho",
+            "Ribeirinha",
+            "Santa B\u00e1rbara",
+            "Santa Luzia",
+            "S\u00e3o Bartolomeu dos Regatos",
+            "S\u00e3o Bento",
+            "S\u00e3o Mateus da Calheta",
+            "S\u00e3o Pedro",
+            "S\u00e9",
+            "Serreta",
+            "Terra Ch\u00e3",
+            "Vila de S\u00e3o Sebasti\u00e3o"
+        ],
+        "name": "Angra do Hero\u00edsmo"
+    },
+    "30": {
+        "freguesias": [
+            "Alvorge",
+            "Ansi\u00e3o",
+            "Avelar",
+            "Ch\u00e3o de Couce",
+            "Pousaflores",
+            "Santiago da Guarda"
+        ],
+        "name": "Ansi\u00e3o"
+    },
+    "31": {
+        "freguesias": [
+            "Aboim das Cho\u00e7as",
+            "Agui\u00e3",
+            "\u00c1lvora e Loureda",
+            "Arcos de Valdevez (S\u00e3o Paio) e Giela",
+            "Arcos de Valdevez (S\u00e3o Salvador), Vila Fonche e Parada",
+            "\u00c1zere",
+            "Cabana Maior",
+            "Cabreiro",
+            "Cendufe",
+            "Couto",
+            "Eiras e Mei",
+            "Gavieira",
+            "Gondoriz",
+            "Grade e Carralcova",
+            "Guilhadeses e Santar",
+            "Jolda (Madalena) e Rio Cabr\u00e3o",
+            "Miranda",
+            "Monte Redondo",
+            "Oliveira",
+            "Pa\u00e7\u00f4",
+            "Padreiro (Salvador e Santa Cristina)",
+            "Padroso",
+            "Portela e Extremo",
+            "Prozelo",
+            "Rio de Moinhos",
+            "Rio Frio",
+            "Sabadim",
+            "S\u00e3o Jorge e Ermelo",
+            "S\u00e3o Paio de Jolda",
+            "Senharei",
+            "Sistelo",
+            "Soajo",
+            "Souto e Taba\u00e7\u00f4",
+            "T\u00e1vora (Santa Maria e S\u00e3o Vicente)",
+            "Vale",
+            "Vilela, S\u00e3o Cosme e S\u00e3o Dami\u00e3o e S\u00e1"
+        ],
+        "name": "Arcos de Valdevez"
+    },
+    "32": {
+        "freguesias": [
+            "Arganil",
+            "Benfeita",
+            "Celavisa",
+            "Cepos e Teixeira",
+            "Cerdeira e Moura da Serra",
+            "C\u00f4ja e Barril de Alva",
+            "Folques",
+            "Pi\u00f3d\u00e3o",
+            "Pomares",
+            "Pombeiro da Beira",
+            "S\u00e3o Martinho da Corti\u00e7a",
+            "Sarzedo",
+            "Secarias",
+            "Vila Cova de Alva e Anseriz"
+        ],
+        "name": "Arganil"
+    },
+    "33": {
+        "freguesias": [
+            "Aldeias",
+            "Aricera e Goujoim",
+            "Armamar",
+            "Cimbres",
+            "Folgosa",
+            "Fontelo",
+            "Queimada",
+            "Queimadela",
+            "Santa Cruz",
+            "S\u00e3o Cosmado",
+            "S\u00e3o Martinho das Ch\u00e3s",
+            "S\u00e3o Rom\u00e3o e Santiago",
+            "Vacalar",
+            "Vila Seca e Santo Adri\u00e3o"
+        ],
+        "name": "Armamar"
+    },
+    "34": {
+        "freguesias": [
+            "Alvarenga",
+            "Arouca e Burgo",
+            "Cabreiros e Albergaria da Serra",
+            "Canelas e Espiunca",
+            "Chave",
+            "Covelo de Paiv\u00f3 e Janarde",
+            "Escariz",
+            "Fermedo",
+            "Mansores",
+            "Moldes",
+            "Rossas",
+            "Santa Eul\u00e1lia",
+            "S\u00e3o Miguel do Mato",
+            "Trope\u00e7o",
+            "Urr\u00f4",
+            "V\u00e1rzea"
+        ],
+        "name": "Arouca"
+    },
+    "35": {
+        "freguesias": [
+            "Arraiolos",
+            "Gafanhoeira (S\u00e3o Pedro) e Sabugueiro",
+            "Igrejinha",
+            "S\u00e3o Greg\u00f3rio e Santa Justa",
+            "Vimieiro"
+        ],
+        "name": "Arraiolos"
+    },
+    "36": {
+        "freguesias": [
+            "Assun\u00e7\u00e3o",
+            "Esperan\u00e7a",
+            "Mosteiros"
+        ],
+        "name": "Arronches"
+    },
+    "37": {
+        "freguesias": [
+            "Arranh\u00f3",
+            "Arruda dos Vinhos",
+            "Cardosas",
+            "Santiago dos Velhos"
+        ],
+        "name": "Arruda dos Vinhos"
+    },
+    "38": {
+        "freguesias": [
+            "Aradas",
+            "Cacia",
+            "Eixo e Eirol",
+            "Esgueira",
+            "Gl\u00f3ria e Vera Cruz",
+            "Oliveirinha",
+            "Requeixo, Nossa Senhora de F\u00e1tima e Nariz",
+            "Santa Joana",
+            "S\u00e3o Bernardo",
+            "S\u00e3o Jacinto"
+        ],
+        "name": "Aveiro"
+    },
+    "39": {
+        "freguesias": [
+            "Alc\u00f4rrego e Maranh\u00e3o",
+            "Aldeia Velha",
+            "Avis",
+            "Benavila e Valongo",
+            "Ervedal",
+            "Figueira e Barros"
+        ],
+        "name": "Avis"
+    },
+    "40": {
+        "freguesias": [
+            "Alcoentre",
+            "Aveiras de Baixo",
+            "Aveiras de Cima",
+            "Azambuja",
+            "Manique do Intendente, Vila Nova de S\u00e3o Pedro e Ma\u00e7ussa",
+            "Vale do Para\u00edso",
+            "Vila Nova da Rainha"
+        ],
+        "name": "Azambuja"
+    },
+    "41": {
+        "freguesias": [
+            "Ancede e Ribadouro",
+            "Bai\u00e3o (Santa Leoc\u00e1dia) e Mesquinhata",
+            "Campelo e Ovil",
+            "Frende",
+            "Gesta\u00e7\u00f4",
+            "Gove",
+            "Grilo",
+            "Loivos da Ribeira e Tresouras",
+            "Loivos do Monte",
+            "Santa Cruz do Douro e S\u00e3o Tom\u00e9 de Covelas",
+            "Santa Marinha do Z\u00eazere",
+            "Teixeira e Teixeir\u00f3",
+            "Valadares",
+            "Viariz"
+        ],
+        "name": "Bai\u00e3o"
+    },
+    "42": {
+        "freguesias": [
+            "Abade de Neiva",
+            "Aborim",
+            "Ad\u00e3es",
+            "Air\u00f3",
+            "Aldreu",
+            "Alheira e Igreja Nova",
+            "Alvelos",
+            "Alvito (S\u00e3o Pedro e S\u00e3o Martinho) e Couto",
+            "Arcozelo",
+            "Areias",
+            "Areias de Vilar e Encourados",
+            "Balug\u00e3es",
+            "Barcelinhos",
+            "Barcelos, Vila Boa e Vila Frescainha (S\u00e3o Martinho e S\u00e3o Pedro)",
+            "Barqueiros",
+            "Cambeses",
+            "Campo e Tamel (S\u00e3o Pedro Fins)",
+            "Carape\u00e7os",
+            "Carreira e Fonte Coberta",
+            "Carvalhal",
+            "Carvalhas",
+            "Chorente, G\u00f3ios, Courel, Pedra Furada e Gueral",
+            "Cossourado",
+            "Creixomil e Mariz",
+            "Cristelo",
+            "Durr\u00e3es e Tregosa",
+            "Fornelos",
+            "Fragoso",
+            "Galegos (Santa Maria)",
+            "Galegos (S\u00e3o Martinho)",
+            "Gamil e Mid\u00f5es",
+            "Gilmonde",
+            "Lama",
+            "Lij\u00f3",
+            "Macieira de Rates",
+            "Manhente",
+            "Martim",
+            "Milhazes, Vilar de Figos e Faria",
+            "Moure",
+            "Negreiros e Chav\u00e3o",
+            "Oliveira",
+            "Palme",
+            "Panque",
+            "Paradela",
+            "Pereira",
+            "Perelhal",
+            "Pousa",
+            "Quinti\u00e3es e Aguiar",
+            "Remelhe",
+            "Rio Covo (Santa Eug\u00e9nia)",
+            "Roriz",
+            "Sequeade e Bastu\u00e7o (S\u00e3o Jo\u00e3o e Santo Est\u00eav\u00e3o)",
+            "Silva",
+            "Silveiros e Rio Covo (Santa Eul\u00e1lia)",
+            "Tamel (Santa Leoc\u00e1dia) e Vilar do Monte",
+            "Tamel (S\u00e3o Ver\u00edssimo)",
+            "Ucha",
+            "V\u00e1rzea",
+            "Viatodos, Grimancelos, Minhot\u00e3es e Monte de Fral\u00e3es",
+            "Vila Cova e Feitos",
+            "Vila Seca"
+        ],
+        "name": "Barcelos"
+    },
+    "43": {
+        "freguesias": [
+            "Barrancos"
+        ],
+        "name": "Barrancos"
+    },
+    "44": {
+        "freguesias": [
+            "Alto do Seixalinho, Santo Andr\u00e9 e Verderena",
+            "Barreiro e Lavradio",
+            "Palhais e Coina",
+            "Santo Ant\u00f3nio da Charneca"
+        ],
+        "name": "Barreiro"
+    },
+    "45": {
+        "freguesias": [
+            "Batalha",
+            "Golpilheira",
+            "Reguengo do Fetal",
+            "S\u00e3o Mamede"
+        ],
+        "name": "Batalha"
+    },
+    "46": {
+        "freguesias": [
+            "Albernoa e Trindade",
+            "Baleiz\u00e3o",
+            "Beja (Salvador e Santa Maria da Feira)",
+            "Beja (Santiago Maior e S\u00e3o Jo\u00e3o Baptista)",
+            "Beringel",
+            "Cabe\u00e7a Gorda",
+            "Nossa Senhora das Neves",
+            "Salvada e Quintos",
+            "Santa Clara de Louredo",
+            "Santa Vit\u00f3ria e Mombeja",
+            "S\u00e3o Matias",
+            "Trigaches e S\u00e3o Brissos"
+        ],
+        "name": "Beja"
+    },
+    "47": {
+        "freguesias": [
+            "Belmonte e Colmeal da Torre",
+            "Caria",
+            "Inguias",
+            "Ma\u00e7ainhas"
+        ],
+        "name": "Belmonte"
+    },
+    "48": {
+        "freguesias": [
+            "Barrosa",
+            "Benavente",
+            "Samora Correia",
+            "Santo Est\u00eav\u00e3o"
+        ],
+        "name": "Benavente"
+    },
+    "49": {
+        "freguesias": [
+            "Bombarral e Vale Covo",
+            "Carvalhal",
+            "P\u00f3",
+            "Roli\u00e7a"
+        ],
+        "name": "Bombarral"
+    },
+    "50": {
+        "freguesias": [
+            "Borba (Matriz)",
+            "Borba (S\u00e3o Bartolomeu)",
+            "Orada",
+            "Rio de Moinhos"
+        ],
+        "name": "Borba"
+    },
+    "51": {
+        "freguesias": [
+            "Alturas do Barroso e Cerdedo",
+            "Ard\u00e3os e Bobadela",
+            "Be\u00e7a",
+            "Boticas e Granja",
+            "Codessoso, Curros e Fi\u00e3es do T\u00e2mega",
+            "Covas do Barroso",
+            "Dornelas",
+            "Pinho",
+            "Sapi\u00e3os",
+            "Vilar e Viveiro"
+        ],
+        "name": "Boticas"
+    },
+    "52": {
+        "freguesias": [
+            "Ada\u00fafe",
+            "Arentim e Cunha",
+            "Braga (Maximinos, S\u00e9 e Cividade)",
+            "Braga (S\u00e3o Jos\u00e9 de S\u00e3o L\u00e1zaro e S\u00e3o Jo\u00e3o do Souto)",
+            "Braga (S\u00e3o Vicente)",
+            "Braga (S\u00e3o Victor)",
+            "Cabreiros e Passos (S\u00e3o Juli\u00e3o)",
+            "Celeir\u00f3s, Aveleda e Vimieiro",
+            "Crespos e Pousada",
+            "Escudeiros e Penso (Santo Est\u00eav\u00e3o e S\u00e3o Vicente)",
+            "Espinho",
+            "Espor\u00f5es",
+            "Este (S\u00e3o Pedro e S\u00e3o Mamede)",
+            "Ferreiros e Gondizalves",
+            "Figueiredo",
+            "Gualtar",
+            "Guisande e Oliveira (S\u00e3o Pedro)",
+            "Lamas",
+            "Lomar e Arcos",
+            "Merelim (S\u00e3o Paio), Pan\u00f3ias e Parada de Tib\u00e3es",
+            "Merelim (S\u00e3o Pedro) e Frossos",
+            "Mire de Tib\u00e3es",
+            "Morreira e Trandeiras",
+            "Nogueira, Frai\u00e3o e Lama\u00e7\u00e3es",
+            "Nogueir\u00f3 e Ten\u00f5es",
+            "Padim da Gra\u00e7a",
+            "Palmeira",
+            "Pedralva",
+            "Priscos",
+            "Real, Dume e Semelhe",
+            "Ruilhe",
+            "Santa Lucr\u00e9cia de Algeriz e Navarra",
+            "Sequeira",
+            "Sobreposta",
+            "Tadim",
+            "Tebosa",
+            "Vila\u00e7a e Fradelos"
+        ],
+        "name": "Braga"
+    },
+    "53": {
+        "freguesias": [
+            "Alfai\u00e3o",
+            "Aveleda e Rio de Onor",
+            "Babe",
+            "Ba\u00e7al",
+            "Carragosa",
+            "Castrelos e Carrazedo",
+            "Castro de Avel\u00e3s",
+            "Coelhoso",
+            "Donai",
+            "Espinhosela",
+            "Fran\u00e7a",
+            "Gimonde",
+            "Gondesende",
+            "Gostei",
+            "Grij\u00f3 de Parada",
+            "Izeda, Calvelhe e Paradinha Nova",
+            "Macedo do Mato",
+            "M\u00f3s",
+            "Nogueira",
+            "Outeiro",
+            "Parada e Fa\u00edlde",
+            "Par\u00e2mio",
+            "Pinela",
+            "Quintanilha",
+            "Quintela de Lampa\u00e7as",
+            "Rabal",
+            "Rebordainhos e Pombares",
+            "Rebord\u00e3os",
+            "Rio Frio e Milh\u00e3o",
+            "Salsas",
+            "Samil",
+            "Santa Comba de Rossas",
+            "S\u00e3o Juli\u00e3o de Pal\u00e1cios e Deil\u00e3o",
+            "S\u00e3o Pedro de Sarracenos",
+            "S\u00e9, Santa Maria e Meixedo",
+            "Sendas",
+            "Serapicos",
+            "Sortes",
+            "Zoio"
+        ],
+        "name": "Bragan\u00e7a"
+    },
+    "54": {
+        "freguesias": [
+            "Abadim",
+            "Alvite e Passos",
+            "Arco de Ba\u00falhe e Vila Nune",
+            "Basto",
+            "Bucos",
+            "Cabeceiras de Basto",
+            "Cavez",
+            "Faia",
+            "Gondi\u00e3es e Vilar de Cunhas",
+            "Pedra\u00e7a",
+            "Refojos de Basto, Outeiro e Painzela",
+            "Rio Douro"
+        ],
+        "name": "Cabeceiras de Basto"
+    },
+    "55": {
+        "freguesias": [
+            "Alguber",
+            "Cadaval e P\u00earo Moniz",
+            "Lamas e Cercal",
+            "Painho e Figueiros",
+            "Peral",
+            "Vermelha",
+            "Vilar"
+        ],
+        "name": "Cadaval"
+    },
+    "56": {
+        "freguesias": [
+            "A dos Francos",
+            "Alvorninha",
+            "Caldas da Rainha - Nossa Senhora do P\u00f3pulo, Coto e S\u00e3o Greg\u00f3rio",
+            "Caldas da Rainha - Santo Onofre e Serra do Bouro",
+            "Carvalhal Benfeito",
+            "Foz do Arelho",
+            "Landal",
+            "Nadadouro",
+            "Salir de Matos",
+            "Santa Catarina",
+            "Tornada e Salir do Porto",
+            "Vidais"
+        ],
+        "name": "Caldas da Rainha"
+    },
+    "57": {
+        "freguesias": [
+            "Calheta",
+            "Norte Pequeno",
+            "Ribeira Seca",
+            "Santo Ant\u00e3o (Calheta)",
+            "Topo"
+        ],
+        "name": "Calheta (A\u00e7ores)"
+    },
+    "58": {
+        "freguesias": [
+            "Arco da Calheta",
+            "Calheta",
+            "Estreito da Calheta",
+            "Faj\u00e3 da Ovelha",
+            "Jardim do Mar",
+            "Paul do Mar",
+            "Ponta do Pargo",
+            "Prazeres"
+        ],
+        "name": "Calheta (Madeira)"
+    },
+    "59": {
+        "freguesias": [
+            "C\u00e2mara de Lobos",
+            "Curral das Freiras",
+            "Estreito de C\u00e2mara de Lobos",
+            "Jardim da Serra",
+            "Quinta Grande"
+        ],
+        "name": "C\u00e2mara de Lobos"
+    },
+    "60": {
+        "freguesias": [
+            "\u00c2ncora",
+            "Arga (Baixo, Cima e S\u00e3o Jo\u00e3o)",
+            "Argela",
+            "Caminha (Matriz) e Vilarelho",
+            "Dem",
+            "Gondar e Orbac\u00e9m",
+            "Lanhelas",
+            "Moledo e Cristelo",
+            "Riba de \u00c2ncora",
+            "Seixas",
+            "Venade e Azevedo",
+            "Vila Praia de \u00c2ncora",
+            "Vilar de Mouros",
+            "Vile"
+        ],
+        "name": "Caminha"
+    },
+    "61": {
+        "freguesias": [
+            "Nossa Senhora da Expecta\u00e7\u00e3o",
+            "Nossa Senhora da Gra\u00e7a dos Degolados",
+            "S\u00e3o Jo\u00e3o Baptista"
+        ],
+        "name": "Campo Maior"
+    },
+    "62": {
+        "freguesias": [
+            "An\u00e7\u00e3",
+            "Cadima",
+            "Cantanhede e Pocari\u00e7a",
+            "Cordinh\u00e3",
+            "Cov\u00f5es e Camarneira",
+            "Febres",
+            "Murtede",
+            "Ourent\u00e3",
+            "Portunhos e Outil",
+            "Sanguinheira",
+            "S\u00e3o Caetano",
+            "Sepins e Bolho",
+            "Tocha",
+            "Vilamar e Corticeiro de Cima"
+        ],
+        "name": "Cantanhede"
+    },
+    "63": {
+        "freguesias": [
+            "Amedo e Zedes",
+            "Belver e Mogo de Malta",
+            "Carrazeda de Ansi\u00e3es",
+            "Castanheiro do Norte e Ribalonga",
+            "Fonte Longa",
+            "Lavandeira, Beira Grande e Selores",
+            "Linhares",
+            "Marzag\u00e3o",
+            "Parambos",
+            "Pereiros",
+            "Pinhal do Norte",
+            "Pombal",
+            "Seixo de Ansi\u00e3es",
+            "Vilarinho da Castanheira"
+        ],
+        "name": "Carrazeda de Ansi\u00e3es"
+    },
+    "64": {
+        "freguesias": [
+            "Beij\u00f3s",
+            "Cabanas de Viriato",
+            "Currelos, Pap\u00edzios e Sobral",
+            "Oliveira do Conde",
+            "Parada"
+        ],
+        "name": "Carregal do Sal"
+    },
+    "65": {
+        "freguesias": [
+            "Cartaxo e Vale da Pinta",
+            "Ereira e Lapa",
+            "Pont\u00e9vel",
+            "Valada",
+            "Vale da Pedra",
+            "Vila Ch\u00e3 de Ourique"
+        ],
+        "name": "Cartaxo"
+    },
+    "66": {
+        "freguesias": [
+            "Alcabideche",
+            "Carcavelos e Parede",
+            "Cascais e Estoril",
+            "S\u00e3o Domingos de Rana"
+        ],
+        "name": "Cascais"
+    },
+    "67": {
+        "freguesias": [
+            "Castanheira de P\u00eara e Coentral"
+        ],
+        "name": "Castanheira de P\u00eara"
+    },
+    "68": {
+        "freguesias": [
+            "Alcains",
+            "Almaceda",
+            "Benqueren\u00e7as",
+            "Castelo Branco",
+            "Cebolais de Cima e Retaxo",
+            "Escalos de Baixo e Mata",
+            "Escalos de Cima e Lousa",
+            "Freixial e Juncal do Campo",
+            "Lardosa",
+            "Louri\u00e7al do Campo",
+            "Malpica do Tejo",
+            "Monforte da Beira",
+            "Ninho do A\u00e7or e Sobral do Campo",
+            "P\u00f3voa de Rio de Moinhos e Cafede",
+            "Salgueiro do Campo",
+            "Santo Andr\u00e9 das Tojeiras",
+            "S\u00e3o Vicente da Beira",
+            "Sarzedas",
+            "Tinalhas"
+        ],
+        "name": "Castelo Branco"
+    },
+    "69": {
+        "freguesias": [
+            "Fornos",
+            "Raiva, Pedorido e Para\u00edso",
+            "Real",
+            "Santa Maria de Sardoura",
+            "S\u00e3o Martinho de Sardoura",
+            "Sobrado e Bairros"
+        ],
+        "name": "Castelo de Paiva"
+    },
+    "70": {
+        "freguesias": [
+            "Nossa Senhora da Gra\u00e7a de P\u00f3voa e Meadas",
+            "Santa Maria da Devesa",
+            "Santiago Maior",
+            "S\u00e3o Jo\u00e3o Baptista"
+        ],
+        "name": "Castelo de Vide"
+    },
+    "71": {
+        "freguesias": [
+            "Almofala",
+            "Cabril",
+            "Castro Daire",
+            "Cuj\u00f3",
+            "Gosende",
+            "Mamouros, Alva e Ribolhos",
+            "Mezio e Moura Morta",
+            "M\u00f5es",
+            "Moledo",
+            "Monteiras",
+            "Parada de Ester e Ester",
+            "Pepim",
+            "Pic\u00e3o e Ermida",
+            "Pinheiro",
+            "Reriz e Gafanh\u00e3o",
+            "S\u00e3o Joaninho"
+        ],
+        "name": "Castro Daire"
+    },
+    "72": {
+        "freguesias": [
+            "Altura",
+            "Azinhal",
+            "Castro Marim",
+            "Odeleite"
+        ],
+        "name": "Castro Marim"
+    },
+    "73": {
+        "freguesias": [
+            "Castro Verde e Cas\u00e9vel",
+            "Entradas",
+            "Santa B\u00e1rbara de Padr\u00f5es",
+            "S\u00e3o Marcos da Ataboeira"
+        ],
+        "name": "Castro Verde"
+    },
+    "74": {
+        "freguesias": [
+            "A\u00e7ores e Velosa",
+            "Bara\u00e7al",
+            "Carrapichana",
+            "Casas do Soeiro",
+            "Celorico (S\u00e3o Pedro e Santa Maria) e Vila Boa do Mondego",
+            "Corti\u00e7\u00f4 da Serra, Vide Entre Vinhas e Salgueirais",
+            "Forno Telheiro",
+            "Lajeosa do Mondego",
+            "Linhares",
+            "Ma\u00e7al do Ch\u00e3o",
+            "Mesquitela",
+            "Minhocal",
+            "Prados",
+            "Rapa e Cadafaz",
+            "Ratoeira",
+            "Vale de Azares"
+        ],
+        "name": "Celorico da Beira"
+    },
+    "75": {
+        "freguesias": [
+            "Agilde",
+            "Arnoia",
+            "Basto (S\u00e3o Clemente)",
+            "Borba de Montanha",
+            "Britelo, G\u00e9meos e Ourilhe",
+            "Ca\u00e7arilhe e Infesta",
+            "Canedo de Basto e Corgo",
+            "Carvalho e Basto (Santa Tecla)",
+            "Code\u00e7oso",
+            "Ferven\u00e7a",
+            "Moreira do Castelo",
+            "Rego",
+            "Ribas",
+            "Vale de Bouro",
+            "Veade, Gagos e Molares"
+        ],
+        "name": "Celorico de Basto"
+    },
+    "76": {
+        "freguesias": [
+            "Carregueira",
+            "Chamusca e Pinheiro Grande",
+            "Parreira e Chouto",
+            "Ulme",
+            "Vale de Cavalos"
+        ],
+        "name": "Chamusca"
+    },
+    "77": {
+        "freguesias": [
+            "\u00c1guas Frias",
+            "Anelhe",
+            "Bustelo",
+            "Calv\u00e3o e Soutelinho da Raia",
+            "Cimo de Vila da Castanheira",
+            "Curalha",
+            "Eiras, S\u00e3o Juli\u00e3o de Montenegro e Cela",
+            "Ervededo",
+            "Fai\u00f5es",
+            "Lama de Arcos",
+            "Loivos e P\u00f3voa de Agra\u00e7\u00f5es",
+            "Madalena e Samai\u00f5es",
+            "Mairos",
+            "Moreiras",
+            "Nogueira da Montanha",
+            "Oura",
+            "Outeiro Seco",
+            "Paradela",
+            "Planalto de Monforte",
+            "Redondelo",
+            "Sanfins",
+            "Santa Cruz/Trindade e Sanjurge",
+            "Santa Leoc\u00e1dia",
+            "Santa Maria Maior",
+            "Santo Ant\u00f3nio de Monforte",
+            "Santo Est\u00eav\u00e3o",
+            "S\u00e3o Pedro de Agost\u00e9m",
+            "S\u00e3o Vicente",
+            "Soutelo e Seara Velha",
+            "Travancas e Roriz",
+            "Tronco",
+            "Vale de Anta",
+            "Vidago",
+            "Vila Verde da Raia",
+            "Vilar de Nantes",
+            "Vilarelho da Raia",
+            "Vilas Boas",
+            "Vilela do T\u00e2mega",
+            "Vilela Seca"
+        ],
+        "name": "Chaves"
+    },
+    "78": {
+        "freguesias": [
+            "Alh\u00f5es, Bustelo, Gralheira e Ramires",
+            "Cinf\u00e3es",
+            "Espadanedo",
+            "Ferreiros de Tendais",
+            "Fornelos",
+            "Moimenta",
+            "Nespereira",
+            "Oliveira do Douro",
+            "Santiago de Pi\u00e3es",
+            "S\u00e3o Crist\u00f3v\u00e3o de Nogueira",
+            "Souselo",
+            "Tarouquela",
+            "Tendais",
+            "Travanca"
+        ],
+        "name": "Cinf\u00e3es"
+    },
+    "79": {
+        "freguesias": [
+            "Almalagu\u00eas",
+            "Antuzede e Vil de Matos",
+            "Assafarge e Antanhol",
+            "Brasfemes",
+            "Ceira",
+            "Cernache",
+            "Coimbra",
+            "Eiras e S\u00e3o Paulo de Frades",
+            "Santa Clara e Castelo Viegas",
+            "Santo Ant\u00f3nio dos Olivais",
+            "S\u00e3o Jo\u00e3o do Campo",
+            "S\u00e3o Martinho de \u00c1rvore e Lamarosa",
+            "S\u00e3o Martinho do Bispo e Ribeira de Frades",
+            "S\u00e3o Silvestre",
+            "Souselas e Bot\u00e3o",
+            "Taveiro, Ameal e Arzila",
+            "Torres do Mondego",
+            "Trouxemil e Torre de Vilela"
+        ],
+        "name": "Coimbra"
+    },
+    "80": {
+        "freguesias": [
+            "Anobra",
+            "Condeixa-a-Velha e Condeixa-a-Nova",
+            "Ega",
+            "Furadouro",
+            "Sebal e Belide",
+            "Vila Seca e Bem da F\u00e9",
+            "Zambujal"
+        ],
+        "name": "Condeixa-a-Nova"
+    },
+    "81": {
+        "freguesias": [
+            "Const\u00e2ncia",
+            "Montalvo",
+            "Santa Margarida da Coutada"
+        ],
+        "name": "Const\u00e2ncia"
+    },
+    "82": {
+        "freguesias": [
+            "Biscainho",
+            "Branca",
+            "Coruche, Fajarda e Erra",
+            "Cou\u00e7o",
+            "Santana do Mato",
+            "S\u00e3o Jos\u00e9 da Lamarosa"
+        ],
+        "name": "Coruche"
+    },
+    "83": {
+        "freguesias": [
+            "2"
+        ],
+        "name": "Corvo"
+    },
+    "84": {
+        "freguesias": [
+            "Aldeia de S\u00e3o Francisco de Assis",
+            "Barco e Coutada",
+            "Boidobra",
+            "Cantar-Galo e Vila do Carvalho",
+            "Casegas e Ourondo",
+            "Cortes do Meio",
+            "Covilh\u00e3 e Canhoso",
+            "Dominguizo",
+            "Erada",
+            "Ferro",
+            "Orjais",
+            "Paul",
+            "Peraboa",
+            "Peso e Vales do Rio",
+            "S\u00e3o Jorge da Beira",
+            "Sobral de S\u00e3o Miguel",
+            "Teixoso e Sarzedo",
+            "Tortosendo",
+            "Unhais da Serra",
+            "Vale Formoso e Aldeia do Souto",
+            "Verdelhos"
+        ],
+        "name": "Covilh\u00e3"
+    },
+    "85": {
+        "freguesias": [
+            "Aldeia da Mata",
+            "Crato e M\u00e1rtires, Flor da Rosa e Vale do Peso",
+            "G\u00e1fete",
+            "Monte da Pedra"
+        ],
+        "name": "Crato"
+    },
+    "86": {
+        "freguesias": [
+            "Cuba",
+            "Faro do Alentejo",
+            "Vila Alva",
+            "Vila Ruiva"
+        ],
+        "name": "Cuba"
+    },
+    "87": {
+        "freguesias": [
+            "Assun\u00e7\u00e3o, Ajuda, Salvador e Santo Ildefonso",
+            "Barbacena e Vila Fernando",
+            "Caia, S\u00e3o Pedro e Alc\u00e1\u00e7ova",
+            "Santa Eul\u00e1lia",
+            "S\u00e3o Br\u00e1s e S\u00e3o Louren\u00e7o",
+            "S\u00e3o Vicente e Ventosa",
+            "Terrugem e Vila Boim"
+        ],
+        "name": "Elvas"
+    },
+    "88": {
+        "freguesias": [
+            "Nossa Senhora de F\u00e1tima",
+            "S\u00e3o Jo\u00e3o Baptista"
+        ],
+        "name": "Entroncamento"
+    },
+    "89": {
+        "freguesias": [
+            "Anta e Guetim",
+            "Espinho",
+            "Paramos",
+            "Silvalde"
+        ],
+        "name": "Espinho"
+    },
+    "90": {
+        "freguesias": [
+            "Antas",
+            "Ap\u00falia e F\u00e3o",
+            "Belinho e Mar",
+            "Esposende, Marinhas e Gandra",
+            "Fonte Boa e Rio Tinto",
+            "Forj\u00e3es",
+            "Gemeses",
+            "Palmeira de Faro e Curvos",
+            "Vila Ch\u00e3"
+        ],
+        "name": "Esposende"
+    },
+    "91": {
+        "freguesias": [
+            "Avanca",
+            "Bedu\u00eddo e Veiros",
+            "Canelas e Fermel\u00e3",
+            "Pardilh\u00f3",
+            "Salreu"
+        ],
+        "name": "Estarreja"
+    },
+    "92": {
+        "freguesias": [
+            "Ameixial (Santa Vit\u00f3ria e S\u00e3o Bento)",
+            "Arcos",
+            "Estremoz (Santa Maria e Santo Andr\u00e9)",
+            "\u00c9vora Monte",
+            "Gl\u00f3ria",
+            "S\u00e3o Bento do Corti\u00e7o e Santo Est\u00eav\u00e3o",
+            "S\u00e3o Domingos de Ana Loura",
+            "S\u00e3o Louren\u00e7o de Mamporc\u00e3o e S\u00e3o Bento de Ana Loura",
+            "Veiros"
+        ],
+        "name": "Estremoz"
+    },
+    "93": {
+        "freguesias": [
+            "Bacelo e Senhora da Sa\u00fade",
+            "Canaviais",
+            "\u00c9vora (S\u00e3o Mamede, S\u00e9, S\u00e3o Pedro e Santo Ant\u00e3o)",
+            "Malagueira e Horta das Figueiras",
+            "Nossa Senhora da Gra\u00e7a do Divor",
+            "Nossa Senhora da Tourega e Nossa Senhora de Guadalupe",
+            "Nossa Senhora de Machede",
+            "S\u00e3o Bento do Mato",
+            "S\u00e3o Man\u00e7os e S\u00e3o Vicente do Pigeiro",
+            "S\u00e3o Miguel de Machede",
+            "S\u00e3o Sebasti\u00e3o da Giesteira e Nossa Senhora da Boa F\u00e9",
+            "Torre de Coelheiros"
+        ],
+        "name": "\u00c9vora"
+    },
+    "94": {
+        "freguesias": [
+            "Aboim, Felgueiras, Gontim e Pedra\u00eddo",
+            "Agrela e Seraf\u00e3o",
+            "Antime e Silvares (S\u00e3o Clemente)",
+            "Ardeg\u00e3o, Arnozela e Seid\u00f5es",
+            "Armil",
+            "Cep\u00e3es e Fareja",
+            "Estor\u00e3os",
+            "Fafe",
+            "Fornelos",
+            "Freitas e Vila Cova",
+            "Gol\u00e3es",
+            "Medelo",
+            "Monte e Queimadela",
+            "Moreira do Rei e V\u00e1rzea Cova",
+            "Passos",
+            "Quinch\u00e3es",
+            "Regadas",
+            "Revelhe",
+            "Ribeiros",
+            "Santa Cristina de Ar\u00f5es",
+            "S\u00e3o Gens",
+            "S\u00e3o Martinho de Silvares",
+            "S\u00e3o Rom\u00e3o de Ar\u00f5es",
+            "Travass\u00f3s",
+            "Vinh\u00f3s"
+        ],
+        "name": "Fafe"
+    },
+    "95": {
+        "freguesias": [
+            "Concei\u00e7\u00e3o e Estoi",
+            "Faro (S\u00e9 e S\u00e3o Pedro)",
+            "Montenegro",
+            "Santa B\u00e1rbara de Nexe"
+        ],
+        "name": "Faro"
+    },
+    "96": {
+        "freguesias": [
+            "Ai\u00e3o",
+            "Air\u00e3es",
+            "Friande",
+            "Id\u00e3es",
+            "Jugueiros",
+            "Macieira da Lixa e Caramos",
+            "Margaride, V\u00e1rzea, Lagares, Varziela e Moure",
+            "Pedreira, Rande e Sernande",
+            "Penacova",
+            "Pinheiro",
+            "Pombeiro de Ribavizela",
+            "Refontoura",
+            "Regilde",
+            "Revinhade",
+            "Sendim",
+            "Torrados e Sousa",
+            "Unh\u00e3o e Lordelo",
+            "Vila Cova da Lixa e Borba de Godim",
+            "Vila Fria e Vizela (S\u00e3o Jorge)",
+            "Vila Verde e Sant\u00e3o"
+        ],
+        "name": "Felgueiras"
+    },
+    "97": {
+        "freguesias": [
+            "Alfund\u00e3o e Peroguarda",
+            "Ferreira do Alentejo e Canhestros",
+            "Figueira dos Cavaleiros",
+            "Odivelas"
+        ],
+        "name": "Ferreira do Alentejo"
+    },
+    "98": {
+        "freguesias": [
+            "\u00c1guas Belas",
+            "Areias e Pias",
+            "Beco",
+            "Ch\u00e3os",
+            "Ferreira do Z\u00eazere",
+            "Igreja Nova do Sobral",
+            "Nossa Senhora do Pranto"
+        ],
+        "name": "Ferreira do Z\u00eazere"
+    },
+    "99": {
+        "freguesias": [
+            "Alhadas",
+            "Alqueid\u00e3o",
+            "Bom Sucesso",
+            "Buarcos",
+            "Ferreira-a-Nova",
+            "Lavos",
+            "Maiorca",
+            "Marinha das Ondas",
+            "Moinhos da G\u00e2ndara",
+            "Pai\u00e3o",
+            "Quiaios",
+            "S\u00e3o Pedro",
+            "Tavarede",
+            "Vila Verde"
+        ],
+        "name": "Figueira da Foz"
+    },
+    "100": {
+        "freguesias": [
+            "Algodres, Vale de Afonsinho e Vilar de Amargo",
+            "Almofala e Escarigo",
+            "Castelo Rodrigo",
+            "Cinco Vilas e Reigada",
+            "Colmeal e Vilar Torpim",
+            "Escalh\u00e3o",
+            "Figueira de Castelo Rodrigo",
+            "Freixeda do Torr\u00e3o, Quint\u00e3 de P\u00earo Martins e Penha de \u00c1guia",
+            "Mata de Lobos",
+            "Vermiosa"
+        ],
+        "name": "Figueira de Castelo Rodrigo"
+    },
+    "101": {
+        "freguesias": [
+            "Aguda",
+            "Arega",
+            "Campelo",
+            "Figueir\u00f3 dos Vinhos e Bairradas"
+        ],
+        "name": "Figueir\u00f3 dos Vinhos"
+    },
+    "102": {
+        "freguesias": [
+            "Algodres",
+            "Casal Vasco",
+            "Corti\u00e7\u00f4 e Vila Ch\u00e3",
+            "Figueir\u00f3 da Granja",
+            "Fornos de Algodres",
+            "Infias",
+            "Juncais, Vila Ruiva e Vila Soeiro do Ch\u00e3o",
+            "Maceira",
+            "Matan\u00e7a",
+            "Muxagata",
+            "Queiriz",
+            "Sobral Pichorro e Fuinhas"
+        ],
+        "name": "Fornos de Algodres"
+    },
+    "103": {
+        "freguesias": [
+            "Freixo de Espada \u00e0 Cinta e Mazouco",
+            "Lagoa\u00e7a e Fornos",
+            "Ligares",
+            "Poiares"
+        ],
+        "name": "Freixo de Espada \u00e0 Cinta"
+    },
+    "104": {
+        "freguesias": [
+            "Cabe\u00e7o de Vide",
+            "Fronteira",
+            "S\u00e3o Saturnino"
+        ],
+        "name": "Fronteira"
+    },
+    "105": {
+        "freguesias": [
+            "Funchal (Santa Luzia)",
+            "Funchal (Santa Maria Maior)",
+            "Funchal (S\u00e3o Pedro)",
+            "Funchal (S\u00e9)",
+            "Imaculado Cora\u00e7\u00e3o de Maria",
+            "Nossa Senhora do Monte",
+            "Santo Ant\u00f3nio",
+            "S\u00e3o Gon\u00e7alo",
+            "S\u00e3o Martinho",
+            "S\u00e3o Roque"
+        ],
+        "name": "Funchal"
+    },
+    "106": {
+        "freguesias": [
+            "Alcaide",
+            "Alcaria",
+            "Alcongosta",
+            "Alpedrinha",
+            "Barroca",
+            "Bogas de Cima",
+            "Capinha",
+            "Castelejo",
+            "Castelo Novo",
+            "Enxames",
+            "Fatela",
+            "Fund\u00e3o, Valverde, Donas, Aldeia de Joanes e Aldeia Nova do Cabo",
+            "Janeiro de Cima e Bogas de Baixo",
+            "Lavacolhos",
+            "Orca",
+            "P\u00earo Viseu",
+            "P\u00f3voa de Atalaia e Atalaia do Campo",
+            "Silvares",
+            "Soalheira",
+            "Souto da Casa",
+            "Telhado",
+            "Tr\u00eas Povos",
+            "Vale de Prazeres e Mata da Rainha"
+        ],
+        "name": "Fund\u00e3o"
+    },
+    "107": {
+        "freguesias": [
+            "Belver",
+            "Comenda",
+            "Gavi\u00e3o e Atalaia",
+            "Margem"
+        ],
+        "name": "Gavi\u00e3o"
+    },
+    "108": {
+        "freguesias": [
+            "Alvares",
+            "Cadafaz e Colmeal",
+            "G\u00f3is",
+            "Vila Nova do Ceira"
+        ],
+        "name": "G\u00f3is"
+    },
+    "109": {
+        "freguesias": [
+            "Azinhaga",
+            "Goleg\u00e3",
+            "Pombalinho"
+        ],
+        "name": "Goleg\u00e3"
+    },
+    "110": {
+        "freguesias": [
+            "Baguim do Monte",
+            "F\u00e2nzeres e S\u00e3o Pedro da Cova",
+            "Foz do Sousa e Covelo",
+            "Gondomar (S\u00e3o Cosme), Valbom e Jovim",
+            "Lomba",
+            "Melres e Medas",
+            "Rio Tinto"
+        ],
+        "name": "Gondomar"
+    },
+    "111": {
+        "freguesias": [
+            "Aldeias e Mangualde da Serra",
+            "Arcozelo",
+            "Cativelos",
+            "Figueir\u00f3 da Serra e Freixo da Serra",
+            "Folgosinho",
+            "Gouveia (S\u00e3o Pedro e S\u00e3o Juli\u00e3o)",
+            "Melo e Nabais",
+            "Moimenta da Serra e Vinh\u00f3",
+            "Nespereira",
+            "Pa\u00e7os da Serra",
+            "Ribamondego",
+            "Rio Torto e Lagarinhos",
+            "S\u00e3o Paio",
+            "Vila Cort\u00eas da Serra",
+            "Vila Franca da Serra",
+            "Vila Nova de Tazem"
+        ],
+        "name": "Gouveia"
+    },
+    "112": {
+        "freguesias": [
+            "Azinheira dos Barros e S\u00e3o Mamede do S\u00e1d\u00e3o",
+            "Carvalhal",
+            "Gr\u00e2ndola",
+            "Melides",
+            "Santa Margarida da Serra"
+        ],
+        "name": "Gr\u00e2ndola"
+    },
+    "113": {
+        "freguesias": [
+            "Ad\u00e3o",
+            "Albardo",
+            "Aldeia do Bispo",
+            "Aldeia Vi\u00e7osa",
+            "Alvendre",
+            "Arrifana",
+            "Avel\u00e3s da Ribeira",
+            "Avel\u00e3s de Ambom",
+            "Benespera",
+            "Carvalhal Me\u00e3o",
+            "Casal de Cinza",
+            "Castanheira",
+            "Cavadoude",
+            "Codesseiro",
+            "Corujeira",
+            "Faia",
+            "Famalic\u00e3o",
+            "Fern\u00e3o Joanes",
+            "Gagos",
+            "Gon\u00e7alo",
+            "Gon\u00e7alo Bocas",
+            "S\u00e3o Vicente (Guarda)",
+            "S\u00e9 (Guarda)",
+            "S\u00e3o Miguel do Jarmelo",
+            "S\u00e3o Pedro do Jarmelo",
+            "Jo\u00e3o Ant\u00e3o",
+            "Ma\u00e7ainhas",
+            "Marmeleiro",
+            "Meios",
+            "Mizarela",
+            "Monte Margarida",
+            "Pan\u00f3ias de Cima",
+            "Pega",
+            "Pera do Mo\u00e7o",
+            "P\u00earo Soares",
+            "Porto da Carne",
+            "Pousada",
+            "Ramela",
+            "Ribeira dos Carinhos",
+            "Rocamondo",
+            "Rochoso",
+            "Santana da Azinha",
+            "S\u00e3o Miguel da Guarda",
+            "Seixo Amarelo",
+            "Sobral da Serra",
+            "Trinta",
+            "Vale de Estrela",
+            "Valhelhas",
+            "Vela",
+            "Videmonte",
+            "Vila Cort\u00eas do Mondego",
+            "Vila Fernando",
+            "Vila Franca do De\u00e3o",
+            "Vila Garcia",
+            "Vila Soeiro"
+        ],
+        "name": "Guarda"
+    },
+    "114": {
+        "freguesias": [
+            "Aba\u00e7\u00e3o (S\u00e3o Tom\u00e9)",
+            "Air\u00e3o (Santa Maria)",
+            "Air\u00e3o (S\u00e3o Jo\u00e3o Baptista)",
+            "Ald\u00e3o",
+            "Arosa",
+            "At\u00e3es",
+            "Azur\u00e9m",
+            "Balazar",
+            "Barco",
+            "Briteiros (Salvador)",
+            "Santa Leoc\u00e1dia de Briteiros",
+            "Santo Est\u00eav\u00e3o de Briteiros",
+            "Brito",
+            "Caldelas",
+            "Calvos",
+            "Santiago de Candoso",
+            "S\u00e3o Martinho de Candoso",
+            "Castel\u00f5es",
+            "Conde",
+            "Corvite",
+            "Costa",
+            "Creixomil",
+            "Donim",
+            "Ferment\u00f5es",
+            "Figueiredo",
+            "Gandarela",
+            "G\u00e9meos",
+            "Gominh\u00e3es",
+            "Gon\u00e7a",
+            "Gondar",
+            "Gondomar",
+            "Guardizela",
+            "Guimar\u00e3es (Oliveira do Castelo)",
+            "Guimar\u00e3es (S\u00e3o Paio)",
+            "Guimar\u00e3es (S\u00e3o Sebasti\u00e3o)",
+            "Infantas",
+            "Leit\u00f5es",
+            "Longos",
+            "Lordelo",
+            "Mascotelos",
+            "Mes\u00e3o Frio",
+            "Moreira de C\u00f3negos",
+            "Nespereira",
+            "Oleiros",
+            "Pencelo",
+            "Pinheiro",
+            "Polvoreira",
+            "Ponte",
+            "Santa Euf\u00e9mia de Prazins",
+            "Santo Tirso de Prazins",
+            "Rendufe",
+            "Ronfe",
+            "S\u00e3o Clemente de Sande",
+            "S\u00e3o Louren\u00e7o de Sande",
+            "S\u00e3o Martinho de Sande",
+            "Vila Nova de Sande",
+            "S\u00e3o Faustino",
+            "S\u00e3o Torcato",
+            "S\u00e3o Crist\u00f3v\u00e3o de Selho",
+            "S\u00e3o Jorge de Selho",
+            "S\u00e3o Louren\u00e7o de Selho",
+            "Serzedelo",
+            "Serzedo",
+            "Silvares",
+            "Santa Maria de Souto",
+            "S\u00e3o Salvador de Souto",
+            "Tabuadelo",
+            "Urgezes",
+            "Vermil"
+        ],
+        "name": "Guimar\u00e3es"
+    },
+    "115": {
+        "freguesias": [
+            "Capelo",
+            "Castelo Branco",
+            "Cedros",
+            "Feteira",
+            "Flamengos",
+            "Horta (Ang\u00fastias)",
+            "Horta (Concei\u00e7\u00e3o)",
+            "Horta (Matriz)",
+            "Pedro Miguel",
+            "Praia do Almoxarife",
+            "Praia do Norte",
+            "Ribeirinha",
+            "Sal\u00e3o"
+        ],
+        "name": "Horta"
+    },
+    "116": {
+        "freguesias": [
+            "Alcafozes",
+            "Aldeia de Santa Margarida",
+            "Idanha-a-Nova",
+            "Idanha-a-Velha",
+            "Ladoeiro",
+            "Medelim",
+            "Monfortinho",
+            "Monsanto",
+            "Oledo",
+            "Penha Garcia",
+            "Proen\u00e7a-a-Velha",
+            "Rosmaninhal",
+            "Salvaterra do Extremo",
+            "S\u00e3o Miguel de Acha",
+            "Segura",
+            "Toul\u00f5es",
+            "Zebreira"
+        ],
+        "name": "Idanha-a-Nova"
+    },
+    "117": {
+        "freguesias": [
+            "Gafanha da Encarna\u00e7\u00e3o",
+            "Gafanha da Nazar\u00e9",
+            "Gafanha do Carmo",
+            "\u00cdlhavo"
+        ],
+        "name": "\u00cdlhavo"
+    },
+    "118": {
+        "freguesias": [
+            "Carvoeiro",
+            "Est\u00f4mbar",
+            "Ferragudo",
+            "Lagoa",
+            "Parchal",
+            "Porches"
+        ],
+        "name": "Lagoa"
+    },
+    "119": {
+        "freguesias": [
+            "\u00c1gua de Pau",
+            "Cabouco",
+            "Lagoa (Nossa Senhora do Ros\u00e1rio)",
+            "Lagoa (Santa Cruz)",
+            "Ribeira Ch\u00e3"
+        ],
+        "name": "Lagoa (A\u00e7ores)"
+    },
+    "120": {
+        "freguesias": [
+            "Bar\u00e3o de S\u00e3o Jo\u00e3o",
+            "Bensafrim",
+            "Lagos (Santa Maria)",
+            "Lagos (S\u00e3o Sebasti\u00e3o)",
+            "Luz",
+            "Odi\u00e1xere"
+        ],
+        "name": "Lagos"
+    },
+    "121": {
+        "freguesias": [
+            "Faj\u00e3 Grande",
+            "Faj\u00e3zinha",
+            "Fazenda",
+            "Lajedo",
+            "Lajes das Flores",
+            "Lomba",
+            "Mosteiro"
+        ],
+        "name": "Lajes das Flores"
+    },
+    "122": {
+        "freguesias": [
+            "Calheta de Nesquim",
+            "Lajes do Pico",
+            "Piedade",
+            "Ribeiras",
+            "Ribeirinha",
+            "S\u00e3o Jo\u00e3o"
+        ],
+        "name": "Lajes do Pico"
+    },
+    "123": {
+        "freguesias": [
+            "Av\u00f5es",
+            "Bigorne",
+            "Britiande",
+            "Cambres",
+            "Cep\u00f5es",
+            "Ferreirim",
+            "Ferreiros de Av\u00f5es",
+            "Figueira",
+            "Lalim",
+            "Lamego (Almacave)",
+            "Lamego (S\u00e9)",
+            "Lazarim",
+            "Magueija",
+            "Meijinhos",
+            "Melc\u00f5es",
+            "Parada do Bispo",
+            "Penaj\u00f3ia",
+            "Penude",
+            "Pretarouca",
+            "Samod\u00e3es",
+            "Sande",
+            "Valdigem",
+            "V\u00e1rzea de Abrunhais",
+            "Vila Nova de Souto d'El-Rei"
+        ],
+        "name": "Lamego"
+    },
+    "124": {
+        "freguesias": [
+            "Amor",
+            "Arrabal",
+            "Azoia",
+            "Bajouca",
+            "Barosa",
+            "Barreira",
+            "Bidoeira de Cima",
+            "Boa Vista",
+            "Caranguejeira",
+            "Carreira",
+            "Carvide",
+            "Chain\u00e7a",
+            "Coimbr\u00e3o",
+            "Colmeias",
+            "Cortes",
+            "Leiria",
+            "Maceira",
+            "Marrazes",
+            "Mem\u00f3ria",
+            "Milagres",
+            "Monte Real",
+            "Monte Redondo",
+            "Ortigosa",
+            "Parceiros",
+            "Pousos",
+            "Regueira de Pontes",
+            "Santa Catarina da Serra",
+            "Santa Euf\u00e9mia",
+            "Souto da Carpalhosa"
+        ],
+        "name": "Leiria"
+    },
+    "125": {
+        "freguesias": [
+            "Ajuda",
+            "Alc\u00e2ntara",
+            "Alto do Pina",
+            "Alvalade",
+            "Ameixoeira",
+            "Anjos",
+            "Beato",
+            "Benfica",
+            "Campo Grande",
+            "Campolide",
+            "Carnide",
+            "Castelo",
+            "Charneca",
+            "Cora\u00e7\u00e3o de Jesus",
+            "Encarna\u00e7\u00e3o",
+            "Gra\u00e7a",
+            "Lapa",
+            "Lumiar",
+            "Madalena",
+            "M\u00e1rtires",
+            "Marvila",
+            "Merc\u00eas",
+            "Nossa Senhora de F\u00e1tima",
+            "Pena",
+            "Penha de Fran\u00e7a",
+            "Prazeres",
+            "Sacramento",
+            "Santa Catarina",
+            "Santa Engr\u00e1cia",
+            "Santa Isabel",
+            "Santa Justa",
+            "Santa Maria de Bel\u00e9m",
+            "Santa Maria dos Olivais",
+            "Santiago",
+            "Santo Condest\u00e1vel",
+            "Santo Est\u00eav\u00e3o",
+            "Santos-o-Velho",
+            "S\u00e3o Crist\u00f3v\u00e3o e S\u00e3o Louren\u00e7o",
+            "S\u00e3o Domingos de Benfica",
+            "S\u00e3o Francisco Xavier",
+            "S\u00e3o Jo\u00e3o",
+            "S\u00e3o Jo\u00e3o de Brito",
+            "S\u00e3o Jo\u00e3o de Deus",
+            "S\u00e3o Jorge de Arroios",
+            "S\u00e3o Jos\u00e9",
+            "S\u00e3o Mamede",
+            "S\u00e3o Miguel",
+            "S\u00e3o Nicolau",
+            "S\u00e3o Paulo",
+            "S\u00e3o Sebasti\u00e3o da Pedreira",
+            "S\u00e3o Vicente de Fora",
+            "S\u00e9",
+            "Socorro"
+        ],
+        "name": "Lisboa"
+    },
+    "126": {
+        "freguesias": [
+            "Almancil",
+            "Alte",
+            "Ameixial",
+            "Benafim",
+            "Boliqueime",
+            "Loul\u00e9 (S\u00e3o Clemente)",
+            "Loul\u00e9 (S\u00e3o Sebasti\u00e3o)",
+            "Quarteira",
+            "Queren\u00e7a",
+            "Salir",
+            "T\u00f4r"
+        ],
+        "name": "Loul\u00e9"
+    },
+    "127": {
+        "freguesias": [
+            "Apela\u00e7\u00e3o",
+            "Bobadela",
+            "Bucelas",
+            "Camarate",
+            "Fanh\u00f5es",
+            "Frielas",
+            "Loures",
+            "Lousa",
+            "Moscavide",
+            "Portela",
+            "Prior Velho",
+            "Sacav\u00e9m",
+            "Santa Iria de Az\u00f3ia",
+            "Santo Ant\u00e3o do Tojal",
+            "Santo Ant\u00f3nio dos Cavaleiros",
+            "S\u00e3o Jo\u00e3o da Talha",
+            "S\u00e3o Juli\u00e3o do Tojal",
+            "Unhos"
+        ],
+        "name": "Loures"
+    },
+    "128": {
+        "freguesias": [
+            "Atalaia",
+            "Lourinh\u00e3",
+            "Marteleira",
+            "Miragaia",
+            "Moita dos Ferreiros",
+            "Moledo",
+            "Reguengo Grande",
+            "Ribamar",
+            "Santa B\u00e1rbara",
+            "S\u00e3o Bartolomeu dos Galegos",
+            "Vimeiro"
+        ],
+        "name": "Lourinh\u00e3"
+    },
+    "129": {
+        "freguesias": [
+            "Casal de Ermio",
+            "Foz de Arouce",
+            "G\u00e2ndaras",
+            "Lous\u00e3",
+            "Serpins",
+            "Vilarinho"
+        ],
+        "name": "Lous\u00e3"
+    },
+    "130": {
+        "freguesias": [
+            "Alvarenga",
+            "Aveleda",
+            "Santo Est\u00eav\u00e3o de Barrosas",
+            "Boim",
+            "Ca\u00edde de Rei",
+            "Casais",
+            "Cernadelo",
+            "Covas",
+            "Cristelos",
+            "Figueiras",
+            "Lodares",
+            "Lousada (Santa Margarida)",
+            "Lousada (S\u00e3o Miguel)",
+            "Lustosa",
+            "Macieira",
+            "Meinedo",
+            "Nespereira",
+            "Nevogilde",
+            "Nogueira",
+            "Ordem",
+            "Pias",
+            "Silvares",
+            "Sousela",
+            "Torno",
+            "Vilar do Torno e Alent\u00e9m"
+        ],
+        "name": "Lousada"
+    },
+    "131": {
+        "freguesias": [
+            "Aboboreira",
+            "Am\u00eandoa",
+            "Cardigos",
+            "Carvoeiro",
+            "Envendos",
+            "Ma\u00e7\u00e3o",
+            "Ortiga",
+            "Penhascoso"
+        ],
+        "name": "Ma\u00e7\u00e3o"
+    },
+    "132": {
+        "freguesias": [
+            "Ala",
+            "Amendoeira",
+            "Arcas",
+            "Bagueixe",
+            "Bornes",
+            "Burga",
+            "Carrapatas",
+            "Castel\u00e3os",
+            "Chacim",
+            "Corti\u00e7os",
+            "Corujas",
+            "Edroso",
+            "Espadanedo",
+            "Ferreira",
+            "Grij\u00f3",
+            "Lagoa",
+            "Lamalonga",
+            "Lamas de Podence",
+            "Lombo",
+            "Macedo de Cavaleiros",
+            "Morais",
+            "Mur\u00e7\u00f3s",
+            "Olmos",
+            "Peredo",
+            "Podence",
+            "Salselas",
+            "Santa Combinha",
+            "Sezulfe",
+            "Soutelo Mourisco",
+            "Talhas",
+            "Talhinhas",
+            "Vale Benfeito",
+            "Vale da Porca",
+            "Vale de Prados",
+            "Vilar do Monte",
+            "Vilarinho de Agroch\u00e3o",
+            "Vilarinho do Monte",
+            "Vinhas"
+        ],
+        "name": "Macedo de Cavaleiros"
+    },
+    "133": {
+        "freguesias": [
+            "\u00c1gua de Pena",
+            "Cani\u00e7al",
+            "Machico",
+            "Porto da Cruz",
+            "Santo Ant\u00f3nio da Serra"
+        ],
+        "name": "Machico"
+    },
+    "134": {
+        "freguesias": [
+            "Bandeiras",
+            "Candel\u00e1ria",
+            "Cria\u00e7\u00e3o Velha",
+            "Madalena",
+            "S\u00e3o Caetano",
+            "S\u00e3o Mateus"
+        ],
+        "name": "Madalena"
+    },
+    "135": {
+        "freguesias": [
+            "Azueira",
+            "Carvoeira",
+            "Cheleiros",
+            "Encarna\u00e7\u00e3o",
+            "Enxara do Bispo",
+            "Ericeira",
+            "Gradil",
+            "Igreja Nova",
+            "Mafra",
+            "Malveira",
+            "Milharado",
+            "Santo Est\u00eav\u00e3o das Gal\u00e9s",
+            "Santo Isidoro",
+            "S\u00e3o Miguel de Alcain\u00e7a",
+            "Sobral da Abelheira",
+            "Venda do Pinheiro",
+            "Vila Franca do Ros\u00e1rio"
+        ],
+        "name": "Mafra"
+    },
+    "136": {
+        "freguesias": [
+            "\u00c1guas Santas",
+            "Barca",
+            "Folgosa",
+            "Gemunde",
+            "Gondim",
+            "Gueif\u00e3es",
+            "Maia",
+            "Milheir\u00f3s",
+            "Moreira",
+            "Nogueira",
+            "Pedrou\u00e7os",
+            "Avioso (Santa Maria)",
+            "Avioso (S\u00e3o Pedro)",
+            "S\u00e3o Pedro Fins",
+            "Silva Escura",
+            "Vermoim",
+            "Vila Nova da Telha"
+        ],
+        "name": "Maia"
+    },
+    "137": {
+        "freguesias": [
+            "Abrunhosa-a-Velha",
+            "Alcafache",
+            "Ch\u00e3s de Tavares",
+            "Cunha Alta",
+            "Cunha Baixa",
+            "Espinho",
+            "Fornos de Maceira D\u00e3o",
+            "Freixiosa",
+            "Lobelhe do Mato",
+            "Mangualde",
+            "Mesquitela",
+            "Moimenta de Maceira D\u00e3o",
+            "P\u00f3voa de Cerv\u00e3es",
+            "Quintela de Azurara",
+            "Santiago de Cassurr\u00e3es",
+            "S\u00e3o Jo\u00e3o da Fresta",
+            "Travanca de Tavares",
+            "V\u00e1rzea de Tavares"
+        ],
+        "name": "Mangualde"
+    },
+    "138": {
+        "freguesias": [
+            "Manteigas (Santa Maria)",
+            "Manteigas (S\u00e3o Pedro)",
+            "Sameiro",
+            "Vale de Amoreira"
+        ],
+        "name": "Manteigas"
+    },
+    "139": {
+        "freguesias": [
+            "Alpendurada e Matos",
+            "Ariz",
+            "Avessadas",
+            "Banho e Carvalhosa",
+            "Constance",
+            "Fav\u00f5es",
+            "Folhada",
+            "Fornos",
+            "Freixo",
+            "Magrelos",
+            "Manhuncelos",
+            "Maureles",
+            "Pa\u00e7os de Gaiolo",
+            "Paredes de Viadores",
+            "Penha Longa",
+            "Rio de Galinhas",
+            "Rosem",
+            "Sande",
+            "Santo Isidoro",
+            "S\u00e3o Louren\u00e7o do Douro",
+            "S\u00e3o Nicolau",
+            "Soalh\u00e3es",
+            "Sobret\u00e2mega",
+            "Tabuado",
+            "Torr\u00e3o",
+            "Toutosa",
+            "Tuias",
+            "V\u00e1rzea da Ovelha e Aliviada",
+            "V\u00e1rzea do Douro",
+            "Vila Boa de Quires",
+            "Vila Boa do Bispo"
+        ],
+        "name": "Marco de Canaveses"
+    },
+    "140": {
+        "freguesias": [
+            "Marinha Grande",
+            "Moita",
+            "Vieira de Leiria"
+        ],
+        "name": "Marinha Grande"
+    },
+    "141": {
+        "freguesias": [
+            "Beir\u00e3",
+            "Santa Maria de Marv\u00e3o",
+            "Santo Ant\u00f3nio das Areias",
+            "S\u00e3o Salvador da Aramenha"
+        ],
+        "name": "Marv\u00e3o"
+    },
+    "142": {
+        "freguesias": [
+            "Cust\u00f3ias",
+            "Guif\u00f5es",
+            "Lavra",
+            "Le\u00e7a da Palmeira",
+            "Le\u00e7a do Balio",
+            "Matosinhos",
+            "Perafita",
+            "Santa Cruz do Bispo",
+            "S\u00e3o Mamede de Infesta",
+            "Senhora da Hora"
+        ],
+        "name": "Matosinhos"
+    },
+    "143": {
+        "freguesias": [
+            "Antes",
+            "Barcou\u00e7o",
+            "Casal Comba",
+            "Luso",
+            "Mealhada",
+            "Pampilhosa",
+            "Vacari\u00e7a",
+            "Ventosa do Bairro"
+        ],
+        "name": "Mealhada"
+    },
+    "144": {
+        "freguesias": [
+            "Aveloso",
+            "Barreira",
+            "Carvalhal",
+            "Castei\u00e7\u00e3o",
+            "Coriscada",
+            "Fonte Longa",
+            "Longroiva",
+            "Marialva",
+            "Meda",
+            "Outeiro de Gatos",
+            "Pai Penela",
+            "Po\u00e7o do Canto",
+            "Prova",
+            "Raba\u00e7al",
+            "Ranhados",
+            "Vale Flor"
+        ],
+        "name": "M\u00eada"
+    },
+    "145": {
+        "freguesias": [
+            "Alvaredo",
+            "Castro Laboreiro",
+            "Chavi\u00e3es",
+            "Cousso",
+            "Cristoval",
+            "Cubalh\u00e3o",
+            "Fi\u00e3es",
+            "Gave",
+            "Lamas de Mouro",
+            "Pa\u00e7os",
+            "Paderne",
+            "Parada do Monte",
+            "Penso",
+            "Prado",
+            "Remo\u00e3es",
+            "Roussas",
+            "S\u00e3o Paio",
+            "Vila"
+        ],
+        "name": "Melga\u00e7o"
+    },
+    "146": {
+        "freguesias": [
+            "Alcaria Ruiva",
+            "Corte do Pinto",
+            "Esp\u00edrito Santo",
+            "M\u00e9rtola",
+            "Santana de Cambas",
+            "S\u00e3o Jo\u00e3o dos Caldeireiros",
+            "S\u00e3o Miguel do Pinheiro",
+            "S\u00e3o Pedro de Solis",
+            "S\u00e3o Sebasti\u00e3o dos Carros"
+        ],
+        "name": "M\u00e9rtola"
+    },
+    "147": {
+        "freguesias": [
+            "Barqueiros",
+            "Cidadelhe",
+            "Mes\u00e3o Frio (Santa Cristina)",
+            "Mes\u00e3o Frio (S\u00e3o Nicolau)",
+            "Oliveira",
+            "Vila Jus\u00e3",
+            "Vila Marim"
+        ],
+        "name": "Mes\u00e3o Frio"
+    },
+    "148": {
+        "freguesias": [
+            "Carapelhos",
+            "Mira",
+            "Praia de Mira",
+            "Seixo"
+        ],
+        "name": "Mira"
+    },
+    "149": {
+        "freguesias": [
+            "Lamas",
+            "Miranda do Corvo",
+            "Rio Vide",
+            "Semide",
+            "Vila Nova"
+        ],
+        "name": "Miranda do Corvo"
+    },
+    "150": {
+        "freguesias": [
+            "\u00c1guas Vivas",
+            "Atenor",
+            "Cicouro",
+            "Constantim",
+            "Duas Igrejas",
+            "Gen\u00edsio",
+            "Ifanes",
+            "Malhadas",
+            "Miranda do Douro",
+            "Pala\u00e7oulo",
+            "Paradela",
+            "Picote",
+            "P\u00f3voa",
+            "S\u00e3o Martinho de Angueira",
+            "Sendim",
+            "Silva",
+            "Vila Ch\u00e3 de Braciosa"
+        ],
+        "name": "Miranda do Douro"
+    },
+    "151": {
+        "freguesias": [
+            "Abambres",
+            "Abreiro",
+            "Aguieiras",
+            "Alvites",
+            "Avantos",
+            "Avidagos",
+            "Barcel",
+            "Bou\u00e7a",
+            "Cabanelas",
+            "Caravelas",
+            "Carvalhais",
+            "Ced\u00e3es",
+            "Cobro",
+            "Fradizela",
+            "Franco",
+            "Frechas",
+            "Freixeda",
+            "Lamas de Orelh\u00e3o",
+            "Marmelos",
+            "Mascarenhas",
+            "Mirandela",
+            "M\u00farias",
+            "Navalho",
+            "Passos",
+            "Pereira",
+            "Romeu",
+            "S\u00e3o Pedro Velho",
+            "S\u00e3o Salvador",
+            "Su\u00e7\u00e3es",
+            "Torre de Dona Chama",
+            "Vale de Asnes",
+            "Vale de Gouvinhas",
+            "Vale de Salgueiro",
+            "Vale de Telhas",
+            "Valverde",
+            "Vila Boa",
+            "Vila Verde"
+        ],
+        "name": "Mirandela"
+    },
+    "152": {
+        "freguesias": [
+            "Azinhoso",
+            "Bemposta",
+            "Bru\u00e7\u00f3",
+            "Brunhoso",
+            "Brunhozinho",
+            "Castanheira",
+            "Castelo Branco",
+            "Castro Vicente",
+            "Meirinhos",
+            "Mogadouro",
+            "Paradela",
+            "Penas Roias",
+            "Peredo da Bemposta",
+            "Remondes",
+            "Saldanha",
+            "Sanhoane",
+            "S\u00e3o Martinho do Peso",
+            "Soutelo",
+            "T\u00f3",
+            "Travanca",
+            "Urr\u00f3s",
+            "Vale da Madre",
+            "Vale de Porco",
+            "Valverde",
+            "Ventozelo",
+            "Vila de Ala",
+            "Vilar de Rei",
+            "Vilarinho dos Galegos"
+        ],
+        "name": "Mogadouro"
+    },
+    "153": {
+        "freguesias": [
+            "Aldeia de Nacomba",
+            "Alvite",
+            "Arcozelos",
+            "Ariz",
+            "Baldos",
+            "Caba\u00e7os",
+            "Caria",
+            "Castelo",
+            "Leomil",
+            "Moimenta da Beira",
+            "Nagosa",
+            "Paradinha",
+            "Pass\u00f4",
+            "Pera Velha",
+            "Peva",
+            "Rua",
+            "Sarzedo",
+            "Seg\u00f5es",
+            "Sever",
+            "Vilar"
+        ],
+        "name": "Moimenta da Beira"
+    },
+    "154": {
+        "freguesias": [
+            "Alhos Vedros",
+            "Baixa da Banheira",
+            "Gaio-Ros\u00e1rio",
+            "Moita",
+            "Sarilhos Pequenos",
+            "Vale da Amoreira"
+        ],
+        "name": "Moita"
+    },
+    "155": {
+        "freguesias": [
+            "Abedim",
+            "Anh\u00f5es",
+            "Badim",
+            "Barbeita",
+            "Barro\u00e7as e Taias",
+            "Bela",
+            "Cambeses",
+            "Ceiv\u00e3es",
+            "Cortes",
+            "Lapela",
+            "Lara",
+            "Longos Vales",
+            "Lordelo",
+            "Luzio",
+            "Mazedo",
+            "Merufe",
+            "Messeg\u00e3es",
+            "Mon\u00e7\u00e3o",
+            "Moreira",
+            "Parada",
+            "Pias",
+            "Pinheiros",
+            "Podame",
+            "Portela",
+            "Riba de Mouro",
+            "S\u00e1",
+            "Sago",
+            "Segude",
+            "Tangil",
+            "Troporiz",
+            "Troviscoso",
+            "Trute",
+            "Valadares"
+        ],
+        "name": "Mon\u00e7\u00e3o"
+    },
+    "156": {
+        "freguesias": [
+            "Alferce",
+            "Marmelete",
+            "Monchique"
+        ],
+        "name": "Monchique"
+    },
+    "157": {
+        "freguesias": [
+            "Atei",
+            "Bilh\u00f3",
+            "Campanh\u00f3",
+            "Ermelo",
+            "Mondim de Basto",
+            "Paradan\u00e7a",
+            "Pardelhas",
+            "Vilar de Ferreiros"
+        ],
+        "name": "Mondim de Basto"
+    },
+    "158": {
+        "freguesias": [
+            "Assumar",
+            "Monforte",
+            "Santo Aleixo",
+            "Vaiamonte"
+        ],
+        "name": "Monforte"
+    },
+    "159": {
+        "freguesias": [
+            "Cabril",
+            "Cambeses do Rio",
+            "Cervos",
+            "Ch\u00e3",
+            "Contim",
+            "Covel\u00e3es",
+            "Covelo do Ger\u00eas",
+            "Don\u00f5es",
+            "Ferral",
+            "Fervidelas",
+            "Fi\u00e3es do Rio",
+            "Gralhas",
+            "Meixedo",
+            "Meixide",
+            "Montalegre",
+            "Morgade",
+            "Mourilhe",
+            "Negr\u00f5es",
+            "Outeiro",
+            "Padornelos",
+            "Padroso",
+            "Paradela",
+            "Pit\u00f5es das J\u00fanias",
+            "Pondras",
+            "Reigoso",
+            "Salto",
+            "Santo Andr\u00e9",
+            "Sarraquinhos",
+            "Sezelhe",
+            "Solveira",
+            "Tour\u00e9m",
+            "Venda Nova",
+            "Viade de Baixo",
+            "Vila da Ponte",
+            "Vilar de Perdizes"
+        ],
+        "name": "Montalegre"
+    },
+    "160": {
+        "freguesias": [
+            "Cabrela",
+            "Ciborro",
+            "Corti\u00e7adas",
+            "Foros de Vale de Figueira",
+            "Lavre",
+            "Nossa Senhora da Vila",
+            "Nossa Senhora do Bispo",
+            "Santiago do Escoural",
+            "S\u00e3o Crist\u00f3v\u00e3o",
+            "Silveiras"
+        ],
+        "name": "Montemor-o-Novo"
+    },
+    "161": {
+        "freguesias": [
+            "Abrunheira",
+            "Arazede",
+            "Carapinheira",
+            "Ereira",
+            "Gat\u00f5es",
+            "Liceia",
+            "Me\u00e3s do Campo",
+            "Montemor-o-Velho",
+            "Pereira",
+            "Santo Var\u00e3o",
+            "Seixo de Gat\u00f5es",
+            "Tent\u00fagal",
+            "Verride",
+            "Vila Nova da Barca"
+        ],
+        "name": "Montemor-o-Velho"
+    },
+    "162": {
+        "freguesias": [
+            "Afonsoeiro",
+            "Alto Estanqueiro - Jardia",
+            "Atalaia",
+            "Canha",
+            "Montijo",
+            "Peg\u00f5es",
+            "Santo Isidro de Peg\u00f5es",
+            "Sarilhos Grandes"
+        ],
+        "name": "Montijo"
+    },
+    "163": {
+        "freguesias": [
+            "Brotas",
+            "Cabe\u00e7\u00e3o",
+            "Mora",
+            "Pavia"
+        ],
+        "name": "Mora"
+    },
+    "164": {
+        "freguesias": [
+            "Alma\u00e7a",
+            "Cercosa",
+            "Cortega\u00e7a",
+            "Espinho",
+            "Marmeleira",
+            "Mort\u00e1gua",
+            "Pala",
+            "Sobral",
+            "Trez\u00f3i",
+            "Vale de Rem\u00edgio"
+        ],
+        "name": "Mort\u00e1gua"
+    },
+    "165": {
+        "freguesias": [
+            "Amareleja",
+            "Moura (Santo Agostinho)",
+            "Moura (S\u00e3o Jo\u00e3o Baptista)",
+            "P\u00f3voa de S\u00e3o Miguel",
+            "Safara",
+            "Santo Aleixo da Restaura\u00e7\u00e3o",
+            "Santo Amador",
+            "Sobral da Adi\u00e7a"
+        ],
+        "name": "Moura"
+    },
+    "166": {
+        "freguesias": [
+            "Granja",
+            "Luz",
+            "Mour\u00e3o"
+        ],
+        "name": "Mour\u00e3o"
+    },
+    "167": {
+        "freguesias": [
+            "Candedo",
+            "Carva",
+            "Fiolhoso",
+            "Jou",
+            "Mur\u00e7a",
+            "Noura",
+            "Palheiros",
+            "Valongo de Milhais",
+            "Vilares"
+        ],
+        "name": "Mur\u00e7a"
+    },
+    "168": {
+        "freguesias": [
+            "Bunheiro",
+            "Monte",
+            "Murtosa",
+            "Torreira"
+        ],
+        "name": "Murtosa"
+    },
+    "169": {
+        "freguesias": [
+            "Famalic\u00e3o",
+            "Nazar\u00e9",
+            "Valado dos Frades"
+        ],
+        "name": "Nazar\u00e9"
+    },
+    "170": {
+        "freguesias": [
+            "Aguieira",
+            "Canas de Senhorim",
+            "Carvalhal Redondo",
+            "Lapa do Lobo",
+            "Moreira",
+            "Nelas",
+            "Santar",
+            "Senhorim",
+            "Vilar Seco"
+        ],
+        "name": "Nelas"
+    },
+    "171": {
+        "freguesias": [
+            "Alpalh\u00e3o",
+            "Amieira do Tejo",
+            "Arez",
+            "Esp\u00edrito Santo",
+            "Montalv\u00e3o",
+            "Nossa Senhora da Gra\u00e7a",
+            "Santana",
+            "S\u00e3o Matias",
+            "S\u00e3o Sim\u00e3o",
+            "Tolosa"
+        ],
+        "name": "Nisa"
+    },
+    "172": {
+        "freguesias": [
+            "Achada",
+            "Achadinha",
+            "Algarvia",
+            "Lomba da Fazenda",
+            "Nordeste",
+            "Salga",
+            "Santana",
+            "Santo Ant\u00f3nio de Nordestinho",
+            "S\u00e3o Pedro de Nordestinho"
+        ],
+        "name": "Nordeste"
+    },
+    "173": {
+        "freguesias": [
+            "A dos Negros",
+            "Amoreira",
+            "Gaeiras",
+            "\u00d3bidos (Santa Maria)",
+            "\u00d3bidos (S\u00e3o Pedro)",
+            "Olho Marinho",
+            "Sobral da Lagoa",
+            "Usseira",
+            "Vau"
+        ],
+        "name": "\u00d3bidos"
+    },
+    "174": {
+        "freguesias": [
+            "Bicos",
+            "Boavista dos Pinheiros",
+            "Colos",
+            "Longueira / Almograve",
+            "Luzianes-Gare",
+            "Odemira (Santa Maria)",
+            "Odemira (S\u00e3o Salvador)",
+            "Pereiras-Gare",
+            "Rel\u00edquias",
+            "Saboia",
+            "Santa Clara-a-Velha",
+            "S\u00e3o Lu\u00eds",
+            "S\u00e3o Martinho das Amoreiras",
+            "S\u00e3o Teot\u00f3nio",
+            "Vale de Santiago",
+            "Vila Nova de Milfontes",
+            "Zambujeira do Mar"
+        ],
+        "name": "Odemira"
+    },
+    "175": {
+        "freguesias": [
+            "Cane\u00e7as",
+            "Fam\u00f5es",
+            "Odivelas",
+            "Olival Basto",
+            "Pontinha",
+            "P\u00f3voa de Santo Adri\u00e3o",
+            "Ramada"
+        ],
+        "name": "Odivelas"
+    },
+    "176": {
+        "freguesias": [
+            "Alg\u00e9s",
+            "Barcarena",
+            "Carnaxide",
+            "Caxias",
+            "Cruz Quebrada - Dafundo",
+            "Linda-a-Velha",
+            "Oeiras e S\u00e3o Juli\u00e3o da Barra",
+            "Pa\u00e7o de Arcos",
+            "Porto Salvo",
+            "Queijas"
+        ],
+        "name": "Oeiras"
+    },
+    "177": {
+        "freguesias": [
+            "\u00c1lvaro",
+            "Amieira",
+            "Cambas",
+            "Estreito",
+            "Isna",
+            "Madeir\u00e3",
+            "Mosteiro",
+            "Oleiros",
+            "Orvalho",
+            "Sarnadas de S\u00e3o Sim\u00e3o",
+            "Sobral",
+            "Vilar Barroco"
+        ],
+        "name": "Oleiros"
+    },
+    "178": {
+        "freguesias": [
+            "Fuseta",
+            "Moncarapacho",
+            "Olh\u00e3o",
+            "Pech\u00e3o",
+            "Quelfes"
+        ],
+        "name": "Olh\u00e3o"
+    },
+    "179": {
+        "freguesias": [
+            "Carregosa",
+            "Cesar",
+            "Cucuj\u00e3es",
+            "Faj\u00f5es",
+            "Loureiro",
+            "Macieira de Sarnes",
+            "Nogueira do Cravo e Pindelo",
+            "Oliveira de Azem\u00e9is, Santiago de Riba-Ul, Ul, Macinhata da Seixa e Madail",
+            "Ossela",
+            "Pinheiro da Bemposta, Travanca e Palmaz",
+            "S\u00e3o Martinho da G\u00e2ndara",
+            "S\u00e3o Roque"
+        ],
+        "name": "Oliveira de Azem\u00e9is"
+    },
+    "180": {
+        "freguesias": [
+            "Arca",
+            "Arcozelo das Maias",
+            "Destriz",
+            "Oliveira de Frades",
+            "Pinheiro",
+            "Reigoso",
+            "Ribeiradio",
+            "S\u00e3o Jo\u00e3o da Serra",
+            "S\u00e3o Vicente de Laf\u00f5es",
+            "Sej\u00e3es",
+            "Souto de Laf\u00f5es",
+            "Varzielas"
+        ],
+        "name": "Oliveira de Frades"
+    },
+    "181": {
+        "freguesias": [
+            "Bustos",
+            "Mamarrosa",
+            "Oi\u00e3",
+            "Oliveira do Bairro",
+            "Palha\u00e7a",
+            "Troviscal"
+        ],
+        "name": "Oliveira do Bairro"
+    },
+    "182": {
+        "freguesias": [
+            "Aldeia das Dez",
+            "Alvoco das V\u00e1rzeas",
+            "Av\u00f4",
+            "Bobadela",
+            "Ervedal",
+            "Lagares",
+            "Lagos da Beira",
+            "Lajeosa",
+            "Lourosa",
+            "Meruge",
+            "Nogueira do Cravo",
+            "Oliveira do Hospital",
+            "Penalva de Alva",
+            "Santa Ovaia",
+            "S\u00e3o Gi\u00e3o",
+            "S\u00e3o Paio de Grama\u00e7os",
+            "S\u00e3o Sebasti\u00e3o da Feira",
+            "Seixo da Beira",
+            "Travanca de Lagos",
+            "Vila Franca da Beira",
+            "Vila Pouca da Beira"
+        ],
+        "name": "Oliveira do Hospital"
+    },
+    "183": {
+        "freguesias": [
+            "Alburitel",
+            "Atouguia",
+            "Casal dos Bernardos",
+            "Caxarias",
+            "Cercal",
+            "Espite",
+            "F\u00e1tima",
+            "Formigais",
+            "Freixianda",
+            "Gondemaria",
+            "Matas",
+            "Nossa Senhora da Piedade",
+            "Nossa Senhora das Miseric\u00f3rdias",
+            "Olival",
+            "Ribeira do F\u00e1rrio",
+            "Rio de Couros",
+            "Sei\u00e7a",
+            "Urqueira"
+        ],
+        "name": "Our\u00e9m"
+    },
+    "184": {
+        "freguesias": [
+            "Concei\u00e7\u00e3o",
+            "Garv\u00e3o",
+            "Ourique",
+            "Pan\u00f3ias",
+            "Santa Luzia",
+            "Santana da Serra"
+        ],
+        "name": "Ourique"
+    },
+    "185": {
+        "freguesias": [
+            "Arada",
+            "Cortega\u00e7a",
+            "Esmoriz",
+            "Maceda",
+            "Ovar",
+            "S\u00e3o Jo\u00e3o",
+            "S\u00e3o Vicente de Pereira Jus\u00e3",
+            "V\u00e1lega"
+        ],
+        "name": "Ovar"
+    },
+    "186": {
+        "freguesias": [
+            "Arreigada",
+            "Carvalhosa",
+            "Codessos",
+            "Eiriz",
+            "Ferreira",
+            "Figueir\u00f3",
+            "Fraz\u00e3o",
+            "Freamunde",
+            "Lamoso",
+            "Meixomil",
+            "Modelos",
+            "Pa\u00e7os de Ferreira",
+            "Penamaior",
+            "Raimonda",
+            "Sanfins de Ferreira",
+            "Seroa"
+        ],
+        "name": "Pa\u00e7os de Ferreira"
+    },
+    "187": {
+        "freguesias": [
+            "Marateca",
+            "Palmela",
+            "Pinhal Novo",
+            "Poceir\u00e3o",
+            "Quinta do Anjo"
+        ],
+        "name": "Palmela"
+    },
+    "188": {
+        "freguesias": [
+            "Cabril",
+            "Dornelas do Z\u00eazere",
+            "Faj\u00e3o",
+            "Janeiro de Baixo",
+            "Machio",
+            "Pampilhosa da Serra",
+            "Pessegueiro",
+            "Portela do Fojo",
+            "Unhais-o-Velho",
+            "Vidual"
+        ],
+        "name": "Pampilhosa da Serra"
+    },
+    "189": {
+        "freguesias": [
+            "Aguiar de Sousa",
+            "Astromil",
+            "Baltar",
+            "Beire",
+            "Besteiros",
+            "Bitar\u00e3es",
+            "Castel\u00f5es de Cepeda",
+            "Cete",
+            "Cristelo",
+            "Duas Igrejas",
+            "Gandra",
+            "Gondal\u00e3es",
+            "Lordelo",
+            "Louredo",
+            "Madalena",
+            "Mouriz",
+            "Parada de Todeia",
+            "Rebordosa",
+            "Recarei",
+            "Sobreira",
+            "Sobrosa",
+            "Vandoma",
+            "Vila Cova de Carros",
+            "Vilela"
+        ],
+        "name": "Paredes"
+    },
+    "190": {
+        "freguesias": [
+            "Agualonga",
+            "Bico",
+            "Castanheira",
+            "Cossourado",
+            "Coura",
+            "Cristelo",
+            "Cunha",
+            "Ferreira",
+            "Formariz",
+            "Infesta",
+            "Insalde",
+            "Linhares",
+            "Mozelos",
+            "Padornelo",
+            "Parada",
+            "Paredes de Coura",
+            "Porreiras",
+            "Resende",
+            "Romarig\u00e3es",
+            "Rubi\u00e3es",
+            "Vasc\u00f5es"
+        ],
+        "name": "Paredes de Coura"
+    },
+    "191": {
+        "freguesias": [
+            "Gra\u00e7a",
+            "Pedr\u00f3g\u00e3o Grande",
+            "Vila Facaia"
+        ],
+        "name": "Pedr\u00f3g\u00e3o Grande"
+    },
+    "192": {
+        "freguesias": [
+            "Carvalho",
+            "Figueira de Lorv\u00e3o",
+            "Fri\u00fames e Paradela",
+            "Lorv\u00e3o",
+            "Oliveira do Mondego e Travanca do Mondego",
+            "Penacova",
+            "S\u00e3o Pedro de Alva e S\u00e3o Paio do Mondego",
+            "Sazes do Lorv\u00e3o"
+        ],
+        "name": "Penacova"
+    },
+    "193": {
+        "freguesias": [
+            "Abrag\u00e3o",
+            "Boelhe",
+            "Bustelo",
+            "Cabe\u00e7a Santa",
+            "Canelas",
+            "Capela",
+            "Castel\u00f5es",
+            "Croca",
+            "Duas Igrejas",
+            "Eja",
+            "Figueira",
+            "Fonte Arcada",
+            "Galegos",
+            "Guilhufe",
+            "Irivo",
+            "Lagares",
+            "Luzim",
+            "Marecos",
+            "Milhundos",
+            "Novelas",
+            "Oldr\u00f5es",
+            "Pa\u00e7o de Sousa",
+            "Paredes",
+            "Penafiel",
+            "Perozelo",
+            "Pinheiro",
+            "Portela",
+            "Rans",
+            "Recezinhos (S\u00e3o Mamede)",
+            "Recezinhos (S\u00e3o Martinho)",
+            "Rio de Moinhos",
+            "Rio Mau",
+            "Santa Marta",
+            "Santiago de Subarrifana",
+            "Sebolido",
+            "Urr\u00f4",
+            "Valpedre",
+            "Vila Cova"
+        ],
+        "name": "Penafiel"
+    },
+    "194": {
+        "freguesias": [
+            "Antas",
+            "Castelo de Penalva",
+            "Esmolfe",
+            "Germil",
+            "\u00cdnsua",
+            "Lusinde",
+            "Mareco",
+            "Matela",
+            "Pindo",
+            "Real",
+            "Sezures",
+            "Trancozelos",
+            "Vila Cova do Covelo"
+        ],
+        "name": "Penalva do Castelo"
+    },
+    "195": {
+        "freguesias": [
+            "\u00c1guas",
+            "Aldeia de Jo\u00e3o Pires",
+            "Aldeia do Bispo",
+            "Aranhas",
+            "Bemposta",
+            "Benqueren\u00e7a",
+            "Meim\u00e3o",
+            "Meimoa",
+            "Pedr\u00f3g\u00e3o de S\u00e3o Pedro",
+            "Penamacor",
+            "Salvador",
+            "Vale da Senhora da P\u00f3voa"
+        ],
+        "name": "Penamacor"
+    },
+    "196": {
+        "freguesias": [
+            "Antas",
+            "Beselga",
+            "Castain\u00e7o",
+            "Granja",
+            "Ourozinho",
+            "Penedono",
+            "Penela da Beira",
+            "P\u00f3voa de Penela",
+            "Souto"
+        ],
+        "name": "Penedono"
+    },
+    "197": {
+        "freguesias": [
+            "Cumieira",
+            "Espinhal",
+            "Penela (Santa Euf\u00e9mia)",
+            "Penela (S\u00e3o Miguel)",
+            "Podentes",
+            "Raba\u00e7al"
+        ],
+        "name": "Penela"
+    },
+    "198": {
+        "freguesias": [
+            "Atouguia da Baleia",
+            "Ferrel",
+            "Peniche (Ajuda)",
+            "Peniche (Concei\u00e7\u00e3o)",
+            "Peniche (S\u00e3o Pedro)",
+            "Serra d'El-Rei"
+        ],
+        "name": "Peniche"
+    },
+    "199": {
+        "freguesias": [
+            "Canelas",
+            "Covelinhas",
+            "Fontelas",
+            "Galafura",
+            "Godim",
+            "Loureiro",
+            "Moura Morta",
+            "Peso da R\u00e9gua",
+            "Poiares",
+            "Sedielos",
+            "Vilarinho dos Freires",
+            "Vinh\u00f3s"
+        ],
+        "name": "Peso da R\u00e9gua"
+    },
+    "200": {
+        "freguesias": [
+            "Alverca da Beira",
+            "Atalaia",
+            "Azevo",
+            "Bogalhal",
+            "Bou\u00e7a Cova",
+            "Cerejo",
+            "Cidadelhe",
+            "Ervas Tenras",
+            "Ervedosa",
+            "Freixedas",
+            "Gouveia",
+            "Lamegal",
+            "Lameiras",
+            "Manigoto",
+            "Pala",
+            "Pereiro",
+            "Pinhel",
+            "P\u00ednzio",
+            "Pomares",
+            "P\u00f3voa de El-Rei",
+            "Safurd\u00e3o",
+            "Santa Euf\u00e9mia",
+            "Sorval",
+            "Souro Pires",
+            "Valbom",
+            "Vale de Madeira",
+            "Vascoveiro"
+        ],
+        "name": "Pinhel"
+    },
+    "201": {
+        "freguesias": [
+            "Abiul",
+            "Albergaria dos Doze",
+            "Almagreira",
+            "Carnide",
+            "Carri\u00e7o",
+            "Guia",
+            "Ilha",
+            "Louri\u00e7al",
+            "Mata Mourisca",
+            "Meirinhas",
+            "Pelariga",
+            "Pombal",
+            "Redinha",
+            "Santiago de Lit\u00e9m",
+            "S\u00e3o Sim\u00e3o de Lit\u00e9m",
+            "Vermoil",
+            "Vila C\u00e3"
+        ],
+        "name": "Pombal"
+    },
+    "202": {
+        "freguesias": [
+            "Ajuda da Bretanha",
+            "Arrifes",
+            "Candel\u00e1ria",
+            "Capelas",
+            "Covoada",
+            "Faj\u00e3 de Baixo",
+            "Faj\u00e3 de Cima",
+            "Fenais da Luz",
+            "Feteiras",
+            "Ginetes",
+            "Livramento",
+            "Mosteiros",
+            "Pilar da Bretanha",
+            "S\u00e3o Jos\u00e9",
+            "S\u00e3o Pedro",
+            "S\u00e3o Sebasti\u00e3o",
+            "Relva",
+            "Rem\u00e9dios",
+            "Santa B\u00e1rbara",
+            "Santa Clara",
+            "Santo Ant\u00f3nio",
+            "S\u00e3o Roque",
+            "S\u00e3o Vicente Ferreira",
+            "Sete Cidades"
+        ],
+        "name": "Ponta Delgada"
+    },
+    "203": {
+        "freguesias": [
+            "Canhas",
+            "Madalena do Mar",
+            "Ponta do Sol"
+        ],
+        "name": "Ponta do Sol"
+    },
+    "204": {
+        "freguesias": [
+            "Azias",
+            "Boiv\u00e3es",
+            "Brav\u00e3es",
+            "Britelo",
+            "Crasto",
+            "Cuide de Vila Verde",
+            "Entre Ambos-os-Rios",
+            "Ermida",
+            "Germil",
+            "Grovelas",
+            "Lavradas",
+            "Lindoso",
+            "Nogueira",
+            "Oleiros",
+            "Pa\u00e7o Vedro de Magalh\u00e3es",
+            "Ponte da Barca",
+            "Ruivos",
+            "Sampriz",
+            "Salvador de Touvedo",
+            "S\u00e3o Louren\u00e7o de Touvedo",
+            "S\u00e3o Pedro de Vade",
+            "S\u00e3o Tom\u00e9 de Vade",
+            "Santiago de Vila Ch\u00e3",
+            "S\u00e3o Jo\u00e3o Baptista de Vila Ch\u00e3",
+            "Vila Nova da Mu\u00eda"
+        ],
+        "name": "Ponte da Barca"
+    },
+    "205": {
+        "freguesias": [
+            "Anais",
+            "Arca",
+            "Arcos",
+            "Arcozelo",
+            "Ardeg\u00e3o",
+            "B\u00e1rrio",
+            "Beiral do Lima",
+            "Bertiandos",
+            "Boalhosa",
+            "Brandara",
+            "Caba\u00e7os",
+            "Cabra\u00e7\u00e3o",
+            "Calheiros",
+            "Calvelo",
+            "Cep\u00f5es",
+            "Correlh\u00e3",
+            "Estor\u00e3os",
+            "Facha",
+            "Feitosa",
+            "Fojo Lobal",
+            "Font\u00e3o",
+            "Fornelos",
+            "Freixo",
+            "Friastelas",
+            "Gaifar",
+            "Gandra",
+            "Gemieira",
+            "Gondufe",
+            "Labruja",
+            "Labruj\u00f3",
+            "Mato",
+            "Moreira do Lima",
+            "Navi\u00f3",
+            "Poiares",
+            "Ponte de Lima",
+            "Queijada",
+            "Rebord\u00f5es (Santa Maria)",
+            "Rebord\u00f5es (Souto)",
+            "Ref\u00f3ios do Lima",
+            "Rendufe",
+            "Ribeira",
+            "S\u00e1",
+            "Sandi\u00e3es",
+            "Santa Comba",
+            "Santa Cruz do Lima",
+            "Seara",
+            "Serdedelo",
+            "Vilar das Almas",
+            "Vilar do Monte",
+            "Vitorino das Donas",
+            "Vitorino dos Pi\u00e3es"
+        ],
+        "name": "Ponte de Lima"
+    },
+    "206": {
+        "freguesias": [
+            "Foros de Arr\u00e3o",
+            "Galveias",
+            "Longomel",
+            "Montargil",
+            "Ponte de Sor",
+            "Tramaga",
+            "Vale de A\u00e7or"
+        ],
+        "name": "Ponte de Sor"
+    },
+    "207": {
+        "freguesias": [
+            "Alagoa",
+            "Alegrete",
+            "Carreiras",
+            "Fortios",
+            "Reguengo",
+            "Ribeira de Nisa",
+            "S\u00e3o Juli\u00e3o",
+            "S\u00e3o Louren\u00e7o",
+            "S\u00e9",
+            "Urra"
+        ],
+        "name": "Portalegre"
+    },
+    "208": {
+        "freguesias": [
+            "Alqueva",
+            "Amieira",
+            "Monte do Trigo",
+            "Oriola",
+            "Portel",
+            "Santana",
+            "S\u00e3o Bartolomeu do Outeiro",
+            "Vera Cruz"
+        ],
+        "name": "Portel"
+    },
+    "209": {
+        "freguesias": [
+            "Alvor",
+            "Mexilhoeira Grande",
+            "Portim\u00e3o"
+        ],
+        "name": "Portim\u00e3o"
+    },
+    "210": {
+        "freguesias": [
+            "Aldoar",
+            "Bonfim",
+            "Campanh\u00e3",
+            "Cedofeita",
+            "Foz do Douro",
+            "Lordelo do Ouro",
+            "Massarelos",
+            "Miragaia",
+            "Nevogilde",
+            "Paranhos",
+            "Ramalde",
+            "Santo Ildefonso",
+            "S\u00e3o Nicolau",
+            "S\u00e9",
+            "Vit\u00f3ria"
+        ],
+        "name": "Porto"
+    },
+    "211": {
+        "freguesias": [
+            "Alcaria",
+            "Alqueid\u00e3o da Serra",
+            "Alvados",
+            "Arrimal",
+            "Calvaria de Cima",
+            "Juncal",
+            "Mendiga",
+            "Mira de Aire",
+            "Pedreiras",
+            "S\u00e3o Jo\u00e3o Baptista",
+            "S\u00e3o Pedro",
+            "S\u00e3o Bento",
+            "Serro Ventoso"
+        ],
+        "name": "Porto de M\u00f3s"
+    },
+    "212": {
+        "freguesias": [
+            "Achadas da Cruz",
+            "Porto Moniz",
+            "Ribeira da Janela",
+            "Seixal"
+        ],
+        "name": "Porto Moniz"
+    },
+    "213": {
+        "freguesias": [
+            "Porto Santo"
+        ],
+        "name": "Porto Santo"
+    },
+    "214": {
+        "freguesias": [
+            "\u00c1guas Santas",
+            "Ajude",
+            "Brunhais",
+            "Calvos",
+            "Campos",
+            "Covelas",
+            "Esperan\u00e7a",
+            "Ferreiros",
+            "Fontarcada",
+            "Frades",
+            "Friande",
+            "Galegos",
+            "Garfe",
+            "Geraz do Minho",
+            "Lanhoso",
+            "Louredo",
+            "Monsul",
+            "Moure",
+            "Oliveira",
+            "P\u00f3voa de Lanhoso (Nossa Senhora do Amparo)",
+            "Rendufinho",
+            "Santo Emili\u00e3o",
+            "S\u00e3o Jo\u00e3o de Rei",
+            "Serzedelo",
+            "Sobradelo da Goma",
+            "Ta\u00edde",
+            "Travassos",
+            "Verim",
+            "Vilela"
+        ],
+        "name": "P\u00f3voa de Lanhoso"
+    },
+    "215": {
+        "freguesias": [
+            "A Ver-o-Mar",
+            "Agu\u00e7adoura",
+            "Amorim",
+            "Argivai",
+            "Balasar",
+            "Beiriz",
+            "Estela",
+            "La\u00fandos",
+            "Navais",
+            "P\u00f3voa de Varzim",
+            "Rates",
+            "Terroso"
+        ],
+        "name": "P\u00f3voa de Varzim"
+    },
+    "216": {
+        "freguesias": [
+            "\u00c1gua Retorta",
+            "Faial da Terra",
+            "Furnas",
+            "Nossa Senhora dos Rem\u00e9dios",
+            "Povoa\u00e7\u00e3o",
+            "Ribeira Quente"
+        ],
+        "name": "Povoa\u00e7\u00e3o"
+    },
+    "217": {
+        "freguesias": [
+            "Agualva",
+            "Biscoitos",
+            "Cabo da Praia",
+            "Fonte do Bastardo",
+            "Fontinhas",
+            "Lajes",
+            "Porto Martins",
+            "Praia da Vit\u00f3ria",
+            "Quatro Ribeiras",
+            "S\u00e3o Br\u00e1s",
+            "Vila Nova"
+        ],
+        "name": "Praia da Vit\u00f3ria"
+    },
+    "218": {
+        "freguesias": [
+            "Alvito da Beira",
+            "Montes da Senhora",
+            "Peral",
+            "Proen\u00e7a-a-Nova",
+            "S\u00e3o Pedro do Esteval",
+            "Sobreira Formosa"
+        ],
+        "name": "Proen\u00e7a-a-Nova"
+    },
+    "219": {
+        "freguesias": [
+            "Montoito",
+            "Redondo"
+        ],
+        "name": "Redondo"
+    },
+    "220": {
+        "freguesias": [
+            "Campinho",
+            "Campo",
+            "Corval",
+            "Monsaraz",
+            "Reguengos de Monsaraz"
+        ],
+        "name": "Reguengos de Monsaraz"
+    },
+    "221": {
+        "freguesias": [
+            "Anreade",
+            "Barr\u00f4",
+            "C\u00e1rquere",
+            "Feir\u00e3o",
+            "Felgueiras",
+            "Freigil",
+            "Miom\u00e3es",
+            "Ovadas",
+            "Panchorra",
+            "Paus",
+            "Resende",
+            "S\u00e3o Cipriano",
+            "S\u00e3o Jo\u00e3o de Fontoura",
+            "S\u00e3o Martinho de Mouros",
+            "S\u00e3o Rom\u00e3o de Aregos"
+        ],
+        "name": "Resende"
+    },
+    "222": {
+        "freguesias": [
+            "Campan\u00e1rio",
+            "Ribeira Brava",
+            "Serra de \u00c1gua",
+            "Tabua"
+        ],
+        "name": "Ribeira Brava"
+    },
+    "223": {
+        "freguesias": [
+            "Alvadia",
+            "Canedo",
+            "Cerva",
+            "Lim\u00f5es",
+            "Ribeira de Pena (Salvador)",
+            "Ribeira de Pena (Santa Marinha)",
+            "Santo Aleixo de Al\u00e9m-T\u00e2mega"
+        ],
+        "name": "Ribeira de Pena"
+    },
+    "224": {
+        "freguesias": [
+            "Calhetas",
+            "Fenais da Ajuda",
+            "Lomba da Maia",
+            "Lomba de S\u00e3o Pedro",
+            "Maia",
+            "Pico da Pedra",
+            "Porto Formoso",
+            "Rabo de Peixe",
+            "Ribeira Grande (Concei\u00e7\u00e3o)",
+            "Ribeira Grande (Matriz)",
+            "Ribeira Seca",
+            "Ribeirinha",
+            "Santa B\u00e1rbara",
+            "S\u00e3o Br\u00e1s"
+        ],
+        "name": "Ribeira Grande"
+    },
+    "225": {
+        "freguesias": [
+            "Alcobertas",
+            "Arrouquelas",
+            "Arruda dos Pis\u00f5es",
+            "Asseiceira",
+            "Assentiz",
+            "Azambujeira",
+            "Fr\u00e1guas",
+            "Malaqueijo",
+            "Marmeleira",
+            "Outeiro da Corti\u00e7ada",
+            "Ribeira de S\u00e3o Jo\u00e3o",
+            "Rio Maior",
+            "S\u00e3o Jo\u00e3o da Ribeira",
+            "S\u00e3o Sebasti\u00e3o"
+        ],
+        "name": "Rio Maior"
+    },
+    "226": {
+        "freguesias": [
+            "Celeir\u00f3s",
+            "Covas do Douro",
+            "Gouv\u00e3es do Douro",
+            "Gouvinhas",
+            "Pa\u00e7os",
+            "Parada de Pinh\u00e3o",
+            "Paradela de Gui\u00e3es",
+            "Provesende",
+            "Sabrosa",
+            "S\u00e3o Crist\u00f3v\u00e3o do Douro",
+            "S\u00e3o Louren\u00e7o de Ribapinh\u00e3o",
+            "S\u00e3o Martinho de Antas",
+            "Souto Maior",
+            "Torre do Pinh\u00e3o",
+            "Vilarinho de S\u00e3o Rom\u00e3o"
+        ],
+        "name": "Sabrosa"
+    },
+    "227": {
+        "freguesias": [
+            "\u00c1guas Belas",
+            "Aldeia da Ponte",
+            "Aldeia da Ribeira",
+            "Aldeia de Santo Ant\u00f3nio",
+            "Aldeia do Bispo",
+            "Aldeia Velha",
+            "Alfaiates",
+            "Badamalos",
+            "Bara\u00e7al",
+            "Bendada",
+            "Bismula",
+            "Casteleiro",
+            "Cerdeira",
+            "F\u00f3ios",
+            "Forcalhos",
+            "Lajeosa",
+            "Lomba",
+            "Malcata",
+            "Moita",
+            "Nave",
+            "Pena Lobo",
+            "Pousafoles do Bispo",
+            "Quadrazais",
+            "Quinta de S\u00e3o Bartolomeu",
+            "Rapoula do C\u00f4a",
+            "Rebolosa",
+            "Rendo",
+            "Ruiv\u00f3s",
+            "Ruvina",
+            "Sabugal",
+            "Santo Est\u00eav\u00e3o",
+            "Seixo do C\u00f4a",
+            "Sortelha",
+            "Souto",
+            "Vale das \u00c9guas",
+            "Vale de Espinho",
+            "Vale Longo",
+            "Vila Boa",
+            "Vila do Touro",
+            "Vilar Maior"
+        ],
+        "name": "Sabugal"
+    },
+    "228": {
+        "freguesias": [
+            "Foros de Salvaterra",
+            "Gl\u00f3ria do Ribatejo",
+            "Granho",
+            "Marinhais",
+            "Muge",
+            "Salvaterra de Magos"
+        ],
+        "name": "Salvaterra de Magos"
+    },
+    "229": {
+        "freguesias": [
+            "Couto do Mosteiro",
+            "Nagozela",
+            "Ovoa",
+            "Pinheiro de \u00c1zere",
+            "Santa Comba D\u00e3o",
+            "S\u00e3o Joaninho",
+            "S\u00e3o Jo\u00e3o de Areias",
+            "Treixedo",
+            "Vimieiro"
+        ],
+        "name": "Santa Comba D\u00e3o"
+    },
+    "230": {
+        "freguesias": [
+            "Camacha",
+            "Cani\u00e7o",
+            "Gaula",
+            "Santa Cruz",
+            "Santo Ant\u00f3nio da Serra"
+        ],
+        "name": "Santa Cruz"
+    },
+    "231": {
+        "freguesias": [
+            "Guadalupe",
+            "Luz",
+            "Praia",
+            "Santa Cruz da Graciosa"
+        ],
+        "name": "Santa Cruz da Graciosa"
+    },
+    "232": {
+        "freguesias": [
+            "Caveira",
+            "Cedros",
+            "Ponta Delgada",
+            "Santa Cruz das Flores"
+        ],
+        "name": "Santa Cruz das Flores"
+    },
+    "233": {
+        "freguesias": [
+            "Argoncilhe",
+            "Arrifana",
+            "Caldas de S\u00e3o Jorge",
+            "Canedo",
+            "Escap\u00e3es",
+            "Espargo",
+            "Feira",
+            "Fi\u00e3es",
+            "Fornos",
+            "Gi\u00e3o",
+            "Guisande",
+            "Lob\u00e3o",
+            "Louredo",
+            "Lourosa",
+            "Milheir\u00f3s de Poiares",
+            "Mosteir\u00f3",
+            "Mozelos",
+            "Nogueira da Regedoura",
+            "Pa\u00e7os de Brand\u00e3o",
+            "Pigeiros",
+            "Rio Me\u00e3o",
+            "Romariz",
+            "Sanfins",
+            "Sanguedo",
+            "Santa Maria de Lamas",
+            "S\u00e3o Jo\u00e3o de Ver",
+            "S\u00e3o Paio de Oleiros",
+            "Souto",
+            "Travanca",
+            "Vale",
+            "Vila Maior"
+        ],
+        "name": "Santa Maria da Feira"
+    },
+    "234": {
+        "freguesias": [
+            "Alva\u00e7\u00f5es do Corgo",
+            "Cumieira",
+            "Fontes",
+            "Fornelos",
+            "Lobrigos (S\u00e3o Jo\u00e3o Baptista)",
+            "Lobrigos (S\u00e3o Miguel)",
+            "Louredo",
+            "Medr\u00f5es",
+            "Sanhoane",
+            "Sever"
+        ],
+        "name": "Santa Marta de Penagui\u00e3o"
+    },
+    "235": {
+        "freguesias": [
+            "Arco de S\u00e3o Jorge",
+            "Faial",
+            "Ilha",
+            "Santana",
+            "S\u00e3o Jorge",
+            "S\u00e3o Roque do Faial"
+        ],
+        "name": "Santana"
+    },
+    "236": {
+        "freguesias": [
+            "Abitureiras",
+            "Abr\u00e3",
+            "Achete",
+            "Alcanede",
+            "Alcanh\u00f5es",
+            "Almoster",
+            "Amiais de Baixo",
+            "Arneiro das Milhari\u00e7as",
+            "Azoia de Baixo",
+            "Azoia de Cima",
+            "Cas\u00e9vel",
+            "Gan\u00e7aria",
+            "Mo\u00e7arria",
+            "Pernes",
+            "P\u00f3voa da Isenta",
+            "P\u00f3voa de Santar\u00e9m",
+            "Romeira",
+            "Santa Iria da Ribeira de Santar\u00e9m",
+            "Santar\u00e9m (Marvila)",
+            "Santar\u00e9m (S\u00e3o Nicolau)",
+            "Santar\u00e9m (S\u00e3o Salvador)",
+            "S\u00e3o Vicente de Paul",
+            "Trem\u00eas",
+            "Vale de Figueira",
+            "Vale de Santar\u00e9m",
+            "Vaqueiros",
+            "V\u00e1rzea"
+        ],
+        "name": "Santar\u00e9m"
+    },
+    "237": {
+        "freguesias": [
+            "Abela",
+            "Alvalade",
+            "Cercal",
+            "Ermidas-Sado",
+            "Santa Cruz",
+            "Santiago do Cac\u00e9m",
+            "Santo Andr\u00e9",
+            "S\u00e3o Bartolomeu da Serra",
+            "S\u00e3o Domingos",
+            "S\u00e3o Francisco da Serra",
+            "Vale de \u00c1gua"
+        ],
+        "name": "Santiago do Cac\u00e9m"
+    },
+    "238": {
+        "freguesias": [
+            "Agrela",
+            "\u00c1gua Longa",
+            "Areias",
+            "Burg\u00e3es",
+            "Campo (S\u00e3o Martinho)",
+            "Carreira",
+            "Couto (Santa Cristina)",
+            "Couto (S\u00e3o Miguel)",
+            "Guimarei",
+            "Lama",
+            "Lamelas",
+            "Monte C\u00f3rdova",
+            "Negrelos (S\u00e3o Mamede)",
+            "Negrelos (S\u00e3o Tom\u00e9)",
+            "Palmeira",
+            "Rebord\u00f5es",
+            "Refojos de Riba de Ave",
+            "Reguenga",
+            "Roriz",
+            "Santo Tirso",
+            "S\u00e3o Salvador do Campo",
+            "Sequeir\u00f3",
+            "Vila das Aves",
+            "Vilarinho"
+        ],
+        "name": "Santo Tirso"
+    },
+    "239": {
+        "freguesias": [
+            "S\u00e3o Br\u00e1s de Alportel"
+        ],
+        "name": "S\u00e3o Br\u00e1s de Alportel"
+    },
+    "240": {
+        "freguesias": [
+            "S\u00e3o Jo\u00e3o da Madeira"
+        ],
+        "name": "S\u00e3o Jo\u00e3o da Madeira"
+    },
+    "241": {
+        "freguesias": [
+            "Castanheiro do Sul",
+            "Ervedosa do Douro",
+            "Espinhosa",
+            "Nagozelo do Douro",
+            "Paredes da Beira",
+            "Pereiros",
+            "Riodades",
+            "S\u00e3o Jo\u00e3o da Pesqueira",
+            "Soutelo do Douro",
+            "Trev\u00f5es",
+            "Vale de Figueira",
+            "Valongo dos Azeites",
+            "V\u00e1rzea de Trev\u00f5es",
+            "Vilarouco"
+        ],
+        "name": "S\u00e3o Jo\u00e3o da Pesqueira"
+    },
+    "242": {
+        "freguesias": [
+            "Bai\u00f5es",
+            "Bordonhos",
+            "Candal",
+            "Carvalhais",
+            "Covas do Rio",
+            "Figueiredo de Alva",
+            "Manhouce",
+            "Pindelo dos Milagres",
+            "Pinho",
+            "Santa Cruz da Trapa",
+            "S\u00e3o Crist\u00f3v\u00e3o de Laf\u00f5es",
+            "S\u00e3o F\u00e9lix",
+            "S\u00e3o Martinho das Moitas",
+            "S\u00e3o Pedro do Sul",
+            "Serrazes",
+            "Sul",
+            "Valadares",
+            "V\u00e1rzea",
+            "Vila Maior"
+        ],
+        "name": "S\u00e3o Pedro do Sul"
+    },
+    "243": {
+        "freguesias": [
+            "Prainha",
+            "Santa Luzia",
+            "Santo Amaro",
+            "Santo Ant\u00f3nio",
+            "S\u00e3o Roque do Pico"
+        ],
+        "name": "S\u00e3o Roque do Pico"
+    },
+    "244": {
+        "freguesias": [
+            "Boa Ventura",
+            "Ponta Delgada",
+            "S\u00e3o Vicente"
+        ],
+        "name": "S\u00e3o Vicente (Madeira)"
+    },
+    "245": {
+        "freguesias": [
+            "Alcaravela",
+            "Santiago de Montalegre",
+            "Sardoal",
+            "Valhascos"
+        ],
+        "name": "Sardoal"
+    },
+    "246": {
+        "freguesias": [
+            "\u00c1guas Boas",
+            "Avelal",
+            "Decermilo",
+            "Ferreira de Aves",
+            "Forles",
+            "Mioma",
+            "Rio de Moinhos",
+            "Rom\u00e3s",
+            "S\u00e3o Miguel de Vila Boa",
+            "S\u00e1t\u00e3o",
+            "Silv\u00e3 de Cima",
+            "Vila Longa"
+        ],
+        "name": "S\u00e1t\u00e3o"
+    },
+    "247": {
+        "freguesias": [
+            "Alvoco da Serra",
+            "Cabe\u00e7a",
+            "Carragozela",
+            "Folhadosa",
+            "Girabolhos",
+            "Lajes",
+            "Lapa dos Dinheiros",
+            "Loriga",
+            "Paranhos da Beira",
+            "Pinhan\u00e7os",
+            "Sabugueiro",
+            "Sameice",
+            "Sandomil",
+            "Santa Comba",
+            "Santa Eul\u00e1lia",
+            "Santa Marinha",
+            "Santiago",
+            "S\u00e3o Martinho",
+            "S\u00e3o Rom\u00e3o",
+            "Sazes da Beira",
+            "Seia",
+            "Teixeira",
+            "Torrozelo",
+            "Tourais",
+            "Travancinha",
+            "Valezim",
+            "V\u00e1rzea de Meruge",
+            "Vide",
+            "Vila Cova \u00e0 Coelheira"
+        ],
+        "name": "Seia"
+    },
+    "248": {
+        "freguesias": [
+            "Aldeia de Paio Pires",
+            "Amora",
+            "Arrentela",
+            "Corroios",
+            "Fern\u00e3o Ferro",
+            "Seixal"
+        ],
+        "name": "Seixal"
+    },
+    "249": {
+        "freguesias": [
+            "Arnas",
+            "Carregal",
+            "Chosendo",
+            "Cunha",
+            "Escurquela",
+            "Faia",
+            "Ferreirim",
+            "Fonte Arcada",
+            "Freixinho",
+            "Granjal",
+            "Lamosa",
+            "Macieira",
+            "Penso",
+            "Quintela",
+            "Sarzeda",
+            "Sernancelhe",
+            "Vila da Ponte"
+        ],
+        "name": "Sernancelhe"
+    },
+    "250": {
+        "freguesias": [
+            "Aldeia Nova de S\u00e3o Bento",
+            "Brinches",
+            "Pias",
+            "Serpa (Salvador)",
+            "Serpa (Santa Maria)",
+            "Vale de Vargo",
+            "Vila Verde de Ficalho"
+        ],
+        "name": "Serpa"
+    },
+    "251": {
+        "freguesias": [
+            "Cabe\u00e7udo",
+            "Carvalhal",
+            "Castelo",
+            "Cernache do Bonjardim",
+            "Cumeada",
+            "Ermida",
+            "Figueiredo",
+            "Marmeleira",
+            "Nesperal",
+            "Palhais",
+            "Pedr\u00f3g\u00e3o Pequeno",
+            "Sert\u00e3",
+            "Troviscal",
+            "V\u00e1rzea dos Cavaleiros"
+        ],
+        "name": "Sert\u00e3"
+    },
+    "252": {
+        "freguesias": [
+            "Quinta do Conde",
+            "Sesimbra (Castelo)",
+            "Sesimbra (Santiago)"
+        ],
+        "name": "Sesimbra"
+    },
+    "253": {
+        "freguesias": [
+            "G\u00e2mbia - Pontes - Alto da Guerra",
+            "Set\u00fabal (Sado)",
+            "S\u00e3o Louren\u00e7o",
+            "S\u00e3o Sim\u00e3o",
+            "Set\u00fabal (Nossa Senhora da Anunciada)",
+            "Set\u00fabal (Santa Maria da Gra\u00e7a)",
+            "Set\u00fabal (S\u00e3o Juli\u00e3o)",
+            "Set\u00fabal (S\u00e3o Sebasti\u00e3o)"
+        ],
+        "name": "Set\u00fabal"
+    },
+    "254": {
+        "freguesias": [
+            "Cedrim",
+            "Couto de Esteves",
+            "Dornelas",
+            "Paradela",
+            "Pessegueiro do Vouga",
+            "Rocas do Vouga",
+            "Sever do Vouga",
+            "Silva Escura",
+            "Talhadas"
+        ],
+        "name": "Sever do Vouga"
+    },
+    "255": {
+        "freguesias": [
+            "Alcantarilha",
+            "Algoz",
+            "Arma\u00e7\u00e3o de P\u00eara",
+            "P\u00eara",
+            "S\u00e3o Bartolomeu de Messines",
+            "S\u00e3o Marcos da Serra",
+            "Silves",
+            "Tunes"
+        ],
+        "name": "Silves"
+    },
+    "256": {
+        "freguesias": [
+            "Porto Covo",
+            "Sines"
+        ],
+        "name": "Sines"
+    },
+    "257": {
+        "freguesias": [
+            "Agualva",
+            "Algueir\u00e3o - Mem Martins",
+            "Almargem do Bispo",
+            "Belas",
+            "Cac\u00e9m",
+            "Casal de Cambra",
+            "Colares",
+            "Massam\u00e1",
+            "Mira-Sintra",
+            "Monte Abra\u00e3o",
+            "Montelavar",
+            "P\u00earo Pinheiro",
+            "Queluz (Sintra)",
+            "Rio de Mouro",
+            "S\u00e3o Jo\u00e3o das Lampas",
+            "S\u00e3o Marcos",
+            "Sintra (Santa Maria e S\u00e3o Miguel)",
+            "Sintra (S\u00e3o Martinho)",
+            "Sintra (S\u00e3o Pedro de Penaferrim)",
+            "Terrugem"
+        ],
+        "name": "Sintra"
+    },
+    "258": {
+        "freguesias": [
+            "Santo Quintino",
+            "Sapataria",
+            "Sobral de Monte Agra\u00e7o"
+        ],
+        "name": "Sobral de Monte Agra\u00e7o"
+    },
+    "259": {
+        "freguesias": [
+            "Alfarelos",
+            "Brunh\u00f3s",
+            "Degracias",
+            "Figueir\u00f3 do Campo",
+            "Gesteira",
+            "Granja do Ulmeiro",
+            "Pombalinho",
+            "Samuel",
+            "Soure",
+            "Tap\u00e9us",
+            "Vila Nova de An\u00e7os",
+            "Vinha da Rainha"
+        ],
+        "name": "Soure"
+    },
+    "260": {
+        "freguesias": [
+            "Cano",
+            "Casa Branca",
+            "Santo Amaro",
+            "Sousel"
+        ],
+        "name": "Sousel"
+    },
+    "261": {
+        "freguesias": [
+            "\u00c1zere",
+            "Candosa",
+            "Carapinha",
+            "Covas",
+            "Covelo",
+            "Espariz",
+            "Meda de Mouros",
+            "Mid\u00f5es",
+            "Mouronho",
+            "Pinheiro de Coja",
+            "P\u00f3voa de Mid\u00f5es",
+            "S\u00e3o Jo\u00e3o da Boa Vista",
+            "Sinde",
+            "T\u00e1bua",
+            "Vila Nova de Oliveirinha"
+        ],
+        "name": "T\u00e1bua"
+    },
+    "262": {
+        "freguesias": [
+            "Adorigo",
+            "Arcos",
+            "Barcos",
+            "Chav\u00e3es",
+            "Desejosa",
+            "Granja do Tedo",
+            "Granjinha",
+            "Longra",
+            "Paradela",
+            "Pereiro",
+            "Pinheiros",
+            "Santa Leoc\u00e1dia",
+            "Sendim",
+            "Tabua\u00e7o",
+            "T\u00e1vora",
+            "Vale de Figueira",
+            "Valen\u00e7a do Douro"
+        ],
+        "name": "Tabua\u00e7o"
+    },
+    "263": {
+        "freguesias": [
+            "D\u00e1lvares",
+            "Gouvi\u00e3es",
+            "Granja Nova",
+            "Mondim da Beira",
+            "Salzedas",
+            "S\u00e3o Jo\u00e3o de Tarouca",
+            "Tarouca",
+            "Ucanha",
+            "V\u00e1rzea da Serra",
+            "Vila Ch\u00e3 da Beira"
+        ],
+        "name": "Tarouca"
+    },
+    "264": {
+        "freguesias": [
+            "Cabanas de Tavira",
+            "Cachopo",
+            "Concei\u00e7\u00e3o",
+            "Luz",
+            "Santa Catarina da Fonte do Bispo",
+            "Santa Luzia",
+            "Santo Est\u00eav\u00e3o",
+            "Tavira (Santa Maria)",
+            "Tavira (Santiago)"
+        ],
+        "name": "Tavira"
+    },
+    "265": {
+        "freguesias": [
+            "Balan\u00e7a",
+            "Brufe",
+            "Campo do Ger\u00eas",
+            "Carvalheira",
+            "Chamoim",
+            "Chorense",
+            "Cib\u00f5es",
+            "Covide",
+            "Gondoriz",
+            "Moimenta",
+            "Monte",
+            "Ribeira",
+            "Rio Caldo",
+            "Souto",
+            "Valdosende",
+            "Vilar",
+            "Vilar da Veiga"
+        ],
+        "name": "Terras de Bouro"
+    },
+    "266": {
+        "freguesias": [
+            "Al\u00e9m da Ribeira",
+            "Alviobeira",
+            "Asseiceira",
+            "Beselga",
+            "Carregueiros",
+            "Casais",
+            "Junceira",
+            "Madalena",
+            "Olalhas",
+            "Paialvo",
+            "Pedreira",
+            "Sabacheira",
+            "S\u00e3o Pedro de Tomar",
+            "Serra",
+            "Tomar (Santa Maria dos Olivais)",
+            "Tomar (S\u00e3o Jo\u00e3o Baptista)"
+        ],
+        "name": "Tomar"
+    },
+    "267": {
+        "freguesias": [
+            "Barreiro de Besteiros",
+            "Campo de Besteiros",
+            "Canas de Santa Maria",
+            "Caparrosa",
+            "Castel\u00f5es",
+            "Dardavaz",
+            "Ferreir\u00f3s do D\u00e3o",
+            "Guard\u00e3o",
+            "Lajeosa do D\u00e3o",
+            "Lob\u00e3o da Beira",
+            "Molelos",
+            "Mosteirinho",
+            "Mosteiro de Fr\u00e1guas",
+            "Mouraz",
+            "Nandufe",
+            "Parada de Gonta",
+            "Sabugosa",
+            "Santiago de Besteiros",
+            "S\u00e3o Jo\u00e3o do Monte",
+            "S\u00e3o Miguel do Outeiro",
+            "Silvares",
+            "Tonda",
+            "Tondela",
+            "Tourigo",
+            "Vila Nova da Rainha",
+            "Vilar de Besteiros"
+        ],
+        "name": "Tondela"
+    },
+    "268": {
+        "freguesias": [
+            "A\u00e7oreira",
+            "Adeganha",
+            "Cabe\u00e7a Boa",
+            "Cardanha",
+            "Carvi\u00e7ais",
+            "Castedo",
+            "Felgar",
+            "Felgueiras",
+            "Horta da Vilari\u00e7a",
+            "Larinho",
+            "Lousa",
+            "Ma\u00e7ores",
+            "M\u00f3s",
+            "Peredo dos Castelhanos",
+            "Souto da Velha",
+            "Torre de Moncorvo",
+            "Urr\u00f3s"
+        ],
+        "name": "Torre de Moncorvo"
+    },
+    "269": {
+        "freguesias": [
+            "Alcorochel",
+            "Assentis",
+            "Brogueira",
+            "Chancelaria",
+            "Lapas",
+            "Meia Via",
+            "Olaia",
+            "Pa\u00e7o",
+            "Parceiros de Igreja",
+            "Pedr\u00f3g\u00e3o",
+            "Riachos",
+            "Ribeira Branca",
+            "Torres Novas (Salvador)",
+            "Torres Novas (Santa Maria)",
+            "Torres Novas (Santiago)",
+            "Torres Novas (S\u00e3o Pedro)",
+            "Zibreira"
+        ],
+        "name": "Torres Novas"
+    },
+    "270": {
+        "freguesias": [
+            "A dos Cunhados",
+            "Campelos",
+            "Carm\u00f5es",
+            "Carvoeira",
+            "Dois Portos",
+            "Freiria",
+            "Maceira",
+            "Matac\u00e3es",
+            "Maxial",
+            "Monte Redondo",
+            "Outeiro da Cabe\u00e7a",
+            "Ponte do Rol",
+            "Ramalhal",
+            "Runa",
+            "S\u00e3o Pedro da Cadeira",
+            "Silveira",
+            "Torres Vedras (Santa Maria do Castelo e S\u00e3o Miguel)",
+            "Torres Vedras (S\u00e3o Pedro e Santiago)",
+            "Turcifal",
+            "Ventosa"
+        ],
+        "name": "Torres Vedras"
+    },
+    "271": {
+        "freguesias": [
+            "Aldeia Nova",
+            "Carnic\u00e3es",
+            "Castanheira",
+            "Cogula",
+            "C\u00f3timos",
+            "Feital",
+            "Fi\u00e3es",
+            "Freches",
+            "Granja",
+            "Guilheiro",
+            "Moimentinha",
+            "Moreira de Rei",
+            "Palhais",
+            "P\u00f3voa do Concelho",
+            "Reboleiro",
+            "Rio de Mel",
+            "Sebadelhe da Serra",
+            "Souto Maior",
+            "Tamanhos",
+            "Terrenho",
+            "Torre do Terrenho",
+            "Torres",
+            "Trancoso (Santa Maria)",
+            "Trancoso (S\u00e3o Pedro)",
+            "Valdujo",
+            "Vale do Seixo",
+            "Vila Franca das Naves",
+            "Vila Garcia",
+            "Vilares"
+        ],
+        "name": "Trancoso"
+    },
+    "272": {
+        "freguesias": [
+            "Alvarelhos",
+            "Bougado (Santiago)",
+            "Bougado (S\u00e3o Martinho)",
+            "Coronado (S\u00e3o Mamede)",
+            "Coronado (S\u00e3o Rom\u00e3o)",
+            "Covelas",
+            "Guid\u00f5es",
+            "Muro"
+        ],
+        "name": "Trofa"
+    },
+    "273": {
+        "freguesias": [
+            "Calv\u00e3o",
+            "Cov\u00e3o do Lobo",
+            "Fonte de Ange\u00e3o",
+            "Gafanha da Boa Hora",
+            "Ouca",
+            "Ponte de Vagos",
+            "Santa Catarina",
+            "Santo Andr\u00e9 de Vagos",
+            "Santo Ant\u00f3nio de Vagos",
+            "Sosa",
+            "Vagos"
+        ],
+        "name": "Vagos"
+    },
+    "274": {
+        "freguesias": [
+            "Ar\u00f5es",
+            "Cepelos",
+            "Junqueira",
+            "Macieira de Cambra",
+            "Roge",
+            "S\u00e3o Pedro de Castel\u00f5es",
+            "Vila Ch\u00e3, Codal e Vila Cova de Perrinho"
+        ],
+        "name": "Vale de Cambra"
+    },
+    "275": {
+        "freguesias": [
+            "Ar\u00e3o",
+            "Boiv\u00e3o",
+            "Cerdal",
+            "Cristelo Covo",
+            "Fontoura",
+            "Friestas",
+            "Gandra",
+            "Ganfei",
+            "Gondomil",
+            "Sanfins",
+            "S\u00e3o Juli\u00e3o",
+            "S\u00e3o Pedro da Torre",
+            "Silva",
+            "Tai\u00e3o",
+            "Valen\u00e7a",
+            "Verdoejo"
+        ],
+        "name": "Valen\u00e7a"
+    },
+    "276": {
+        "freguesias": [
+            "Alfena",
+            "Campo",
+            "Ermesinde",
+            "Sobrado",
+            "Valongo"
+        ],
+        "name": "Valongo"
+    },
+    "277": {
+        "freguesias": [
+            "\u00c1gua Rev\u00e9s e Crasto",
+            "Alvarelhos",
+            "Barreiros",
+            "Bou\u00e7o\u00e3es",
+            "Canaveses",
+            "Carrazedo de Montenegro",
+            "Curros",
+            "Erv\u00f5es",
+            "Fi\u00e3es",
+            "Fornos do Pinhal",
+            "Fri\u00f5es",
+            "Lebu\u00e7\u00e3o",
+            "Nozelos",
+            "Padrela e Tazem",
+            "Possacos",
+            "Rio Torto",
+            "Sanfins",
+            "Santa Maria de Emeres",
+            "Santa Valha",
+            "Santiago da Ribeira de Alhariz",
+            "S\u00e3o Jo\u00e3o da Corveira",
+            "S\u00e3o Pedro de Veiga de Lila",
+            "Serapicos",
+            "Sonim",
+            "Tinhela",
+            "Vales",
+            "Valpa\u00e7os",
+            "Vassal",
+            "Veiga de Lila",
+            "Vilarandelo"
+        ],
+        "name": "Valpa\u00e7os"
+    },
+    "278": {
+        "freguesias": [
+            "Manadas",
+            "Norte Grande",
+            "Rosais",
+            "Santo Amaro",
+            "Urzelina",
+            "Velas"
+        ],
+        "name": "Velas"
+    },
+    "279": {
+        "freguesias": [
+            "Landeira",
+            "Vendas Novas"
+        ],
+        "name": "Vendas Novas"
+    },
+    "280": {
+        "freguesias": [
+            "Aguiar",
+            "Alc\u00e1\u00e7ovas",
+            "Viana do Alentejo"
+        ],
+        "name": "Viana do Alentejo"
+    },
+    "281": {
+        "freguesias": [
+            "Afife",
+            "Alvar\u00e3es",
+            "Amonde",
+            "Anha",
+            "Areosa",
+            "Barroselas",
+            "Cardielos",
+            "Carre\u00e7o",
+            "Carvoeiro",
+            "Castelo do Neiva",
+            "Chaf\u00e9",
+            "Darque",
+            "De\u00e3o",
+            "Deocriste",
+            "Freixieiro do Soutelo",
+            "Geraz do Lima (Santa Leoc\u00e1dia)",
+            "Geraz do Lima (Santa Maria)",
+            "Lanheses",
+            "Mazarefes",
+            "Meadela",
+            "Meixedo",
+            "Montaria",
+            "Moreira de Geraz do Lima",
+            "Muj\u00e3es",
+            "Neiva",
+            "Nogueira",
+            "Outeiro",
+            "Perre",
+            "Portela Sus\u00e3",
+            "Portuzelo",
+            "Serreleis",
+            "Subportela",
+            "Torre",
+            "Viana do Castelo (Monserrate)",
+            "Viana do Castelo (Santa Maria Maior)",
+            "Vila de Punhe",
+            "Vila Franca",
+            "Vila Fria",
+            "Vila Mou",
+            "Vilar de Murteda"
+        ],
+        "name": "Viana do Castelo"
+    },
+    "282": {
+        "freguesias": [
+            "Pedr\u00f3g\u00e3o",
+            "Selmes",
+            "Vidigueira",
+            "Vila de Frades"
+        ],
+        "name": "Vidigueira"
+    },
+    "283": {
+        "freguesias": [
+            "Aniss\u00f3",
+            "Anjos",
+            "Campos",
+            "Cani\u00e7ada",
+            "Cantel\u00e3es",
+            "Cova",
+            "Eira Vedra",
+            "Guilhofrei",
+            "Louredo",
+            "Mosteiro",
+            "Parada do Bouro",
+            "Pinheiro",
+            "Rossas",
+            "Ruiv\u00e3es",
+            "Salamonde",
+            "Soengas",
+            "Soutelo",
+            "Tabua\u00e7as",
+            "Ventosa",
+            "Vieira do Minho",
+            "Vilar Ch\u00e3o"
+        ],
+        "name": "Vieira do Minho"
+    },
+    "284": {
+        "freguesias": [
+            "Fundada",
+            "S\u00e3o Jo\u00e3o do Peso",
+            "Vila de Rei"
+        ],
+        "name": "Vila de Rei"
+    },
+    "285": {
+        "freguesias": [
+            "Bar\u00e3o de S\u00e3o Miguel",
+            "Budens",
+            "Raposeira",
+            "Sagres",
+            "Vila do Bispo"
+        ],
+        "name": "Vila do Bispo"
+    },
+    "286": {
+        "freguesias": [
+            "Arcos",
+            "\u00c1rvore",
+            "Aveleda",
+            "Azurara",
+            "Bagunte",
+            "Canidelo",
+            "Fajozes",
+            "Ferreir\u00f3",
+            "Fornelo",
+            "Gi\u00e3o",
+            "Guilhabreu",
+            "S. Sim\u00e3o da Junqueira",
+            "Labruge",
+            "Macieira da Maia",
+            "Malta",
+            "Mindelo",
+            "Modivas",
+            "Mosteir\u00f3",
+            "Outeiro Maior",
+            "Parada",
+            "Retorta",
+            "Rio Mau",
+            "Tougues",
+            "Touguinha",
+            "Touguinh\u00f3",
+            "Vair\u00e3o",
+            "Vila Ch\u00e3",
+            "Vila do Conde",
+            "Vilar",
+            "Vilar de Pinheiro"
+        ],
+        "name": "Vila do Conde"
+    },
+    "287": {
+        "freguesias": [
+            "Almagreira",
+            "Santa B\u00e1rbara",
+            "Santo Esp\u00edrito",
+            "S\u00e3o Pedro",
+            "Vila do Porto"
+        ],
+        "name": "Vila do Porto"
+    },
+    "288": {
+        "freguesias": [
+            "Assares",
+            "Benlhevai",
+            "Candoso",
+            "Carvalho de Egas",
+            "Freixiel",
+            "Lod\u00f5es",
+            "Mour\u00e3o",
+            "Nabo",
+            "R\u00f3ios",
+            "Sam\u00f5es",
+            "Sampaio",
+            "Santa Comba de Vilari\u00e7a",
+            "Seixo de Manhoses",
+            "Trindade",
+            "Vale de Torno",
+            "Vale Frechoso",
+            "Vila Flor",
+            "Vilarinho das Azenhas",
+            "Vilas Boas"
+        ],
+        "name": "Vila Flor"
+    },
+    "289": {
+        "freguesias": [
+            "Alhandra",
+            "Alverca do Ribatejo",
+            "Cachoeiras",
+            "Calhandriz",
+            "Castanheira do Ribatejo",
+            "Forte da Casa",
+            "P\u00f3voa de Santa Iria",
+            "S\u00e3o Jo\u00e3o dos Montes",
+            "Sobralinho",
+            "Vialonga",
+            "Vila Franca de Xira"
+        ],
+        "name": "Vila Franca de Xira"
+    },
+    "290": {
+        "freguesias": [
+            "\u00c1gua de Alto",
+            "Ponta Gar\u00e7a",
+            "Ribeira das Tainhas",
+            "Ribeira Seca",
+            "Vila Franca do Campo (S\u00e3o Miguel)",
+            "Vila Franca do Campo (S\u00e3o Pedro)"
+        ],
+        "name": "Vila Franca do Campo"
+    },
+    "291": {
+        "freguesias": [
+            "Atalaia",
+            "Moita do Norte",
+            "Praia do Ribatejo",
+            "Tancos",
+            "Vila Nova da Barquinha"
+        ],
+        "name": "Vila Nova da Barquinha"
+    },
+    "292": {
+        "freguesias": [
+            "Campos",
+            "Candemil",
+            "Cornes",
+            "Covas",
+            "Gondar",
+            "Gondar\u00e9m",
+            "Loivo",
+            "Lovelhe",
+            "Mentrestido",
+            "Nogueira",
+            "Reboreda",
+            "Sapardos",
+            "Sopo",
+            "Vila Me\u00e3",
+            "Vila Nova de Cerveira"
+        ],
+        "name": "Vila Nova de Cerveira"
+    },
+    "293": {
+        "freguesias": [
+            "Abade de Vermoim",
+            "Antas",
+            "Arnoso (Santa Eul\u00e1lia)",
+            "Arnoso (Santa Maria)",
+            "Avidos",
+            "Bairro",
+            "Bente",
+            "Brufe",
+            "Cabe\u00e7udos",
+            "Calend\u00e1rio",
+            "Carreira",
+            "Castel\u00f5es",
+            "Caval\u00f5es",
+            "Cruz",
+            "Del\u00e3es",
+            "Esmeriz",
+            "Fradelos",
+            "Gavi\u00e3o",
+            "Gondifelos",
+            "Jesufrei",
+            "Joane",
+            "Lagoa",
+            "Landim",
+            "Lemenhe",
+            "Louro",
+            "Lousado",
+            "Mogege",
+            "Mouquim",
+            "Nine",
+            "Novais (Vila Nova de Famalic\u00e3o)",
+            "Oliveira (Santa Maria)",
+            "Oliveira (S\u00e3o Mateus)",
+            "Outiz",
+            "Pedome",
+            "Portela",
+            "Pousada de Saramagos",
+            "Requi\u00e3o",
+            "Riba de Ave",
+            "Ribeir\u00e3o",
+            "Ruiv\u00e3es",
+            "Seide (S\u00e3o Miguel)",
+            "Seide (S\u00e3o Paio)",
+            "Sezures",
+            "Telhado",
+            "Vale (S\u00e3o Cosme)",
+            "Vale (S\u00e3o Martinho)",
+            "Vermoim",
+            "Vila Nova de Famalic\u00e3o",
+            "Vilarinho das Cambas"
+        ],
+        "name": "Vila Nova de Famalic\u00e3o"
+    },
+    "294": {
+        "freguesias": [
+            "Almendra",
+            "Castelo Melhor",
+            "Cedovim",
+            "Ch\u00e3s",
+            "Cust\u00f3ias",
+            "Freixo de Num\u00e3o",
+            "Horta",
+            "M\u00f3s",
+            "Mur\u00e7a",
+            "Muxagata",
+            "Num\u00e3o",
+            "Santa Comba",
+            "Santo Amaro",
+            "Sebadelhe",
+            "Seixas",
+            "Tou\u00e7a",
+            "Vila Nova de Foz C\u00f4a"
+        ],
+        "name": "Vila Nova de Foz C\u00f4a"
+    },
+    "295": {
+        "freguesias": [
+            "Arcozelo",
+            "Avintes",
+            "Canelas",
+            "Canidelo",
+            "Crestuma",
+            "Grij\u00f3",
+            "Gulpilhares",
+            "Lever",
+            "Madalena",
+            "Mafamude",
+            "Olival",
+            "Oliveira do Douro",
+            "Pedroso",
+            "Perosinho",
+            "Sandim",
+            "Santa Marinha",
+            "S\u00e3o F\u00e9lix da Marinha",
+            "S\u00e3o Pedro da Afurada",
+            "Seixezelo",
+            "Sermonde",
+            "Serzedo",
+            "Valadares",
+            "Vilar de Andorinho",
+            "Vilar do Para\u00edso"
+        ],
+        "name": "Vila Nova de Gaia"
+    },
+    "296": {
+        "freguesias": [
+            "Alhais",
+            "Fr\u00e1guas",
+            "Pendilhe",
+            "Queiriga",
+            "Touro",
+            "Vila Cova \u00e0 Coelheira",
+            "Vila Nova de Paiva"
+        ],
+        "name": "Vila Nova de Paiva"
+    },
+    "297": {
+        "freguesias": [
+            "Arrifana",
+            "Lavegadas",
+            "Santo Andr\u00e9 de Poiares",
+            "S\u00e3o Miguel de Poiares"
+        ],
+        "name": "Vila Nova de Poiares"
+    },
+    "298": {
+        "freguesias": [
+            "Afonsim",
+            "Alfarela de Jales",
+            "Bornes de Aguiar",
+            "Bragado",
+            "Capeludos",
+            "Gouv\u00e3es da Serra",
+            "Lixa do Alv\u00e3o",
+            "Parada de Monteiros",
+            "Pensalvos",
+            "Sabroso de Aguiar",
+            "Santa Marta da Montanha",
+            "Soutelo de Aguiar",
+            "Tel\u00f5es",
+            "Tresminas",
+            "Valoura",
+            "Vila Pouca de Aguiar",
+            "Vreia de Bornes",
+            "Vreia de Jales"
+        ],
+        "name": "Vila Pouca de Aguiar"
+    },
+    "299": {
+        "freguesias": [
+            "Aba\u00e7as",
+            "Adoufe",
+            "Andr\u00e3es",
+            "Arroios",
+            "Borbela",
+            "Campe\u00e3",
+            "Constantim",
+            "Ermida",
+            "Folhadela",
+            "Gui\u00e3es",
+            "Justes",
+            "Lamares",
+            "Lamas de Olo",
+            "Lordelo",
+            "Mateus",
+            "Mondr\u00f5es",
+            "Mou\u00e7\u00f3s",
+            "Nogueira",
+            "Parada de Cunhos",
+            "Pena",
+            "Quint\u00e3",
+            "S\u00e3o Tom\u00e9 do Castelo",
+            "Torgueda",
+            "Vale de Nogueiras",
+            "Vila Cova",
+            "Vila Marim",
+            "Vila Real (Nossa Senhora da Concei\u00e7\u00e3o)",
+            "Vila Real (S\u00e3o Dinis)",
+            "Vila Real (S\u00e3o Pedro)",
+            "Vilarinho de Samard\u00e3"
+        ],
+        "name": "Vila Real"
+    },
+    "300": {
+        "freguesias": [
+            "Monte Gordo",
+            "Vila Nova de Cacela",
+            "Vila Real de Santo Ant\u00f3nio"
+        ],
+        "name": "Vila Real de Santo Ant\u00f3nio"
+    },
+    "301": {
+        "freguesias": [
+            "Fratel",
+            "Perais",
+            "Sarnadas de R\u00f3d\u00e3o",
+            "Vila Velha de R\u00f3d\u00e3o"
+        ],
+        "name": "Vila Velha de R\u00f3d\u00e3o"
+    },
+    "302": {
+        "freguesias": [
+            "Aboim da N\u00f3brega",
+            "Arcozelo",
+            "At\u00e3es",
+            "Ati\u00e3es",
+            "Az\u00f5es",
+            "Barbudo",
+            "Barros",
+            "Cabanelas",
+            "Carreiras (Santiago)",
+            "Carreiras (S\u00e3o Miguel)",
+            "Cerv\u00e3es",
+            "Codeceda",
+            "Coucieiro",
+            "Covas",
+            "Doss\u00e3os",
+            "Duas Igrejas",
+            "Escariz (S\u00e3o Mamede)",
+            "Escariz (S\u00e3o Martinho)",
+            "Esqueiros",
+            "Freiriz",
+            "Geme",
+            "Go\u00e3es",
+            "Godinha\u00e7os",
+            "Gomide",
+            "Gondi\u00e3es",
+            "Gondomar",
+            "Laje",
+            "Lanhas",
+            "Loureira",
+            "Marrancos",
+            "M\u00f3s",
+            "Moure",
+            "Nevogilde",
+            "Oleiros",
+            "Oriz (Santa Marinha)",
+            "Oriz (S\u00e3o Miguel)",
+            "Parada de Gatim",
+            "Pass\u00f3",
+            "Pedregais",
+            "Penascais",
+            "Pico",
+            "Pico de Regalados",
+            "Ponte",
+            "Portela das Cabras",
+            "Prado (S\u00e3o Miguel)",
+            "Rio Mau",
+            "Sabariz",
+            "Sande",
+            "Soutelo",
+            "Travass\u00f3s",
+            "Turiz",
+            "Valbom (S\u00e3o Martinho)",
+            "Valbom (S\u00e3o Pedro)",
+            "Valdreu",
+            "Val\u00f5es",
+            "Vila de Prado",
+            "Vila Verde",
+            "Vilarinho"
+        ],
+        "name": "Vila Verde"
+    },
+    "303": {
+        "freguesias": [
+            "Bencatel",
+            "Ciladas",
+            "Pardais",
+            "Vila Vi\u00e7osa (Concei\u00e7\u00e3o)",
+            "Vila Vi\u00e7osa (S\u00e3o Bartolomeu)"
+        ],
+        "name": "Vila Vi\u00e7osa"
+    },
+    "304": {
+        "freguesias": [
+            "Algoso",
+            "Angueira",
+            "Argozelo",
+            "Avelanoso",
+            "Ca\u00e7arelhos",
+            "Campo de V\u00edboras",
+            "Car\u00e7\u00e3o",
+            "Matela",
+            "Pinelo",
+            "Santulh\u00e3o",
+            "Uva",
+            "Vale de Frades",
+            "Vilar Seco",
+            "Vimioso"
+        ],
+        "name": "Vimioso"
+    },
+    "305": {
+        "freguesias": [
+            "Agroch\u00e3o",
+            "Alvaredos",
+            "Candedo",
+            "Celas",
+            "Curopos",
+            "Edral",
+            "Edrosa",
+            "Ervedosa",
+            "Fresulfe",
+            "Mofreita",
+            "Moimenta",
+            "Montouto",
+            "Nunes",
+            "Ousilh\u00e3o",
+            "Pa\u00e7\u00f3",
+            "Penhas Juntas",
+            "Pinheiro Novo",
+            "Quir\u00e1s",
+            "Rebordelo",
+            "Santa Cruz",
+            "Santalha",
+            "S\u00e3o Jomil",
+            "Sobreir\u00f3 de Baixo",
+            "Soeira",
+            "Travanca",
+            "Tuizelo",
+            "Vale das Fontes",
+            "Vale de Janeiro",
+            "Vila Boa de Ousilh\u00e3o",
+            "Vila Verde",
+            "Vilar de Lomba",
+            "Vilar de Ossos",
+            "Vilar de Peregrinos",
+            "Vilar Seco de Lomba",
+            "Vinhais"
+        ],
+        "name": "Vinhais"
+    },
+    "306": {
+        "freguesias": [
+            "Abraveses",
+            "Barreiros",
+            "Boa Aldeia",
+            "Bodiosa",
+            "Calde",
+            "Campo",
+            "Cavern\u00e3es",
+            "Cep\u00f5es",
+            "Cota",
+            "Couto de Baixo",
+            "Couto de Cima",
+            "Fail",
+            "Farminh\u00e3o",
+            "Fragosela",
+            "Lordosa",
+            "Mund\u00e3o",
+            "Orgens",
+            "Povolide",
+            "Ranhados",
+            "Repeses",
+            "Ribafeita",
+            "Rio de Loba",
+            "Santos Evos",
+            "S\u00e3o Cipriano",
+            "S\u00e3o Jo\u00e3o de Lourosa",
+            "S\u00e3o Pedro de France",
+            "S\u00e3o Salvador",
+            "Silgueiros",
+            "Torredeita",
+            "Vil de Souto",
+            "Vila Ch\u00e3 de S\u00e1",
+            "Viseu (Cora\u00e7\u00e3o de Jesus)",
+            "Viseu (Santa Maria de Viseu)",
+            "Viseu (S\u00e3o Jos\u00e9)"
+        ],
+        "name": "Viseu"
+    },
+    "307": {
+        "freguesias": [
+            "Infias",
+            "Santa Eul\u00e1lia",
+            "Tagilde",
+            "Santo Adri\u00e3o de Vizela",
+            "S\u00e3o Jo\u00e3o de Caldas de Vizela",
+            "S\u00e3o Miguel de Caldas de Vizela",
+            "S\u00e3o Paio de Vizela"
+        ],
+        "name": "Vizela"
+    },
+    "308": {
+        "freguesias": [
+            "Alcofra",
+            "Cambra",
+            "Campia",
+            "Carvalhal de Vermilhas",
+            "Fataun\u00e7os",
+            "Figueiredo das Donas",
+            "Fornelo do Monte",
+            "Pa\u00e7os de Vilharigues",
+            "Queir\u00e3",
+            "S\u00e3o Miguel do Mato",
+            "Ventosa",
+            "Vouzela"
+        ],
+        "name": "Vouzela"
+    }
+}

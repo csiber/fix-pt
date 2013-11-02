@@ -17,7 +17,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle _fixrequests" data-toggle="dropdown">Fix Requests <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">View Fix Requests</a></li>
+                            <li><a href="{{ URL::to('fixrequests/index') }}">View Fix Requests</a></li>
                             <li><a href="#">Search Fix Requests</a></li>
                             <li><a href="{{ URL::to('fixrequests/create') }}">Add Fix Request</a></li>
                             <!--
@@ -27,12 +27,26 @@
                             <li><a href="#">One more separated link</a></li>
                             -->
                         </ul>
-                    </li>                
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle _promotionpages" data-toggle="dropdown">Promotion Pages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">View Promotion Pages</a></li>
+                            <li><a href="#">Search Promotion Pages</a></li>
+                            <li><a href="{{ URL::to('promotionpages/create') }}">Create Promotion Page</a></li>
+                            <!--
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                            -->
+                        </ul>
+                    </li>               
                 </ul>
                 @if (Auth::check())
                 <ul class="nav navbar-nav navbar-right">                    
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logged in as <b>{{{ (Auth::user()->full_name)?Auth::user()->full_name:Auth::user()->username  }}} </b><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{{ (Auth::user()->full_name)?Auth::user()->full_name:Auth::user()->username  }}} <b class="caret"></b></a>
                         <ul class="dropdown-menu">   
                             <li><a href="{{{ URL::to('users/dashboard') }}}">Fix.pt Dashboard</a></li>
                             <li><a href="{{{ URL::to('users/profile') }}}">User Profile</a></li>
@@ -42,68 +56,17 @@
                     </li>
                 </ul>                
                 @else                
-                {{ Form::open(array(
-                "autocomplete" => "off",
-                "url" => "users/login",  
-                "id"=>"login-form",
-                "class" => "navbar-form navbar-right"))}}
                 <form class="navbar-form navbar-right" action="users/login">
-                    <div class="form-group">
-                        {{ Form::text("username", Input::old("username"), 
-                        ["placeholder" => "username", "class" => "form-control input-sm"]) }}
-                    </div>
-                    <div class="form-group">
-                        {{ Form::password("password", ["placeholder" => "Password",
-                        "class"=>"form-control input-sm"]) }}
-                    </div>
-                    <button type="submit" form="login-form" class="btn btn-success btn-sm">Sign In</button>
-                    <a class="btn btn-sm btn-primary" href="{{ URL::to('users/fb') }}"><i class="fa fa-facebook-square"></i> Login with Facebook</a>
+                    <button data-toggle="modal" href="#signInModal" class="btn btn-success btn-sm">Login</button>
                     <button data-toggle="modal" href="#signUpModal" class="btn btn-default btn-sm">Sign Up</button>
-                    {{ Form::close() }}
-                    @endif
+                </form>
+                @endif
             </div><!--/.nav-collapse -->  
         </div>      
     </div>
 </header>
 
-<!-- Modal -->
-<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Sign Up</h4>
-            </div>
-            <div class="modal-body">
-                {{ Form::open(array("url" => "users/create",
-                "autocomplete" => "off",
-                "id"=>"signup-form","role"=>"form"))}}                
-                <div class="form-group">
-                    {{ Form::label("username", "Name") }}
-                    {{ Form::text("username", Input::old("username"), 
-                    ["placeholder" => "Enter Username", "class"=>"form-control", "id"=>"username"]) }}                        
-                </div>
-                <div class="form-group">
-                    {{ Form::label("email", "Email") }}
-                    {{ Form::text("email", Input::old("email"), 
-                    array("placeholder" => "Enter email", "class"=>"form-control", "id"=>"email")) }}                        
-                </div>
-                <div class="form-group"> 
-                    {{ Form::label("password", "Password") }}
-                    {{ Form::password('password', array("class"=>"form-control", "placeholder"=>"Password"))}}
-
-                </div>
-                <div class="form-group">                        
-                    {{ Form::label("confirm_password", "Confirm Password") }}
-                    {{ Form::password('confirm_password', array("class"=>"form-control", "placeholder"=>"Confirm Password"))}}
-
-                </div>
-                {{ Form::close() }}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" form="signup-form" class="btn btn-success">Sign Up</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+@if (!Auth::check())
+    @include('signInModal')
+    @include('signUpModal')
+@endif
