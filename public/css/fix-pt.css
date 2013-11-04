@@ -46,6 +46,14 @@ body {
   color: #fff;
 }
 
+a {
+  color: #e74c3c;
+}
+
+a:hover, a:focus {
+  color: #c0392b;
+}
+
 /*the original is top: 70 and bottom: 0*/
 #wrap > .jumbotron {
   padding-top: 120px;
@@ -190,6 +198,7 @@ body._fixrequests .navbar-inverse .navbar-nav li > a._fixrequests,
 
 .bootstrap-tagsinput {
   margin-bottom: 0;
+  border-radius: 0;
 }
 
 fieldset .form-group {
@@ -202,6 +211,10 @@ fieldset .form.group:last-child {
 
 .sidebar-steps {
   padding: 20px;
+}
+
+.sidebar-steps h3 {
+  margin-top: 5px;
 }
 
 .sidebar-ol {
@@ -238,3 +251,93 @@ fieldset .form.group:last-child {
   color: #555;
 }
 
+.nav-pills > li > a {
+  border-radius: 3px;
+  padding: 6px 10px; 
+}
+
+.nav-pills>li.active>a, 
+.nav-pills>li.active>a:hover, 
+.nav-pills>li.active>a:focus {
+  background-color: #e74c3c;
+}
+
+.fixrequests {
+  margin-top: 20px;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.fixrequests .panel {
+  border-radius: 0;
+  margin-top: 15px;
+}
+
+.fixrequests .panel:first-child {
+  margin-top: 0;
+}
+
+.fixrequests .panel .panel-footer {
+  padding: 0px;
+  background-color: #fff;
+}
+
+.fixrequests .panel .panel-footer .row {
+  margin-left: 0;
+  margin-right: 0;
+  color: #888;
+} 
+
+.fixrequests .panel .panel-footer .row .col-md-3 {
+  padding: 5px;
+  text-align: center;
+}
+
+.fixrequests .panel .panel-footer .row .col-md-3:not(:first-child) {
+  border-left: 1px solid #ddd;
+}
+
+.fixrequests .panel .panel-body {
+  padding-bottom: 0;
+  position: relative;
+}
+
+.fixrequests .panel .panel-body h4{
+  margin-top: 0;
+}
+
+.fixrequests .panel .tags {
+  margin-bottom: 10px;
+}
+
+.panel-body .category {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  content: "";
+}
+
+.panel-body .category.one {
+  border-top-color: #2ecc71;
+  border-right-color: #2ecc71;
+}
+
+.panel-body .category.two {
+  border-top-color: #3498db;
+  border-right-color: #3498db;
+}
+
+.panel-body .category.three {
+  border-top-color: #f39c12;
+  border-right-color: #f39c12;
+}
+
+.panel-body .category.four {
+  border-top-color: #e74c3c;
+  border-right-color: #e74c3c;
+}

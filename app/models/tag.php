@@ -1,6 +1,8 @@
 <?php
 
 class Tag extends Eloquent {
+
+    protected $fillable = array('name');
     
     public static function exists($name)
     {
@@ -9,7 +11,12 @@ class Tag extends Eloquent {
 
     public static function getTagByName($name)
     {
-        return Tag::where('name', '=', $name)->get();
+        return Tag::where('name', '=', $name)->first();
+    }
+
+    public function fixrequests()
+    {
+        return $this->belongsToMany('FixRequest', 'fix_requests_tags', 'fix_request_id', 'tag_id');
     }
 }
 

@@ -15,24 +15,26 @@
                 "role" => "form",
                 "files" => true)
             )}}
-                <div class="form-group">
-                    {{ Form::label("title", "Title") }}
-                    {{ Form::text("title", "", array(
+                <div class="form-group <?php echo ($errors->has('title')) ? "has-error" : ""; ?>">
+                    {{ Form::label("title", "Title", array("class" => "control-label")) }}
+                    {{ Form::text("title", Input::old('title'), array(
                         "id" => "fixrequest-title",
                         "placeholder" => "enter a short but explicit title",
                         "class" => "form-control"
                     ))}}
+                    <p class="help-block"><?php echo $errors->first('title') ?></p>
                 </div>
-                <div class="form-group">
-                    {{ Form::label("description", "Description") }}
+                <div class="form-group <?php echo ($errors->has('description')) ? "has-error" : ""; ?>">
+                    {{ Form::label("description", "Description", array("class" => "control-label")) }}
                     {{ Form::textarea("description", "", array(
                         "class" => "form-control",
                         "rows" => 6,
                         "placeholder" => "enter a detailed description of the task"
                     ))}}
+                    <p class="help-block"><?php echo $errors->first('description') ?></p>
                 </div>
                 <div class="form-group">
-                    <label style="display: block;" for="exampleInputEmail1">Category</label>
+                    <label style="display: block;" for="category">Category</label>
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-primary">
                             {{ Form::radio("category", "1", array("id" => "category_1")) }} Home/Garden
@@ -46,42 +48,47 @@
                         <label class="btn btn-primary">
                             {{ Form::radio("category", "4", array("id" => "category_4")) }} Appliances
                         </label>
+                        <p class="help-block"><?php echo $errors->first('category') ?></p>
                     </div>
                 </div>
-                <div class="form-group">
-                    {{ Form::label("tags", "Tags") }}
+                <div class="form-group <?php echo ($errors->has('tags')) ? "has-error" : ""; ?>">
+                    {{ Form::label("tags", "Tags", array("class" => "control-label")) }}
                     {{ Form::text("tags", "", array(
                         "id" => "fixrequest-tags",
                         "placeholder" => "Enter at least 1 tag, maximum is 3",
                         "class" => "form-control",
                         "data-role" => "tagsinput"
                     ))}}
-                    <p class="help-block">Enter at least 1 tag, maximum is 3</p>
+                    <?php
+                        echo ($errors->has('tags')) ? '<p class="help-block">'.$errors->first('tags').'</p>' : '<p class="help-block">Enter at least 1 tag, maximum is 3</p>';
+                    ?>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="form-group">
-                        {{ Form::label("city", "City") }}
+                        <div class="form-group <?php echo ($errors->has('city')) ? "has-error" : ""; ?>">
+                        {{ Form::label("city", "City", array("class" => "control-label")) }}
                         {{ Form::text("city", "", array(
                             "class" => "form-control",
                             "id" => "fixrequest-city",
                             "placeholder" => "Enter city"
                         ))}}
+                        <p class="help-block"><?php echo $errors->first('city') ?></p>
                     </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="form-group">
-                        {{ Form::label("location", "Location") }}
+                        <div class="form-group <?php echo ($errors->has('location')) ? "has-error" : ""; ?>">
+                        {{ Form::label("location", "Location", array("class" => "control-label")) }}
                         {{ Form::text("location", "", array(
                             "class" => "form-control",
                             "id" => "fixrequest-location",
                             "placeholder" => "Enter location"
                         ))}}
+                        <p class="help-block"><?php echo $errors->first('location') ?></p>
                     </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    {{ Form::label("daysForOffer", "Available time to receive offers") }}
+                <div class="form-group <?php echo ($errors->has('daysForOffer')) ? "has-error" : ""; ?>">
+                    {{ Form::label("daysForOffer", "Available time to receive offers", array("class" => "control-label")) }}
                     {{ Form::select("daysForOffer", array(
                         "1" => "3 days",
                         "2" => "1 day",
@@ -89,9 +96,10 @@
                         "4" => "2 weeks",
                         "5" => "1 month"
                     ), null, array("class" => "form-control"))}}
+                    <p class="help-block"><?php echo $errors->first('daysForOffer') ?></p>
                 </div>
-                <div class="form-group">
-                    {{ Form::label("value", "Available budget") }}
+                <div class="form-group <?php echo ($errors->has('value')) ? "has-error" : ""; ?>">
+                    {{ Form::label("value", "Available budget", array("class" => "control-label")) }}
                     <div class="input-group">
                         {{ Form::text("value", "", array(
                         "class" => "form-control",
@@ -100,10 +108,12 @@
                         ))}}
                         <span class="input-group-addon">€</span>
                     </div>
+                    <p class="help-block"><?php echo $errors->first('value') ?></p>
                 </div>
-                <div class="form-group">
-                    {{ Form::label("photos", "Add photos") }}
+                <div class="form-group <?php echo ($errors->has('photos')) ? "has-error" : ""; ?>">
+                    {{ Form::label("photos", "Add photos", array("class" => "control-label")) }}
                     {{ Form::file('photos[]', array('multiple' => true))}}
+                    <p class="help-block"><?php echo $errors->first('photos') ?></p>
                 </div>
                 <button type="submit" class="btn btn-success">Submit</button>
             <!-- </form> -->

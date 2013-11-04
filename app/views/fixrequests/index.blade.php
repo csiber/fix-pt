@@ -8,35 +8,40 @@
             <li class="active">Fix Requests</li>
         </ol>
         <div class="well well-lg">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <td>#</td>
-                        <td>Title</td>
-                        <td>Text</td>
-                        <td>Posted by</td>
-                        <td>Date</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $count = 1;?>
-
-                    @foreach($fixrequests as $request)
-                    <tr>
-                        <td><?php echo $count++; ?> </td>
-                        <td>Sem titulo</td>
-                        <td>{{ $request->text}}</td>
-                        <td>{{ $request->name}}</td>
-                        <td>{{ $request->creation_date}}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#">Recent</a></li>
+                <li><a href="#">Popular</a></li>
+                <li><a href="#">No offers</a></li>
+            </ul>
+            <div class="fixrequests">
+                @foreach($fixrequests as $fixrequest)
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4>{{$fixrequest->title}}</h4>
+                        <p>{{$fixrequest->text}}</p>
+                        <div class="tags">
+                            <span class="tag label brand-bc">smartphone</span>
+                            <span class="tag label brand-bc">lcd</span>
+                            <span class="tag label brand-bc">display</span>
+                        </div>
+                        <span class="category one"></span>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-3"><i class="fa fa-user"></i> {{$fixrequest->username}}</div>
+                            <div class="col-md-3"><i class="fa fa-calendar-o"></i> {{$fixrequest->created_at_pretty}}</div>
+                            <div class="col-md-3"><i class="fa fa-location-arrow"></i> not working yet</div>
+                            <div class="col-md-3"><i class="fa fa-clock-o"></i> not working yet</div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
     <div class="col-md-3">
         <div class="panel panel-default">
-            <div class="panel-heading brand-bc">
+            <div class="panel-heading">
                 <h3 class="panel-title">Favorite Tags</h3>
             </div>
             <div class="panel-body">
@@ -44,7 +49,7 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <div class="panel-heading brand-bc">
+            <div class="panel-heading">
                 <h3 class="panel-title">Popular Tags</h3>
             </div>
             <div class="panel-body">
@@ -52,13 +57,14 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <div class="panel-heading brand-bc">
+            <div class="panel-heading">
                 <h3 class="panel-title">Recent Tags</h3>
             </div>
             <div class="panel-body">
                 This will show the most recent used tags
             </div>
         </div>
+    </div>
 </div>
 
 @stop
