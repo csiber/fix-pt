@@ -7,10 +7,32 @@ class FixRequestController extends BaseController {
     *
     * @return Response
     */
-    public function getIndex()
+    public function getIndex($sort=null)
     {
-        $fixrequests = FixRequest::all();
-        return View::make('fixrequests.index', array('fixrequests' => $fixrequests));
+        if ($sort == "recent") {
+            $fixrequests = FixRequest::orderBy('created_at', 'DESC')->paginate(5);
+        } else if ($sort == "popular") {
+            $fixrequests = FixRequest::paginate(5);
+        } else if ($sort == "no_offers") {
+            $fixrequests = FixRequest::paginate(10);
+        } else {
+            return Redirect::to('fixrequests/index/recent');
+        }        
+
+        foreach($fixrequests as &$fixrequest) {
+            $post = Post::find($fixrequest['post_id']);
+            $user = User::find($post['user_id']);
+            
+            $fixrequest['text'] = UtilFunctions::truncateString($post['text'], 220);
+            $fixrequest['user_id'] = $post['user_id'];
+            $fixrequest['username'] = $user['username'];
+            $fixrequest['user_image'] = $user['user_image'];
+            $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
+            $fixrequest['category'] = $fixrequest->category;
+            $fixrequest['category_class'] = UtilFunctions::getCategoryIdWord($fixrequest->category['id']);
+            $fixrequest['tags'] = $fixrequest->tags;
+        }
+        return View::make('fixrequests.index', array('fixrequests' => $fixrequests, "sort" => $sort));
     }
 
     /**
@@ -40,10 +62,11 @@ class FixRequestController extends BaseController {
     {
         $rules = array(
             'title' => 'required|min:4',
-            'category' => 'required|in:1,2,3,4',
+            'category' => 'required|in:1,2,3,4,5',
             'description' => 'required|min:20',
             'tags' => 'required',
             'city' => 'required',
+            'location' => 'required',
             'daysForOffer' => 'required|numeric',
             'value' => 'required|numeric'
         );
@@ -57,55 +80,38 @@ class FixRequestController extends BaseController {
                 $notifiable = new Notifiable();
                 $notifiable->save();
 
-                $post = new Post();
-                $fixrequest = new FixRequest();
+                $post = new Post(array(
+                    "text" => Input::get('description'),
+                    "user_id" => 1
+                ));
+                $post = $notifiable->post()->save($post);
 
-                $post->text = Input::get('description');
-                $post->notifiable_id = $notifiable->id;
-                $post->user_id = 1;
-                $post->save();
+                $fixrequest = new FixRequest(array(
+                    'title' => Input::get('title'),
+                    'state' => 'active',
+                    'daysForOffer' => Input::get('daysForOffer'),
+                    'value' => Input::get('value')
+                ));
 
-                $fixrequest->post_id = $post->id;
-                $fixrequest->title = Input::get("title");
-                $fixrequest->state = "active";
-                $fixrequest->daysForOffer = Input::get('daysForOffer');
-                $fixrequest->value = Input::get('value');
-                $fixrequest->save();
+                $category = Category::find(Input::get('category'));
+                $fixrequest->category()->associate($category);
+                $fixrequest = $post->fixrequest()->save($fixrequest);
 
                 $tag_list = explode(",", Input::get('tags'));
                 foreach($tag_list as $tag_name) {
+                    $tag = null;
 
-                    if (false) {
-                    // if(!Tag::exists($tag_name)) {
-                        $tag = new Tag();
-                        $tag->name = $tag_name;
+                    if(!Tag::exists($tag_name)) {
+                        $tag = new Tag(array("name" => $tag_name));
                         $tag->save();
-
-                        $fixrequesttag = new FixRequestsTag();
-                        $fixrequesttag->tag_id = $tag->id;
-                        $fixrequesttag->fix_request_id = $fixrequest->id;
-                        $fixrequesttag->save();
                     } else {
                         $tag = Tag::getTagByName($tag_name);
-                        
                     }
+                    $fixrequest->tags()->save($tag);
                 }
-                
             });
-
-            $fix_request = array(
-                'title' => Input::get("title"),
-                'category' => Input::get("category"),
-                'description' => Input::get("description"),
-                'tags' => explode(',', Input::get('tags')),
-                'city' => Input::get('city'),
-                'daysForOffer' => Input::get('daysForOffer'),
-                'value' => Input::get('value')
-            );
-
-            echo json_encode($fix_request);
+            return Redirect::to('fixrequests/index');
         } else {
-            var_dump($validator->errors()->all());
             return Redirect::to('fixrequests/create')->withInput()->withErrors($validator);
         }
         

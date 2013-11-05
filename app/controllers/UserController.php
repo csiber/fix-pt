@@ -40,9 +40,7 @@ class UserController extends BaseController {
             }
         }
 
-
-
-
+        //(new Email()).sendEmail();
 
         return Redirect::to('users/login')
                         ->withInput()
@@ -128,10 +126,9 @@ class UserController extends BaseController {
             $user->email = Input::get('email');
             $user->username = Input::get('username');
             $user->password = Hash::make(Input::get('password'));
+
             $user->save();
             Auth::login($user);
-
-            
 
             return Redirect::to("users/profile");
         }
@@ -155,4 +152,53 @@ class UserController extends BaseController {
         )));
     }
 
+    public function getFb()
+    {
+        $facebook = new Facebook(Config::get('facebook'));
+        $params = array(
+            'redirect_uri' => url('users/fb-callback'),
+            'scope' => 'email'
+            );
+        return Redirect::to($facebook->getLoginUrl($params));
+    }
+
+    public function getFbCallback()
+    {
+        $code = Input::get('code');
+
+        if(strlen($code) == 0) {
+            return Redirect::to('users/login')->with('message', 'There was an error communicating with Facebook');
+        }
+
+        $facebook = new Facebook(Config::get('facebook'));
+        $uid = $facebook->getUser();
+
+        if($uid == 0) {
+            return Redirect::to('users/login')->with('message', 'There was an error');
+        }
+
+        $me = $facebook->api('/me');
+
+        $profile = Profile::whereUid($uid)->first();
+        if(empty($profile)) {
+            $user = new User;
+            $user->email = $me['email'];
+            $user->username = $me['username'];
+            $user->save();
+
+            $profile = new Profile();
+            $profile->uid = $uid;
+            $profile->username = $me['username'];
+            $profile = $user->profiles()->save($profile);
+        }
+
+        $profile->access_token = $facebook->getAccessToken();
+        $profile->save();
+
+        $user = $profile->user;
+
+        Auth::login($user);
+
+        return Redirect::to('users/profile')->with('message', "Logged in with Facebook");
+    }
 }

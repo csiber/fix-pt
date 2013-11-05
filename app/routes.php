@@ -35,17 +35,15 @@ Route::group(["before" => "auth"], function()
 {
     # User Management    
     Route::get('users/logout', 'UserController@getLogout');
-    
     Route::get('users/index', 'UserController@getIndex');
-    
     Route::get('users/profile','UserController@getProfile');
-
     Route::get('users/confirm-user', 'UserController@getConfirmUser');
-    
     Route::get('users/edit', 'UserController@getEdit');
-    
     Route::post('users/edit', 'UserController@postEdit');
 
+    # Fix Requests management
+    // Route::get('fixrequests/create', 'FixRequestController@getCreate');
+    // Route::get('fixrequests/create', 'FixRequestController@postCreate');
 });
 
 /** ------------------------------------------
@@ -63,7 +61,7 @@ Route::controller('posts', 'PostController');
 Route::controller('promotionpages', 'PromotionPageController');
 
 // Home page
-Route::get('/', function(){
+Route::get('/', function() {
     return View::make('home');
 });
 

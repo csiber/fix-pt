@@ -1,4 +1,4 @@
-@extends('fixrequests/layout')
+@extends('promotionpages/layout')
 
 @section('content')
     <div class="row">

@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Fix.pt">
-        <meta name="author" content="ldsot3g3">
+        @include('metas')
         <link rel="shortcut icon" href="{{ URL::asset('favicon.png') }}">
-
         <title>Fix.PT - Users</title>
-
-        <!-- Bootstrap core CSS -->        
-        <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
-        <!-- Fix.pt CSS -->
-        <link rel="stylesheet" href="{{ URL::asset('css/fix-pt.css') }}">
+        @include('css')
 
     </head>
 
@@ -27,13 +19,7 @@
 
         
         @include('footer')
-
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="{{ URL::asset('js/jquery-1.10.2.min.js') }}"></script>
-        <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>        
+        @include('js')     
     </body>
 </html>
 

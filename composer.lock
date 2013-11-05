@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5d922f43e98d2e5f3988f83b13761ecf",
+    "hash": "95bf2b0eccefceb87eb910c12c0539db",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -526,6 +526,52 @@
                 "parser"
             ],
             "time": "2013-03-07 12:15:25"
+        },
+        {
+            "name": "facebook/php-sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/facebook-php-sdk.git",
+                "reference": "07deeed3074730a084bf032bc8ee4d54a1808e26"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk/zipball/07deeed3074730a084bf032bc8ee4d54a1808e26",
+                "reference": "07deeed3074730a084bf032bc8ee4d54a1808e26",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/facebook-php-sdk/contributors"
+                }
+            ],
+            "description": "Facebook PHP SDK",
+            "homepage": "https://github.com/facebook/facebook-php-sdk",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ],
+            "time": "2013-10-28 22:40:51"
         },
         {
             "name": "filp/whoops",
@@ -1819,9 +1865,9 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "facebook/php-sdk": 20
+    },
     "platform": [
 
     ],
