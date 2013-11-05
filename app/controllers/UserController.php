@@ -32,10 +32,10 @@ class UserController extends BaseController {
         $validator = Validator::make(Input::all(), $this->loginRules);
 
         if ($validator->passes()) {
-            $credentials = [
+            $credentials = array(
                 "username" => Input::get("username"),
                 "password" => Input::get("password")
-            ];
+            );
             if (Auth::attempt($credentials)) {                
                 return Redirect::to("users/profile");
             }
