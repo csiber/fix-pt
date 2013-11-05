@@ -13,11 +13,11 @@
                     "role" => "form")) }}                
                 <div class="form-group">
                     {{ Form::text("username", Input::old("username"), 
-                    ["placeholder" => "username", "class" => "form-control"]) }}
+                    array("placeholder" => "username", "class" => "form-control")) }}
                 </div>
                 <div class="form-group">
-                    {{ Form::password("password", ["placeholder" => "Password",
-                    "class"=>"form-control input-sm"]) }}
+                    {{ Form::password("password", array("placeholder" => "Password",
+                    "class"=>"form-control input-sm")) }}
                 </div>
                 <div class="form-group">
                     <div class="checkbox">

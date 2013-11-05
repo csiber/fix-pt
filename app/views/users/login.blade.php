@@ -3,12 +3,12 @@
 @section("content")
 <div class="modal-dialog">
     <div class="modal-content">
-        {{ Form::open([    
+        {{ Form::open(array(    
         "url"        => "users/login",
         "method"    => "post",
         "autocomplete" => "off",
         "id"=> "signin-form"
-        ]) }}
+        )) }}
 
         <div class="modal-header">
             <h4 class="modal-title">Sign In</h4>

@@ -13,7 +13,7 @@
                 <div class="form-group">
                     {{ Form::label("username", "Name") }}
                     {{ Form::text("username", Input::old("username"), 
-                    ["placeholder" => "Enter Username", "class"=>"form-control", "id"=>"username"]) }}                        
+                    array("placeholder" => "Enter Username", "class"=>"form-control", "id"=>"username")) }}                        
                 </div>
                 <div class="form-group">
                     {{ Form::label("email", "Email") }}
