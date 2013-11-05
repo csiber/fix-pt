@@ -14,6 +14,15 @@ class FixRequest extends Eloquent {
         return $this->belongsTo('Post');
     }
 
+    public function category()
+    {
+        return $this->belongsTo('Category');
+    }
+
+
+
+    
+
     public function fixoffers()
     {
         return $this->hasMany('FixOffer');
@@ -22,11 +31,6 @@ class FixRequest extends Eloquent {
     public function comments()
     {
         return $this->hasMany('Comment');
-    }
-
-    public function categories()
-    {
-        return $this->belongsTo('Category');
     }
 }
 

@@ -17,7 +17,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle _fixrequests" data-toggle="dropdown">Fix Requests <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ URL::to('fixrequests/index') }}">View Fix Requests</a></li>
+                            <li><a href="{{ URL::to('fixrequests/index/recent') }}">View Fix Requests</a></li>
                             <li><a href="#">Search Fix Requests</a></li>
                             <li><a href="{{ URL::to('fixrequests/create') }}">Add Fix Request</a></li>
                             <!--

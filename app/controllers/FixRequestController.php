@@ -7,21 +7,32 @@ class FixRequestController extends BaseController {
     *
     * @return Response
     */
-    public function getIndex()
+    public function getIndex($sort=null)
     {
-        $fixrequests = FixRequest::all();
+        if ($sort == "recent") {
+            $fixrequests = FixRequest::orderBy('created_at', 'DESC')->paginate(5);
+        } else if ($sort == "popular") {
+            $fixrequests = FixRequest::paginate(5);
+        } else if ($sort == "no_offers") {
+            $fixrequests = FixRequest::paginate(10);
+        } else {
+            return Redirect::to('fixrequests/index/recent');
+        }        
+
         foreach($fixrequests as &$fixrequest) {
             $post = Post::find($fixrequest['post_id']);
             $user = User::find($post['user_id']);
-            $tags = $post->tags;
-
+            
             $fixrequest['text'] = UtilFunctions::truncateString($post['text'], 220);
             $fixrequest['user_id'] = $post['user_id'];
             $fixrequest['username'] = $user['username'];
             $fixrequest['user_image'] = $user['user_image'];
             $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
+            $fixrequest['category'] = $fixrequest->category;
+            $fixrequest['category_class'] = UtilFunctions::getCategoryIdWord($fixrequest->category['id']);
+            $fixrequest['tags'] = $fixrequest->tags;
         }
-        return View::make('fixrequests.index', array('fixrequests' => $fixrequests));
+        return View::make('fixrequests.index', array('fixrequests' => $fixrequests, "sort" => $sort));
     }
 
     /**
@@ -51,7 +62,7 @@ class FixRequestController extends BaseController {
     {
         $rules = array(
             'title' => 'required|min:4',
-            'category' => 'required|in:1,2,3,4',
+            'category' => 'required|in:1,2,3,4,5',
             'description' => 'required|min:20',
             'tags' => 'required',
             'city' => 'required',
@@ -81,9 +92,10 @@ class FixRequestController extends BaseController {
                     'daysForOffer' => Input::get('daysForOffer'),
                     'value' => Input::get('value')
                 ));
-                $fixrequest = $post->fixrequest()->save($fixrequest);
 
-                // needs to add the category
+                $category = Category::find(Input::get('category'));
+                $fixrequest->category()->associate($category);
+                $fixrequest = $post->fixrequest()->save($fixrequest);
 
                 $tag_list = explode(",", Input::get('tags'));
                 foreach($tag_list as $tag_name) {

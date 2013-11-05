@@ -15,6 +15,13 @@ class UtilFunctions {
         }
     }
 
+    // improve this function
+    public static function getCategoryIdWord($id)
+    {
+        $numbers = array(1 => "one", 2 => "two", 3 => "three", 4 => "four", 5 => "five", null => null);
+        return $numbers[$id];
+    }
+
     public static function prettyDate($date) {
         $now = time();
         $diff_sec = $now - strtotime($date);
