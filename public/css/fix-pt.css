@@ -304,6 +304,10 @@ fieldset .form.group:last-child {
   position: relative;
 }
 
+.fixrequests .panel .panel-body p {
+  font-size: 1em;
+}
+
 .fixrequests .panel .panel-body:hover,
 .fixrequests .panel .panel-body:focus {
   cursor: pointer;

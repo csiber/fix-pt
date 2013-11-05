@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-9">
         <ol class="breadcrumb">
-            <li><a href="#">Fix.pt</a></li>
+            <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
             <li class="active">Fix Requests</li>
         </ol>
         <div class="well well-lg">
@@ -17,7 +17,7 @@
                 @foreach($fixrequests as $fixrequest)
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h4>{{{$fixrequest->title}}}</h4>
+                        <h4><a href="{{ URL::to('fixrequests/show/'.$fixrequest->id) }}">{{{$fixrequest->title}}}</a></h4>
                         <p>{{{$fixrequest->text}}}</p>
                         <div class="tags">
                             @foreach($fixrequest['tags'] as $tag)

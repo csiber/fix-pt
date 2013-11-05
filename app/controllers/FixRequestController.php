@@ -9,12 +9,14 @@ class FixRequestController extends BaseController {
     */
     public function getIndex($sort=null)
     {
+        $requests_per_page = 5;
+
         if ($sort == "recent") {
-            $fixrequests = FixRequest::with('tags')->orderBy('created_at', 'DESC')->paginate(5);
+            $fixrequests = FixRequest::recent_requests()->paginate($requests_per_page);
         } else if ($sort == "popular") {
-            $fixrequests = FixRequest::with('tags')->paginate(5);
+            $fixrequests = FixRequest::popular_requests()->paginate($requests_per_page);
         } else if ($sort == "no_offers") {
-            $fixrequests = FixRequest::with('tags')->has('fixoffers', "=", 0)->orderBy('created_at', 'ASC')->paginate(5);
+            $fixrequests = FixRequest::no_offers_requests()->paginate($requests_per_page); 
         } else {
             return Redirect::to('fixrequests/index/recent');
         }
@@ -42,7 +44,7 @@ class FixRequestController extends BaseController {
     public function getShow($id)
     {
         $fixrequest = FixRequest::find($id);
-        return View::make('fixrequests.show',
+        return View::make('fixrequests/show',
             array('fixrequest' => $fixrequest, 'id' => $id)
         );
     }
