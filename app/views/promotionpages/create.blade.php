@@ -21,6 +21,23 @@
                         ))}}
                     </div>
                     <div class="form-group">
+                        <label style="display: block;" for="exampleInputEmail1">Category</label>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary">
+                                {{ Form::radio("category", "1", array("id" => "option1")) }} Category 1
+                            </label>
+                            <label class="btn btn-primary">
+                                {{ Form::radio("category", "2", array("id" => "option1")) }} Category 2
+                            </label>
+                            <label class="btn btn-primary">
+                                {{ Form::radio("category", "3", array("id" => "option1")) }} Category 3
+                            </label>
+                            <label class="btn btn-primary">
+                                {{ Form::radio("category", "4", array("id" => "option1")) }} Category 4
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         {{ Form::label("body", "Body") }}
                         {{ Form::textarea("body", "", array(
                             "class" => "form-control",

@@ -4,21 +4,27 @@
 <table class="table">
     <thead>
         <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
+            <td>#</td>
+            <td>Title</td>
+            <td>Body</td>
+            <td>Location</td>
         </tr>
     </thead>
     <tbody>
         <?php $count = 1;?>
         
-        @foreach($promotion_pages as $promotion_page)
+        @foreach($fixrequests as $request)
         <tr>
-            <td><? echo $count++; ?>   </td>
-            <td>{{ $promotion_page->name }}</td>
-            <td>{{ $promotion_page->email}}</td></tr>
+            <td><?php echo $count++; ?> </td>
+            <td>Sem titulo</td>
+            <td>{{ $request->text}}</td>
+            <td>{{ $request->name}}</td>
+            <td>{{ $request->creation_date}}</td>
+
+        </tr>
         
         @endforeach
+
     </tbody>
 </table>
 

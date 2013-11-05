@@ -54,23 +54,23 @@ class PromotionPageController extends BaseController {
                 $notifiable->save();
 
                 $post = new Post();
-                $fixrequest = new PromotionPage();
+                $promotionpage = new PromotionPage();
 
-                $post->body = Input::get('body');
+                $post->text = Input::get('body');
                 $post->save();
 
-                $fixrequest->post_id = $post->id;
-                $fixrequest->title = Input::get("title");
-                $fixrequest->save();                             
+                $promotionpage->post_id = $post->id;
+                $promotionpage->title = Input::get("title");
+                $promotionpage->save();                             
             });
 
-            $fix_request = array(
+            $promotion_page = array(
                 'title' => Input::get("title"),
                 'body' => Input::get("body"),
                 'city' => Input::get('city')
             );
 
-            echo json_encode($fix_request);
+            echo json_encode($promotion_page);
         } else {
             var_dump($validator->errors()->all());
             return Redirect::to('promotionpages/create')->withInput()->withErrors($validator);
