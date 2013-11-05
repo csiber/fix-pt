@@ -10,14 +10,14 @@ class FixRequestController extends BaseController {
     public function getIndex($sort=null)
     {
         if ($sort == "recent") {
-            $fixrequests = FixRequest::orderBy('created_at', 'DESC')->paginate(5);
+            $fixrequests = FixRequest::with('tags')->orderBy('created_at', 'DESC')->paginate(5);
         } else if ($sort == "popular") {
-            $fixrequests = FixRequest::paginate(5);
+            $fixrequests = FixRequest::with('tags')->paginate(5);
         } else if ($sort == "no_offers") {
-            $fixrequests = FixRequest::paginate(10);
+            $fixrequests = FixRequest::with('tags')->has('fixoffers', "=", 0)->orderBy('created_at', 'ASC')->paginate(5);
         } else {
             return Redirect::to('fixrequests/index/recent');
-        }        
+        }
 
         foreach($fixrequests as &$fixrequest) {
             $post = Post::find($fixrequest['post_id']);
@@ -30,7 +30,6 @@ class FixRequestController extends BaseController {
             $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
             $fixrequest['category'] = $fixrequest->category;
             $fixrequest['category_class'] = UtilFunctions::getCategoryIdWord($fixrequest->category['id']);
-            $fixrequest['tags'] = $fixrequest->tags;
         }
         return View::make('fixrequests.index', array('fixrequests' => $fixrequests, "sort" => $sort));
     }

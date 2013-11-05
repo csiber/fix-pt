@@ -25,7 +25,7 @@
                             @endforeach
                             <span class="tag pull-right label category-label">{{$fixrequest->category['name']}}</span>
                         </div>
-                        <!-- <span class="category {{$fixrequest->category_class}}"></span> -->
+                        <!-- <span class="category two"></span> -->
                     </div>
                     <div class="panel-footer">
                         <div class="row">
