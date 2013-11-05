@@ -31,7 +31,7 @@ Route::model('promotionpages', 'PromotionPage');
  *  Routes which requires authentication
  *  ------------------------------------------
  */
-Route::group(["before" => "auth"], function()
+Route::group(array("before" => "auth"), function()
 {
     # User Management    
     Route::get('users/logout', 'UserController@getLogout');

@@ -1,5 +1,6 @@
 <?php
 
+
 class UserController extends BaseController {
 
     public $rules = array(
@@ -40,7 +41,7 @@ class UserController extends BaseController {
             }
         }
 
-        //(new Email()).sendEmail();
+        
 
         return Redirect::to('users/login')
                         ->withInput()
@@ -126,9 +127,13 @@ class UserController extends BaseController {
             $user->email = Input::get('email');
             $user->username = Input::get('username');
             $user->password = Hash::make(Input::get('password'));
+            $user->confirmation_code = Hash::make(Input::get('email'));
 
             $user->save();
             Auth::login($user);
+
+            //var_dump($user)
+            Email::sendConfirmationEmail($user->email, $user->username, $user->confirmation_code);
 
             return Redirect::to("users/profile");
         }

@@ -2,30 +2,21 @@
 
 	class Email{
 
-		public bool sendEmail()
+		public static function sendEmail($email, $name)
 		{
 
+			//var_dump($email .' '. $name);die:
         //First try......
+			$user = array("email" => $email, "name" => $name);
+
 	        Mail::send('emails.auth.testmail', 
-	        			array('id' => 1), function($message) {
-	                    $message->to('mainstopable@gmail.com', 
-	                    			'instopable')->subject('Welcome!');
+	        			array('id' => 1), function($message) use ($user) {
+	                    
+	                    $message->to($user['email'], $user['name'])->subject('Welcome '. $user['name'] .'!');
 	                	}
 	        );
-        //Second try.......... 
-	        {
-	            $to = 'mainstopable@gmail.com';
-	            $subject = 'Testing sendmail.exe';
-	            $message = 'Hi, you just received an email using sendmail!';
-	            $headers = 'From: ldsot3g3@gmail.com' . "\r\n" .
-	                    'Reply-To: ldsot3g3@gmail.com' . "\r\n" .
-	                    'MIME-Version: 1.0' . "\r\n" .
-	                    'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
-	                    'X-Mailer: PHP/' . phpversion();
-	            mail($to, $subject, $message, $headers);
-	        }
-
-	        return true;
+        
+	        return null;
 		}
 
 	}

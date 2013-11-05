@@ -7,7 +7,7 @@
 		<h2>Fix.pt</h2>
 
 		<div>
-			Test email.
+			Confirmation email.
 		</div>
 	</body>
 </html>
