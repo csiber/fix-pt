@@ -127,7 +127,7 @@ class UserController extends BaseController {
             $user->email = Input::get('email');
             $user->username = Input::get('username');
             $user->password = Hash::make(Input::get('password'));
-            $user->confirmation_code = Hash::make(Input::get('email'));
+            $user->confirmation_code = str_replace("/","",Hash::make(Input::get('email')));
 
             $user->save();
             Auth::login($user);
@@ -137,6 +137,18 @@ class UserController extends BaseController {
 
             return Redirect::to("users/profile");
         }
+    }
+
+    public function getConfirmation($code) {
+        $user = User::whereRaw('confirmation_code = ?', array($code))->get();
+        
+        if($user[0] != null && $user[0]->id == Auth::user()->id)
+        {
+            //$user[0]->confirmed = 1;
+            User::where('confirmation_code', $code)->update(array('confirmed' => 1));
+        }
+
+        return Redirect::to("users/profile");
     }
 
     public function show($id) {

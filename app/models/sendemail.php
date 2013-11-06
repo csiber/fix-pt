@@ -2,15 +2,15 @@
 
 	class Email{
 
-		public static function sendEmail($email, $name)
+		public static function sendConfirmationEmail($email, $name, $code)
 		{
 
 			//var_dump($email .' '. $name);die:
         //First try......
-			$user = array("email" => $email, "name" => $name);
+			$user = array("email" => $email, "name" => $name, "code" => $code);
 
-	        Mail::send('emails.auth.testmail', 
-	        			array('id' => 1), function($message) use ($user) {
+	        Mail::send('emails.auth.confirmationemail', 
+	        			array('code' => $user['code']), function($message) use ($user) {
 	                    
 	                    $message->to($user['email'], $user['name'])->subject('Welcome '. $user['name'] .'!');
 	                	}
