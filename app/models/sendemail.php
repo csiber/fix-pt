@@ -19,6 +19,21 @@
 	        return null;
 		}
 
+		public static function sendResetPassEmail($email, $code)
+		{
+
+			$user = array("email" => $email, "code" => $code);
+
+	        Mail::send('emails.auth.resetpassemail', 
+	        			array('code' => $user['code']), function($message) use ($user) {
+	                    
+	                    $message->to($user['email'], "Anonymous")->subject('Reset Password.');
+	                	}
+	        );
+        
+	        return null;	
+		}
+
 	}
 
 ?>

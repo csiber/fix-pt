@@ -31,6 +31,9 @@ Route::model('promotionpages', 'PromotionPage');
  *  Routes which requires authentication
  *  ------------------------------------------
  */
+
+Route::post('users/reset-pass','UserController@postResetPass');
+Route::get('users/codetoresetpass','UserController@getCodeToResetPass');
 Route::group(array("before" => "auth"), function()
 {
     # User Management    

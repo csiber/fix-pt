@@ -7,11 +7,11 @@ class UserController extends BaseController {
         'username' => 'required|alpha_dash|unique:users',
         'email' => 'required|email|unique:users',
         'password' => 'required|between:4,11',
-        'confirm_password' => 'same:password',
+        'confirm_password' => 'same:password'
     );
     public $loginRules = array(
         'username' => 'required',
-        'password' => 'required',
+        'password' => 'required'
     );
 
     /**
@@ -47,6 +47,21 @@ class UserController extends BaseController {
                         ->withInput()
                         ->withErrors($validator);
         //var_dump($error = $validator->errors()->all());
+    }
+
+    public function postResetPass(){
+        
+        $email = Input::get('email');
+        $code = "12345exampleOnly";
+
+        Email::sendResetPassEmail($email,$code);
+        echo 'Email sent for reseting the password' ;
+    }
+
+    public function getCodeToResetPass($code)
+    {
+        var_dump($code);
+        die;
     }
 
     /**

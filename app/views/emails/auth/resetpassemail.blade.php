@@ -7,7 +7,8 @@
 		<h2>Fix.pt</h2>
 
 		<div>
-			Confirmation email.
+			Reset Password.<br>
+			Link: http://localhost/ldso/ldsot3g3/public/users/codetoresetpass/{{$code}}
 		</div>
 	</body>
 </html>

@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <a href="#">Forgot your password?</a>
+                    <a data-toggle="modal" data-target="#resetPassModal" href="#" >Forgot your password?</a>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Login</button>
