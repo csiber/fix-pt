@@ -33,7 +33,7 @@ Route::model('promotionpages', 'PromotionPage');
  */
 
 Route::post('users/reset-pass','UserController@postResetPass');
-Route::get('users/codetoresetpass',array('uses'=>'UserController@getCodeToResetPass'));
+Route::get('users/codetoresetpass/{code}','UserController@getCodeToResetPass');
 Route::group(array("before" => "auth"), function()
 {
     # User Management    
@@ -43,6 +43,7 @@ Route::group(array("before" => "auth"), function()
     Route::get('users/profile','UserController@getProfile');
     Route::get('users/confirm-user', 'UserController@getConfirmUser');
     Route::get('users/edit', 'UserController@getEdit');
+    Route::get('users/reset-password', 'UserController@showChangePassword');
     Route::post('users/edit', 'UserController@postEdit');
 
     # Fix Requests management

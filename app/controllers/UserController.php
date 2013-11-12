@@ -61,7 +61,36 @@ class UserController extends BaseController {
 
     public function getCodeToResetPass($code)
     {
-        var_dump($code);
+        $user = User::whereRaw('confirmation_code = ?', array($code))->get();
+        
+        if($user[0] != null)
+        {
+            //$user[0]->confirmed = 1;
+            $newPass = Hash::make("Fix.pt");
+            User::where('confirmation_code', $code)->update(array('password' => $newPass));
+        }
+
+        return Redirect::to("/");
+    }
+
+    public function showChangePassword()
+    {
+        return View::make('users.change-password');
+    }
+
+    public function postChangePassword()
+    {
+        $user = User::find(Auth::user()->id);
+        if(Hash::make(Input::get('oldPass')) == $user['password'] or true /*para tirar depois*/)
+        {
+            $newPass = Hash::make(Input::get('newPass'));
+            //$user->update(array('password' => $newPass));
+            User::where('id',Auth::user()->id)->update(array('password' => $newPass));
+            return View::make('users.profile', array('user' => $user));
+        }else{
+            //erro
+        }
+        var_dump("erro: " . Input::get('oldPass') . " -T- " . Hash::make(Input::get('oldPass')) . " -T- " . $user['password']);
         die;
     }
 
