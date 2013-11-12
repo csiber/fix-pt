@@ -33,7 +33,7 @@ Route::model('promotionpages', 'PromotionPage');
  */
 
 Route::post('users/reset-pass','UserController@postResetPass');
-Route::get('users/codetoresetpass','UserController@getCodeToResetPass');
+Route::get('users/codetoresetpass',array('uses'=>'UserController@getCodeToResetPass'));
 Route::group(array("before" => "auth"), function()
 {
     # User Management    

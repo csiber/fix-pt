@@ -52,7 +52,8 @@ class UserController extends BaseController {
     public function postResetPass(){
         
         $email = Input::get('email');
-        $code = "12345exampleOnly";
+        $user = User::whereRaw('email = ?', array($email))->get();
+        $code = $user[0]->confirmation_code;
 
         Email::sendResetPassEmail($email,$code);
         echo 'Email sent for reseting the password' ;
