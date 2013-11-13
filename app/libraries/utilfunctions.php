@@ -48,10 +48,10 @@ class UtilFunctions {
                         $date = getdate(strtotime($date));
                         $now = getdate($now);
 
-                        if($date[year] == $now[year]) {
-                            return substr($date[month], 0, 3)." ".$date[mday]." at ".$date[hours].":".$date[minutes];
+                        if($date['year'] == $now['year']) {
+                            return substr($date['month'], 0, 3)." ".$date['mday']." at ".$date['hours'].":".$date['minutes'];
                         } else {
-                            return $date[year]." ".substr($date[month], 0, 3)." ".$date[mday]." at ".$date[hours].":".$date[minutes];
+                            return $date['year']." ".substr($date['month'], 0, 3)." ".$date['mday']." at ".$date['hours'].":".$date['minutes'];
                         }
                     }
                 }
