@@ -8,7 +8,7 @@
 
 		<div>
 			Reset Password.<br>
-			Link: http://localhost/ldso/ldsot3g3/public/users/codetoresetpass/{{$code}}
+			Link: {{$base_url}}/users/codetoresetpass/{{$code}}
 		</div>
 	</body>
 </html>

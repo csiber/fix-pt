@@ -8,7 +8,7 @@
 
 		<div>
 			Confirmation email.<br>
-			Link: http://localhost/ldso/ldsot3g3/public/users/confirmation/{{$code}}
+			Link: {{$base_url}}/users/confirmation/{{$code}}
 		</div>
 	</body>
 </html>

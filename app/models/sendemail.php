@@ -7,10 +7,10 @@
 
 			//var_dump($email .' '. $name);die:
         //First try......
-			$user = array("email" => $email, "name" => $name, "code" => $code);
+			$user = array("email" => $email, "name" => $name, "code" => $code, "base_url" => URL::to('/'));
 
 	        Mail::send('emails.auth.confirmationemail', 
-	        			array('code' => $user['code']), function($message) use ($user) {
+	        			array('code' => $user['code'], 'base_url' => $user['base_url']), function($message) use ($user) {
 	                    
 	                    $message->to($user['email'], $user['name'])->subject('Welcome '. $user['name'] .'!');
 	                	}
@@ -22,10 +22,10 @@
 		public static function sendResetPassEmail($email, $code)
 		{
 
-			$user = array("email" => $email, "code" => $code);
+			$user = array("email" => $email, "code" => $code, "base_url" => URL::to('/'));
 
 	        Mail::send('emails.auth.resetpassemail', 
-	        			array('code' => $user['code']), function($message) use ($user) {
+	        			array('code' => $user['code'], 'base_url' => $user['base_url']), function($message) use ($user) {
 	                    
 	                    $message->to($user['email'], "Anonymous")->subject('Reset Password.');
 	                	}

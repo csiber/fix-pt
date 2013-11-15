@@ -10,8 +10,7 @@
 
                 <div class="col-md-8">
                     {{ Form::open(array('action' => 'UserController@postChangePassword')) }}
-                        {{ Form::label('Old Password') }}
-                        {{ Form::password('oldPass') }} <br>
+                        
                         {{ Form::label('New Password') }}
                         {{ Form::password('newPass') }} <br>
                         {{ Form::submit('Save') }}
