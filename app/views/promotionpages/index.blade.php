@@ -5,10 +5,10 @@
     <div class="col-md-9">
         <ol class="breadcrumb">
             <li><a href="#">Fix.pt</a></li>
-            <li class="active">Promotion Page</li>
+            <li class="active">Promotion Pages</li>
         </ol>
         <div class="well well-lg">
-            <div class="promotionpages">
+            <div class="fixrequests">
                 @foreach($promotionpages as $promotionpage)
                 <div class="panel panel-default">
                     <div class="panel-body">

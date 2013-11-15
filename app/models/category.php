@@ -10,6 +10,11 @@ class Category extends Eloquent {
     {
         return $this->hasMany('fixrequests');
     }
+
+    public function promotionpages()
+    {
+        return $this->hasMany('promotionpages');
+    }
 }
 
 ?>
