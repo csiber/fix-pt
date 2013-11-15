@@ -9,15 +9,17 @@ class FixRequestController extends BaseController {
     */
     public function getIndex($sort=null)
     {
+        $requests_per_page = 5;
+
         if ($sort == "recent") {
-            $fixrequests = FixRequest::orderBy('created_at', 'DESC')->paginate(5);
+            $fixrequests = FixRequest::recent_requests()->paginate($requests_per_page);
         } else if ($sort == "popular") {
-            $fixrequests = FixRequest::paginate(5);
+            $fixrequests = FixRequest::popular_requests()->paginate($requests_per_page);
         } else if ($sort == "no_offers") {
-            $fixrequests = FixRequest::paginate(10);
+            $fixrequests = FixRequest::no_offers_requests()->paginate($requests_per_page); 
         } else {
             return Redirect::to('fixrequests/index/recent');
-        }        
+        }
 
         foreach($fixrequests as &$fixrequest) {
             $post = Post::find($fixrequest['post_id']);
@@ -30,7 +32,6 @@ class FixRequestController extends BaseController {
             $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
             $fixrequest['category'] = $fixrequest->category;
             $fixrequest['category_class'] = UtilFunctions::getCategoryIdWord($fixrequest->category['id']);
-            $fixrequest['tags'] = $fixrequest->tags;
         }
         return View::make('fixrequests.index', array('fixrequests' => $fixrequests, "sort" => $sort));
     }
@@ -42,10 +43,10 @@ class FixRequestController extends BaseController {
     */
     public function getShow($id)
     {
-        $fixrequest = FixRequest::find($id);
-        return View::make('fixrequests.show',
-            array('fixrequest' => $fixrequest, 'id' => $id)
-        );
+        $fixrequest = FixRequest::getFixRequest($id);
+        $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
+
+        return View::make('fixrequests/show', array('fixrequest' => $fixrequest));
     }
 
     /**
@@ -57,6 +58,12 @@ class FixRequestController extends BaseController {
     {
         return View::make('fixrequests.create');
     }
+
+    /**
+    * Deal with the info sent from the fix request creation form
+    *
+    * @return Redirect
+    */
 
     public function postCreate() 
     {
@@ -74,8 +81,7 @@ class FixRequestController extends BaseController {
         $validator = Validator::make(Input::all(), $rules);
 
         if($validator->passes()) {
-
-            DB::transaction(function()
+            $redirect = DB::transaction(function()
             {
                 $notifiable = new Notifiable();
                 $notifiable->save();
@@ -109,8 +115,9 @@ class FixRequestController extends BaseController {
                     }
                     $fixrequest->tags()->save($tag);
                 }
+                return Redirect::to("fixrequests/show/{$fixrequest->id}");
             });
-            return Redirect::to('fixrequests/index');
+            return $redirect;
         } else {
             return Redirect::to('fixrequests/create')->withInput()->withErrors($validator);
         }
@@ -122,15 +129,5 @@ class FixRequestController extends BaseController {
 
         //echo json_encode($data);
         //var_dump($file->getFileName());
-    }
-
-    public function comments() 
-    {
-        return $this->hasMany('Comment');
-    }
-
-    public function fixoffers() 
-    {
-        return $this->hasMany('FixOffer');
     }
 }
