@@ -185,9 +185,7 @@ class UserController extends BaseController {
             $user->save();
             Auth::login($user);
 
-            //var_dump($user)
             Email::sendConfirmationEmail($user->email, $user->username, $user->confirmation_code);
-
             return Redirect::to("users/profile");
         }
     }
@@ -248,12 +246,17 @@ class UserController extends BaseController {
         }
 
         $me = $facebook->api('/me');
-
         $profile = Profile::whereUid($uid)->first();
+
         if(empty($profile)) {
             $user = new User;
             $user->email = $me['email'];
-            $user->username = $me['username'];
+
+            if($me['username']) {
+                $user->username = $me['username'];
+            } else {
+                $user->username = $me['name'];
+            }   
             $user->save();
 
             $profile = new Profile();
