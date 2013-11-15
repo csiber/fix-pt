@@ -10,9 +10,13 @@
         </ol>
         <div class="well well-lg">
             <h4>{{{$fixrequest->title}}}</h4>
+            <p>{{{$fixrequest['post']->text}}}</p>
         </div>
         <div class="well well-lg">
-            <h4>Comments go here!</h4>
+            <h4>Comments</h4>
+            @foreach($fixrequest['comments'] as $comment)
+                <p></p>
+            @endforeach
         </div>
     </div>
     <div class="col-md-4">
@@ -26,18 +30,18 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Related Fix Requests</h3>
-            </div>
-            <div class="panel-body">
-                This will show fix requests similar to this one
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
                 <h3 class="panel-title">Recommended Fixers</h3>
             </div>
             <div class="panel-body">
                 This will show fixers that are able to do this repair
+            </div>
+        </div>
+         <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Related Fix Requests</h3>
+            </div>
+            <div class="panel-body">
+                This will show fix requests similar to this one
             </div>
         </div>
     </div>

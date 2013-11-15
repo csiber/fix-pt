@@ -49,6 +49,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+
+
+	// Definition of relations
+
 	public function profiles()
 	{
 		return $this->hasMany('Profile');

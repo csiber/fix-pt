@@ -4,8 +4,8 @@
 <div class="row">
     <div class="col-md-8">
         <ol class="breadcrumb">
-            <li><a href="#">Fix.pt</a></li>
-            <li><a href="#">Fix Requests</a></li>
+            <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
+            <li><a href="{{URL::to('fixrequests/index/recent')}}">Fix Requests</a></li>
             <li class="active">Create new</li>
         </ol>
         <div class="well well-lg">

@@ -11,7 +11,7 @@ class FixRequest extends Eloquent {
 
     public static function popular_requests()
     {
-        // todo
+        // TODO it should return the most popular requests (what defines popular?)
         return FixRequest::with('tags');
     }
 
@@ -20,7 +20,12 @@ class FixRequest extends Eloquent {
         return FixRequest::with('tags')->has('fixoffers', "=", 0);
     }
 
-    // Relations
+    public static function getFixRequest($id)
+    {
+        return FixRequest::with(array('post', 'tags', 'category', 'comments'))->find($id);
+    }
+
+    // Definition of relations
 
     public function tags()
     {

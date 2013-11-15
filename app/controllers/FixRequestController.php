@@ -43,10 +43,10 @@ class FixRequestController extends BaseController {
     */
     public function getShow($id)
     {
-        $fixrequest = FixRequest::find($id);
-        return View::make('fixrequests/show',
-            array('fixrequest' => $fixrequest, 'id' => $id)
-        );
+        $fixrequest = FixRequest::getFixRequest($id);
+        $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
+
+        return View::make('fixrequests/show', array('fixrequest' => $fixrequest));
     }
 
     /**
@@ -58,6 +58,12 @@ class FixRequestController extends BaseController {
     {
         return View::make('fixrequests.create');
     }
+
+    /**
+    * Deal with the info sent from the fix request creation form
+    *
+    * @return Redirect
+    */
 
     public function postCreate() 
     {
@@ -75,8 +81,7 @@ class FixRequestController extends BaseController {
         $validator = Validator::make(Input::all(), $rules);
 
         if($validator->passes()) {
-
-            DB::transaction(function()
+            $redirect = DB::transaction(function()
             {
                 $notifiable = new Notifiable();
                 $notifiable->save();
@@ -110,8 +115,9 @@ class FixRequestController extends BaseController {
                     }
                     $fixrequest->tags()->save($tag);
                 }
+                return Redirect::to("fixrequests/show/{$fixrequest->id}");
             });
-            return Redirect::to('fixrequests/index');
+            return $redirect;
         } else {
             return Redirect::to('fixrequests/create')->withInput()->withErrors($validator);
         }
@@ -123,15 +129,5 @@ class FixRequestController extends BaseController {
 
         //echo json_encode($data);
         //var_dump($file->getFileName());
-    }
-
-    public function comments() 
-    {
-        return $this->hasMany('Comment');
-    }
-
-    public function fixoffers() 
-    {
-        return $this->hasMany('FixOffer');
     }
 }
