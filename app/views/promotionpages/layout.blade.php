@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         @include('metas')
+        <link rel="shortcut icon" href="../../assets/ico/favicon.png">
         <title>Fix.PT - Fix Requests</title>
         @include('css')
 
