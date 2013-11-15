@@ -56,7 +56,10 @@ class UserController extends BaseController {
         $code = $user[0]->confirmation_code;
 
         Email::sendResetPassEmail($email,$code);
-        echo 'Email sent for reseting the password' ;
+        //echo 'Email sent for reseting the password' ;
+
+        Session::flash('success', 'Email sent for reseting the password.');
+        return Redirect::to('/users/login');
     }
 
     public function getCodeToResetPass($code)
@@ -66,11 +69,14 @@ class UserController extends BaseController {
         if($user[0] != null)
         {
             //$user[0]->confirmed = 1;
-            $newPass = Hash::make("Fix.pt");
-            User::where('confirmation_code', $code)->update(array('password' => $newPass));
+            
+            //$newPass = Hash::make("Fix.pt");
+            //User::where('confirmation_code', $code)->update(array('password' => $newPass));
+            Auth::login($user[0] );
         }
-
-        return Redirect::to("/");
+        //Session::flash('success', 'Password has been reseted to the default Fix.pt');
+        
+        return Redirect::to("/users/reset-password");
     }
 
     public function showChangePassword()
@@ -81,17 +87,19 @@ class UserController extends BaseController {
     public function postChangePassword()
     {
         $user = User::find(Auth::user()->id);
-        if(Hash::make(Input::get('oldPass')) == $user['password'] or true /*para tirar depois*/)
+        if(/*Hash::make(Input::get('oldPass')) == $user['password'] or*/ true /*para tirar depois*/)
         {
             $newPass = Hash::make(Input::get('newPass'));
             //$user->update(array('password' => $newPass));
             User::where('id',Auth::user()->id)->update(array('password' => $newPass));
+            Session::flash('success','Password changed successfully.');
             return View::make('users.profile', array('user' => $user));
         }else{
             //erro
+            Session::flash('error', 'Wrong Password.');
         }
-        var_dump("erro: " . Input::get('oldPass') . " -T- " . Hash::make(Input::get('oldPass')) . " -T- " . $user['password']);
-        die;
+        
+        //return Redirect::to("/");
     }
 
     /**
