@@ -70,3 +70,5 @@
     @include('signInModal')
     @include('signUpModal')
 @endif
+
+@include('resetPassModal')

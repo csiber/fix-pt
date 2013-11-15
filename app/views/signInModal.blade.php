@@ -13,11 +13,11 @@
                     "role" => "form")) }}                
                 <div class="form-group">
                     {{ Form::text("username", Input::old("username"), 
-                    ["placeholder" => "username", "class" => "form-control"]) }}
+                    array("placeholder" => "username", "class" => "form-control")) }}
                 </div>
                 <div class="form-group">
-                    {{ Form::password("password", ["placeholder" => "Password",
-                    "class"=>"form-control input-sm"]) }}
+                    {{ Form::password("password", array("placeholder" => "Password",
+                    "class"=>"form-control input-sm")) }}
                 </div>
                 <div class="form-group">
                     <div class="checkbox">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <a href="#">Forgot your password?</a>
+                    <a data-toggle="modal" data-target="#resetPassModal" href="#" >Forgot your password?</a>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Login</button>

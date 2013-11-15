@@ -2,8 +2,6 @@ LDSOT3G
 =======
 test development
 
-[A successful git branching model](http://nvie.com/posts/a-successful-git-branching-model/) 
-
 ## Database config used in the development
 
 * *database*:fix-pt
@@ -12,7 +10,8 @@ test development
 
 ## Server configuration
 
-* change in /app/config/app.php 'url' value to what you have in your configuraton
+* change in /app/config/app.php 'url' value to what you have in you configuraton
+[A successful git branching model](http://nvie.com/posts/a-successful-git-branching-model/) 
 
 
 ##PERMISSIONS

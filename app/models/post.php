@@ -17,6 +17,11 @@ class Post extends Eloquent {
         // Not really sure if this is correct
         return $this->hasOne('FixRequest');
     }
+
+    public function promotionpage()
+    {
+        return $this->hasOne('PromotionPage');
+    }
 }
 
 ?>

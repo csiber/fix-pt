@@ -41,7 +41,8 @@ class PromotionPageController extends BaseController {
         $rules = array(
             'title' => 'required|min:4',
             'body' => 'required|min:20',
-            'city' => 'required'
+            'city' => 'required',
+            'location' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -53,27 +54,24 @@ class PromotionPageController extends BaseController {
                 $notifiable = new Notifiable();
                 $notifiable->save();
 
-                $post = new Post();
-                $fixrequest = new PromotionPage();
+                $post = new Post(array(
+                    "text" => Input::get('body'), 
+                    "user_id" => 1
+                ));
+                $post = $notifiable->post()->save($post);
 
-                $post->body = Input::get('body');
-                $post->save();
+                $promotionpage = new PromotionPage(array(
+                    'title' => Input::get('title')
+                ));
 
-                $fixrequest->post_id = $post->id;
-                $fixrequest->title = Input::get("title");
-                $fixrequest->save();                             
+                $category = Category::find(Input::get('category'));
+                $promotionpage->category()->associate($category);
+                $promotionpage = $post->promotionpage()->save($promotionpage);
+                 
             });
-
-            $fix_request = array(
-                'title' => Input::get("title"),
-                'body' => Input::get("body"),
-                'city' => Input::get('city')
-            );
-
-            echo json_encode($fix_request);
+            return Redirect::to('promotionpages/index');
         } else {
-            var_dump($validator->errors()->all());
             return Redirect::to('promotionpages/create')->withInput()->withErrors($validator);
-        }        
+        }
     }
 }

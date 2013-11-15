@@ -31,14 +31,19 @@ Route::model('promotionpages', 'PromotionPage');
  *  Routes which requires authentication
  *  ------------------------------------------
  */
-Route::group(["before" => "auth"], function()
+
+Route::post('users/reset-pass','UserController@postResetPass');
+Route::get('users/codetoresetpass/{code}','UserController@getCodeToResetPass');
+Route::group(array("before" => "auth"), function()
 {
     # User Management    
+    Route::get('users/confirmation','UserController@getConfirmation');
     Route::get('users/logout', 'UserController@getLogout');
     Route::get('users/index', 'UserController@getIndex');
     Route::get('users/profile','UserController@getProfile');
     Route::get('users/confirm-user', 'UserController@getConfirmUser');
     Route::get('users/edit', 'UserController@getEdit');
+    Route::get('users/reset-password', 'UserController@showChangePassword');
     Route::post('users/edit', 'UserController@postEdit');
 
     # Fix Requests management

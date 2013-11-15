@@ -1,16 +1,17 @@
 <?php
 
+
 class UserController extends BaseController {
 
     public $rules = array(
         'username' => 'required|alpha_dash|unique:users',
         'email' => 'required|email|unique:users',
         'password' => 'required|between:4,11',
-        'confirm_password' => 'same:password',
+        'confirm_password' => 'same:password'
     );
     public $loginRules = array(
         'username' => 'required',
-        'password' => 'required',
+        'password' => 'required'
     );
 
     /**
@@ -31,21 +32,74 @@ class UserController extends BaseController {
         $validator = Validator::make(Input::all(), $this->loginRules);
 
         if ($validator->passes()) {
-            $credentials = [
+            $credentials = array(
                 "username" => Input::get("username"),
                 "password" => Input::get("password")
-            ];
+            );
             if (Auth::attempt($credentials)) {                
                 return Redirect::to("users/profile");
             }
         }
 
-        //(new Email()).sendEmail();
+        
 
         return Redirect::to('users/login')
                         ->withInput()
                         ->withErrors($validator);
         //var_dump($error = $validator->errors()->all());
+    }
+
+    public function postResetPass(){
+        
+        $email = Input::get('email');
+        $user = User::whereRaw('email = ?', array($email))->get();
+        $code = $user[0]->confirmation_code;
+
+        Email::sendResetPassEmail($email,$code);
+        //echo 'Email sent for reseting the password' ;
+
+        Session::flash('success', 'Email sent for reseting the password.');
+        return Redirect::to('/users/login');
+    }
+
+    public function getCodeToResetPass($code)
+    {
+        $user = User::whereRaw('confirmation_code = ?', array($code))->get();
+        
+        if($user[0] != null)
+        {
+            //$user[0]->confirmed = 1;
+            
+            //$newPass = Hash::make("Fix.pt");
+            //User::where('confirmation_code', $code)->update(array('password' => $newPass));
+            Auth::login($user[0] );
+        }
+        //Session::flash('success', 'Password has been reseted to the default Fix.pt');
+        
+        return Redirect::to("/users/reset-password");
+    }
+
+    public function showChangePassword()
+    {
+        return View::make('users.change-password');
+    }
+
+    public function postChangePassword()
+    {
+        $user = User::find(Auth::user()->id);
+        if(/*Hash::make(Input::get('oldPass')) == $user['password'] or*/ true /*para tirar depois*/)
+        {
+            $newPass = Hash::make(Input::get('newPass'));
+            //$user->update(array('password' => $newPass));
+            User::where('id',Auth::user()->id)->update(array('password' => $newPass));
+            Session::flash('success','Password changed successfully.');
+            return View::make('users.profile', array('user' => $user));
+        }else{
+            //erro
+            Session::flash('error', 'Wrong Password.');
+        }
+        
+        //return Redirect::to("/");
     }
 
     /**
@@ -126,12 +180,28 @@ class UserController extends BaseController {
             $user->email = Input::get('email');
             $user->username = Input::get('username');
             $user->password = Hash::make(Input::get('password'));
+            $user->confirmation_code = str_replace("/","",Hash::make(Input::get('email')));
 
             $user->save();
             Auth::login($user);
 
+            //var_dump($user)
+            Email::sendConfirmationEmail($user->email, $user->username, $user->confirmation_code);
+
             return Redirect::to("users/profile");
         }
+    }
+
+    public function getConfirmation($code) {
+        $user = User::whereRaw('confirmation_code = ?', array($code))->get();
+        
+        if($user[0] != null && $user[0]->id == Auth::user()->id)
+        {
+            //$user[0]->confirmed = 1;
+            User::where('confirmation_code', $code)->update(array('confirmed' => 1));
+        }
+
+        return Redirect::to("users/profile");
     }
 
     public function show($id) {
