@@ -42,6 +42,7 @@ class UserController extends BaseController {
         }
 
         
+        Session::flash('error', 'Invalid username or password.');        
 
         return Redirect::to('users/login')
                         ->withInput()
@@ -190,6 +191,11 @@ class UserController extends BaseController {
             //var_dump($user)
             Email::sendConfirmationEmail($user->email, $user->username, $user->confirmation_code);
 
+            $msg = 'An email with confirmation procedure was successfully sent to <b>' . Auth::user()->email . '</b>.
+            <br/>Please follow the instructions in the email to confirm the user!';
+
+
+            Session::flash('success', $msg);
             return Redirect::to("users/profile");
         }
     }
