@@ -42,6 +42,7 @@ class UserController extends BaseController {
         }
 
         
+        Session::flash('error', 'Invalid username or password.');        
 
         return Redirect::to('users/login')
                         ->withInput()
@@ -149,6 +150,8 @@ class UserController extends BaseController {
         $msg = 'An email with confirmation procedure was successfully sent to <b>' . Auth::user()->email . '</b>.
             <br/>Please follow the instructions in the email to confirm the user!';
 
+        Email::sendConfirmationEmail(Auth::user()->email, Auth::user()->username, Auth::user()->confirmation_code);    
+
         Session::flash('success', $msg);
         return View::make('users.profile');
     }
@@ -186,6 +189,12 @@ class UserController extends BaseController {
             Auth::login($user);
 
             Email::sendConfirmationEmail($user->email, $user->username, $user->confirmation_code);
+
+            // TODO is this final?
+            $msg = 'An email with confirmation procedure was successfully sent to <b>' . Auth::user()->email . '</b>.
+            <br/>Please follow the instructions in the email to confirm the user!';
+
+            Session::flash('success', $msg);
             return Redirect::to("users/profile");
         }
     }
@@ -193,7 +202,8 @@ class UserController extends BaseController {
     public function getConfirmation($code) {
         $user = User::whereRaw('confirmation_code = ?', array($code))->get();
         
-        if($user[0] != null && $user[0]->id == Auth::user()->id)
+
+        if($user[0] != null /*&& $user[0]->id == Auth::user()->id*/)
         {
             //$user[0]->confirmed = 1;
             User::where('confirmation_code', $code)->update(array('confirmed' => 1));
