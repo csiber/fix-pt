@@ -58,12 +58,12 @@
                     {{ Form::label("tags", "Tags", array("class" => "control-label")) }}
                     {{ Form::text("tags", "", array(
                         "id" => "fixrequest-tags",
-                        "placeholder" => "Enter at least 1 tag, maximum is 3",
+                        "placeholder" => "",
                         "class" => "form-control",
                         "data-role" => "tagsinput"
                     ))}}
                     <?php
-                        echo ($errors->has('tags')) ? '<p class="help-block">'.$errors->first('tags').'</p>' : '<p class="help-block">Enter at least 1 tag, maximum is 3</p>';
+                        echo ($errors->has('tags')) ? '<p class="help-block">'.$errors->first('tags').'</p>' : '<p class="help-block">Maximum of 5 tags. Press enter or comma to add it.</p>';
                     ?>
                 </div>
                 <div class="row">

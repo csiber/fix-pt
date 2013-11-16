@@ -45,7 +45,6 @@ class FixRequestController extends BaseController {
     {
         $fixrequest = FixRequest::getFixRequest($id);
         $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
-
         return View::make('fixrequests/show', array('fixrequest' => $fixrequest));
     }
 
