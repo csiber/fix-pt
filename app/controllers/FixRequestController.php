@@ -74,7 +74,7 @@ class FixRequestController extends BaseController {
             'city' => 'required',
             'location' => 'required',
             'daysForOffer' => 'required|numeric',
-            'value' => 'required|numeric'
+            'value' => 'required|numeric',
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -87,7 +87,7 @@ class FixRequestController extends BaseController {
 
                 $post = new Post(array(
                     "text" => Input::get('description'),
-                    "user_id" => 1
+                    "user_id" => Auth::user()->id
                 ));
                 $post = $notifiable->post()->save($post);
 
@@ -113,6 +113,27 @@ class FixRequestController extends BaseController {
                         $tag = Tag::getTagByName($tag_name);
                     }
                     $fixrequest->tags()->save($tag);
+                }
+
+                // dealing with the photos received
+                $photos = Input::file('photos');
+                foreach($photos as $up_photo) {
+
+                    $rules = array('photo' => 'image|max:3000');
+                    $input = array('photo' => $up_photo);
+
+                    $validator = Validator::make($input, $rules);
+
+                    if($validator->passes()) {
+                        $destinationPath = 'uploads/'.Auth::user()->id.'/'.$post->id;
+                        $filename = str_random(8).'.'.$up_photo->getClientOriginalExtension();
+                        $up_photo->move($destinationPath, $filename);
+
+                        $photo = new Photo(array('path' => $destinationPath.'/'.$filename));
+                        $photo = $post->photos()->save($photo);
+                    } else {
+                        return Redirect::to('fixrequests/create')->withInput()->withErrors($validator);
+                    }   
                 }
                 return Redirect::to("fixrequests/show/{$fixrequest->id}");
             });

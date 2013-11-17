@@ -22,6 +22,11 @@ class Post extends Eloquent {
     {
         return $this->hasOne('PromotionPage');
     }
+
+    public function photos()
+    {
+        return $this->hasMany('Photo');
+    }
 }
 
 ?>
