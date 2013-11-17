@@ -114,11 +114,11 @@
                     </div>
                     <p class="help-block"><?php echo $errors->first('value') ?></p>
                 </div>
-                <!-- <div class="form-group <?php echo ($errors->has('photos')) ? "has-error" : ""; ?>">
+                <div class="form-group <?php echo ($errors->has('photo')) ? "has-error" : ""; ?>">
                     {{ Form::label("photos", "Add photos", array("class" => "control-label")) }}
                     {{ Form::file('photos[]', array('multiple' => true))}}
-                    <p class="help-block"><?php echo $errors->first('photos') ?></p>
-                </div> -->
+                    <p class="help-block"><?php echo $errors->first('photo') ?></p>
+                </div>
                 <button type="submit" class="btn btn-success">Submit</button>
             <!-- </form> -->
             {{ Form::close() }}
