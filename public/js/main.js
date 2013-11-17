@@ -1,13 +1,9 @@
 // key events
 var ENTER_KEY = 13;
-var ESC_KEY = 8;
+var COMMA_KEY = 188;
 
 $(document).ready(function(){
-    $(this).keyup(function(e){
-        console.log(e.which);
-    });
-    pageCreateFixRequestJS();
-
+    // pageCreateFixRequestJS();
 });
 
 // to remove the 300ms tap delay on smartphones
@@ -15,11 +11,11 @@ window.addEventListener('load', function() {
     new FastClick(document.body);
 }, false);
 
-function pageCreateFixRequestJS() {
 
+function pageCreateFixRequestJS() {
     var tagsInput = $('.bootstrap-tagsinput > input');
     tagsInput.tagsinput({
         maxTags: 5,
-        confirmKeys: [13, 188]
+        confirmKeys: [ENTER_KEY, COMMA_KEY],
     });
 }

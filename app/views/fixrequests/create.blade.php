@@ -33,7 +33,7 @@
                     ))}}
                     <p class="help-block"><?php echo $errors->first('description') ?></p>
                 </div>
-                <div class="form-group form-categories">
+                <div class="form-group form-categories <?php echo ($errors->has('category')) ? "has-error" : ""; ?>">
                     <label style="display: block;" for="category">Category</label>
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-default">
@@ -63,7 +63,7 @@
                         "data-role" => "tagsinput"
                     ))}}
                     <?php
-                        echo ($errors->has('tags')) ? '<p class="help-block">'.$errors->first('tags').'</p>' : '<p class="help-block">Maximum of 5 tags. Press enter or comma to add it.</p>';
+                        echo ($errors->has('tags')) ? '<p class="help-block">'.$errors->first('tags').'</p>' : '<p class="help-block">At least 1 tag, maximum is 5. Press enter or comma to add it.</p>';
                     ?>
                 </div>
                 <div class="row">
@@ -93,11 +93,12 @@
                 <div class="form-group <?php echo ($errors->has('daysForOffer')) ? "has-error" : ""; ?>">
                     {{ Form::label("daysForOffer", "Available time to receive offers", array("class" => "control-label")) }}
                     {{ Form::select("daysForOffer", array(
-                        "1" => "3 days",
-                        "2" => "1 day",
-                        "3" => "1 week",
-                        "4" => "2 weeks",
-                        "5" => "1 month"
+                        "1" => "1 day",
+                        "2" => "2 days",
+                        "3" => "3 days",
+                        "5" => "5 days",
+                        "8" => "8 days",
+                        "13" => "13 days"
                     ), null, array("class" => "form-control"))}}
                     <p class="help-block"><?php echo $errors->first('daysForOffer') ?></p>
                 </div>
