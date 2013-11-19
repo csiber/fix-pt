@@ -17,6 +17,17 @@
             @foreach($fixrequest['comments'] as $comment)
                 <p></p>
             @endforeach
+            {{ Form::open(array(
+                    "url" => "fixrequests/addcomment",
+                    "id" => "addcomment-form",
+                    "role" => "form")) }} 
+            {{ Form::text("comment", Input::old("insert comment"), 
+                    array("placeholder" => "comment", "class" => "form-control")) }}
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Add Comment</button>
+            </div>
+            {{ Form::close() }}
         </div>
     </div>
     <div class="col-md-4">
