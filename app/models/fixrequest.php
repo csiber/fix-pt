@@ -20,10 +20,30 @@ class FixRequest extends Eloquent {
         return FixRequest::with('tags')->has('fixoffers', "=", 0);
     }
 
+    public static function ending_soon_requests()
+    {
+        return FixRequest::endingSoon()->with('tags')->orderBy('created_at', 'DESC');
+    }
+
     public static function getFixRequest($id)
     {
         return FixRequest::with(array('post', 'tags', 'category', 'comments'))->find($id);
     }
+
+
+
+    // Definition of scopes
+
+    public function scopeEndingSoon($query)
+    {
+        $from = \Carbon\Carbon::now();
+        $to = $from->copy()->addDays(1);
+        // TODO i think this only works in postgresql
+        // check http://www.the-art-of-web.com/sql/postgres-mysql/ for info on the mySQL version
+        return $query->whereRaw("created_at + INTERVAL daysForOffer * '1' day between '$from' and '$to'");
+    }
+
+
 
     // Definition of relations
 

@@ -13,10 +13,12 @@ class FixRequestController extends BaseController {
 
         if ($sort == "recent") {
             $fixrequests = FixRequest::recent_requests()->paginate($requests_per_page);
-        } else if ($sort == "popular") {
+        } else if ($sort == 'popular') {
             $fixrequests = FixRequest::popular_requests()->paginate($requests_per_page);
-        } else if ($sort == "no_offers") {
+        } else if ($sort == 'no_offers') {
             $fixrequests = FixRequest::no_offers_requests()->paginate($requests_per_page); 
+        } else if ($sort == 'ending_soon') {
+            $fixrequests = FixRequest::ending_soon_requests()->paginate($requests_per_page); 
         } else {
             return Redirect::to('fixrequests/index/recent');
         }
@@ -32,6 +34,8 @@ class FixRequestController extends BaseController {
             $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
             $fixrequest['category'] = $fixrequest->category;
             $fixrequest['category_class'] = UtilFunctions::getCategoryIdWord($fixrequest->category['id']);
+            $fixrequest['end_date_exact'] = date("Y-m-d H:i:s", strtotime($fixrequest->created_at." + $fixrequest->daysForOffer days"));
+            $fixrequest['end_date'] = UtilFunctions::getEndDate($fixrequest['created_at'], $fixrequest['daysForOffer']);
         }
         return View::make('fixrequests.index', array('fixrequests' => $fixrequests, "sort" => $sort));
     }
@@ -117,23 +121,25 @@ class FixRequestController extends BaseController {
 
                 // dealing with the photos received
                 $photos = Input::file('photos');
+
                 foreach($photos as $up_photo) {
+                    if(!is_null($up_photo)) {
+                        $rules = array('photo' => 'image|max:3000');
+                        $input = array('photo' => $up_photo);
 
-                    $rules = array('photo' => 'image|max:3000');
-                    $input = array('photo' => $up_photo);
+                        $validator = Validator::make($input, $rules);
 
-                    $validator = Validator::make($input, $rules);
+                        if($validator->passes()) {
+                            $destinationPath = 'uploads/'.Auth::user()->id.'/'.$post->id;
+                            $filename = str_random(8).'.'.$up_photo->getClientOriginalExtension();
+                            $up_photo->move($destinationPath, $filename);
 
-                    if($validator->passes()) {
-                        $destinationPath = 'uploads/'.Auth::user()->id.'/'.$post->id;
-                        $filename = str_random(8).'.'.$up_photo->getClientOriginalExtension();
-                        $up_photo->move($destinationPath, $filename);
-
-                        $photo = new Photo(array('path' => $destinationPath.'/'.$filename));
-                        $photo = $post->photos()->save($photo);
-                    } else {
-                        return Redirect::to('fixrequests/create')->withInput()->withErrors($validator);
-                    }   
+                            $photo = new Photo(array('path' => $destinationPath.'/'.$filename));
+                            $photo = $post->photos()->save($photo);
+                        } else {
+                            return Redirect::to('fixrequests/create')->withInput()->withErrors($validator);
+                        }  
+                    }
                 }
                 return Redirect::to("fixrequests/show/{$fixrequest->id}");
             });
