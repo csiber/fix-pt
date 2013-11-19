@@ -4,8 +4,8 @@
 <div class="row">
     <div class="col-md-8">
         <ol class="breadcrumb">
-            <li><a href="#">Fix.pt</a></li>
-            <li><a href="#">Promotion Page</a></li>
+            <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
+            <li><a href="{{URL::to('promotionpages/index/recent')}}">Promotion Page</a></li>
             <li class="active">Create new</li>
         </ol>
         <div class="well well-lg">

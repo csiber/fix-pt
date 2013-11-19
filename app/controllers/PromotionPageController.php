@@ -13,10 +13,6 @@ class PromotionPageController extends BaseController {
 
         if ($sort == "recent") {
             $promotionpages = PromotionPage::orderBy('created_at', 'DESC')->paginate(5);
-        } else if ($sort == "popular") {
-            $promotionpages = ~PromotionPage::paginate($requests_per_page);
-        } else if ($sort == "no_offers") {
-            $promotionpages = PromotionPage::paginate($requests_per_page);
         } else {
             return Redirect::to('promotionpages/index/recent');
         }
@@ -33,7 +29,7 @@ class PromotionPageController extends BaseController {
             $promotionpage['category'] = $promotionpage->category;
             $promotionpage['category_class'] = UtilFunctions::getCategoryIdWord($promotionpage->category['id']);
         }
-        return View::make('promotionpage.index', array('promotionpages' => $promotionpage, "sort" => $sort));
+        return View::make('promotionpages.index', array('promotionpages' => $promotionpages, "sort" => $sort));
     }
 
     /**
