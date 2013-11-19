@@ -24,22 +24,22 @@
                     ))}}
                     <p class="help-block"><?php echo $errors->first('title') ?></p>
                 </div>
-                <div class="form-group">
+                <div class="form-group form-categories">
                     <label style="display: block;" for="category">Category</label>
                     <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-primary">
-                            {{ Form::radio("category", "1", array("id" => "category_1")) }} Home Improvement
+                        <label class="btn btn-default">
+                            {{ Form::radio("category", "1", array("id" => "category_1")) }} Home
                         </label>
-                        <label class="btn btn-primary">
+                        <label class="btn btn-default">
                             {{ Form::radio("category", "2", array("id" => "category_2")) }} Gardening
                         </label>
-                        <label class="btn btn-primary">
+                        <label class="btn btn-default">
                             {{ Form::radio("category", "3", array("id" => "category_3")) }} Mechanics
                         </label>
-                        <label class="btn btn-primary">
+                        <label class="btn btn-default">
                             {{ Form::radio("category", "4", array("id" => "category_4")) }} Electronics
                         </label>
-                        <label class="btn btn-primary">
+                        <label class="btn btn-default">
                             {{ Form::radio("category", "5", array("id" => "category_5")) }} Appliances
                         </label>
                         <p class="help-block"><?php echo $errors->first('category') ?></p>

@@ -31,7 +31,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle _promotionpages" data-toggle="dropdown">Promotion Pages <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">View Promotion Pages</a></li>
+                            <li><a href="{{ URL::to('promotionpages/index/recent') }}">View Promotion Pages</a></li>
                             <li><a href="#">Search Promotion Pages</a></li>
                             <li><a href="{{ URL::to('promotionpages/create') }}">Create Promotion Page</a></li>
                             <!--
