@@ -4,7 +4,7 @@ class PromotionPage extends Eloquent {
     
     protected $fillable = array('title');
 
-    public $timestamps = false;
+    //public $timestamps = false;
 
     public function post()
     {
