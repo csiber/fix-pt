@@ -207,6 +207,7 @@ class UserController extends BaseController {
         {
             //$user[0]->confirmed = 1;
             User::where('confirmation_code', $code)->update(array('confirmed' => 1));
+            Auth::login($user[0] );
         }
 
         return Redirect::to("users/profile");
