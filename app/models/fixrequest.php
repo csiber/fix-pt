@@ -17,7 +17,7 @@ class FixRequest extends Eloquent {
 
     public static function no_offers_requests()
     {
-        return FixRequest::with('tags')->has('fixoffers', "=", 0);
+        return FixRequest::with('tags')->has('fixoffers', "=", 0)->orderBy('created_at', 'DESC');
     }
 
     public static function ending_soon_requests()

@@ -56,7 +56,7 @@
                 <h3 class="panel-title">Popular Tags</h3>
             </div>
             <div class="panel-body">
-                This will show the most used tags
+                
             </div>
         </div>
     </div>

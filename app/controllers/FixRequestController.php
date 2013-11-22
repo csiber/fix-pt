@@ -23,6 +23,8 @@ class FixRequestController extends BaseController {
             return Redirect::to('fixrequests/index/recent');
         }
 
+        $popular_tags = Tag::getPopular(20);
+
         foreach($fixrequests as &$fixrequest) {
             $post = Post::find($fixrequest['post_id']);
             $user = User::find($post['user_id']);
@@ -37,7 +39,7 @@ class FixRequestController extends BaseController {
             $fixrequest['end_date_exact'] = date("Y-m-d H:i:s", strtotime($fixrequest->created_at." + $fixrequest->daysForOffer days"));
             $fixrequest['end_date'] = UtilFunctions::getEndDate($fixrequest['created_at'], $fixrequest['daysForOffer']);
         }
-        return View::make('fixrequests.index', array('fixrequests' => $fixrequests, "sort" => $sort));
+        return View::make('fixrequests.index', array('fixrequests' => $fixrequests, "sort" => $sort, "popular_tags" => $popular_tags));
     }
 
     /**
