@@ -11,6 +11,7 @@
             <ul class="nav nav-pills">
                 <li @if ($sort == "recent")class="active"@endif><a href="{{ URL::to('fixrequests/index/recent') }}">Recent</a></li>
                 <li @if ($sort == "popular")class="active"@endif><a href="{{ URL::to('fixrequests/index/popular') }}">Popular</a></li>
+                <li @if ($sort == "ending_soon")class="active"@endif><a href="{{ URL::to('fixrequests/index/ending_soon') }}">Ending soon</a></li>
                 <li @if ($sort == "no_offers")class="active"@endif><a href="{{ URL::to('fixrequests/index/no_offers') }}">No offers</a></li>
             </ul>
             <div class="fixrequests">
@@ -29,10 +30,10 @@
                     </div>
                     <div class="panel-footer">
                         <div class="row">
-                            <div class="col-md-3 col-xs-6"><i class="fa fa-user"></i> {{{$fixrequest->username}}}</div>
-                            <div class="col-md-3 col-xs-6"><i class="fa fa-calendar-o"></i> {{$fixrequest->created_at_pretty}}</div>
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-user"></i> by {{{$fixrequest->username}}}</div>
+                            <div class="col-md-3 col-xs-6" title="{{$fixrequest->created_at}}"><i class="fa fa-calendar-o"></i> created {{$fixrequest->created_at_pretty}}</div>
                             <div class="col-md-3 col-xs-6"><i class="fa fa-location-arrow"></i> not working yet</div>
-                            <div class="col-md-3 col-xs-6"><i class="fa fa-clock-o"></i> not working yet</div>
+                            <div class="col-md-3 col-xs-6" title="{{$fixrequest->end_date_exact}}"><i class="fa fa-clock-o"></i> {{$fixrequest->end_date}}</div>
                         </div>
                     </div>
                 </div>
@@ -55,7 +56,7 @@
                 <h3 class="panel-title">Popular Tags</h3>
             </div>
             <div class="panel-body">
-                This will show the most used tags
+                
             </div>
         </div>
     </div>
