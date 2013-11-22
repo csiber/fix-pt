@@ -4,17 +4,19 @@
 <div class="row">
     <div class="col-md-9">
         <ol class="breadcrumb">
-            <li><a href="#">Fix.pt</a></li>
+            <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
             <li class="active">Promotion Pages</li>
         </ol>
         <div class="well well-lg">
-            <div class="fixrequests">
+            <div class="promotionpages">
                 @foreach($promotionpages as $promotionpage)
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h4>{{{$promotionpage->title}}}</h4>
+                        <h4><a href="{{ URL::to('promotionpages/show/'.$promotionpage->id) }}">{{{$promotionpage->title}}}</a></h4>
                         <p>{{{$promotionpage->body}}}</p>
-                        <!-- <span class="category {{$fixrequest->category_class}}"></span> -->
+                        <div class="tags">
+                            <span class="tag pull-right label category-label">{{$promotionpage->category['name']}}</span>
+                        </div>
                     </div>
                     <div class="panel-footer">
                         <div class="row">

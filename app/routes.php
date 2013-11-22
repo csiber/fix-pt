@@ -34,10 +34,16 @@ Route::model('promotionpages', 'PromotionPage');
 
 Route::post('users/reset-pass','UserController@postResetPass');
 Route::get('users/codetoresetpass/{code}','UserController@getCodeToResetPass');
+
+Route::group(array("before" => "none"),function(){
+    Route::get('users/confirmation','UserController@getConfirmation');    
+});
+
+
 Route::group(array("before" => "auth"), function()
 {
     # User Management    
-    Route::get('users/confirmation','UserController@getConfirmation');
+    
     Route::get('users/logout', 'UserController@getLogout');
     Route::get('users/index', 'UserController@getIndex');
     Route::get('users/profile','UserController@getProfile');
