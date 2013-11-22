@@ -41,7 +41,7 @@ body {
 /* Custom page CSS
 -------------------------------------------------- */
 
- body *::selection {
+ *::selection {
   background: #e74c3c;
   color: #fff;
 }

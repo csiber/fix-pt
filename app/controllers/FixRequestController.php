@@ -24,7 +24,7 @@ class FixRequestController extends BaseController {
         }
 
         $popular_tags = Tag::getPopular(20);
-
+        
         foreach($fixrequests as &$fixrequest) {
             $post = Post::find($fixrequest['post_id']);
             $user = User::find($post['user_id']);
