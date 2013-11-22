@@ -32,7 +32,9 @@ class FixRequestController extends BaseController {
             $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
             $fixrequest['category'] = $fixrequest->category;
             $fixrequest['category_class'] = UtilFunctions::getCategoryIdWord($fixrequest->category['id']);
+
         }
+
         return View::make('fixrequests.index', array('fixrequests' => $fixrequests, "sort" => $sort));
     }
 
@@ -45,7 +47,9 @@ class FixRequestController extends BaseController {
     {
         $fixrequest = FixRequest::getFixRequest($id);
         $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
-
+        
+        $fixrequest['comments'] = Comment::getCommentsOfFixRequest($id);
+        
         return View::make('fixrequests/show', array('fixrequest' => $fixrequest));
     }
 
@@ -129,5 +133,33 @@ class FixRequestController extends BaseController {
 
         //echo json_encode($data);
         //var_dump($file->getFileName());
+    }
+
+    public function addComment()
+    {
+
+        $redirect = DB::transaction(function(){
+            $text = Input::get('comment');
+            $userId = Auth::user()->id;
+            $fix_request_id = Input::get('fixrequest-id');
+            
+            $notifiable = new Notifiable();
+            $notifiable->save();
+            $post = new Post(array(
+                        "text" => $text,
+                        "user_id" => $userId
+                    ));
+            $post = $notifiable->post()->save($post);
+            
+            $comment = new Comment(array("fix_request_id" => $fix_request_id, 
+                                         "post_id" => $post->id));
+            $comment->save();
+
+            $fixrequest = FixRequest::getFixRequest($fix_request_id);
+            $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
+
+            return Redirect::to('fixrequests/show/' . $fix_request_id);
+        });
+        return $redirect;
     }
 }

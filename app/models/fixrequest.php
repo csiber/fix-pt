@@ -1,5 +1,6 @@
 <?php
 
+
 class FixRequest extends Eloquent {
 
     protected $fillable = array('title', 'state', 'daysForOffer', 'value');
@@ -22,6 +23,7 @@ class FixRequest extends Eloquent {
 
     public static function getFixRequest($id)
     {
+        //$comments = Comment::getCommentsOfFixRequest($id);
         return FixRequest::with(array('post', 'tags', 'category', 'comments'))->find($id);
     }
 

@@ -15,15 +15,16 @@
         <div class="well well-lg">
             <h4>Comments</h4>
             @foreach($fixrequest['comments'] as $comment)
-                <p></p>
+                <p>{{ $comment->text }}</p>
             @endforeach
             {{ Form::open(array(
                     "url" => "fixrequests/addcomment",
                     "id" => "addcomment-form",
                     "role" => "form")) }} 
-            {{ Form::text("comment", Input::old("insert comment"), 
-                    array("placeholder" => "comment", "class" => "form-control")) }}
-            
+            {{ Form::textarea("comment", Input::old("insert comment"), 
+                    array("placeholder" => "comment", "class" => "form-control", "id" => "comment")) }}
+            {{ Form::hidden("fixrequest-id",$fixrequest['id'], 
+                    array("placeholder" => "fixrequest-id", "class" => "form-control", "id" => "fixrequest-id"))}}
             <div class="form-group">
                 <button type="submit" class="btn btn-success">Add Comment</button>
             </div>
