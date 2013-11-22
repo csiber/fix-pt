@@ -39,7 +39,11 @@ class FixRequestController extends BaseController {
             $fixrequest['end_date_exact'] = date("Y-m-d H:i:s", strtotime($fixrequest->created_at." + $fixrequest->daysForOffer days"));
             $fixrequest['end_date'] = UtilFunctions::getEndDate($fixrequest['created_at'], $fixrequest['daysForOffer']);
         }
-        return View::make('fixrequests.index', array('fixrequests' => $fixrequests, "sort" => $sort, "popular_tags" => $popular_tags));
+        return View::make('fixrequests.index', array(
+            'fixrequests' => $fixrequests,
+            "sort" => $sort,
+            "popular_tags" => $popular_tags,
+        ));
     }
 
     /**
