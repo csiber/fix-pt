@@ -13,8 +13,7 @@
 
             <p> {{{$promotionpage['post']['text']}}} </p>
         </div>
-</div>
-
+    </div>
     <div class="col-md-4">
         <div class="well well-sm sidebar-steps">
             <h3 class="text-center">How you can make a good request</h1>
