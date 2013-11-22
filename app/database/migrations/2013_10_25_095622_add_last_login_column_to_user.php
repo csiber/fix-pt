@@ -9,10 +9,12 @@ class AddLastLoginColumnToUser extends Migration {
      *
      * @return void
      */
-    public function up() {
-        Schema::table('users', function($table) {
-                    $table->timestamp('last_login');
-                });
+    public function up()
+    {
+        Schema::table('users', function($table)
+        {
+            $table->timestamp('last_login');
+        });
         
     }
 
@@ -21,8 +23,12 @@ class AddLastLoginColumnToUser extends Migration {
      *
      * @return void
      */
-    public function down() {
-        //
+    public function down()
+    {
+        Schema::table('users', function($table)
+        {
+            $table->dropColumn('last_login');
+        });
     }
 
 }

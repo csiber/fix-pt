@@ -27,7 +27,7 @@ class FixRequest extends Eloquent {
 
     public static function getFixRequest($id)
     {
-        return FixRequest::with(array('post', 'tags', 'category', 'comments'))->find($id);
+        return FixRequest::with(array('post', 'tags', 'category'))->find($id);
     }
 
 

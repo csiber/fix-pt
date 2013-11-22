@@ -13,6 +13,9 @@
             <p>{{{$fixrequest['post']->text}}}</p>
         </div>
         <div class="well well-lg">
+            <h4>Fix Offers</h4>
+        </div>
+        <div class="well well-lg">
             <h4>Comments</h4>
             @foreach($fixrequest['comments'] as $comment)
                 <p></p>
