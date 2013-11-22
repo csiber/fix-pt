@@ -1,5 +1,6 @@
 <?php
 
+
 class FixRequest extends Eloquent {
 
     protected $fillable = array('title', 'state', 'daysForOffer', 'value');

@@ -7,6 +7,11 @@ class Post extends Eloquent {
 
     // Definition of relations
 
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
+
     public function notifiable()
     {
         return $this->belongsTo('Notifiable');
@@ -16,6 +21,12 @@ class Post extends Eloquent {
     {
         // Not really sure if this is correct
         return $this->hasOne('FixRequest');
+    }
+
+    public function comment()
+    {
+        // Not really sure if this is correct
+        return $this->hasOne('Comment');
     }
 
     public function promotionpage()

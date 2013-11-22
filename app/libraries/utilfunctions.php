@@ -15,6 +15,10 @@ class UtilFunctions {
         }
     }
 
+    public static function dump($var) {
+        echo '<pre>';print_r($var);exit;
+    }
+
     // improve this function
     public static function getCategoryIdWord($id)
     {

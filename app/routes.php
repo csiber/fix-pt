@@ -52,6 +52,8 @@ Route::group(array("before" => "auth"), function()
     Route::get('users/reset-password', 'UserController@showChangePassword');
     Route::post('users/edit', 'UserController@postEdit');
 
+    Route::post('fixrequests/addcomment','FixRequestController@addComment');
+
     # Fix Requests management
     // Route::get('fixrequests/create', 'FixRequestController@getCreate');
     // Route::get('fixrequests/create', 'FixRequestController@postCreate');

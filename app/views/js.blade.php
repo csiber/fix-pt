@@ -4,3 +4,4 @@
 <script src="{{ URL::asset('js/bootstrap-tagsinput.min.js') }}"></script>
 <script src="{{ URL::asset('js/fastclick.js') }}"></script>
 <script src="{{ URL::asset('js/main.js') }}"></script>
+<script src="{{ URL::asset('js/jquery.fancybox.min.js')}}"></script>

@@ -5,6 +5,7 @@ var COMMA_KEY = 188;
 // pageCreateFixRequestJS();
 
 $(document).ready(function(){
+
 	$('#buttonLogin').click(function(){
 		$('#signInModal').ready(function(){
 			$('#buttonForgotPass').click(function(){
@@ -13,6 +14,9 @@ $(document).ready(function(){
 			});
 		});
     });
+
+    // fix request photo lightbox
+    $(".fancybox").fancybox();
 });
 
 // to remove the 300ms tap delay on smartphones

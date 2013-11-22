@@ -8,29 +8,62 @@
             <li><a href="{{URL::to('fixrequests/index/recent')}}">Fix Requests</a></li>
             <li class="active">{{{$fixrequest->title}}}</li>
         </ol>
-        <div class="well well-lg">
+        <div class="well well-lg fixrequest">
             <h4>{{{$fixrequest->title}}}</h4>
-            <p>{{{$fixrequest['post']->text}}}</p>
-        </div>
-        <div class="well well-lg">
-            <h4>Fix Offers</h4>
-        </div>
-        <div class="well well-lg">
-            <h4>Comments</h4>
-            @foreach($fixrequest['comments'] as $comment)
-                <p></p>
-            @endforeach
-            {{ Form::open(array(
-                    "url" => "fixrequests/addcomment",
-                    "id" => "addcomment-form",
-                    "role" => "form")) }} 
-            {{ Form::text("comment", Input::old("insert comment"), 
-                    array("placeholder" => "comment", "class" => "form-control")) }}
+            <p>{{$fixrequest['post']->text}}</p>
             
-            <div class="form-group">
-                <button type="submit" class="btn btn-success">Add Comment</button>
-            </div>
-            {{ Form::close() }}
+            @if(count($photos) > 0)
+                <h5>Photos (click to enlarge)</h5>
+                <ul class="photo-list">
+                    @foreach($photos as $photo)
+                    <li><a class="fancybox" rel="gallery1" href="{{URL::to(''.$photo->path)}}"><img src="{{URL::to(''.$photo->path)}}" alt="" /></a></li>
+                    @endforeach
+                </ul>
+            @endif
+
+        </div>
+        <div class="well well-lg">
+            <h4>{{count($fixoffers)}} Fix Offers</h4>
+        </div>
+        <div class="well well-lg comments">
+            <h4>{{count($comments)}} Comments</h4>
+                @foreach($comments as $comment)
+                    <ul class="media-list comment">
+                      <li class="media">
+                        <a class="pull-left" href="#">
+                          <img class="media-object" src="{{$comment['gravatar']}}" alt="...">
+                        </a>
+                        <div class="media-body">
+                          <h5 class="media-heading"><a href="#">{{{$comment->post->user->username}}}</a><span> - {{$comment->created_at_pretty}}</span></h5>
+                          {{{$comment['post']->text}}}
+                        </div>
+                      </li>
+                    </ul>
+                @endforeach
+
+                <!-- <ul class="media-list">
+                    <li class="media">
+                        <a class="pull-left" href="#">
+                          <img class="media-object" src="..." alt="...">
+                        </a>
+                        <div class="media-body">
+                            <textarea class="form-control" name="" id="" cols="30" rows="1"></textarea>
+                        </div>
+                    </li>
+                </ul> -->
+
+                {{ Form::open(array(
+                        "url" => "fixrequests/addcomment",
+                        "id" => "addcomment-form",
+                        "role" => "form")) }} 
+                {{ Form::textarea("comment", Input::old("insert comment"), 
+                        array("placeholder" => "comment", "class" => "form-control", "id" => "comment")) }}
+                {{ Form::hidden("fixrequest-id",$fixrequest['id'], 
+                        array("placeholder" => "fixrequest-id", "class" => "form-control", "id" => "fixrequest-id"))}}
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Add Comment</button>
+                </div>
+                {{ Form::close() }}
         </div>
     </div>
     <div class="col-md-4">
