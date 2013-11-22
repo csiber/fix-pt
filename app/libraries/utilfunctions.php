@@ -58,5 +58,50 @@ class UtilFunctions {
             }
         }
     }
+
+    /*
+     * Convert seconds to human readable text.
+     *
+     */
+    public static function secs_to_h($secs)
+    {
+        $units = array(
+            "week"   => 7*24*3600,
+            "day"    =>   24*3600,
+            "hour"   =>      3600,
+            "minute" =>        60,
+            "second" =>         1,
+            );
+
+        // specifically handle zero
+        if ( $secs == 0 ) return "0 seconds";
+
+        $s = "";
+
+        foreach ( $units as $name => $divisor ) {
+            if ( $quot = intval($secs / $divisor) ) {
+                $s .= "$quot $name";
+                $s .= (abs($quot) > 1 ? "s" : "") . ", ";
+                $secs -= $quot * $divisor;
+            }
+        }
+
+        return substr($s, 0, -2);
+    }
+
+    public static function getEndDate($date, $daysForOffer)
+    {
+        $now = strtotime('now');
+        $end = strtotime("$date + $daysForOffer days");
+
+        $str = UtilFunctions::secs_to_h($end - $now);
+        preg_match_all('/,/', $str, $matches, PREG_OFFSET_CAPTURE);
+
+        if(count($matches[0]) >= 1) {
+            return substr($str, 0, $matches[0][0][1]);
+        } else {
+            return $str;
+        }
+    }
 }
 ?>
