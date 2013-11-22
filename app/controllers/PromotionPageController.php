@@ -9,14 +9,12 @@ class PromotionPageController extends BaseController {
     */
     public function getIndex($sort=null)
     {   
+        $requests_per_page = 5;
+
         if ($sort == "recent") {
             $promotionpages = PromotionPage::orderBy('created_at', 'DESC')->paginate(5);
-        } else if ($sort == "popular") {
-            $promotionpages = ~PromotionPage::paginate(5);
-        } else if ($sort == "no_offers") {
-            $promotionpages = PromotionPage::paginate(10);
         } else {
-            return Redirect::to('promotionpage/index/recent');
+            return Redirect::to('promotionpages/index/recent');
         }
 
         foreach($promotionpages as $promotionpage) {
@@ -31,7 +29,7 @@ class PromotionPageController extends BaseController {
             $promotionpage['category'] = $promotionpage->category;
             $promotionpage['category_class'] = UtilFunctions::getCategoryIdWord($promotionpage->category['id']);
         }
-        return View::make('promotionpage.index', array('promotionpages' => $promotionpage));
+        return View::make('promotionpages.index', array('promotionpages' => $promotionpages, "sort" => $sort));
     }
 
     /**
@@ -70,7 +68,6 @@ class PromotionPageController extends BaseController {
         $validator = Validator::make(Input::all(), $rules);
 
         if($validator->passes()) {
-
             $redirect = DB::transaction(function()
             {
                 $notifiable = new Notifiable();
@@ -86,8 +83,8 @@ class PromotionPageController extends BaseController {
                     'title' => Input::get('title')
                 ));
 
-                //$category = Category::find(Input::get('category'));
-                //$promotionpage->category()->associate($category);
+                $category = Category::find(Input::get('category'));
+                $promotionpage->category()->associate($category);
                 $promotionpage = $post->promotionpage()->save($promotionpage);
                 return Redirect::to("promotionpages/show/{$promotionpage->id}"); 
             });

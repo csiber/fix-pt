@@ -1,5 +1,6 @@
 <!-- Sign In Modal -->
-<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" 
+        aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header brand-bc">
@@ -28,7 +29,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <a data-toggle="modal" data-target="#resetPassModal" href="#" >Forgot your password?</a>
+                    <a id="buttonForgotPass" data-toggle="modal" data-target="#resetPassModal" href="#" >Forgot your password?</a>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Login</button>

@@ -31,7 +31,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle _promotionpages" data-toggle="dropdown">Promotion Pages <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">View Promotion Pages</a></li>
+                            <li><a href="{{ URL::to('promotionpages/index/recent') }}">View Promotion Pages</a></li>
                             <li><a href="#">Search Promotion Pages</a></li>
                             <li><a href="{{ URL::to('promotionpages/create') }}">Create Promotion Page</a></li>
                             <!--
@@ -57,7 +57,7 @@
                 </ul>                
                 @else                
                 <form class="navbar-form navbar-right" action="users/login">
-                    <button data-toggle="modal" href="#signInModal" class="btn btn-success btn-sm">Login</button>
+                    <button data-toggle="modal" href="#signInModal" class="btn btn-success btn-sm" id="buttonLogin">Login</button>
                     <button data-toggle="modal" href="#signUpModal" class="btn btn-default btn-sm">Sign Up</button>
                 </form>
                 @endif
