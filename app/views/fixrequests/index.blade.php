@@ -47,20 +47,22 @@
         </div>
     </div>
     <div class="col-md-3">
-        <div class="panel panel-default">
+        <!-- <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Favorite Tags</h3>
             </div>
             <div class="panel-body">
                 This will show the favorite tags of the user
             </div>
-        </div>
+        </div> -->
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Popular Tags</h3>
             </div>
             <div class="panel-body">
-                
+                @foreach($popular_tags as $tag)
+                    <span class="tag label brand-bc">{{{$tag->name}}}</span>
+                @endforeach
             </div>
         </div>
     </div>
