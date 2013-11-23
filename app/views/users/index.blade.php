@@ -24,11 +24,14 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->username }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->permission }}</td>
+                            <td>{{ $user->user_type }}</td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <div>
+                    <button type="submit" form="signup-form1" class="btn btn-success">Confirm</button>
+                </div>
             </div>
         </div>    
     </div>    

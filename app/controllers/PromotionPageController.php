@@ -52,7 +52,12 @@ class PromotionPageController extends BaseController {
      */
     public function getCreate()
     {
-        return View::make('promotionpages.create');
+        if(Auth::check()){
+            return View::make('promotionpages.create');
+        } else {
+            Session::flash('error', 'You have to login to be able to make a promotion page');
+            return Redirect::guest('users/login');
+        }
     }
 
     public function postCreate() 

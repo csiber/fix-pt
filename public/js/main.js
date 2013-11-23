@@ -1,20 +1,18 @@
+// key events
+var ENTER_KEY = 13;
+var COMMA_KEY = 188;
 
-
+// pageCreateFixRequestJS();
 
 $(document).ready(function(){
-
 	$('#buttonLogin').click(function(){
 		$('#signInModal').ready(function(){
 			$('#buttonForgotPass').click(function(){
 				console.log("FAIL");
 				$('#signInModal').modal('hide');
-				
-			});	
+			});
 		});
-			
-	});
-
-	
+    });
 });
 
 // to remove the 300ms tap delay on smartphones
@@ -30,4 +28,12 @@ function markFixerAsFavorite(star) {
  	else {
  		star.removeClass('glyphicon-star').addClass('glyphicon-star-empty');
  	}
+}
+
+function pageCreateFixRequestJS() {
+    var tagsInput = $('.bootstrap-tagsinput > input');
+    tagsInput.tagsinput({
+        maxTags: 5,
+        confirmKeys: [ENTER_KEY, COMMA_KEY],
+    });
 }

@@ -201,6 +201,15 @@ body._fixrequests .navbar-inverse .navbar-nav li > a._fixrequests,
   border-radius: 0;
 }
 
+.bootstrap-tagsinput > .bootstrap-tagsinput {
+  border: none;
+  padding: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+
 fieldset .form-group {
   width: 49%;
 }
