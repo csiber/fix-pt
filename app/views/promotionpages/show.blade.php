@@ -9,8 +9,10 @@
             <li class="active">{{{$promotionpage->title}}}</li>
         </ol>
         <div class="well well-lg">
-            <h4> {{{$promotionpage->title}}} </h4>
-
+            <h4> 
+                <span class="glyphicon glyphicon-star-empty favorite-fixer" onclick="markFixerAsFavorite(this)"></span>
+                {{{$promotionpage->title}}} 
+            </h4>
             <p> {{{$promotionpage['post']['text']}}} </p>
         </div>
     </div>
