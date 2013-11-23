@@ -20,13 +20,15 @@
                     @endforeach
                 </ul>
             @endif
-
+        
         </div>
         <div class="well well-lg">
             <h4>{{count($fixoffers)}} Fix Offers</h4>
         </div>
         <div class="well well-lg comments">
             <h4>{{count($comments)}} Comments</h4>
+            @if(count($comments) > 0)
+            <div class="comment-list">
                 @foreach($comments as $comment)
                     <ul class="media-list comment">
                       <li class="media">
@@ -40,6 +42,8 @@
                       </li>
                     </ul>
                 @endforeach
+            </div>
+            @endif
 
                 <!-- <ul class="media-list">
                     <li class="media">
@@ -56,13 +60,22 @@
                         "url" => "fixrequests/addcomment",
                         "id" => "addcomment-form",
                         "role" => "form")) }} 
-                {{ Form::textarea("comment", Input::old("insert comment"), 
-                        array("placeholder" => "comment", "class" => "form-control", "id" => "comment")) }}
-                {{ Form::hidden("fixrequest-id",$fixrequest['id'], 
-                        array("placeholder" => "fixrequest-id", "class" => "form-control", "id" => "fixrequest-id"))}}
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Add Comment</button>
+                    {{ Form::textarea("comment", Input::old("insert comment"), array(
+                        "placeholder" => "comment...", 
+                        "class" => "form-control", 
+                        "id" => "comment",
+                        "rows" => "3"
+                    )) }}
                 </div>
+                <div class="form-group">
+                    {{ Form::hidden("fixrequest-id",$fixrequest['id'], array(
+                        "placeholder" => "fixrequest-id", 
+                        "class" => "form-control", 
+                        "id" => "fixrequest-id"
+                    ))}}
+                </div>
+                <button type="submit" class="btn btn-success">Add Comment</button>
                 {{ Form::close() }}
         </div>
     </div>

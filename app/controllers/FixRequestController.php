@@ -81,7 +81,12 @@ class FixRequestController extends BaseController {
      */
     public function getCreate()
     {
-        return View::make('fixrequests.create');
+        if(Auth::check()) {
+            return View::make('fixrequests.create');
+        } else {
+            Session::flash('error', 'You have to login to be able to make a fix request');
+            return Redirect::guest('users/login');
+        }
     }
 
     /**

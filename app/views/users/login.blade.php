@@ -1,6 +1,19 @@
 @extends("users/layout")
 
 @section("content")
+
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
+            <li class="active">Login</a></li>
+        </ol>
+        <div class="well well-lg">
+            Place form here!
+        </div>
+    </div>
+</div>
+
 <div class="modal-dialog">
     <div class="modal-content">
         {{ Form::open(array(    

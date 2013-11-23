@@ -375,7 +375,7 @@ fieldset .form.group:last-child {
 }
 
 .panel-body .tags .category-label {
-  background-color: #888;
+  background-color: #999;
   color: #fff;
 }
 
@@ -439,7 +439,7 @@ fieldset .form.group:last-child {
 }
 
 .well > h5 {
-  
+  margin-top: 20px;
 }
 
 .fixrequest > p {
@@ -447,7 +447,8 @@ fieldset .form.group:last-child {
 }
 
 .photo-list {
-  padding: 0 0 12px;
+  padding: 5px 0 0;
+  margin-bottom: 0;
   list-style: none;
   overflow: hidden;
   zoom: 1;
@@ -465,6 +466,21 @@ fieldset .form.group:last-child {
 }
 
 .comments .comment {
+  position: relative;
+}
+
+.comment .media-body {
+  text-align: justify;
+}
+
+.comments .comment:not(:last-of-type) {
+  margin-bottom: 30px;
+}
+
+.comments .comment-list {
+  padding: 15px 10px 15px 30px;
+  border-left: 4px solid #e74c3c;
+  margin-left: 30px;
   margin-bottom: 15px;
 }
 
@@ -472,4 +488,16 @@ fieldset .form.group:last-child {
   color: #999;
   font-weight: 400;
   font-size: 13px;
+}
+
+.comments .media img {
+  border-radius: 50%;
+  border: 3px solid #fff;
+  position: absolute;
+  left: -59px;
+  top: -5px;
+}
+
+.panel {
+  border-radius: 1px;
 }

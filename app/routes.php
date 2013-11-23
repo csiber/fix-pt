@@ -35,6 +35,7 @@ Route::model('promotionpages', 'PromotionPage');
 Route::post('users/reset-pass','UserController@postResetPass');
 Route::get('users/codetoresetpass/{code}','UserController@getCodeToResetPass');
 
+// TODO what is this before => none??
 Route::group(array("before" => "none"),function(){
     Route::get('users/confirmation','UserController@getConfirmation');    
 });
@@ -43,7 +44,6 @@ Route::group(array("before" => "none"),function(){
 Route::group(array("before" => "auth"), function()
 {
     # User Management    
-    
     Route::get('users/logout', 'UserController@getLogout');
     Route::get('users/index', 'UserController@getIndex');
     Route::get('users/profile','UserController@getProfile');
@@ -54,9 +54,8 @@ Route::group(array("before" => "auth"), function()
 
     Route::post('fixrequests/addcomment','FixRequestController@addComment');
 
-    # Fix Requests management
-    // Route::get('fixrequests/create', 'FixRequestController@getCreate');
-    // Route::get('fixrequests/create', 'FixRequestController@postCreate');
+    // # Fix Requests management
+    Route::post('fixrequests/create', 'FixRequestController@postCreate');
 });
 
 /** ------------------------------------------

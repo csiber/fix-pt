@@ -276,15 +276,15 @@ class UserController extends BaseController {
             $profile->uid = $uid;
             $profile->username = $user['username'];
             $profile = $user->profiles()->save($profile);
+
+        } else {
+
         }
 
         $profile->access_token = $facebook->getAccessToken();
         $profile->save();
 
-        $user = $profile->user;
-
-        Auth::login($user);
-
+        Auth::login($profile->user);
         return Redirect::to('users/profile')->with('message', "Logged in with Facebook");
     }
 }
