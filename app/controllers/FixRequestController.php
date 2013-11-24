@@ -70,6 +70,7 @@ class FixRequestController extends BaseController {
             'fixrequest' => $fixrequest,
             'comments' => $comments,
             'photos' => $fixrequest->post->photos()->getResults(),
+            'auth' => Auth::check(),
             'fixoffers' => array(), // TODO
         ));
     }

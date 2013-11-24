@@ -56,6 +56,7 @@
                     </li>
                 </ul> -->
 
+                @if($auth == 1)
                 {{ Form::open(array(
                         "url" => "fixrequests/addcomment",
                         "id" => "addcomment-form",
@@ -77,6 +78,7 @@
                 </div>
                 <button type="submit" class="btn btn-success">Add Comment</button>
                 {{ Form::close() }}
+                @endif
         </div>
     </div>
     <div class="col-md-4">

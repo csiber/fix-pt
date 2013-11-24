@@ -115,7 +115,12 @@ a:hover, a:focus {
   background-color: #c0392b;
 }
 
-
+.navbar .btn {
+  background-color: #e74c3c;
+  color: #fff;
+  min-width: 66px;
+  border: 1px solid #fff;
+}
 
 .navbar-inverse .navbar-brand {
   color: #fff;
@@ -432,7 +437,6 @@ fieldset .form.group:last-child {
   border-color: #ddd;
 }
 
-<<<<<<< HEAD
 .well > h4 {
   border-bottom: 2px solid #e3e3e3;
   margin-bottom: 15px;
