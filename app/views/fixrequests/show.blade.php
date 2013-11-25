@@ -9,7 +9,7 @@
             <li class="active">{{{$fixrequest->title}}}</li>
         </ol>
         <div class="well well-lg fixrequest">
-            <h4>{{{$fixrequest->title}}}</h4>
+            <h4 class="lead">{{{$fixrequest->title}}} <span class="tag pull-right label">{{$fixrequest->category->name}}</span></h4>
             <p>{{$fixrequest['post']->text}}</p>
             
             @if(count($photos) > 0)
@@ -22,11 +22,28 @@
             @endif
         
         </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="well well-lg lead">
+                    Value
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="well well-lg">
+                    Time
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="well well-lg">
+                    Other
+                </div>
+            </div>
+        </div>
         <div class="well well-lg">
-            <h4>{{count($fixoffers)}} Fix Offers</h4>
+            <h4 class="lead">{{count($fixoffers)}} Fix Offers</h4>
         </div>
         <div class="well well-lg comments">
-            <h4>{{count($comments)}} Comments</h4>
+            <h4 class="lead">{{count($comments)}} Comments</h4>
             @if(count($comments) > 0)
             <div class="comment-list">
                 @foreach($comments as $comment)
@@ -84,7 +101,7 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Fix Request Stats</h3>
+                <h3 class="panel-title lead">Fix Request Stats</h3>
             </div>
             <div class="panel-body">
                 This will show the stats of this fix request
@@ -92,7 +109,7 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Recommended Fixers</h3>
+                <h3 class="panel-title lead">Recommended Fixers</h3>
             </div>
             <div class="panel-body">
                 This will show fixers that are able to do this repair
@@ -100,7 +117,7 @@
         </div>
          <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Related Fix Requests</h3>
+                <h3 class="panel-title lead">Related Fix Requests</h3>
             </div>
             <div class="panel-body">
                 This will show fix requests similar to this one

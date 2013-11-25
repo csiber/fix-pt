@@ -122,6 +122,12 @@ a:hover, a:focus {
   border: 1px solid #fff;
 }
 
+.navbar .btn:hover {
+  background-color: #fff;
+  color: #e74c3c;
+  border-color: #e74c3c;
+}
+
 .navbar-inverse .navbar-brand {
   color: #fff;
 }
@@ -302,6 +308,10 @@ fieldset .form.group:last-child {
   margin-top: 15px;
 }
 
+.fixrequests .panel-body > h4 {
+  font-weight: 200;
+}
+
 .fixrequests .panel:first-child {
   margin-top: 0;
 }
@@ -451,6 +461,11 @@ fieldset .form.group:last-child {
   text-align: justify;
 }
 
+.fixrequest > h4 > .tag {
+  background-color: #999;
+  color: #fff;
+} 
+
 .photo-list {
   padding: 5px 0 0;
   margin-bottom: 0;
@@ -510,4 +525,8 @@ fieldset .form.group:last-child {
 .favorite-fixer {
   cursor: pointer;
   color: #FFD700;
+}
+
+.popular-tags .panel-body > div {
+  margin-top: 6px;
 }

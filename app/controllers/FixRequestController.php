@@ -23,7 +23,7 @@ class FixRequestController extends BaseController {
             return Redirect::to('fixrequests/index/recent');
         }
 
-        $popular_tags = Tag::getPopular(20);
+        $popular_tags = Tag::getPopular(10);
 
         foreach($fixrequests as &$fixrequest) {
             $post = Post::find($fixrequest['post_id']);
