@@ -464,7 +464,21 @@ fieldset .form.group:last-child {
 .fixrequest > h4 > .tag {
   background-color: #999;
   color: #fff;
-} 
+}
+
+.well.stats {
+  text-align: center;
+  padding: 5px 10px 5px;
+}
+
+.well.stats h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.well.stats span {
+  color: #75767D;
+}
 
 .photo-list {
   padding: 5px 0 0;
@@ -487,6 +501,10 @@ fieldset .form.group:last-child {
 
 .comments .comment {
   position: relative;
+}
+
+.comments button {
+  border-radius: 1px;
 }
 
 .comment .media-body {

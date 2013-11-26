@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
         <ol class="breadcrumb">
             <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
             <li><a href="{{URL::to('fixrequests/index/recent')}}">Fix Requests</a></li>
@@ -20,22 +20,27 @@
                     @endforeach
                 </ul>
             @endif
-        
+
+            <div class="fixrequest-author text-right">requested by <a href="{{ URL::to('users/show/'.$fixrequest->post->user_id) }}">{{{$fixrequest->post->user->username}}}</a></div>
+
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="well well-lg lead">
-                    Value
+                <div class="well well-lg stats">
+                    <h2 class="lead">{{{$fixrequest->value}}}€</h2>
+                    <span>value</span>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="well well-lg">
-                    Time
+                <div class="well well-lg stats">
+                    <h2 class="lead">{{{$fixrequest->created_at_pretty}}}</h2>
+                    <span>posted</span>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="well well-lg">
-                    Other
+                <div class="well well-lg stats">
+                    <h2 class="lead">{{{$fixrequest->end_date}}}</h2>
+                    <span>time left</span>
                 </div>
             </div>
         </div>
@@ -98,13 +103,30 @@
                 @endif
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title lead">Fix Request Stats</h3>
             </div>
             <div class="panel-body">
-                This will show the stats of this fix request
+                <div class="row">
+                    <div class="col-md-6 col-sm-3 col-lg-4">
+                        <h4>{{$fixrequest->views}}</h4>
+                        <span>views</span>
+                    </div>
+                    <div class="col-md-6 col-sm-3 col-lg-4">
+                        <h4>{{count($fixoffers)}}</h4>
+                        <span>fix offers</span>
+                    </div>
+                    <div class="col-md-12 col-sm-3 col-lg-4">
+                        <h4>{{count($comments)}}</h4>
+                        <span>comments</span>
+                    </div>
+                    <div class="col-md-12 col-sm-3">
+                        <h4>{{$fixrequest->updated_at_pretty}}</h4>
+                        <span>last activity</span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="panel panel-default">
