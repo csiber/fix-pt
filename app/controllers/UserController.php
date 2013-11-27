@@ -287,4 +287,20 @@ class UserController extends BaseController {
         Auth::login($profile->user);
         return Redirect::to('users/profile')->with('message', "Logged in with Facebook");
     }
+
+    public function getManage_Users() {
+        $users = User::all();
+        return View::make('users.manage_users', array('users' => $users));
+    }
+
+    public function postManage_Users() {
+        $users = User::all();
+        $iarray = Input::all();
+        foreach ($users as $u) {
+            if($u->user_type != $iarray[$u->id]){
+                User::where('email',$u->email)->update(array('user_type' => $iarray[$u->id]));
+            }
+        }
+        return Redirect::to('users/profile');
+    }
 }

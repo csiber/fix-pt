@@ -46,13 +46,15 @@ Route::group(array("before" => "auth"), function()
     # User Management    
     Route::get('users/logout', 'UserController@getLogout');
     Route::get('users/index', 'UserController@getIndex');
+    Route::get('users/manage_users', 'UserController@getManage_Users');
     Route::get('users/profile','UserController@getProfile');
     Route::get('users/confirm-user', 'UserController@getConfirmUser');
     Route::get('users/edit', 'UserController@getEdit');
     Route::get('users/reset-password', 'UserController@showChangePassword');
     Route::post('users/edit', 'UserController@postEdit');
+    Route::post('fixrequests/create', 'FixRequestController@postCreate');
 
-    Route::post('fixrequests/addcomment','FixRequestController@addComment');
+    Route::post('users/manage_users','UserController@postManage_Users');
 
     // # Fix Requests management
     Route::post('fixrequests/create', 'FixRequestController@postCreate');
