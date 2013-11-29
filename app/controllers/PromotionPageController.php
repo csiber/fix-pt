@@ -80,7 +80,7 @@ class PromotionPageController extends BaseController {
 
                 $post = new Post(array(
                     "text" => Input::get('body'), 
-                    "user_id" => 1
+                    "user_id" => Auth::user()->id
                 ));
                 $post = $notifiable->post()->save($post);
 
