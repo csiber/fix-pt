@@ -51,6 +51,7 @@ class UserController extends BaseController {
                 "password" => Input::get("password")
             );
             if (Auth::attempt($credentials)) {
+
                 return Redirect::to("users/profile");
             }
         }
@@ -124,6 +125,8 @@ class UserController extends BaseController {
      *
      */
     public function getLogout() {
+        Auth::user()->Last_login = date('Y-m-d h:i:s', time());
+        Auth::user()->save();
         Auth::logout();
         return Redirect::to('/');
     }
