@@ -13,7 +13,9 @@
                 <ul class="nav navbar-nav">
 
                     <li><a href="{{{ URL::to('/') }}}" class="_home">Home</a></li>
+                    @if (Auth::check() && Auth::user()->user_type == 'Administrator')
                     <li><a href="{{{ URL::to('users/index') }}}" class="_users">Users</a></li>
+                    @endif
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle _fixrequests" data-toggle="dropdown">Fix Requests <b class="caret"></b></a>
                         <ul class="dropdown-menu">

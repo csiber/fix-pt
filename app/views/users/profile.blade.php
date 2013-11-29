@@ -71,7 +71,7 @@
         <div class="well well-sm sidebar-steps">
             <ul>
                 @if (Auth::user()->user_type == 'Administrator')
-                    <li><a href="{{{ URL::to('users/manage_users') }}}" class="_users">Manage Users</a></li>
+                    <li><a href="{{{ URL::to('users/index') }}}" class="_users">Manage Users</a></li>
                 @endif
                 <li>Links For User Actions TODO</li>                    
             </ul>
