@@ -10,7 +10,7 @@
         </ol>
         <div class="well well-lg">
             <h4> 
-                <span class="glyphicon glyphicon-star-empty favorite-fixer" onclick="markFixerAsFavorite(this)"></span>
+                <span class="glyphicon glyphicon-star favorite-fixer1" onclick="markFixerAsFavorite(this)"></span>
                 {{{$promotionpage->title}}} 
             </h4>
             <p> {{{$promotionpage['post']['text']}}} </p>
