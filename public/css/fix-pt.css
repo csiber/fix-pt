@@ -480,6 +480,10 @@ fieldset .form.group:last-child {
   color: #75767D;
 }
 
+.fix-request-sidestats > .panel-body .col-lg-12 {
+  margin-top: 10px;
+} 
+
 .photo-list {
   padding: 5px 0 0;
   margin-bottom: 0;
@@ -548,3 +552,5 @@ fieldset .form.group:last-child {
 .popular-tags .panel-body > div {
   margin-top: 6px;
 }
+
+

@@ -34,7 +34,7 @@
                         <div class="panel-footer">
                             <div class="row">
                                 <div class="col-md-3 col-xs-6"><i class="fa fa-user"></i> by {{{$fixrequest->username}}}</div>
-                                <div class="col-md-3 col-xs-6" title="{{$fixrequest->created_at}}"><i class="fa fa-calendar-o"></i> created {{$fixrequest->created_at_pretty}}</div>
+                                <div class="col-md-3 col-xs-6" title="{{$fixrequest->created_at}}"><i class="fa fa-calendar-o"></i> posted {{$fixrequest->created_at_pretty}}</div>
                                 <div class="col-md-3 col-xs-6"><i class="fa fa-location-arrow"></i> not working yet</div>
                                 <div class="col-md-3 col-xs-6" title="{{$fixrequest->end_date_exact}}"><i class="fa fa-clock-o"></i> {{$fixrequest->end_date}}</div>
                             </div>

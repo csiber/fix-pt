@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
         <ol class="breadcrumb">
             <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
             <li><a href="{{URL::to('fixrequests/index/recent')}}">Fix Requests</a></li>
@@ -103,29 +103,29 @@
                 @endif
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="panel panel-default">
+    <div class="col-md-4">
+        <div class="panel panel-default fix-request-sidestats">
             <div class="panel-heading">
                 <h3 class="panel-title lead">Fix Request Stats</h3>
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-6 col-sm-3 col-lg-4">
+                    <div class="col-md-6 col-sm-3 col-lg-4 text-center">
                         <h4>{{$fixrequest->views}}</h4>
                         <span>views</span>
                     </div>
-                    <div class="col-md-6 col-sm-3 col-lg-4">
+                    <div class="col-md-6 col-sm-3 col-lg-4 text-center">
                         <h4>{{count($fixoffers)}}</h4>
                         <span>fix offers</span>
                     </div>
-                    <div class="col-md-12 col-sm-3 col-lg-4">
+                    <div class="col-md-12 col-sm-3 col-lg-4 text-center">
                         <h4>{{count($comments)}}</h4>
                         <span>comments</span>
                     </div>
-                    <div class="col-md-12 col-sm-3">
-                        <h4>{{$fixrequest->updated_at_pretty}}</h4>
-                        <span>last activity</span>
-                    </div>
+                    <!-- <div class="col-md-12 col-sm-3 col-lg-12">
+                        <h4 class="lead">last activity</h4>
+                        <span>{{$fixrequest->updated_at_pretty}}</span>
+                    </div> -->
                 </div>
             </div>
         </div>
