@@ -13,6 +13,11 @@
                             <th>Username</th>
                             <th>Email</th>
                             <th>Permission</th>
+                            
+                            @if (Auth::user()->user_type == 'Administrator')
+                            <th>Actions</th>
+                                
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -21,10 +26,18 @@
                         @foreach($users as $user)
                         <tr>
                             <td><?php echo $counter++; ?></td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->username }}</td>
+                            <td><a href="{{ URL::to('users/view/'.$user->id.'')}}">{{ $user->full_name }}</a></td>
+                            <td><a href="{{ URL::to('users/view/'.$user->id.'')}}">{{ $user->username }}</a></td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->user_type }}</td>
+                            
+                            @if (Auth::user()->user_type == 'Administrator')
+                            <td>
+                                <a href="{{{ URL::to('users/edit/'.$user->id.'') }}}" class="_users"><span class="label label-fix-pt">Edit</span></a>
+                                <a href="{{{ URL::to('users/delete/'.$user->id.'') }}}" class="_users"><span class="label label-danger">Delete</span></a>
+                            </td>
+                            
+                            @endif
                         </tr>
                         @endforeach
                     </tbody>

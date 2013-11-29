@@ -16,7 +16,7 @@
             </ul>
             <div class="fixrequests">
                 @if(count($fixrequests) === 0)
-                    <p>We have no fix requests to show you</p>
+                <p>We have no fix requests to show you</p>
                 @else
                     @foreach($fixrequests as $fixrequest)
                     <div class="panel panel-default" data-fixrequest-id="{{$fixrequest->id}}">
@@ -33,15 +33,15 @@
                         </div>
                         <div class="panel-footer">
                             <div class="row">
-                                <div class="col-md-3 col-xs-6"><i class="fa fa-user"></i> by {{{$fixrequest->username}}}</div>
+                                <div class="col-md-3 col-xs-6"><i class="fa fa-user"></i> by <a href="{{ URL::to('users/view/'.$fixrequest->user_id.'')}}">{{{$fixrequest->username}}}</a></div>
                                 <div class="col-md-3 col-xs-6" title="{{$fixrequest->created_at}}"><i class="fa fa-calendar-o"></i> posted {{$fixrequest->created_at_pretty}}</div>
                                 <div class="col-md-3 col-xs-6"><i class="fa fa-location-arrow"></i> not working yet</div>
                                 <div class="col-md-3 col-xs-6" title="{{$fixrequest->end_date_exact}}"><i class="fa fa-clock-o"></i> {{$fixrequest->end_date}}</div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
-                    {{$fixrequests->links()}}
+                @endforeach
+                {{$fixrequests->links()}}
                 @endif
             </div>
         </div>

@@ -6,30 +6,17 @@
     <div class="col-md-12">
         <ol class="breadcrumb">
             <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
-            <li class="active">Login</a></li>
+            <li class="active">Sign In</a></li>
         </ol>
         <div class="well well-lg">
-            Place form here!
-        </div>
-    </div>
-</div>
-
-<div class="modal-dialog">
-    <div class="modal-content">
-        {{ Form::open(array(    
+            <h4 class="modal-title">Sign In</h4>
+            {{ Form::open(array(    
         "url"        => "users/login",
         "method"    => "post",
         "autocomplete" => "off",
         "id"=> "signin-form"
         )) }}
-
-        <div class="modal-header">
-            <h4 class="modal-title">Sign In</h4>
-        </div>
-        <div class="modal-body">
-
-
-            <div class="form-group <?php echo ($errors->has('username')) ? "has-error" : ""; ?>">
+        <div class="form-group <?php echo ($errors->has('username')) ? "has-error" : ""; ?>">
 
                 <?php echo Form::label("username", ($errors->first('username')) ? "Username - " . $errors->first('username') : "Username", array("class" => "control-label")); ?>
                 <?php echo Form::text("username", Input::old("username"), array("placeholder" => "Enter Username", "class" => "form-control", "id" => "username"));
@@ -55,15 +42,14 @@
                 <a id="buttonForgotPass" data-toggle="modal" data-target="#resetPassModal" href="#" >Forgot your password?</a>
             </div>
             <button type="submit" form="signin-form" class="btn btn-success">Sign In</button>
-        </div>
-        
-        
-        {{ Form::close() }}
-        <div class="modal-footer">
             <a class="btn btn-sm btn-primary" href="{{ URL::to('users/fb') }}"><i class="fa fa-facebook-square"></i> Login with Facebook</a>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       
+        {{ Form::close() }}
+             
         </div>
-    </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
+    </div>
+</div>
+
+
 
 @stop

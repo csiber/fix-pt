@@ -20,7 +20,7 @@
                     </div>
                     <div class="panel-footer">
                         <div class="row">
-                            <div class="col-md-3 col-xs-6"><i class="fa fa-user"></i> {{{$promotionpage->username}}}</div>
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-user"></i> by <a href="{{ URL::to('users/view/'.$promotionpage->user_id.'')}}">{{{$promotionpage->username}}}</a></div>
                             <div class="col-md-3 col-xs-6"><i class="fa fa-calendar-o"></i> {{$promotionpage->created_at_pretty}}</div>
                             <div class="col-md-3 col-xs-6"><i class="fa fa-location-arrow"></i> not working yet</div>
                             <div class="col-md-3 col-xs-6"><i class="fa fa-clock-o"></i> not working yet</div>
