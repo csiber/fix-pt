@@ -1,6 +1,5 @@
 <?php
 
-
 class UserController extends BaseController {
 
     public $rules = array(
@@ -8,6 +7,9 @@ class UserController extends BaseController {
         'email' => 'required|email|unique:users',
         'password' => 'required|between:4,11',
         'confirm_password' => 'same:password'
+    );
+    public $editRules = array(
+        'full_name' => 'required|min:8',
     );
     public $loginRules = array(
         'username' => 'required',
@@ -23,8 +25,20 @@ class UserController extends BaseController {
         return View::make('users.index', array('users' => $users));
     }
 
-    public function getLogin() {        
-        return View::make("users.login");        
+    /**
+     * View displays profile of a given user
+     * @return Response
+     */
+    public function getView($id) {
+        if ($id == Auth::user()->id) {
+            return Redirect::to("users/profile");
+        }
+        $user = User::getUser($id);
+        return View::make('users.view', array('user' => $user));
+    }
+
+    public function getLogin() {
+        return View::make("users.login");
     }
 
     public function postLogin() {
@@ -36,13 +50,13 @@ class UserController extends BaseController {
                 "username" => Input::get("username"),
                 "password" => Input::get("password")
             );
-            if (Auth::attempt($credentials)) {                
+            if (Auth::attempt($credentials)) {
                 return Redirect::to("users/profile");
             }
         }
 
-        
-        Session::flash('error', 'Invalid username or password.');        
+
+        Session::flash('error', 'Invalid username or password.');
 
         return Redirect::to('users/login')
                         ->withInput()
@@ -50,56 +64,50 @@ class UserController extends BaseController {
         //var_dump($error = $validator->errors()->all());
     }
 
-    public function postResetPass(){
-        
+    public function postResetPass() {
+
         $email = Input::get('email');
         $user = User::whereRaw('email = ?', array($email))->get();
         $code = $user[0]->confirmation_code;
 
-        Email::sendResetPassEmail($email,$code);
+        Email::sendResetPassEmail($email, $code);
         //echo 'Email sent for reseting the password' ;
 
         Session::flash('success', 'Email sent for reseting the password.');
         return Redirect::to('/users/login');
     }
 
-    public function getCodeToResetPass($code)
-    {
+    public function getCodeToResetPass($code) {
         $user = User::whereRaw('confirmation_code = ?', array($code))->get();
-        
-        if($user[0] != null)
-        {
+
+        if ($user[0] != null) {
             //$user[0]->confirmed = 1;
-            
             //$newPass = Hash::make("Fix.pt");
             //User::where('confirmation_code', $code)->update(array('password' => $newPass));
-            Auth::login($user[0] );
+            Auth::login($user[0]);
         }
         //Session::flash('success', 'Password has been reseted to the default Fix.pt');
-        
+
         return Redirect::to("/users/reset-password");
     }
 
-    public function showChangePassword()
-    {
+    public function showChangePassword() {
         return View::make('users.change-password');
     }
 
-    public function postChangePassword()
-    {
+    public function postChangePassword() {
         $user = User::find(Auth::user()->id);
-        if(/*Hash::make(Input::get('oldPass')) == $user['password'] or*/ true /*para tirar depois*/)
-        {
+        if (/* Hash::make(Input::get('oldPass')) == $user['password'] or */ true /* para tirar depois */) {
             $newPass = Hash::make(Input::get('newPass'));
             //$user->update(array('password' => $newPass));
-            User::where('id',Auth::user()->id)->update(array('password' => $newPass));
-            Session::flash('success','Password changed successfully.');
+            User::where('id', Auth::user()->id)->update(array('password' => $newPass));
+            Session::flash('success', 'Password changed successfully.');
             return View::make('users.profile', array('user' => $user));
-        }else{
+        } else {
             //erro
             Session::flash('error', 'Wrong Password.');
         }
-        
+
         //return Redirect::to("/");
     }
 
@@ -125,9 +133,15 @@ class UserController extends BaseController {
      *
      * @return Response
      */
-    public function getEdit() {
-        $user = Auth::user();
-        return View::make('users.edit', compact('user'));
+    public function getEdit($id) {
+        if ($id == Auth::user()->id || Auth::user()->user_type == 'Administrator') {
+            $user = User::getUser($id);
+            return View::make('users.edit', compact('user'));
+        } else {
+            $msg = "You cannot edit this content! ";
+            Session::flash('error', $msg);
+            return Redirect::to("users/index");
+        }
     }
 
     /**
@@ -135,9 +149,26 @@ class UserController extends BaseController {
      *
      * @return Response
      */
-    public function postEdit() {
-        var_dump(Input::all());
-        die;
+    public function postEdit($id) {
+        
+        $validator = Validator::make(Input::all(), $this->editRules);
+        
+        if ($validator->fails()) {            
+            return Redirect::to('users/edit/' . $id)
+                            ->withInput()
+                            ->withErrors($validator);
+        } else {
+            $user = User::find($id);
+            if(Input::get('full_name')!=null){
+                $user->full_name = Input::get('full_name');
+            }            
+            $user->save();
+            // TODO is this final?
+            $msg = 'User data was successfully updated!';
+
+            Session::flash('success', $msg);
+            return Redirect::to("users/view/" . $id);
+        }
     }
 
     /**
@@ -150,7 +181,7 @@ class UserController extends BaseController {
         $msg = 'An email with confirmation procedure was successfully sent to <b>' . Auth::user()->email . '</b>.
             <br/>Please follow the instructions in the email to confirm the user!';
 
-        Email::sendConfirmationEmail(Auth::user()->email, Auth::user()->username, Auth::user()->confirmation_code);    
+        Email::sendConfirmationEmail(Auth::user()->email, Auth::user()->username, Auth::user()->confirmation_code);
 
         Session::flash('success', $msg);
         return View::make('users.profile');
@@ -183,7 +214,7 @@ class UserController extends BaseController {
             $user->email = Input::get('email');
             $user->username = Input::get('username');
             $user->password = Hash::make(Input::get('password'));
-            $user->confirmation_code = str_replace("/","",Hash::make(Input::get('email')));
+            $user->confirmation_code = str_replace("/", "", Hash::make(Input::get('email')));
 
             $user->save();
             Auth::login($user);
@@ -201,13 +232,12 @@ class UserController extends BaseController {
 
     public function getConfirmation($code) {
         $user = User::whereRaw('confirmation_code = ?', array($code))->get();
-        
 
-        if($user[0] != null /*&& $user[0]->id == Auth::user()->id*/)
-        {
+
+        if ($user[0] != null /* && $user[0]->id == Auth::user()->id */) {
             //$user[0]->confirmed = 1;
             User::where('confirmation_code', $code)->update(array('confirmed' => 1));
-            Auth::login($user[0] );
+            Auth::login($user[0]);
         }
 
         return Redirect::to("users/profile");
@@ -231,54 +261,51 @@ class UserController extends BaseController {
         )));
     }
 
-    public function getFb()
-    {
+    public function getFb() {
         $facebook = new Facebook(Config::get('facebook'));
         $params = array(
             'redirect_uri' => url('users/fb-callback'),
             'scope' => 'email'
-            );
+        );
         return Redirect::to($facebook->getLoginUrl($params));
     }
 
-    public function getFbCallback()
-    {
+    public function getFbCallback() {
         $code = Input::get('code');
 
-        if(strlen($code) == 0) {
+        if (strlen($code) == 0) {
             return Redirect::to('users/login')->with('message', 'There was an error communicating with Facebook');
         }
 
         $facebook = new Facebook(Config::get('facebook'));
         $uid = $facebook->getUser();
 
-        if($uid == 0) {
+        if ($uid == 0) {
             return Redirect::to('users/login')->with('message', 'There was an error');
         }
 
         $me = $facebook->api('/me');
         $profile = Profile::whereUid($uid)->first();
 
-        if(empty($profile)) {
+        if (empty($profile)) {
             $user = new User;
             $user->email = $me['email'];
 
-            if(isset($me['username'])) {
+            if (isset($me['username'])) {
                 $user->username = $me['username'];
             } else {
                 $user->username = $me['name'];
-            }   
+            }
             $user->save();
 
-            User::where('email',$user->email)->update(array('confirmed' => 1));
+            User::where('email', $user->email)->update(array('confirmed' => 1));
 
             $profile = new Profile();
             $profile->uid = $uid;
             $profile->username = $user['username'];
             $profile = $user->profiles()->save($profile);
-
         } else {
-
+            
         }
 
         $profile->access_token = $facebook->getAccessToken();
@@ -297,10 +324,11 @@ class UserController extends BaseController {
         $users = User::all();
         $iarray = Input::all();
         foreach ($users as $u) {
-            if($u->user_type != $iarray[$u->id]){
-                User::where('email',$u->email)->update(array('user_type' => $iarray[$u->id]));
+            if ($u->user_type != $iarray[$u->id]) {
+                User::where('email', $u->email)->update(array('user_type' => $iarray[$u->id]));
             }
         }
         return Redirect::to('users/profile');
     }
+
 }

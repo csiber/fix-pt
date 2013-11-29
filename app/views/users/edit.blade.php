@@ -1,22 +1,20 @@
 @extends('users/layout')
 
 @section('content')
-<pre>
-    <?php
-//if(isset(Input::old())){
-//    $user=Input::old();
-//}
-    echo $user;
-    ?>
-</pre>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="well well-lg">
-                {{ Form::open(array("url" => "users/edit",
+<div class="row">
+    <div class="col-md-8">
+        <ol class="breadcrumb">
+            <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
+            <li><a href="{{URL::to('users/index')}}">Users</a></li>
+            <li class="active">{{{$user->username}}}</li>
+        </ol>
+        <div class="well well-lg">            
+            <div class="row">
+                
+                {{ Form::open(array("url" => "users/edit/".$user->id."",
                 "id"=>"user-edit","role"=>"form"))}}       
                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                
                 <div class="form-group <? echo ($errors->has('full_name')) ? "has-error" : ""; ?>">
                     <?php echo Form::label("full_name", ($errors->first('full_name')) ? "Email - " . $errors->first('full_name') : "Full name", array("class" => "control-label")) ?>
                     <?php echo Form::text("full_name", $user->full_name, array("placeholder" => "Enter full name", "class" => "form-control", "id" => "full_name"))
@@ -37,22 +35,19 @@
                 </div>      
                 <button type="submit" form="user-edit" class="btn btn-success">Sign Up</button>
                 {{ Form::close() }}
-
+                
             </div>
-
-        </div> 
-        <div class="col-md-4">
-            <div class="well well-sm sidebar-steps">
-                <ul>
-                    <li>Links For User Actions TODO</li>                    
-                </ul>
-            </div>            
         </div>
     </div>
+    <div class="col-md-4">
+        <div class="well well-sm sidebar-steps">
+            <h3 class="text-center">Users Profile</h3>
+            <ol class="sidebar-ol">
+                <li>Let other users to know you better.</li>
+                <li>Show them you are credible.</li>                
+            </ol>
+        </div>       
+    </div>
 </div>
-
-
-
-
 @stop
 

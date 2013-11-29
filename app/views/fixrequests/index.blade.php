@@ -16,32 +16,32 @@
             </ul>
             <div class="fixrequests">
                 @if(count($fixrequests) === 0)
-                    <p>We have no fix requests to show you</p>
+                <p>We have no fix requests to show you</p>
                 @else
-                    @foreach($fixrequests as $fixrequest)
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <h4><a href="{{ URL::to('fixrequests/show/'.$fixrequest->id) }}">{{{$fixrequest->title}}}</a></h4>
-                            <p>{{{$fixrequest->text}}}</p>
-                            <div class="tags">
-                                @foreach($fixrequest['tags'] as $tag)
-                                <span class="tag label brand-bc">{{{$tag['name']}}}</span>
-                                @endforeach
-                                <span class="tag pull-right label category-label">{{$fixrequest->category['name']}}</span>
-                            </div>
-                            <!-- <span class="category two"></span> -->
+                @foreach($fixrequests as $fixrequest)                    
+                <div class="panel panel-default">
+                    <div class="panel-body">                            
+                        <h4><a href="{{ URL::to('fixrequests/show/'.$fixrequest->id) }}">{{{$fixrequest->title}}}</a></h4>
+                        <p>{{{$fixrequest->text}}}</p>
+                        <div class="tags">
+                            @foreach($fixrequest['tags'] as $tag)
+                            <span class="tag label brand-bc">{{{$tag['name']}}}</span>
+                            @endforeach
+                            <span class="tag pull-right label category-label">{{$fixrequest->category['name']}}</span>
                         </div>
-                        <div class="panel-footer">
-                            <div class="row">
-                                <div class="col-md-3 col-xs-6"><i class="fa fa-user"></i> by {{{$fixrequest->username}}}</div>
-                                <div class="col-md-3 col-xs-6" title="{{$fixrequest->created_at}}"><i class="fa fa-calendar-o"></i> created {{$fixrequest->created_at_pretty}}</div>
-                                <div class="col-md-3 col-xs-6"><i class="fa fa-location-arrow"></i> not working yet</div>
-                                <div class="col-md-3 col-xs-6" title="{{$fixrequest->end_date_exact}}"><i class="fa fa-clock-o"></i> {{$fixrequest->end_date}}</div>
-                            </div>
+                        <!-- <span class="category two"></span> -->
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-user"></i> by <a href="{{ URL::to('users/view/'.$fixrequest->user_id.'')}}">{{{$fixrequest->username}}}</a></div>
+                            <div class="col-md-3 col-xs-6" title="{{$fixrequest->created_at}}"><i class="fa fa-calendar-o"></i> created {{$fixrequest->created_at_pretty}}</div>
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-location-arrow"></i> not working yet</div>
+                            <div class="col-md-3 col-xs-6" title="{{$fixrequest->end_date_exact}}"><i class="fa fa-clock-o"></i> {{$fixrequest->end_date}}</div>
                         </div>
                     </div>
-                    @endforeach
-                    {{$fixrequests->links()}}
+                </div>
+                @endforeach
+                {{$fixrequests->links()}}
                 @endif
             </div>
         </div>
@@ -61,7 +61,7 @@
             </div>
             <div class="panel-body">
                 @foreach($popular_tags as $tag)
-                    <span class="tag label brand-bc">{{{$tag->name}}}</span>
+                <span class="tag label brand-bc">{{{$tag->name}}}</span>
                 @endforeach
             </div>
         </div>

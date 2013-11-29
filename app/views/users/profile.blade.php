@@ -1,11 +1,17 @@
 @extends('users/layout')
 
 @section('content')
+
 <div class="row">
     <div class="col-md-8">
+        <ol class="breadcrumb">
+            <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
+            <li><a href="{{URL::to('users/index')}}">Users</a></li>
+            <li class="active">{{{Auth::user()->username}}}</li>
+        </ol>
         <div class="well well-lg">
             <div class="row">
-                <a href="{{ URL::to('users/edit') }}"  class="btn btn-default btn pull-right">
+                <a href="{{ URL::to('users/edit/'.Auth::user()->id.'') }}"  class="btn btn-default btn pull-right">
                     <span class="glyphicon glyphicon-pencil"></span> Edit Profile
                 </a>            
             </div>
@@ -34,10 +40,10 @@
                     <?php if (Auth::user()->email) : ?>
                         <p class="p-shadow"><b>Email:</b>&nbsp;{{Auth::user()->email}}</p>                
                     <?php endif; ?>
-                    <?php if (Auth::user()->email) : ?>
+                    <?php if (Auth::user()->created_at) : ?>
                         <p class="p-shadow"><b>Member since:</b>&nbsp;{{Auth::user()->created_at}}</p>                
                     <?php endif; ?>
-                    <?php if (Auth::user()->email) : ?>
+                    <?php if (Auth::user()->last_login) : ?>
                         <p class="p-shadow"><b>Last login:</b>&nbsp;{{Auth::user()->last_login}}</p>                
                     <?php endif; ?>
                     <span class="label label-fix-pt">{{Auth::user()->user_type}} Account</span>
@@ -51,9 +57,17 @@
                     <?php endif; ?>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
     <div class="col-md-4">
+        <div class="well well-sm sidebar-steps">
+            <h3 class="text-center">User Ratings</h1>
+            <ol class="sidebar-ol">
+                <li>How to get a good ratings?</li>
+                <li>How you can rate other's peoples works?</li>
+                <li>Where can I see my ratings?</li>
+            </ol>
+        </div>
         <div class="well well-sm sidebar-steps">
             <ul>
                 @if (Auth::user()->user_type == 'Administrator')
@@ -61,8 +75,8 @@
                 @endif
                 <li>Links For User Actions TODO</li>                    
             </ul>
-        </div>            
+        </div>
     </div>
 </div>
-    @stop
+@stop
 
