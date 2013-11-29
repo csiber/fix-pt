@@ -57,8 +57,8 @@
                 </ul>                
                 @else                
                 <form class="navbar-form navbar-right" action="users/login">
-                    <button data-toggle="modal" href="#signInModal" class="btn btn-success btn-sm" id="buttonLogin">Login</button>
-                    <button data-toggle="modal" href="#signUpModal" class="btn btn-default btn-sm">Sign Up</button>
+                    <button data-toggle="modal" href="#signInModal" class="btn btn-sm" id="buttonLogin">Login</button>
+                    <button data-toggle="modal" href="#signUpModal" class="btn btn-sm">Sign Up</button>
                 </form>
                 @endif
             </div><!--/.nav-collapse -->  

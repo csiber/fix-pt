@@ -23,7 +23,7 @@ class FixRequestController extends BaseController {
             return Redirect::to('fixrequests/index/recent');
         }
 
-        $popular_tags = Tag::getPopular(20);
+        $popular_tags = Tag::getPopular(10);
 
         foreach($fixrequests as &$fixrequest) {
             $post = Post::find($fixrequest['post_id']);
@@ -57,7 +57,11 @@ class FixRequestController extends BaseController {
     {
         $fixrequest = FixRequest::getFixRequest($id);
         $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
+        $fixrequest['updated_at_pretty'] = UtilFunctions::prettyDate($fixrequest['updated_at']);
         $fixrequest['post']->text = nl2br((stripslashes($fixrequest['post']->text)));
+        $fixrequest['end_date_exact'] = date("Y-m-d H:i:s", strtotime($fixrequest->created_at." + $fixrequest->daysForOffer days"));
+        $fixrequest['end_date'] = UtilFunctions::getEndDate($fixrequest['created_at'], $fixrequest['daysForOffer']);
+        $fixrequest['gravatar'] = "http://www.gravatar.com/avatar/".md5(strtolower(trim($fixrequest->post->user->email)))."?s=48&r=pg&d=identicon";
         
         $comments = Comment::getCommentsOfFixRequest($id);
 
@@ -70,6 +74,7 @@ class FixRequestController extends BaseController {
             'fixrequest' => $fixrequest,
             'comments' => $comments,
             'photos' => $fixrequest->post->photos()->getResults(),
+            'auth' => Auth::check(),
             'fixoffers' => array(), // TODO
         ));
     }
