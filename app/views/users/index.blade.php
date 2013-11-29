@@ -7,6 +7,12 @@
             <div class="well well-lg">
                 {{ Form::open(array("url" => "users/index",
                 "id"=>"manage-form1","role"=>"form"))}}
+                <ul class="nav nav-pills">
+					<li @if ($users_type == "all")class="active"@endif><a href="{{ URL::to('users/index/all') }}">All</a></li>
+					<li @if ($users_type == "administrator")class="active"@endif><a href="{{ URL::to('users/index/administrator') }}">Administrator</a></li>
+					<li @if ($users_type == "moderator")class="active"@endif><a href="{{ URL::to('users/index/premium') }}">Premium</a></li>
+					<li @if ($users_type == "standard")class="active"@endif><a href="{{ URL::to('users/index/standard') }}">Standard</a></li>
+				</ul>
                 <table class="table">
                     <thead>
                         <tr>

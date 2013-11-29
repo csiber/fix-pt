@@ -20,9 +20,14 @@ class UserController extends BaseController {
      * Index displays all users of the system
      * @return Response
      */
-    public function getIndex() {
-        $users = User::all();
-        return View::make('users.index', array('users' => $users));
+    public function getIndex($users_type=null) {       
+		if($users_type == "administrator" || $users_type == "moderator" || $users_type == "premium" || $users_type == "standard"){
+			$users = DB::table('users')->where('user_type','=',$users_type)->get();
+		}else{		
+			$users = User::all();
+			$users_type="all";
+		}
+        return View::make('users.index', array('users' => $users, 'users_type' => $users_type));
     }
 
     /**
@@ -323,8 +328,7 @@ class UserController extends BaseController {
         $iarray = Input::all();
                 
         foreach ($users as $u) {
-            if ($u->user_type != $iarray['user'.$u->id]) {
-                
+            if ($u->user_type != $iarray['user'.$u->id]) {            
                 User::where('email', $u->email)->update(array('user_type' => $iarray['user'.$u->id]));
             }
         }
