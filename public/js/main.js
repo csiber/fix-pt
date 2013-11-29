@@ -38,10 +38,17 @@ window.addEventListener('load', function() {
 function markFixerAsFavorite(star) {
 star = $(star);
     if(star.hasClass('favorite-fixer1')) {
+        var id = $(".promotionpage-details").attr('data-promotionpage-id');
+
         star.removeClass('favorite-fixer1').addClass('favorite-fixer2');
+        $.ajax({
+            url: "../../users/favorite/" + id,
+            context: document
+        });
     }
     else {
         star.removeClass('favorite-fixer2').addClass('favorite-fixer1');
+
     }
 }
 

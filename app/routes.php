@@ -40,6 +40,7 @@ Route::group(array("before" => "none"),function(){
     Route::get('users/confirmation','UserController@getConfirmation');    
 });
 
+Route::get('users/favorite/{code}','UserController@addToFavourites');
 
 Route::group(array("before" => "auth"), function()
 {

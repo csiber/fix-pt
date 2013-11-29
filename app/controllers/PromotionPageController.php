@@ -40,8 +40,10 @@ class PromotionPageController extends BaseController {
     public function getShow($id)
     {
         $promotionpage = PromotionPage::getPromotionPage($id);
+        $isFavorite = Favorite::checkFavorite($id);
         return View::make('promotionpages.show',
-            array('promotionpage' => $promotionpage)
+            array('promotionpage' => $promotionpage,
+            "favorite"=> $isFavorite)
         );
     }
 

@@ -331,4 +331,11 @@ class UserController extends BaseController {
         return Redirect::to('users/index');
     }
 
+    public function addToFavourites($id) {
+        $favorite = new Favorite;
+        $favorite->user_1 = Auth::user()->id;
+        $favorite->user_2 = $id;
+        $favorite->save();
+    }
+
 }
