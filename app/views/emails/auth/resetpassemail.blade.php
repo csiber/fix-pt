@@ -8,7 +8,7 @@
 
 		<div>
 			Reset Password.<br>
-			Link: {{$base_url}}/users/codetoresetpass/{{$code}}
+			Link: <a href="{{$base_url}}/users/codetoresetpass/{{$code}}"> click here. </a>
 		</div>
 	</body>
 </html>

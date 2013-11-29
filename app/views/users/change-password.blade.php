@@ -9,12 +9,12 @@
                 
 
                 <div class="col-md-8">
-                    {{ Form::open(array('action' => 'UserController@postChangePassword')) }}
+                    {{ Form::open(array('action' => 'UserController@postChangePassword', 'id' => 'new-pass')) }}
                         
                         {{ Form::label('New Password: ') }}
                         {{ Form::password('newPass') }} <br>
                         <!-- {{ Form::submit('Save') }} -->
-                        <button type="submit" form="manage-form1" class="btn btn-success">Save</button>
+                        <button type="submit" form="new-pass" class="btn btn-success">Save</button>
                     {{ Form::close() }}    
                 </div>
                 
