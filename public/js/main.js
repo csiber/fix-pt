@@ -36,14 +36,14 @@ window.addEventListener('load', function() {
 
 // TODO validate
 function markFixerAsFavorite(star) {
-	star = $(star);
-	if(star.hasClass('glyphicon-star-empty')) {
-		star.removeClass('glyphicon-star-empty').addClass('glyphicon-star');
-	}
+star = $(star);
+    if(star.hasClass('favorite-fixer1')) {
+        star.removeClass('favorite-fixer1').addClass('favorite-fixer2');
+    }
     else {
-    star.removeClass('glyphicon-star').addClass('glyphicon-star-empty');
- 	}
- }
+        star.removeClass('favorite-fixer2').addClass('favorite-fixer1');
+    }
+}
 
 
 // TODO not functional for now
