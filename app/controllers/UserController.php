@@ -51,6 +51,7 @@ class UserController extends BaseController {
                 "password" => Input::get("password")
             );
             if (Auth::attempt($credentials)) {
+
                 return Redirect::to("users/profile");
             }
         }
@@ -124,6 +125,8 @@ class UserController extends BaseController {
      *
      */
     public function getLogout() {
+        Auth::user()->Last_login = date('Y-m-d h:i:s', time());
+        Auth::user()->save();
         Auth::logout();
         return Redirect::to('/');
     }
@@ -315,20 +318,17 @@ class UserController extends BaseController {
         return Redirect::to('users/profile')->with('message', "Logged in with Facebook");
     }
 
-    public function getManage_Users() {
-        $users = User::all();
-        return View::make('users.manage_users', array('users' => $users));
-    }
-
-    public function postManage_Users() {
+    public function postIndex() {
         $users = User::all();
         $iarray = Input::all();
+                
         foreach ($users as $u) {
-            if ($u->user_type != $iarray[$u->id]) {
-                User::where('email', $u->email)->update(array('user_type' => $iarray[$u->id]));
+            if ($u->user_type != $iarray['user'.$u->id]) {
+                
+                User::where('email', $u->email)->update(array('user_type' => $iarray['user'.$u->id]));
             }
         }
-        return Redirect::to('users/profile');
+        return Redirect::to('users/index');
     }
 
 }

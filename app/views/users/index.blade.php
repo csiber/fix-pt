@@ -5,6 +5,8 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-lg">
+                {{ Form::open(array("url" => "users/index",
+                "id"=>"manage-form1","role"=>"form"))}}
                 <table class="table">
                     <thead>
                         <tr>
@@ -29,7 +31,7 @@
                             <td><a href="{{ URL::to('users/view/'.$user->id.'')}}">{{ $user->full_name }}</a></td>
                             <td><a href="{{ URL::to('users/view/'.$user->id.'')}}">{{ $user->username }}</a></td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->user_type }}</td>
+                            <td><?php echo Form::select('user'.$user->id, array('Administrator' => 'Administrator', 'Standard' => 'Standard' , 'Premium' => 'Premium', 'Moderator' => 'Moderator'), $user->user_type); ?></td>
                             
                             @if (Auth::user()->user_type == 'Administrator')
                             <td>
@@ -41,10 +43,11 @@
                         </tr>
                         @endforeach
                     </tbody>
-                </table>
+                </table>               
                 <div>
-                    <button type="submit" form="signup-form1" class="btn btn-success">Confirm</button>
+                    <button type="submit" form="manage-form1" class="btn btn-success">Confirm</button>
                 </div>
+                {{ Form::close() }}
             </div>
         </div>    
     </div>    
