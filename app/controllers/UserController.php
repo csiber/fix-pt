@@ -129,7 +129,7 @@ class UserController extends BaseController {
         Auth::user()->save();
         Auth::logout();
         return Redirect::to('/');
-    }
+    } 
 
     /**
      * Show the form for editing user.
