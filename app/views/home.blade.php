@@ -5,18 +5,25 @@
       <div class="container">
         <h1 class="text-center">Zombie ipsum reversus</h1>
         <p class="text-center">De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia?</p>
-        <div class="row home-search">
-            <div class="col-lg-6">
+        <div class="row home-search">   
+        {{ Form::open(array(    
+        "url"        => "search/index/",
+        "method"    => "post",
+        "autocomplete" => "off",
+        "id"=> "signin-form"
+        )) }}
+            <div class="col-lg-6">   
                 <p>What?</p>
-                <input type="text" class="form-control" placeholder="Text input">
+                <input name="text" type="text" class="form-control" placeholder="Text input">
             </div>
             <div class="col-lg-3">
                 <p>Where?</p>
-                <input type="text" class="form-control" placeholder="Text input">
+                <input name="location" type="text" class="form-control" placeholder="Text input">
             </div>
             <div class="col-lg-3">
-                <button type="button" class="btn btn-danger">Search</button>
+                <button type="submit" class="btn btn-danger">Search</button>
             </div>
+        {{ Form::close() }}
         </div>
       </div>
     </div>
