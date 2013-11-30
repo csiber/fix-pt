@@ -7,7 +7,7 @@
         <p class="text-center">De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia?</p>
         <div class="row home-search">   
         {{ Form::open(array(    
-        "url"        => "search/index/",
+        "url"        => "search/index",
         "method"    => "post",
         "autocomplete" => "off",
         "id"=> "signin-form"

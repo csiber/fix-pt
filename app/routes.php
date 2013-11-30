@@ -25,6 +25,7 @@ Route::model('fixoffers', 'FixOffer');
 Route::model('notifiables', 'Notifiable');
 Route::model('posts', 'Post');
 Route::model('promotionpages', 'PromotionPage');
+Route::model('search', 'Search');
 
 
 /** ------------------------------------------
@@ -74,6 +75,7 @@ Route::controller('fixoffers', 'FixOfferController');
 Route::controller('notifiables', 'NotifiableController');
 Route::controller('posts', 'PostController');
 Route::controller('promotionpages', 'PromotionPageController');
+Route::controller('search', 'SearchController');
 
 // Home page
 Route::get('/', function() {
