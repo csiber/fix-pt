@@ -16,6 +16,11 @@ class UserController extends BaseController {
         'password' => 'required'
     );
 
+    public $resetPassRules = array(
+        'password' => 'required|between:4,11',
+        'confirm_password' => 'same:password'
+    );
+
     /**
      * Index displays all users of the system
      * @return Response
@@ -103,8 +108,17 @@ class UserController extends BaseController {
 
     public function postChangePassword() {
         $user = User::find(Auth::user()->id);
+
+        $validator = Validator::make(Input::all(), $this->resetPassRules);
+
+        if ($validator->fails()) {
+            return Redirect::to('users/reset-password')
+                            ->withInput()
+                            ->withErrors($validator);
+        }
+
         if (/* Hash::make(Input::get('oldPass')) == $user['password'] or */ true /* para tirar depois */) {
-            $newPass = Hash::make(Input::get('newPass'));
+            $newPass = Hash::make(Input::get('password'));
             //$user->update(array('password' => $newPass));
             User::where('id', Auth::user()->id)->update(array('password' => $newPass));
             Session::flash('success', 'Password changed successfully.');
