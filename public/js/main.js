@@ -17,6 +17,22 @@ $(document).ready(function(){
 
     // fix request photo lightbox
     $(".fancybox").fancybox();
+    
+    $(".dropdown select").change(function(){
+    	var user_id =this.getAttribute("name");
+    	var ut = this.options[this.selectedIndex].value		
+		$.ajax({
+      	type: "POST",
+         url: '../../../users/change_permission',
+         data: {
+         	id: user_id,
+         	user_type: ut
+         }
+     	}).done(function (msg) {
+       	window.location.replace("../users/index");
+      });
+      
+    	});
 
     // open fix request if click on index page
     $(".fixrequests .panel").each(function(){

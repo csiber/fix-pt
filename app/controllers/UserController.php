@@ -25,14 +25,14 @@ class UserController extends BaseController {
      * Index displays all users of the system
      * @return Response
      */
-    public function getIndex($users_type=null) {       
+    public function getIndex($users_type=null, $userid=null) {
 		if($users_type == "administrator" || $users_type == "moderator" || $users_type == "premium" || $users_type == "standard"){
 			$users = DB::table('users')->where('user_type','=',$users_type)->get();
 		}else{		
 			$users = User::all();
 			$users_type="all";
 		}
-        return View::make('users.index', array('users' => $users, 'users_type' => $users_type));
+        return View::make('users.index', array('users' => $users, 'users_type' => $users_type, 'userid'=> $userid));
     }
 
     /**
@@ -354,6 +354,17 @@ class UserController extends BaseController {
         $favorite->user_1 = Auth::user()->id;
         $favorite->user_2 = $id;
         $favorite->save();
+    }
+    
+    public function change_permission() {
+		$users = User::all();
+        $iarray = Input::all();
+        
+        foreach ($users as $u) {
+			if('user'.$u->id == $iarray['id']){
+				User::where('email', $u->email)->update(array('user_type' => $iarray['user_type']));
+			}           
+        }        
     }
 
 }
