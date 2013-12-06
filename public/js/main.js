@@ -6,6 +6,11 @@ var COMMA_KEY = 188;
 
 $(document).ready(function(){
 
+    $('.showAllComments').click(function(){
+        $('.showAllComments').css('display','none');
+        $('.comment').css('display','block');
+    });
+
 	$('#buttonLogin').click(function(){
 		$('#signInModal').ready(function(){
 			$('#buttonForgotPass').click(function(){
