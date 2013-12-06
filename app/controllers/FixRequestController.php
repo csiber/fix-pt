@@ -70,6 +70,8 @@ class FixRequestController extends BaseController {
             $comment['gravatar'] = "http://www.gravatar.com/avatar/".md5(strtolower(trim($comment->post->user->email)))."?s=48&r=pg&d=identicon";
         }
 
+        //$comments = $comment->paginate(5);
+
         return View::make('fixrequests/show', array(
             'fixrequest' => $fixrequest,
             'comments' => $comments,
