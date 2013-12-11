@@ -2,6 +2,29 @@
 var ENTER_KEY = 13;
 var COMMA_KEY = 188;
 
+$(document).ready(function($){
+	$('#distritos').change(function(){
+				var con = $('#concelhos');
+				con.empty();
+				con.append('<option value="">Escolha um concelho</option>');
+				return $.ajax({
+				  type: "POST",
+				  url: "getconcelhos",
+				  data: {did: $("#distritos").val()},
+				  success: function(data) {
+					for (var i=0;i<data.length;i++)
+					{
+							con.append('<option value="' + data[i][0] + '">' + data[i][1] + '</option>');
+					}
+					return true;
+				  },
+				  error: function(response) {
+					return alert("ERROR:" + response.responseText);
+				  }
+				});
+	});
+});
+
 // pageCreateFixRequestJS();
 
 $(document).ready(function(){

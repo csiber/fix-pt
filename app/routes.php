@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +37,7 @@ Route::post('users/reset-pass','UserController@postResetPass');
 Route::get('users/codetoresetpass/{code}','UserController@getCodeToResetPass');
 
 // TODO what is this before => none??
-Route::group(array("before" => "none"),function(){
+Route::group(array("before" => "none"), function(){
     Route::get('users/confirmation','UserController@getConfirmation');    
 });
 
@@ -75,12 +75,10 @@ Route::controller('fixoffers', 'FixOfferController');
 Route::controller('notifiables', 'NotifiableController');
 Route::controller('posts', 'PostController');
 Route::controller('promotionpages', 'PromotionPageController');
+Route::post('search/getconcelhos', 'SearchController@getConcelhosList');
 Route::controller('search', 'SearchController');
 
 // Home page
 Route::get('/', function() {
     return View::make('home');
 });
-
-
-

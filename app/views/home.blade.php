@@ -10,7 +10,7 @@
         "url"        => "search/index",
         "method"    => "post",
         "autocomplete" => "off",
-        "id"=> "signin-form"
+        "id"=> "search-form"
         )) }}
             <div class="col-lg-6">   
                 <p>What?</p>

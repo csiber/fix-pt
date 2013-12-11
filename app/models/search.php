@@ -3,13 +3,29 @@
 class Search extends Eloquent {
 
     
-    public static function recent_requests($params)
+    public static function recent_requests($params,$local)
     {
-		if(is_null($params) || $params == "")
+		if(is_null($params) || $params == "") {
 			return DB::select(DB::raw('(select post_id,title,created_at,category_id from fix_requests) union (select post_id,title,created_at,category_id from promotion_pages) order by created_at desc'));
-		else
-			return DB::select(DB::raw('(select post_id,title,created_at,category_id from fix_requests where title like %?%) union (select post_id,title,created_at,category_id from promotion_pages where title like %?%) order by created_at desc'),array($params,$params));
+		}
+		else {
+			if(is_null($local) || $local == "")
+				$query = "(select post_id,title,created_at,category_id from fix_requests where title like '%" . $params . "%') union (select post_id,title,created_at,category_id from promotion_pages where title like '%" . $params . "%') order by created_at desc";
+			else
+				$query = "(select post_id,title,created_at,category_id from fix_requests where title like '%" . $params . "%') union (select post_id,title,created_at,category_id from promotion_pages where title like '%" . $params . "%') order by created_at desc";
+			return DB::select(DB::raw($query));
+		}
     }
+	
+	public static function get_distritos()
+	{
+		return DB::select(DB::raw('select * from districts order by id asc'));
+	}
+	
+	public static function get_concelhos_distrito($did)
+	{
+		return DB::table('concelhos')->where("district_id","=",$did)->get();
+	}
 	
 }
 

@@ -1,21 +1,26 @@
 <?php
 
 class SearchController extends BaseController {
+    
+	public $terms; // TODO: guardar a pesquisa na session
+	public $local; // TODO: guardar a pesquisa na session
 	
-    /**
+	/**
     * Display a listing of fix requests
     *
     * @return Response
     */
-    public function getIndex($sort=null,$terms="")
+    public function getIndex($sort=null)
     {
         $posts_per_page = 5;
 		$cont = 1;
         if ($sort == "recent") {
-            $resul = Search::recent_requests($terms);
+            $resul = Search::recent_requests($this->terms,$this->local);
 			$res = Paginator::make($resul, count($resul), $posts_per_page);
         } else if ($sort == "popular") {
-            $res = FixRequest::popular_requests()->paginate($posts_per_page);
+			//TODO: popular (?)
+            $resul = Search::recent_requests($this->terms,$this->local);
+			$res = Paginator::make($resul, count($resul), $posts_per_page);
         } else {
             return Redirect::to('search/index/recent');
         }
@@ -43,12 +48,30 @@ class SearchController extends BaseController {
 			}
 			$cont = $cont + 1;
         }
-        return View::make('search.index', array('searchresults' => $searchresults, 'pags' => $res, "sort" => $sort));
+		$distritos = array();
+		$dists = Search::get_distritos();
+		foreach ($dists as $dist)
+		{
+			array_push($distritos,array($dist->id, $dist->name));
+		}
+        return View::make('search.index', array('searchresults' => $searchresults, 'pags' => $res, "sort" => $sort, "dists" => $distritos, "text" => $this->terms));
     }
 	
     public function postIndex()
     {
-		$terms = Input::get('text');
-		return $this->getIndex("recent",$terms);// mudar
+		$this->terms = Input::get('text');
+		return $this->getIndex("recent");
 	}
+	
+	public function getConcelhosList()
+	{
+		$conc = Search::get_concelhos_distrito(Input::get('did'));
+		$concelhos = array();
+		foreach ($conc as $con)
+		{
+			array_push($concelhos,array($con->id,$con->name));
+		}
+		return $concelhos;
+	}
+	
 }

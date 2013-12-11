@@ -12,6 +12,29 @@
                 <li @if ($sort == "recent")class="active"@endif><a href="{{ URL::to('search/index/recent') }}">Recent</a></li>
                 <li @if ($sort == "popular")class="active"@endif><a href="{{ URL::to('search/index/popular') }}">Popular</a></li>
             </ul>
+            <div>
+            {{ Form::open(array(    
+            "url"        => "search/index",
+            "method"    => "post",
+            "autocomplete" => "off",
+            "id"=> "search-form"
+            )) }}
+            	<input value="{{{$text}}}" name="text" type="text" class="form-control" placeholder="Text input">
+                <br />
+            	<select id="distritos" name="distritos">
+                  <option value="">Escolha um distrito</option>
+                  @foreach($dists as $dist)
+                  	<option value="{{{$dist[0]}}}">{{{$dist[1]}}}</option>
+                  @endforeach
+                </select>
+                <br />
+            	<select id="concelhos" name="concelhos">
+                  <option value="">Escolha um concelho</option>
+                </select>
+                <br />
+                <button type="submit" class="btn btn-danger">Search</button>
+             {{ Form::close(); }}
+            </div>
             <div class="search">
                 @foreach($searchresults as $searchresult)
                 <div class="panel panel-default">
