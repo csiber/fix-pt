@@ -6,7 +6,7 @@ class SearchController extends BaseController {
 	public $local; // TODO: guardar a pesquisa na session
 	
 	/**
-    * Display a listing of fix requests
+    * Display a listing of posts according to given parameters
     *
     * @return Response
     */
@@ -48,18 +48,26 @@ class SearchController extends BaseController {
 			}
 			$cont = $cont + 1;
         }
+		$chosen = Search::get_distrito_by_concelho($this->local);
 		$distritos = array();
 		$dists = Search::get_distritos();
 		foreach ($dists as $dist)
 		{
 			array_push($distritos,array($dist->id, $dist->name));
 		}
-        return View::make('search.index', array('searchresults' => $searchresults, 'pags' => $res, "sort" => $sort, "dists" => $distritos, "text" => $this->terms));
+		$concelhos = array();
+		$concs = Search::get_concelhos();
+		foreach ($concs as $conc)
+		{
+			array_push($concelhos,array($conc->id, $conc->name));
+		}
+        return View::make('search.index', array('searchresults' => $searchresults, 'pags' => $res, "sort" => $sort, "dists" => $distritos, "concs" => $concelhos, "text" => $this->terms, "seldistrito" => $chosen, "selconcelho" => $this->local));
     }
 	
     public function postIndex()
     {
 		$this->terms = Input::get('text');
+		$this->local = Input::get('location');
 		return $this->getIndex("recent");
 	}
 	
