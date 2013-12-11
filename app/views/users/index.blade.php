@@ -24,8 +24,7 @@
                             <th>Permission</th>
                             
                             @if (Auth::user()->user_type == 'Administrator')
-                            <th>Actions</th>
-                                
+                            <th>Actions</th>                            
                             @endif
                         </tr>
                     </thead>
@@ -39,30 +38,29 @@
                             <td><a href="{{ URL::to('users/view/'.$user->id.'')}}">{{ $user->full_name }}</a></td>
                             <td><a href="{{ URL::to('users/view/'.$user->id.'')}}">{{ $user->username }}</a></td>
                             <td>{{ $user->email }}</td>
-                            <td><?php echo Form::select('user'.$user->id, array('Administrator' => 'Administrator', 'Standard' => 'Standard' , 'Premium' => 'Premium', 'Moderator' => 'Moderator'), $user->user_type); ?></td>
+                            @if($user->id == $userid)
+                            <td class="dropdown"><?php echo Form::select('user'.$user->id, array('Administrator' => 'Administrator', 'Standard' => 'Standard' , 'Premium' => 'Premium', 'Moderator' => 'Moderator'), $user->user_type); ?></td>
+                            @else
+                            <td>{{$user->user_type}}</td>
+                            @endif
                             @else
                             <td>{{ $user->full_name }}</td>
                             <td>{{ $user->username }}</td>
                             <td>{{ $user->email }}</td>
                             <td></td>
                             @endif
-                            @if (Auth::user()->user_type == 'Administrator')
+                            @if (Auth::user()->user_type == 'Administrator')                            
                             <td>
-                                <a href="{{{ URL::to('users/edit/'.$user->id.'') }}}" class="_users"><span class="label label-fix-pt">Edit</span></a>
+								<a href="{{{ URL::to('users/index/'.$users_type.'/'.$user->id.'') }}}" class="_users"><span class="label label-danger">Change Permission</span></a>
+                                <a href="{{{ URL::to('users/edit/'.$user->id.'') }}}" class="_users"><span class="label label-danger">Edit</span></a>
                                 <a href="{{{ URL::to('users/delete/'.$user->id.'') }}}" class="_users"><span class="label label-danger">Delete</span></a>
-                            </td>
-                            
+                            </td>  
                             @endif
                         </tr>
                         @endforeach
                     </tbody>
                 </table>   
-				@if (Auth::user()->user_type == 'Administrator')
-                <div>
-                    <button type="submit" form="manage-form1" class="btn btn-success">Confirm</button>
-                </div>
-                @endif
-                {{ Form::close() }}
+				{{ Form::close() }}
             </div>
         </div>    
     </div>    
