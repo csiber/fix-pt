@@ -1,9 +1,6 @@
 <?php
 
 class SearchController extends BaseController {
-    
-	public $terms; // TODO: guardar a pesquisa na session
-	public $local; // TODO: guardar a pesquisa na session
 	
 	/**
     * Display a listing of posts according to given parameters
@@ -12,14 +9,16 @@ class SearchController extends BaseController {
     */
     public function getIndex($sort=null)
     {
+		$terms = Session::get('terms');
+		$local = Session::get('local');
         $posts_per_page = 5;
 		$cont = 1;
         if ($sort == "recent") {
-            $resul = Search::recent_requests($this->terms,$this->local);
+            $resul = Search::recent_requests($terms,$local);
 			$res = Paginator::make($resul, count($resul), $posts_per_page);
         } else if ($sort == "popular") {
 			//TODO: popular (?)
-            $resul = Search::recent_requests($this->terms,$this->local);
+            $resul = Search::recent_requests($terms,$local);
 			$res = Paginator::make($resul, count($resul), $posts_per_page);
         } else {
             return Redirect::to('search/index/recent');
@@ -48,7 +47,7 @@ class SearchController extends BaseController {
 			}
 			$cont = $cont + 1;
         }
-		$chosen = Search::get_distrito_by_concelho($this->local);
+		$chosen = Search::get_distrito_by_concelho($local);
 		$distritos = array();
 		$dists = Search::get_distritos();
 		foreach ($dists as $dist)
@@ -61,14 +60,14 @@ class SearchController extends BaseController {
 		{
 			array_push($concelhos,array($conc->id, $conc->name));
 		}
-        return View::make('search.index', array('searchresults' => $searchresults, 'pags' => $res, "sort" => $sort, "dists" => $distritos, "concs" => $concelhos, "text" => $this->terms, "seldistrito" => $chosen, "selconcelho" => $this->local));
+        return View::make('search.index', array('searchresults' => $searchresults, 'pags' => $res, "sort" => $sort, "dists" => $distritos, "concs" => $concelhos, "text" => $terms, "seldistrito" => $chosen, "selconcelho" => $local));
     }
 	
     public function postIndex()
     {
-		$this->terms = Input::get('text');
-		$this->local = Input::get('concelhos');
-		return $this->getIndex("recent");
+		Session::put('terms', Input::get('text'));
+		Session::put('local', Input::get('concelhos'));
+		return $this->getIndex(null);
 	}
 	
 	public function getConcelhosList()

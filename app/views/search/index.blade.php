@@ -20,25 +20,22 @@
             "id"=> "search-form"
             )) }}
             	<input value="{{{$text}}}" name="text" type="text" class="form-control" placeholder="Text input">
-                <br />
-            	<select id="distritos" name="distritos">
+            	<select class="form-control" id="distritos" name="distritos">
                   <option value="">Escolha um distrito</option>
                   @foreach($dists as $dist)
                   	<option <?php if($dist[0] == $seldistrito) { echo 'selected'; } ?> value="{{{$dist[0]}}}">{{{$dist[1]}}}</option>
                   @endforeach
                 </select>
-                <br />
-            	<select id="concelhos" name="concelhos">
+            	<select class="form-control" id="concelhos" name="concelhos">
                   <option value="">Escolha um concelho </option>
                   @foreach($concs as $conc)
                   	<option <?php if($conc[0] == $selconcelho) { echo 'selected'; } ?> value="{{{$conc[0]}}}">{{{$conc[1]}}}</option>
                   @endforeach
                 </select>
-                <br />
                 <button type="submit" class="btn btn-danger">Search</button>
              {{ Form::close(); }}
             </div>
-            <div class="search">
+            <div class="fixrequests">
                 @foreach($searchresults as $searchresult)
                 <div class="panel panel-default">
                     <div class="panel-body">
