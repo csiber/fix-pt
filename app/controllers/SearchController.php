@@ -31,7 +31,7 @@ class SearchController extends BaseController {
 		$start = ($pag - 1) * $posts_per_page;
 		$end = $pag * $posts_per_page;
         $searchresults = array();
-        foreach($res as &$re) {
+        foreach($resul as &$re) {
 			if(($cont > $start) && ($cont <= $end)) {
 				$post = Post::find($re->post_id);
 				$user = User::find($post['user_id']);
@@ -67,7 +67,7 @@ class SearchController extends BaseController {
     public function postIndex()
     {
 		$this->terms = Input::get('text');
-		$this->local = Input::get('location');
+		$this->local = Input::get('concelhos');
 		return $this->getIndex("recent");
 	}
 	
@@ -80,6 +80,17 @@ class SearchController extends BaseController {
 			array_push($concelhos,array($con->id,$con->name));
 		}
 		return $concelhos;
+	}
+	
+	public function getDistritosList()
+	{
+		$dist = Search::get_distritos();
+		$distritos = array();
+		foreach ($dist as $dis)
+		{
+			array_push($distritos,array($dis->id,$dis->name));
+		}
+		return $distritos;
 	}
 	
 }
