@@ -55,6 +55,8 @@ Route::group(array("before" => "auth"), function()
     Route::get('users/reset-password', 'UserController@showChangePassword');
     Route::post('users/edit', 'UserController@postEdit');
     Route::post('users/change_permission','UserController@change_permission');
+    Route::post('users/upgrade','UserController@upgrade');
+    Route::post('users/downgrade','UserController@downgrade');
 
     Route::post('fixrequests/addcomment','FixRequestController@addComment');
     Route::post('users/manage_users','UserController@postManage_Users');

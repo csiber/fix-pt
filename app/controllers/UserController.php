@@ -366,5 +366,13 @@ class UserController extends BaseController {
 			}           
         }        
     }
+    
+    public function downgrade($id) {
+        User::where('id', $id)->update(array('user_type' => "Standard"));        
+    }
+    
+    public function upgrade($id) {
+		User::where('id', $id)->update(array('user_type' => "Premium"));        
+    }
 
 }
