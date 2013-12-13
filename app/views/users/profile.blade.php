@@ -74,10 +74,10 @@
                     <li><a href="{{{ URL::to('users/index') }}}" class="_users">Manage Users</a></li>
                 @endif
                 @if (Auth::user()->user_type == 'Premium')
-                    <li><a href="{{ URL::to('users/downgrade/'.Auth::user()->id.'') }}"  class="_users">Downgrade Account</a></li>
+                    <li><a href="{{ URL::to('users/downgrade') }}"  class="_users">Downgrade Account</a></li>
                 @endif
                 @if (Auth::user()->user_type == 'Standard')
-                    <li><a href="{{ URL::to('users/upgrade/'.Auth::user()->id.'') }}"  class="_users">Upgrade Account</a></li>
+                    <li><a href="{{ URL::to('users/upgrade') }}"  class="_users">Upgrade Account</a></li>
                 @endif
                 <li>Links For User Actions TODO</li>                    
             </ul>
