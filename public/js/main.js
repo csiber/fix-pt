@@ -3,28 +3,6 @@ var ENTER_KEY = 13;
 var COMMA_KEY = 188;
 
 $(document).ready(function($){
-	window.onload=function(){
-				if(document.getElementById("distritoshome"))
-				{
-					var dis = $("#distritoshome");
-					dis.empty();
-					dis.append('<option value="">Escolha um distrito</option>');
-					return $.ajax({
-					  type: "GET",
-					  url: "getdistritos",
-					  success: function(data) {
-						for (var i=0;i<data.length;i++)
-						{
-								dis.append('<option value="' + data[i][0] + '">' + data[i][1] + '</option>');
-						}
-						return true;
-					  },
-					  error: function(response) {
-						return alert("ERROR:" + response.responseText);
-					  }
-					});
-				}
-	};
 	$('#distritoshome').change(function(){
 				var con = $('#concelhos');
 				con.empty();

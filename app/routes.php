@@ -78,11 +78,15 @@ Route::controller('fixoffers', 'FixOfferController');
 Route::controller('notifiables', 'NotifiableController');
 Route::controller('posts', 'PostController');
 Route::controller('promotionpages', 'PromotionPageController');
-Route::get('getdistritos', 'SearchController@getDistritosList');
 Route::post('search/getconcelhos', 'SearchController@getConcelhosList');
 Route::controller('search', 'SearchController');
 
 // Home page
 Route::get('/', function() {
-    return View::make('home');
+	$pds = Search::get_distritos();
+	$dists[""] = "Escolha um distrito";
+	foreach($pds as $pd) {
+		$dists[$pd->id] = $pd->name;
+	}
+    return View::make('home', array('dists' => $dists));
 });

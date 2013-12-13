@@ -36,6 +36,9 @@
              {{ Form::close(); }}
             </div>
             <div class="fixrequests">
+                @if(count($searchresults) === 0)
+                <p>Your search returned no results.</p>
+                @else
                 @foreach($searchresults as $searchresult)
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -57,6 +60,7 @@
                 </div>
                 @endforeach
                 {{$pags->links()}}
+                @endif
             </div>
         </div>
     </div>
