@@ -18,7 +18,14 @@
             </div>
             <div class="col-lg-3">
                 <p>Where?</p>
-                <input name="location" type="text" class="form-control" placeholder="Text input">
+                <select id="distritoshome" name="distritoshome">
+                  <option value="">Escolha um distrito</option>
+                  <option value="1">Cenas</option>
+                </select>
+                <br />
+            	<select id="concelhos" name="concelhos">
+                  <option value="">Escolha um concelho </option>
+                </select>
             </div>
             <div class="col-lg-3">
                 <button type="submit" class="btn btn-danger">Search</button>
