@@ -79,6 +79,9 @@
                 @if (Auth::user()->user_type == 'Standard')
                     <li><a href="{{ URL::to('users/upgrade') }}"  class="_users">Upgrade Account</a></li>
                 @endif
+                @if (Auth::user()->user_type == 'Moderator')
+                    <li><a href="{{ URL::to('users/downgrade') }}"  class="_users">Revoke Moderator Rights</a></li>
+                @endif
                 <li>Links For User Actions TODO</li>                    
             </ul>
         </div>
