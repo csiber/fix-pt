@@ -15,7 +15,6 @@ class UserController extends BaseController {
         'username' => 'required',
         'password' => 'required'
     );
-
     public $resetPassRules = array(
         'password' => 'required|between:4,11',
         'confirm_password' => 'same:password'
@@ -25,14 +24,14 @@ class UserController extends BaseController {
      * Index displays all users of the system
      * @return Response
      */
-    public function getIndex($users_type=null, $userid=null) {
-		if($users_type == "administrator" || $users_type == "moderator" || $users_type == "premium" || $users_type == "standard"){
-			$users = DB::table('users')->where('user_type','=',$users_type)->get();
-		}else{		
-			$users = User::all();
-			$users_type="all";
-		}
-        return View::make('users.index', array('users' => $users, 'users_type' => $users_type, 'userid'=> $userid));
+    public function getIndex($users_type = null, $userid = null) {
+        if ($users_type == "administrator" || $users_type == "moderator" || $users_type == "premium" || $users_type == "standard") {
+            $users = DB::table('users')->where('user_type', '=', $users_type)->get();
+        } else {
+            $users = User::all();
+            $users_type = "all";
+        }
+        return View::make('users.index', array('users' => $users, 'users_type' => $users_type, 'userid' => $userid));
     }
 
     /**
@@ -140,6 +139,13 @@ class UserController extends BaseController {
     }
 
     /**
+     * Show the profile for the current user.
+     */
+    public function getDashboard() {
+        return View::make('users.dashboard');
+    }
+
+    /**
      * Log the user out of the application.
      *
      */
@@ -148,7 +154,7 @@ class UserController extends BaseController {
         Auth::user()->save();
         Auth::logout();
         return Redirect::to('/');
-    } 
+    }
 
     /**
      * Show the form for editing user.
@@ -166,24 +172,41 @@ class UserController extends BaseController {
         }
     }
 
+    public function postTags() {
+        $query = Input::get('query');
+
+        $results = Tag::select('name')->where('name', 'LIKE', '%' . $query . '%')->get();
+
+        $data = array();
+        // Loop through the results.
+        //
+      foreach ($results as $result):
+            $data[] = $result->name;
+        endforeach;
+
+        // Return a response.
+        //
+     return Response::json($data);
+    }
+
     /**
      * Show the form for editing user.
      *
      * @return Response
      */
     public function postEdit($id) {
-        
+
         $validator = Validator::make(Input::all(), $this->editRules);
-        
-        if ($validator->fails()) {            
+
+        if ($validator->fails()) {
             return Redirect::to('users/edit/' . $id)
                             ->withInput()
                             ->withErrors($validator);
         } else {
             $user = User::find($id);
-            if(Input::get('full_name')!=null){
+            if (Input::get('full_name') != null) {
                 $user->full_name = Input::get('full_name');
-            }            
+            }
             $user->save();
             // TODO is this final?
             $msg = 'User data was successfully updated!';
@@ -340,10 +363,10 @@ class UserController extends BaseController {
     public function postIndex() {
         $users = User::all();
         $iarray = Input::all();
-                
+
         foreach ($users as $u) {
-            if ($u->user_type != $iarray['user'.$u->id]) {            
-                User::where('email', $u->email)->update(array('user_type' => $iarray['user'.$u->id]));
+            if ($u->user_type != $iarray['user' . $u->id]) {
+                User::where('email', $u->email)->update(array('user_type' => $iarray['user' . $u->id]));
             }
         }
         return Redirect::to('users/index');
@@ -355,24 +378,24 @@ class UserController extends BaseController {
         $favorite->user_2 = $id;
         $favorite->save();
     }
-    
+
     public function change_permission() {
-		$users = User::all();
+        $users = User::all();
         $iarray = Input::all();
-        
+
         foreach ($users as $u) {
-			if('user'.$u->id == $iarray['id']){
-				User::where('email', $u->email)->update(array('user_type' => $iarray['user_type']));
-			}           
-        }        
+            if ('user' . $u->id == $iarray['id']) {
+                User::where('email', $u->email)->update(array('user_type' => $iarray['user_type']));
+            }
+        }
     }
-    
+
     public function downgrade($id) {
-        User::where('id', $id)->update(array('user_type' => "Standard"));        
+        User::where('id', $id)->update(array('user_type' => "Standard"));
     }
-    
+
     public function upgrade($id) {
-		User::where('id', $id)->update(array('user_type' => "Premium"));        
+        User::where('id', $id)->update(array('user_type' => "Premium"));
     }
 
 }
