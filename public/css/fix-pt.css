@@ -503,6 +503,10 @@ fieldset .form.group:last-child {
   width: 100px;
 }
 
+.fix-offers button {
+  border-radius: 1px;
+}
+
 .comments .comment {
   position: relative;
 }

@@ -18,12 +18,10 @@
             </div>
             <div class="col-lg-3">
                 <p>Where?</p>
-                <select id="distritoshome" name="distritoshome">
-                  <option value="">Escolha um distrito</option>
-                  <option value="1">Cenas</option>
-                </select>
-                <br />
-            	<select id="concelhos" name="concelhos">
+                <?php
+					echo Form::select('id', $dists, "", array('class' => 'form-control', 'id' => 'distritoshome', 'name' => 'distritoshome'));	
+				?>
+            	<select class="form-control" id="concelhos" name="concelhos">
                   <option value="">Escolha um concelho </option>
                 </select>
             </div>

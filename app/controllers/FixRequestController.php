@@ -70,6 +70,17 @@ class FixRequestController extends BaseController {
             $comment['gravatar'] = "http://www.gravatar.com/avatar/".md5(strtolower(trim($comment->post->user->email)))."?s=48&r=pg&d=identicon";
         }
 
+        $fixoffers = FixOffer::getFixOffersOfFixRequest($id);
+        $hasMadeFixOffer = false;
+
+        foreach($fixoffers as &$fixoffer) {
+            $fixoffer['created_at_pretty'] = UtilFunctions::prettyDate($fixoffer->post['created_at']);
+            $fixoffer['gravatar'] = "http://www.gravatar.com/avatar/".md5(strtolower(trim($fixoffer->post->user->email)))."?s=48&r=pg&d=identicon";
+            if($fixoffer->post->user->id == Auth::user()->id) {
+                $hasMadeFixOffer = true;
+            }
+        }
+
         //$comments = $comment->paginate(5);
 
         return View::make('fixrequests/show', array(
@@ -77,7 +88,8 @@ class FixRequestController extends BaseController {
             'comments' => $comments,
             'photos' => $fixrequest->post->photos()->getResults(),
             'auth' => Auth::check(),
-            'fixoffers' => array(), // TODO
+            'fixoffers' => $fixoffers,
+            'hasMadeFixOffer' => $hasMadeFixOffer,
         ));
     }
 
