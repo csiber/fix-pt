@@ -10,10 +10,10 @@
             <li class="active">{{{Auth::user()->username}}}</li>
         </ol>
         <div class="well well-lg">
-            <div class="row">
+            <div class="row">				
                 <a href="{{ URL::to('users/edit/'.Auth::user()->id.'') }}"  class="btn btn-default btn pull-right">
                     <span class="glyphicon glyphicon-pencil"></span> Edit Profile
-                </a>            
+                </a>         
             </div>
             <div class="row">
                 <?php
@@ -71,7 +71,16 @@
         <div class="well well-sm sidebar-steps">
             <ul>
                 @if (Auth::user()->user_type == 'Administrator')
-                    <li><a href="{{{ URL::to('users/manage_users') }}}" class="_users">Manage Users</a></li>
+                    <li><a href="{{{ URL::to('users/index') }}}" class="_users">Manage Users</a></li>
+                @endif
+                @if (Auth::user()->user_type == 'Premium')
+                    <li><a href="{{ URL::to('users/downgrade') }}"  class="_users">Downgrade Account</a></li>
+                @endif
+                @if (Auth::user()->user_type == 'Standard')
+                    <li><a href="{{ URL::to('users/upgrade') }}"  class="_users">Upgrade Account</a></li>
+                @endif
+                @if (Auth::user()->user_type == 'Moderator')
+                    <li><a href="{{ URL::to('users/downgrade') }}"  class="_users">Revoke Moderator Rights</a></li>
                 @endif
                 <li>Links For User Actions TODO</li>                    
             </ul>

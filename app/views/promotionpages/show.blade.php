@@ -8,10 +8,10 @@
             <li><a href="{{URL::to('promotionpages/index/recent')}}">Promotion Pages</a></li>
             <li class="active">{{{$promotionpage->title}}}</li>
         </ol>
-        <div class="well well-lg">
+        <div class="well well-lg promotionpage-details" data-promotionpage-id="{{$promotionpage['post']['user_id']}}">
             <h4> 
-                <span class="glyphicon glyphicon-star-empty favorite-fixer" onclick="markFixerAsFavorite(this)"></span>
-                {{{$promotionpage->title}}} 
+                <span class="glyphicon glyphicon-star favorite-fixer1" onclick="markFixerAsFavorite(this)"></span>
+                {{{$promotionpage->title}}}
             </h4>
             <p> {{{$promotionpage['post']['text']}}} </p>
         </div>

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +25,7 @@ Route::model('fixoffers', 'FixOffer');
 Route::model('notifiables', 'Notifiable');
 Route::model('posts', 'Post');
 Route::model('promotionpages', 'PromotionPage');
+Route::model('search', 'Search');
 
 
 /** ------------------------------------------
@@ -36,10 +37,11 @@ Route::post('users/reset-pass','UserController@postResetPass');
 Route::get('users/codetoresetpass/{code}','UserController@getCodeToResetPass');
 
 // TODO what is this before => none??
-Route::group(array("before" => "none"),function(){
+Route::group(array("before" => "none"), function(){
     Route::get('users/confirmation','UserController@getConfirmation');    
 });
 
+Route::get('users/favorite/{code}','UserController@addToFavourites');
 
 Route::group(array("before" => "auth"), function()
 {
@@ -52,6 +54,9 @@ Route::group(array("before" => "auth"), function()
     Route::get('users/edit', 'UserController@getEdit');
     Route::get('users/reset-password', 'UserController@showChangePassword');
     Route::post('users/edit', 'UserController@postEdit');
+    Route::post('users/change_permission','UserController@change_permission');
+    Route::get('users/upgrade','UserController@upgrade');
+    Route::get('users/downgrade','UserController@downgrade');
 
     Route::post('fixrequests/addcomment','FixRequestController@addComment');
     Route::post('users/manage_users','UserController@postManage_Users');
@@ -73,11 +78,15 @@ Route::controller('fixoffers', 'FixOfferController');
 Route::controller('notifiables', 'NotifiableController');
 Route::controller('posts', 'PostController');
 Route::controller('promotionpages', 'PromotionPageController');
+Route::post('search/getconcelhos', 'SearchController@getConcelhosList');
+Route::controller('search', 'SearchController');
 
 // Home page
 Route::get('/', function() {
-    return View::make('home');
+	$pds = Search::get_distritos();
+	$dists[""] = "Escolha um distrito";
+	foreach($pds as $pd) {
+		$dists[$pd->id] = $pd->name;
+	}
+    return View::make('home', array('dists' => $dists));
 });
-
-
-

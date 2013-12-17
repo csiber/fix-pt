@@ -548,7 +548,12 @@ fieldset .form.group:last-child {
   border-radius: 1px;
 }
 
-.favorite-fixer {
+.favorite-fixer1 {
+  cursor: pointer;
+  color: #696969;
+}
+
+.favorite-fixer2 {
   cursor: pointer;
   color: #FFD700;
 }

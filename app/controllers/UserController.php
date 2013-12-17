@@ -16,13 +16,23 @@ class UserController extends BaseController {
         'password' => 'required'
     );
 
+    public $resetPassRules = array(
+        'password' => 'required|between:4,11',
+        'confirm_password' => 'same:password'
+    );
+
     /**
      * Index displays all users of the system
      * @return Response
      */
-    public function getIndex() {
-        $users = User::all();
-        return View::make('users.index', array('users' => $users));
+    public function getIndex($users_type=null, $userid=null) {
+		if($users_type == "administrator" || $users_type == "moderator" || $users_type == "premium" || $users_type == "standard"){
+			$users = DB::table('users')->where('user_type','=',$users_type)->get();
+		}else{		
+			$users = User::all();
+			$users_type="all";
+		}
+        return View::make('users.index', array('users' => $users, 'users_type' => $users_type, 'userid'=> $userid));
     }
 
     /**
@@ -51,6 +61,7 @@ class UserController extends BaseController {
                 "password" => Input::get("password")
             );
             if (Auth::attempt($credentials)) {
+
                 return Redirect::to("users/profile");
             }
         }
@@ -97,8 +108,17 @@ class UserController extends BaseController {
 
     public function postChangePassword() {
         $user = User::find(Auth::user()->id);
+
+        $validator = Validator::make(Input::all(), $this->resetPassRules);
+
+        if ($validator->fails()) {
+            return Redirect::to('users/reset-password')
+                            ->withInput()
+                            ->withErrors($validator);
+        }
+
         if (/* Hash::make(Input::get('oldPass')) == $user['password'] or */ true /* para tirar depois */) {
-            $newPass = Hash::make(Input::get('newPass'));
+            $newPass = Hash::make(Input::get('password'));
             //$user->update(array('password' => $newPass));
             User::where('id', Auth::user()->id)->update(array('password' => $newPass));
             Session::flash('success', 'Password changed successfully.');
@@ -124,9 +144,11 @@ class UserController extends BaseController {
      *
      */
     public function getLogout() {
+        Auth::user()->Last_login = date('Y-m-d h:i:s', time());
+        Auth::user()->save();
         Auth::logout();
         return Redirect::to('/');
-    }
+    } 
 
     /**
      * Show the form for editing user.
@@ -315,20 +337,44 @@ class UserController extends BaseController {
         return Redirect::to('users/profile')->with('message', "Logged in with Facebook");
     }
 
-    public function getManage_Users() {
-        $users = User::all();
-        return View::make('users.manage_users', array('users' => $users));
-    }
-
-    public function postManage_Users() {
+    public function postIndex() {
         $users = User::all();
         $iarray = Input::all();
+                
         foreach ($users as $u) {
-            if ($u->user_type != $iarray[$u->id]) {
-                User::where('email', $u->email)->update(array('user_type' => $iarray[$u->id]));
+            if ($u->user_type != $iarray['user'.$u->id]) {            
+                User::where('email', $u->email)->update(array('user_type' => $iarray['user'.$u->id]));
             }
         }
-        return Redirect::to('users/profile');
+        return Redirect::to('users/index');
+    }
+
+    public function addToFavourites($id) {
+        $favorite = new Favorite;
+        $favorite->user_1 = Auth::user()->id;
+        $favorite->user_2 = $id;
+        $favorite->save();
+    }
+    
+    public function change_permission() {
+		$users = User::all();
+        $iarray = Input::all();
+        
+        foreach ($users as $u) {
+			if('user'.$u->id == $iarray['id']){
+				User::where('email', $u->email)->update(array('user_type' => $iarray['user_type']));
+			}           
+        }        
+    }
+    
+    public function downgrade() {
+        User::where('id', Auth::user()->id)->update(array('user_type' => "Standard"));
+        return Redirect::to('users/profile');    
+    }
+    
+    public function upgrade() {
+		User::where('id', Auth::user()->id)->update(array('user_type' => "Premium")); 
+		return Redirect::to('users/profile');    
     }
 
 }

@@ -8,7 +8,7 @@
 
 		<div>
 			Confirmation email.<br>
-			Link: {{$base_url}}/users/confirmation/{{$code}}
+			Link: <a href="{{$base_url}}/users/confirmation/{{$code}}"> click me. </a>
 		</div>
 	</body>
 </html>

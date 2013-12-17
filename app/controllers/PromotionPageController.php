@@ -40,8 +40,10 @@ class PromotionPageController extends BaseController {
     public function getShow($id)
     {
         $promotionpage = PromotionPage::getPromotionPage($id);
+        $isFavorite = Favorite::checkFavorite($id);
         return View::make('promotionpages.show',
-            array('promotionpage' => $promotionpage)
+            array('promotionpage' => $promotionpage,
+            "favorite"=> $isFavorite)
         );
     }
 
@@ -80,7 +82,7 @@ class PromotionPageController extends BaseController {
 
                 $post = new Post(array(
                     "text" => Input::get('body'), 
-                    "user_id" => 1
+                    "user_id" => Auth::user()->id
                 ));
                 $post = $notifiable->post()->save($post);
 

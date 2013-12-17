@@ -83,9 +83,18 @@
         <div class="well well-lg comments">
             <h4 class="lead">{{count($comments)}} Comments</h4>
             @if(count($comments) > 0)
+                @if(count($comments) > 5)
+                    <a class="showAllComments"> show more... </a>
+                @endif
             <div class="comment-list">
+                <?php $myId=0; ?>
                 @foreach($comments as $comment)
-                    <ul class="media-list comment">
+                    @if(count($comments)>5 && $myId<(count($comments)-5))
+                    <ul class="media-list comment" style="display:none">
+                    @else
+                    <ul class="media-list comment">    
+                    @endif
+                    
                       <li class="media">
                         <a class="pull-left" href="#">
                           <img class="media-object" src="{{$comment['gravatar']}}" alt="...">
@@ -96,6 +105,7 @@
                         </div>
                       </li>
                     </ul>
+                    <?php $myId++; ?>
                 @endforeach
             </div>
             @endif

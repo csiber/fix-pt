@@ -68,7 +68,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group <?php echo ($errors->has('location')) ? "has-error" : ""; ?>">
-                            {{ Form::label("location", "Location", array("class" => "control-label")) }}
+                            {{ Form::label("location", "District", array("class" => "control-label")) }}
                             {{ Form::text("location", "", array(
                                 "class" => "form-control",
                                 "id" => "promotionpage-location",

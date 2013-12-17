@@ -81,6 +81,8 @@ class FixRequestController extends BaseController {
             }
         }
 
+        //$comments = $comment->paginate(5);
+
         return View::make('fixrequests/show', array(
             'fixrequest' => $fixrequest,
             'comments' => $comments,
