@@ -56,6 +56,43 @@ $(document).ready(function(){
 		$('.comment').css('display','block');
 	});
 
+	$('#submitComment').click(function(){
+		$('.comment-list');
+		var txt = $('#comment').val();
+		var fixId = $('#fixrequest-id').val();
+		console.log(txt+" - "+fixId);
+		$.ajax({
+			type: "POST",
+			url: '../../fixrequests/addcomment',
+			data: {
+				comment: txt,
+				fixrequest_id: fixId
+			} 
+		}).done(function(msg){
+			console.log("success: "+msg['post']['text']);
+			var ctxt=msg['post']['text'];
+			var cgravatar=msg['gravatar'];
+			var cusername=msg['post']['user']['username'];
+			var createdAt=msg['created_at_pretty'];
+
+			var commentHtml="<ul class='media-list comment'>";
+			commentHtml += "<li class=media><a class=pull-left href=#>";
+			commentHtml += "<img class=media-object src=";
+			commentHtml += cgravatar;
+			commentHtml += " alt=...></a><div class=media-body>";
+			commentHtml += "<h5 class=media-heading><a href=#>";
+			commentHtml += cusername;
+			commentHtml += "</a><span> - ";
+			commentHtml += createdAt;
+			commentHtml += "</span></h5>";
+			commentHtml += ctxt;
+			commentHtml += "</div></li>";
+			commentHtml += "</ul>";
+			$('.comment-list').append(commentHtml);
+			$('#comment').val('');
+		});
+	});
+
 	$('#buttonLogin').click(function(){
 	  $('#signInModal').ready(function(){
 		 $('#buttonForgotPass').click(function(){

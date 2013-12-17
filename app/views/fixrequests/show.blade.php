@@ -112,7 +112,7 @@
 
                 @if($auth == 1)
                 {{ Form::open(array(
-                        "url" => "fixrequests/addcomment",
+                        "url" => "",
                         "id" => "addcomment-form",
                         "role" => "form")) }} 
                 <div class="form-group">
@@ -130,8 +130,9 @@
                         "id" => "fixrequest-id"
                     ))}}
                 </div>
-                <button type="submit" class="btn btn-success">Add Comment</button>
                 {{ Form::close() }}
+                <button id="submitComment" type="" class="btn btn-success">Add Comment</button>
+                
                 @endif
         </div>
     </div>
