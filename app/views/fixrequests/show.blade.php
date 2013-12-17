@@ -8,7 +8,7 @@
             <li><a href="{{URL::to('fixrequests/index/recent')}}">Fix Requests</a></li>
             <li class="active">{{{$fixrequest->title}}}</li>
         </ol>
-        <div class="well well-lg fixrequest">
+        <div class="well well-lg fixrequest" data-fix-request-id="{{$fixrequest->id}}">
             <h4 class="lead">{{{$fixrequest->title}}} <span class="tag pull-right label">{{$fixrequest->category->name}}</span></h4>
             <p>{{$fixrequest['post']->text}}</p>
             
@@ -44,8 +44,41 @@
                 </div>
             </div>
         </div>
-        <div class="well well-lg">
-            <h4 class="lead">{{count($fixoffers)}} Fix Offers</h4>
+        <div class="well well-lg fix-offers">
+            <h4 class="lead"><span class="counter">{{count($fixoffers)}}</span> Fix Offers</h4>
+            <div class="fixoffers-list">
+                @foreach($fixoffers as $fixoffer)
+                <ul class="media-list fixoffer">
+                    <li class="media">
+                        <a href="#" class="pull-left">
+                            <img src="{{$fixoffer['gravatar']}}" alt="" class="media-object">
+                        </a>
+                        <div class="media-body">
+                            <h5 class="media-heading"><a href="#">{{{$fixoffer->post->user->username}}}</a><span> - {{$fixoffer->created_at_pretty}}</span></h5>
+                      {{{$fixoffer['post']->text}}}
+                            <h5>Value: {{$fixoffer->value}}€</h5>
+                        </div>
+                    </li>
+                </ul>
+                @endforeach
+            </div>
+
+            @if(Auth::user()->id != $fixrequest->post->user_id && !$hasMadeFixOffer)
+            <form id="create_fix_offer_form" action="#">
+                <h5>Make your offer</h5>
+                <div class="form-group">
+                    <textarea name="fix_offer_text" id="" name="text" rows="3" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">€</span>
+                        <input type="number" name="value" class="form-control" value="0" min="0">
+                    </div>
+                    <p class="help-block"><?php echo $errors->first('value') ?></p>
+                </div>
+                <button type="button" class="btn btn-success">Make fix offer</button>
+            </form>
+            @endif
         </div>
         <div class="well well-lg comments">
             <h4 class="lead">{{count($comments)}} Comments</h4>
@@ -66,17 +99,6 @@
                 @endforeach
             </div>
             @endif
-
-                <!-- <ul class="media-list">
-                    <li class="media">
-                        <a class="pull-left" href="#">
-                          <img class="media-object" src="..." alt="...">
-                        </a>
-                        <div class="media-body">
-                            <textarea class="form-control" name="" id="" cols="30" rows="1"></textarea>
-                        </div>
-                    </li>
-                </ul> -->
 
                 @if($auth == 1)
                 {{ Form::open(array(

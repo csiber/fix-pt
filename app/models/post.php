@@ -29,6 +29,11 @@ class Post extends Eloquent {
         return $this->hasOne('Comment');
     }
 
+    public function fixoffer() 
+    {
+        return $this->hasOne('FixOffer');
+    }
+
     public function promotionpage()
     {
         return $this->hasOne('PromotionPage');
