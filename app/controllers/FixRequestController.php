@@ -269,4 +269,29 @@ class FixRequestController extends BaseController {
 
         return $lastComment;
     }
+
+    function blockFixrequest($idFixrequest)
+    {
+        $fixrequest=FixRequest::getFixRequest($idFixrequest);
+        $post=$fixrequest['post'];
+        Email::sendNotificationEmail('mainstopable@gmail.com','novo post!');
+        var_dump($post);
+        die;
+    }
+
+    function deleteFixrequest($idFixrequest)
+    {
+        $fixrequest=FixRequest::getFixRequest($idFixrequest);
+        $post=$fixrequest['post'];
+        var_dump($post);
+        die;   
+    }
+
+    function unblockFixrequest($idFixrequest)
+    {
+        $fixrequest=FixRequest::getFixRequest($idFixrequest);
+        $post=$fixrequest['post'];
+        var_dump($post);
+        die;   
+    }
 }

@@ -43,6 +43,8 @@ Route::group(array("before" => "none"), function(){
 
 Route::get('users/favorite/{code}','UserController@addToFavourites');
 
+Route::get('fixrequests/blockfixrequest/{id}','FixRequestController@blockFixrequest');
+
 Route::group(array("before" => "auth"), function()
 {
     # User Management    
