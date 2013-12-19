@@ -22,7 +22,10 @@
             @endif
 
             <div class="fixrequest-author text-right">requested by <a href="{{ URL::to('users/show/'.$fixrequest->post->user_id) }}">{{{$fixrequest->post->user->username}}}</a></div>
-
+            @if(Auth::user()->user_type == 'Moderator')
+                <button type="button" onclick="window.location.href='../../fixrequests/blockfixrequest/{{$fixrequest->id}}'" class="btn btn-success">Block post</button>
+                            
+            @endif
         </div>
         <div class="row">
             <div class="col-md-4">
@@ -58,6 +61,7 @@
                       {{{$fixoffer['post']->text}}}
                             <h5>Value: {{$fixoffer->value}}€</h5>
                         </div>
+
                     </li>
                 </ul>
                 @endforeach
@@ -112,7 +116,7 @@
 
                 @if($auth == 1)
                 {{ Form::open(array(
-                        "url" => "fixrequests/addcomment",
+                        "url" => "",
                         "id" => "addcomment-form",
                         "role" => "form")) }} 
                 <div class="form-group">
@@ -130,8 +134,9 @@
                         "id" => "fixrequest-id"
                     ))}}
                 </div>
-                <button type="submit" class="btn btn-success">Add Comment</button>
                 {{ Form::close() }}
+                <button id="submitComment" type="" class="btn btn-success">Add Comment</button>
+                
                 @endif
         </div>
     </div>
