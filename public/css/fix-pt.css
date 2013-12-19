@@ -149,6 +149,7 @@ a:hover, a:focus {
 body._users .navbar-inverse .navbar-nav li > a._users,
 body._home .navbar-inverse .navbar-nav li > a._home,
 body._fixrequests .navbar-inverse .navbar-nav li > a._fixrequests,
+body._promotionpages .navbar-inverse .navbar-nav li > a._promotionpages,
 .navbar-inverse .navbar-nav li > a:hover,
 .navbar-inverse .navbar-nav li > a:focus,
 .navbar-inverse .navbar-nav>.open>a,
