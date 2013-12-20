@@ -349,13 +349,20 @@ class UserController extends BaseController {
         return Redirect::to('users/index');
     }
 
-    public function addToFavourites($id) {
+    public function addToFavorites($id) {
         $favorite = new Favorite;
         $favorite->user_1 = Auth::user()->id;
         $favorite->user_2 = $id;
         $favorite->save();
     }
     
+    public function deleteFromFavorites($id){
+        $id1 = Auth::user()->id;
+
+        $query = "delete from favorites where user_1 = '" . $id1 ."' and user_2 = '" . $id ."'";
+        DB::delete(DB::raw($query));
+    }
+
     public function change_permission() {
 		$users = User::all();
         $iarray = Input::all();
