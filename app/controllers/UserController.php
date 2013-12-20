@@ -378,7 +378,6 @@ class UserController extends BaseController {
         $favorite->user_2 = $id;
         $favorite->save();
     }
-<<<<<<< HEAD
     
     public function deleteFromFavorites($id){
         $id1 = Auth::user()->id;
@@ -386,8 +385,6 @@ class UserController extends BaseController {
         $query = "delete from favorites where user_1 = '" . $id1 ."' and user_2 = '" . $id ."'";
         DB::delete(DB::raw($query));
     }
-=======
->>>>>>> 6f3b184e85c56101b99f82e0dfc5a5d276ba899e
 
     public function change_permission() {
         $users = User::all();
