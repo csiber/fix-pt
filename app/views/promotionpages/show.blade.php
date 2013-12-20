@@ -11,8 +11,12 @@
         <div class="well well-lg promotionpage-details" data-promotionpage-id="{{$promotionpage['post']['user_id']}}">
             
             <h4> 
-                <span class="glyphicon glyphicon-star favorite-fixer1" onclick="markFixerAsFavorite(this)"></span>
-                {{{$promotionpage->title}}}
+                @if($favorite)
+                    <span class="glyphicon glyphicon-star favorite-fixer2" onclick="markFixerAsFavorite(this)"></span>
+                @elseif($favorite == false && Auth::check()) 
+                    <span class="glyphicon glyphicon-star favorite-fixer1" onclick="markFixerAsFavorite(this)"></span>
+                @endif
+                    {{{$promotionpage->title}}}
             </h4>
             
             <p> {{{$promotionpage['post']['text']}}} </p>
@@ -20,11 +24,11 @@
     </div>
     <div class="col-md-4">
         <div class="well well-sm sidebar-steps">
-            <h3 class="text-center">How you can make a good request</h1>
+            <h3 class="text-center">How you can make a good promtion page</h1>
             <ol class="sidebar-ol">
-                <li>Use a clear title and a detailed description to describe your request</li>
-                <li>Chose the right category and add meaningful tags</li>
-                <li>Upload some photos to show what needs to be repaired</li>
+                <li>Use a clear title and a detailed description to describe what you can do</li>
+                <li>Chose the right category</li>
+                <li>Upload some photos to show other works you've done</li>
             </ol>
         </div>
     </div>

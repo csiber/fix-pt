@@ -198,7 +198,13 @@ function markFixerAsFavorite(star) {
 		});
 	}
 	else {
+		var id = $(".promotionpage-details").attr('data-promotionpage-id');
+
 		star.removeClass('favorite-fixer2').addClass('favorite-fixer1');
+		$.ajax({
+			url: "../../users/removeFav/" + id,
+			context: document
+		});
 	}
 }
 
