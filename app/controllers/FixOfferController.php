@@ -47,6 +47,8 @@ class FixOfferController extends BaseController {
                         ));
                         $fixoffer->save();
 
+                        Email::sendNotificationEmail($fixrequest->post->user->email,'Tem uma nova oferta!');
+
                         return $fixoffer;
                     });
 

@@ -274,7 +274,7 @@ class FixRequestController extends BaseController {
     {
         $fixrequest=FixRequest::getFixRequest($idFixrequest);
         $post=$fixrequest['post'];
-        Email::sendNotificationEmail('mainstopable@gmail.com','novo post!');
+        //Email::sendNotificationEmail('mainstopable@gmail.com','novo post!');
         var_dump($post);
         die;
     }
