@@ -49,14 +49,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="well well-sm sidebar-steps">
-            <h3 class="text-center">User Ratings</h1>
-            <ol class="sidebar-ol">
-                <li>Positive</li>
-                <li>Neutral</li>
-                <li>Negative</li>
-            </ol>
-        </div>        
+        @include('users.userSideBox')        
     </div>
 </div>
 

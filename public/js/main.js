@@ -31,7 +31,7 @@ $(document).ready(function($){
 		con.append('<option value="">Escolha um concelho</option>');
 		return $.ajax({
 		  type: "POST",
-		  url: "getconcelhos",
+		  url: "search/getconcelhos",
 		  data: {did: $("#distritos").val()},
 		  success: function(data) {
 		   for (var i=0;i<data.length;i++)

@@ -47,20 +47,13 @@ class SearchController extends BaseController {
 			}
 			$cont = $cont + 1;
         }
-		$chosen = Search::get_distrito_by_concelho($local);
-		$distritos = array();
-		$dists = Search::get_distritos();
-		foreach ($dists as $dist)
-		{
-			array_push($distritos,array($dist->id, $dist->name));
-		}
 		$concelhos = array();
-		$concs = Search::get_concelhos();
+		$concs = Search::get_concelhos_por_distritos();
 		foreach ($concs as $conc)
 		{
-			array_push($concelhos,array($conc->id, $conc->name));
+			array_push($concelhos,array($conc->id, $conc->name,$conc->distrito));
 		}
-        return View::make('search.index', array('searchresults' => $searchresults, 'pags' => $res, "sort" => $sort, "dists" => $distritos, "concs" => $concelhos, "text" => $terms, "seldistrito" => $chosen, "selconcelho" => $local));
+        return View::make('search.index', array('searchresults' => $searchresults, 'pags' => $res, "sort" => $sort, "concs" => $concelhos, "text" => $terms, "selconcelho" => $local));
     }
 	
     public function postIndex()

@@ -159,6 +159,32 @@ body._promotionpages .navbar-inverse .navbar-nav li > a._promotionpages,
   background-color: #c0392b;
 }
 
+.tips .panel-title>a{
+    color: #e74c3c;
+    font-size: 90%; 
+    font-weight: bold;
+}
+.tips .panel-title>a:hover, .panel-title>a:focus{
+    color: #c0392b;
+}
+
+.tips .panel-group .panel {
+margin-bottom: 0;
+overflow: hidden;
+border-radius: 0px;
+}
+.tips .panel-heading {
+padding: 10px 15px;
+border-top-right-radius: 0;
+border-top-left-radius: 0;
+}
+
+.tips .panel-default>.panel-heading {
+color: #333;
+background-color: #ffffff;
+border: none;
+}
+
 #wrap > .container {
   padding: 80px 15px 40px;
 }
@@ -562,5 +588,4 @@ fieldset .form.group:last-child {
 .popular-tags .panel-body > div {
   margin-top: 6px;
 }
-
 

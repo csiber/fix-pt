@@ -29,19 +29,15 @@ class Search extends Eloquent {
 		return DB::select(DB::raw('select * from districts order by id asc'));
 	}
 	
-	public static function get_concelhos()
-	{
-		return DB::select(DB::raw('select * from concelhos order by id asc'));
-	}
-	
 	public static function get_concelhos_distrito($did)
 	{
 		return DB::table('concelhos')->where("district_id","=",$did)->get();
 	}
 	
-	public static function get_distrito_by_concelho($cid)
+	public static function get_concelhos_por_distritos()
 	{
-		return DB::table('concelhos')->where("id","=",$cid)->pluck('district_id');
+		$query = "select concelhos.id as id, concelhos.name as name, concelhos.district_id, districts.name as distrito from concelhos, districts where concelhos.district_id = districts.id order by concelhos.district_id, id";
+		return DB::select(DB::raw($query));
 	}
 	
 }
