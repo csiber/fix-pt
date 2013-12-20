@@ -60,31 +60,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="well well-sm sidebar-steps">
-            <h3 class="text-center">User Ratings</h1>
-            <ol class="sidebar-ol">
-                <li>How to get a good ratings?</li>
-                <li>How you can rate other's peoples works?</li>
-                <li>Where can I see my ratings?</li>
-            </ol>
-        </div>
-        <div class="well well-sm sidebar-steps">
-            <ul>
-                @if (Auth::user()->user_type == 'Administrator')
-                    <li><a href="{{{ URL::to('users/index') }}}" class="_users">Manage Users</a></li>
-                @endif
-                @if (Auth::user()->user_type == 'Premium')
-                    <li><a href="{{ URL::to('users/downgrade') }}"  class="_users">Downgrade Account</a></li>
-                @endif
-                @if (Auth::user()->user_type == 'Standard')
-                    <li><a href="{{ URL::to('users/upgrade') }}"  class="_users">Upgrade Account</a></li>
-                @endif
-                @if (Auth::user()->user_type == 'Moderator')
-                    <li><a href="{{ URL::to('users/downgrade') }}"  class="_users">Revoke Moderator Rights</a></li>
-                @endif
-                <li>Links For User Actions TODO</li>                    
-            </ul>
-        </div>
+        @include('users.userSideBox')           
     </div>
 </div>
 @stop
