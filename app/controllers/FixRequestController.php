@@ -56,6 +56,9 @@ class FixRequestController extends BaseController {
     public function getShow($id)
     {
         $fixrequest = FixRequest::getFixRequest($id);
+        $fixrequest->views = $fixrequest->views + 1;
+        $fixrequest->save();
+
         $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
         $fixrequest['updated_at_pretty'] = UtilFunctions::prettyDate($fixrequest['updated_at']);
         $fixrequest['post']->text = nl2br((stripslashes($fixrequest['post']->text)));
