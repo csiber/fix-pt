@@ -74,6 +74,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Notifications <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <?php $havenew=false; ?>
+                            @if(isset($notifications) && count($notifications)>0)
                             @foreach($notifications as $notif)
                                 @if($notif['comments']>0)
                                     <li><a href="#" >{{$notif['comments']}} new comments on request: {{$notif['title']}}</a></li>
@@ -85,6 +86,7 @@
                                 @endif
                                 
                             @endforeach   
+                            @endif
                             @if(!$havenew)
                                 <li><a href="#" >Sem novas entradas</a></li>
                             @endif
