@@ -22,7 +22,7 @@
             @endif
 
             <div class="fixrequest-author text-right">requested by <a href="{{ URL::to('users/show/'.$fixrequest->post->user_id) }}">{{{$fixrequest->post->user->username}}}</a></div>
-            @if(Auth::user()->user_type == 'Moderator')
+            @if(Auth::user() && Auth::user()->user_type == 'Moderator')
                 <button type="button" onclick="window.location.href='../../fixrequests/blockfixrequest/{{$fixrequest->id}}'" class="btn btn-success">Block post</button>
                             
             @endif
@@ -71,7 +71,7 @@
             <form id="create_fix_offer_form" action="#">
                 <h5>Make your offer</h5>
                 <div class="form-group">
-                    <textarea name="fix_offer_text" id="" name="text" rows="3" class="form-control"></textarea>
+                    <textarea name="fix_offer_text" id="" rows="3" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
@@ -114,30 +114,13 @@
             </div>
             @endif
 
-                @if($auth == 1)
-                {{ Form::open(array(
-                        "url" => "",
-                        "id" => "addcomment-form",
-                        "role" => "form",
-                        "method" => "GET")) }} 
-                <div class="form-group">
-                    {{ Form::textarea("comment", Input::old("insert comment"), array(
-                        "placeholder" => "comment...", 
-                        "class" => "form-control", 
-                        "id" => "comment",
-                        "rows" => "3"
-                    )) }}
-                </div>
-                <div class="form-group">
-                    {{ Form::hidden("fixrequest-id",$fixrequest['id'], array(
-                        "placeholder" => "fixrequest-id", 
-                        "class" => "form-control", 
-                        "id" => "fixrequest-id"
-                    ))}}
-                </div>
-                {{ Form::close() }}
-                <button id="submitComment" type="" class="btn btn-success">Add Comment</button>
-                
+                @if(Auth::user())
+                <form id="create_comment_form" action="#">
+                    <div class="form-group">
+                        <textarea name="comment-text" class="form-control" placeholder="Make a comment." rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-success">Add Comment</button>
+                </form>
                 @endif
         </div>
     </div>

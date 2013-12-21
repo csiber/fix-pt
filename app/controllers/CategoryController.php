@@ -11,5 +11,4 @@ class CategoryController extends BaseController {
     {
         // add stuff here
     }
-    
 }

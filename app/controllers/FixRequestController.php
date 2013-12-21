@@ -9,7 +9,7 @@ class FixRequestController extends BaseController {
     */
     public function getIndex($sort=null)
     {
-        $requests_per_page = 5;
+        $requests_per_page = 6;
 
         if ($sort == "recent") {
             $fixrequests = FixRequest::recent_requests()->paginate($requests_per_page);
@@ -76,7 +76,7 @@ class FixRequestController extends BaseController {
         foreach($fixoffers as &$fixoffer) {
             $fixoffer['created_at_pretty'] = UtilFunctions::prettyDate($fixoffer->post['created_at']);
             $fixoffer['gravatar'] = "http://www.gravatar.com/avatar/".md5(strtolower(trim($fixoffer->post->user->email)))."?s=48&r=pg&d=identicon";
-            if($fixoffer->post->user->id == Auth::user()->id) {
+            if(Auth::user() && $fixoffer->post->user->id == Auth::user()->id) {
                 $hasMadeFixOffer = true;
             }
         }
@@ -193,81 +193,6 @@ class FixRequestController extends BaseController {
         } else {
             return Redirect::to('fixrequests/create')->withInput()->withErrors($validator);
         }
-        
-        //$data = Input::all();
-
-        // return Input::file('photos')->getClientOriginalName();
-        // $file = Input::file('photos');
-
-        //echo json_encode($data);
-        //var_dump($file->getFileName());
-    }
-
-    public function addComment()
-    {
-/*
-        $redirect = DB::transaction(function(){
-            $text = Input::get('comment');
-            $userId = Auth::user()->id;
-            $fix_request_id = Input::get('fixrequest-id');
-            
-            $notifiable = new Notifiable();
-            $notifiable->save();
-            $post = new Post(array(
-                        "text" => $text,
-                        "user_id" => $userId
-                    ));
-            $post = $notifiable->post()->save($post);
-            
-            $comment = new Comment(array("fix_request_id" => $fix_request_id, 
-                                         "post_id" => $post->id));
-            $comment->save();
-
-            $fixrequest = FixRequest::getFixRequest($fix_request_id);
-            $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
-
-            return Redirect::to('fixrequests/show/' . $fix_request_id);
-        });
-        return $redirect;
-*/
-        $text = Input::get('comment');
-        $userId = Auth::user()->id;
-        $fix_request_id = Input::get('fixrequest_id');
-        
-        
-
-        $notifiable = new Notifiable();
-        $notifiable->save();
-        $post = new Post(array(
-                    "text" => $text,
-                    "user_id" => $userId
-                ));
-        $post = $notifiable->post()->save($post);
-        
-        $comment = new Comment(array("fix_request_id" => $fix_request_id, 
-                                     "post_id" => $post->id));
-        $comment->save();
-
-        $fixrequest = FixRequest::getFixRequest($fix_request_id);
-        $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
-
-
-        $comments = Comment::getCommentsOfFixRequest($fix_request_id);
-
-        $maxCommentId=0;
-        $lastComment=null;
-        foreach($comments as &$comment) {
-
-            $comment['created_at_pretty'] = UtilFunctions::prettyDate($comment['created_at']);
-            $comment['gravatar'] = "http://www.gravatar.com/avatar/".md5(strtolower(trim($comment->post->user->email)))."?s=48&r=pg&d=identicon";
-            if($comment['id']>$maxCommentId)
-            {
-                $maxCommentId=$comment['id'];
-                $lastComment=$comment;
-            }
-        }
-
-        return $lastComment;
     }
 
     function blockFixrequest($idFixrequest)
