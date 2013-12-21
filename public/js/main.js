@@ -72,9 +72,13 @@ $(document).ready(function(){
         });
     });
 
-    $('.showAllComments').click(function(){
-        $('.showAllComments').css('display','none');
-        $('.comment').css('display','block');
+    // MIGUEL -->
+
+    $('.show_comments').click(function() {
+        $('.comment').each(function(){
+            $(this).removeClass('hide');
+        });
+        $(this).remove();
     });
 
     $('#create_comment_form button').click(function(event){
@@ -121,8 +125,6 @@ $(document).ready(function(){
             }
         });
     });
-
-    // MIGUEL -->
 
     // pageCreateFixRequestJS();
 

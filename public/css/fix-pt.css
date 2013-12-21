@@ -34,6 +34,10 @@ body {
   background-color: #444;
 }
 
+.hide {
+  display: none;
+}
+
 .hide-take-space {
   visibility: hidden;
 }
@@ -533,6 +537,10 @@ fieldset .form.group:last-child {
 
 .fix-offers button {
   border-radius: 1px;
+}
+
+.show_comments {
+  color: #e74c3c;
 }
 
 .comments .comment {

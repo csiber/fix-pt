@@ -86,32 +86,25 @@
         </div>
         <div class="well well-lg comments">
             <h4 class="lead"><span class="counter">{{count($comments)}}</span> Comments</h4>
-            
+
             @if(count($comments) > 0)
                 @if(count($comments) > 5)
-                    <a class="showAllComments"> show more... </a>
+                    <button type="button" class="btn btn-link show_comments">Show {{count($comments) - 5}} more comments</button>
                 @endif
             <div class="comment-list">
-                <?php $myId=0; ?>
-                @foreach($comments as $comment)
-                    @if(count($comments)>5 && $myId<(count($comments)-5))
-                    <ul class="media-list comment" style="display:none">
-                    @else
-                    <ul class="media-list comment">    
-                    @endif
-                    
-                      <li class="media">
-                        <a class="pull-left" href="#">
-                          <img class="media-object" src="{{$comment['gravatar']}}" alt="...">
-                        </a>
-                        <div class="media-body">
-                          <h5 class="media-heading"><a href="#">{{{$comment->post->user->username}}}</a><span> - {{$comment->created_at_pretty}}</span></h5>
-                          {{{$comment['post']->text}}}
-                        </div>
-                      </li>
+                @for ($i = 0; $i < count($comments); $i++)
+                    <ul class="media-list comment @if( count($comments) > 5 && $i < count($comments) - 5 )hide@endif">
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="{{$comments[$i]['gravatar']}}" alt="...">
+                            </a>
+                            <div class="media-body">
+                                <h5 class="media-heading"><a href="#">{{{$comments[$i]->post->user->username}}}</a><span> - {{$comments[$i]->created_at_pretty}}</span></h5>
+                                {{{$comments[$i]->post->text}}}
+                            </div>
+                        </li>
                     </ul>
-                    <?php $myId++; ?>
-                @endforeach
+                @endfor
             </div>
             @endif
 
