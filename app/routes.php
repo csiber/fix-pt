@@ -58,7 +58,7 @@ Route::group(array("before" => "auth"), function()
     Route::get('users/upgrade','UserController@upgrade');
     Route::get('users/downgrade','UserController@downgrade');
 
-    Route::post('fixrequests/addcomment','FixRequestController@addComment');
+    //Route::post('fixrequests/addcomment','FixRequestController@addComment');
     Route::post('users/manage_users','UserController@postManage_Users');
 
     // # Fix Requests management
@@ -83,10 +83,10 @@ Route::controller('search', 'SearchController');
 
 // Home page
 Route::get('/', function() {
-	$pds = Search::get_distritos();
-	$dists[""] = "Escolha um distrito";
-	foreach($pds as $pd) {
-		$dists[$pd->id] = $pd->name;
-	}
+    $pds = Search::get_distritos();
+    $dists[""] = "Escolha um distrito";
+    foreach($pds as $pd) {
+    	$dists[$pd->id] = $pd->name;
+    }
     return View::make('home', array('dists' => $dists));
 });

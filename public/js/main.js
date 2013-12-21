@@ -15,14 +15,14 @@ $(document).ready(function($){
 			data: {did: $("#distritoshome").val()},
 			success: function(data) {
 			for (var i=0;i<data.length;i++)
-			   {
-				 con.append('<option value="' + data[i][0] + '">' + data[i][1] + '</option>');
-			 }
-			 return true;
-		 },
-		 error: function(response) {
-		   return alert("ERROR:" + response.responseText);
-	   }
+			{
+				con.append('<option value="' + data[i][0] + '">' + data[i][1] + '</option>');
+			}
+			return true;
+		},
+		error: function(response) {
+			return alert("ERROR:" + response.responseText);
+		}
    });
 	});
 	$('#distritos').change(function(){
@@ -30,19 +30,19 @@ $(document).ready(function($){
 		con.empty();
 		con.append('<option value="">Escolha um concelho</option>');
 		return $.ajax({
-		  type: "POST",
-		  url: "getconcelhos",
-		  data: {did: $("#distritos").val()},
-		  success: function(data) {
-		   for (var i=0;i<data.length;i++)
-		   {
-			 con.append('<option value="' + data[i][0] + '">' + data[i][1] + '</option>');
-		 }
-		 return true;
-	 },
-	 error: function(response) {
-	   return alert("ERROR:" + response.responseText);
-   }
+			type: "POST",
+			url: "getconcelhos",
+			data: {did: $("#distritos").val()},
+			success: function(data) {
+			for (var i=0;i<data.length;i++)
+			{
+				con.append('<option value="' + data[i][0] + '">' + data[i][1] + '</option>');
+			}
+			return true;
+		},
+		error: function(response) {
+			return alert("ERROR:" + response.responseText);
+	}
 });
 	});
 });
@@ -57,12 +57,12 @@ $(document).ready(function(){
 	});
 
 	$('#buttonLogin').click(function(){
-	  $('#signInModal').ready(function(){
-		 $('#buttonForgotPass').click(function(){
-			console.log("FAIL");
-			$('#signInModal').modal('hide');
+		$('#signInModal').ready(function(){
+			$('#buttonForgotPass').click(function(){
+				console.log("FAIL");
+				$('#signInModal').modal('hide');
+			});
 		});
-	 });
   });
 
 	// fix request photo lightbox
@@ -70,14 +70,14 @@ $(document).ready(function(){
 	
 	$(".dropdown select").change(function(){
 		var user_id =this.getAttribute("name");
-		var ut = this.options[this.selectedIndex].value		
+		var ut = this.options[this.selectedIndex].value;
 		$.ajax({
 		type: "POST",
-	   url: '../../../users/change_permission',
-	   data: {
-		  id: user_id,
-		  user_type: ut
-	  }
+		url: '../../../users/change_permission',
+		data: {
+			id: user_id,
+			user_type: ut
+		}
   }).done(function (msg) {
 	window.location.replace("../users/index");
 });

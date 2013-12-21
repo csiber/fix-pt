@@ -7,9 +7,15 @@ class CommentController extends BaseController {
     *
     * @return Response
     */
-    public function getIndex()
+    // public function getIndex()
+    // {
+    //     $comments = Comment::all();
+    //     return View::make('comments.index', array('comments' => $comments));
+    // }
+
+    public function getAdd() 
     {
-        $comments = Comment::all();
-        return View::make('comments.index', array('comments' => $comments));
+        
     }
+
 }

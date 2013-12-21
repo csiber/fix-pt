@@ -8,6 +8,7 @@ class UserController extends BaseController {
         'password' => 'required|between:4,11',
         'confirm_password' => 'same:password'
     );
+
     public $editRules = array(
         'full_name' => 'required|min:8',
     );
@@ -376,5 +377,4 @@ class UserController extends BaseController {
 		User::where('id', Auth::user()->id)->update(array('user_type' => "Premium")); 
 		return Redirect::to('users/profile');    
     }
-
 }

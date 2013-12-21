@@ -63,7 +63,7 @@
                 @endforeach
             </div>
 
-            @if(Auth::user()->id != $fixrequest->post->user_id && !$hasMadeFixOffer)
+            @if(Auth::user() && Auth::user()->id != $fixrequest->post->user_id && !$hasMadeFixOffer)
             <form id="create_fix_offer_form" action="#">
                 <h5>Make your offer</h5>
                 <div class="form-group">
@@ -112,9 +112,10 @@
 
                 @if($auth == 1)
                 {{ Form::open(array(
-                        "url" => "fixrequests/addcomment",
+                        "url" => "comments/add",
                         "id" => "addcomment-form",
-                        "role" => "form")) }} 
+                        "role" => "form",
+                        "method" => "GET")) }} 
                 <div class="form-group">
                     {{ Form::textarea("comment", Input::old("insert comment"), array(
                         "placeholder" => "comment...", 
