@@ -85,7 +85,8 @@
             @endif
         </div>
         <div class="well well-lg comments">
-            <h4 class="lead">{{count($comments)}} Comments</h4>
+            <h4 class="lead"><span class="counter">{{count($comments)}}</span> Comments</h4>
+            
             @if(count($comments) > 0)
                 @if(count($comments) > 5)
                     <a class="showAllComments"> show more... </a>

@@ -114,6 +114,7 @@ $(document).ready(function(){
                         'text': data.comment.text,
                     }).appendTo( ".comment-list" );
 
+                $('.comments .lead .counter').html($('.comment').length);
                 form.find('textarea').val('');
             } else {
                 alert("Something went wrong. Try again.");
