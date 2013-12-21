@@ -21,7 +21,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="{{ URL::to('fixrequests/index/recent') }}">View Fix Requests</a></li>
                             <li><a href="#">Search Fix Requests</a></li>
+                            @if (Auth::check())
                             <li><a href="{{ URL::to('fixrequests/create') }}">Add Fix Request</a></li>
+                            @endif
                             <!--
                             <li class="divider"></li>
                             <li class="dropdown-header">Nav header</li>
@@ -35,7 +37,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="{{ URL::to('promotionpages/index/recent') }}">View Promotion Pages</a></li>
                             <li><a href="#">Search Promotion Pages</a></li>
+                            @if (Auth::check())
                             <li><a href="{{ URL::to('promotionpages/create') }}">Create Promotion Page</a></li>
+                            @endif
                             <!--
                             <li class="divider"></li>
                             <li class="dropdown-header">Nav header</li>

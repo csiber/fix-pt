@@ -29,7 +29,7 @@ class FixOfferController extends BaseController {
                     // needs to see if the user already has a fix offer in this fix request
 
                     // creates the fix offer
-                    $fixoffer = DB::transaction(function() {
+                    $fixoffer = DB::transaction(function() use ($fixrequest) {
                         $notifiable = new Notifiable();
                         $notifiable->save();
 
@@ -47,7 +47,7 @@ class FixOfferController extends BaseController {
                         ));
                         $fixoffer->save();
 
-                        Email::sendNotificationEmail($fixrequest->post->user->email,'Tem uma nova oferta!');
+                        // Email::sendNotificationEmail($fixrequest->post->user->email,'Tem uma nova oferta!');
 
                         return $fixoffer;
                     });
@@ -57,7 +57,7 @@ class FixOfferController extends BaseController {
                             'fix_offer_id' => $fixoffer->id,
                             'username' => $fixoffer->post->user->username,
                             'text' => $fixoffer->post->text,
-                            'gravatar' => "http://www.gravatar.com/avatar/".md5(strtolower(trim(Auth::user()->email)))."?s=48&r=pg&d=identicon",
+                            'gravatar' => UtilFunctions::gravatar(Auth::user()->email),
                             'created_at_pretty' => UtilFunctions::prettyDate($fixoffer->post->created_at)
                         );
                         return Response::json(array('result' => 'OK', 'error_code' => 0, 'fixoffer' => $result));

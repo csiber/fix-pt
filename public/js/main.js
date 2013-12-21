@@ -4,7 +4,34 @@ var BASE_URL = 'http://localhost:8888/ldsot3g3/public/';
 var ENTER_KEY = 13;
 var COMMA_KEY = 188;
 
-$(document).ready(function($){
+$(document).ready(function(){
+
+    $('#buttonLogin').click(function(){
+        $('#signInModal').ready(function(){
+            $('#buttonForgotPass').click(function(){
+                console.log("FAIL");
+                $('#signInModal').modal('hide');
+            });
+        });
+    });
+
+
+    
+    $(".dropdown select").change(function(){
+        var user_id =this.getAttribute("name");
+        var ut = this.options[this.selectedIndex].value;
+        $.ajax({
+            type: "POST",
+            url: '../../../users/change_permission',
+            data: {
+                id: user_id,
+                user_type: ut
+            }
+        }).done(function (msg) {
+            window.location.replace("../users/index");
+        });
+    });
+
     $('#distritoshome').change(function(){
         var con = $('#concelhos');
         con.empty();
@@ -14,116 +41,93 @@ $(document).ready(function($){
             url: "search/getconcelhos",
             data: {did: $("#distritoshome").val()},
             success: function(data) {
-            for (var i=0;i<data.length;i++)
-            {
-                con.append('<option value="' + data[i][0] + '">' + data[i][1] + '</option>');
+                for (var i=0;i<data.length;i++) {
+                    con.append('<option value="' + data[i][0] + '">' + data[i][1] + '</option>');
+                }
+                return true;
+            },
+            error: function(response) {
+                return alert("ERROR:" + response.responseText);
             }
-            return true;
-        },
-        error: function(response) {
-            return alert("ERROR:" + response.responseText);
-        }
-   });
+        });
     });
+
     $('#distritos').change(function(){
         var con = $('#concelhos');
         con.empty();
         con.append('<option value="">Escolha um concelho</option>');
         return $.ajax({
-          type: "POST",
-          url: "search/getconcelhos",
-          data: {did: $("#distritos").val()},
-          success: function(data) {
-           for (var i=0;i<data.length;i++)
-           {
-             con.append('<option value="' + data[i][0] + '">' + data[i][1] + '</option>');
-         }
-         return true;
-     },
-     error: function(response) {
-       return alert("ERROR:" + response.responseText);
-   }
-});
+            type: "POST",
+            url: "search/getconcelhos",
+            data: {did: $("#distritos").val()},
+            success: function(data) {
+                for (var i=0;i<data.length;i++) {
+                    con.append('<option value="' + data[i][0] + '">' + data[i][1] + '</option>');
+                }
+                return true;
+            },
+            error: function(response) {
+                return alert("ERROR:" + response.responseText);
+            }
+        });
     });
-});
-
-// pageCreateFixRequestJS();
-
-$(document).ready(function(){
 
     $('.showAllComments').click(function(){
         $('.showAllComments').css('display','none');
         $('.comment').css('display','block');
     });
 
-    $('#submitComment').click(function(){
-        $('.comment-list');
-        var txt = $('#comment').val();
-        var fixId = $('#fixrequest-id').val();
-        console.log(txt+" - "+fixId);
-        $.ajax({
-            type: "POST",
-            url: '../../fixrequests/addcomment',
-            data: {
-                comment: txt,
-                fixrequest_id: fixId
-            }
-        }).done(function(msg){
-            console.log("success: "+msg['post']['text']);
-            var ctxt=msg['post']['text'];
-            var cgravatar=msg['gravatar'];
-            var cusername=msg['post']['user']['username'];
-            var createdAt=msg['created_at_pretty'];
+    $('#create_comment_form button').click(function(event){
+        var form = $("#create_comment_form");
+        var comment_text = form.find('textarea').val().trim();
+        var fix_request_id = $('.fixrequest').attr('data-fix-request-id');
 
-            var commentHtml="<ul class='media-list comment'>";
-            commentHtml += "<li class=media><a class=pull-left href=#>";
-            commentHtml += "<img class=media-object src=";
-            commentHtml += cgravatar;
-            commentHtml += " alt=...></a><div class=media-body>";
-            commentHtml += "<h5 class=media-heading><a href=#>";
-            commentHtml += cusername;
-            commentHtml += "</a><span> - ";
-            commentHtml += createdAt;
-            commentHtml += "</span></h5>";
-            commentHtml += ctxt;
-            commentHtml += "</div></li>";
-            commentHtml += "</ul>";
-            $('.comment-list').append(commentHtml);
-            $('#comment').val('');
-            if($('.comment-list')==null)
-            {
-                location.reload();
+        var markup = ' \
+              <ul class="media-list comment"> \
+                <li class="media"> \
+                    <a class="pull-left" href="#"> \
+                        <img class="media-object" src="${gravatar}" alt="..."> \
+                    </a> \
+                    <div class="media-body"> \
+                        <h5 class="media-heading"><a href="#">${username}</a><span> - ${created_at}</span></h5> \
+                        ${text} \
+            </div></li></ul>';
+        $.template( "commentTemplate", markup);
+
+        $.ajax({
+            url: BASE_URL+'comments/create',
+            type: "POST",
+            dataType: "json",
+            data: {
+                text: comment_text,
+                fix_request_id: fix_request_id
+            }
+        }).done(function(data) {
+            // console.log(data);
+            
+            if(data.result === "OK") {
+
+                $.tmpl( "commentTemplate", {
+                        'gravatar': data.comment.gravatar,
+                        'username': data.comment.username,
+                        'created_at': data.comment.created_at_pretty,
+                        'text': data.comment.text,
+                    }).appendTo( ".comment-list" );
+
+                $('.comments .lead .counter').html($('.comment').length);
+                form.find('textarea').val('');
+            } else {
+                alert("Something went wrong. Try again.");
             }
         });
     });
 
-    $('#buttonLogin').click(function(){
-        $('#signInModal').ready(function(){
-            $('#buttonForgotPass').click(function(){
-                console.log("FAIL");
-                $('#signInModal').modal('hide');
-            });
-        });
-  });
+    // MIGUEL -->
+
+    // pageCreateFixRequestJS();
 
     // fix request photo lightbox
     $(".fancybox").fancybox();
-    
-    $(".dropdown select").change(function(){
-        var user_id =this.getAttribute("name");
-        var ut = this.options[this.selectedIndex].value;
-        $.ajax({
-        type: "POST",
-        url: '../../../users/change_permission',
-        data: {
-            id: user_id,
-            user_type: ut
-        }
-  }).done(function (msg) {
-    window.location.replace("../users/index");
-});
-
-});
 
     // open fix request if click on index page
     $(".fixrequests .panel").each(function(){
@@ -143,9 +147,16 @@ $(document).ready(function(){
         var fix_offer_value = form.find('input[type="number"]').val();
         var fix_request_id = $('.fixrequest').attr('data-fix-request-id');
 
-        // console.log(fix_offer_text);
-        // console.log(fix_offer_value);
-        // console.log(fix_request_id);
+        var markup = (' \
+            <ul class="media-list fixoffer"> \
+                <li class="media"> \
+                    <a href="#" class="pull-left"><img src="${gravatar}" alt="" class="media-object"></a> \
+                    <div class="media-body"> \
+                        <h5 class="media-heading"><a href="#">${username}</a><span> - ${created_at}</span></h5> \
+                        ${text} \
+                        <h5>Value: ${value}</h5> \
+            </div></li></ul>');
+        $.template( "fixOfferTemplate", markup);
 
         $.ajax({
             url: BASE_URL+"fixoffers/create",
@@ -156,21 +167,16 @@ $(document).ready(function(){
             console.log(data);
 
             if(data.result === "OK") {
-                // insert the new fix offer dinamically to the fix request and remove the
-                // form to add another one
-                var fixoffer = '<ul class="media-list fixoffer">';
-                fixoffer += '<li class="media">';
-                fixoffer += '<a href="#" class="pull-left">';
-                fixoffer += '<img src="'+data.fixoffer.gravatar+' alt="" class="media-object">';
-                fixoffer += '</a><div class="media-body">';
-                fixoffer += '<h5 class="media-heading"><a href="#">'+data.fixoffer.username+'</a><span> - '+data.fixoffer.created_at_pretty+'</span></h5>';
-                fixoffer += data.fixoffer.text;
-                fixoffer += '</div></li></ul>';
 
-                $('.fixoffers-list').append(fixoffer);
+                $.tmpl( "fixOfferTemplate", {
+                    'gravatar': data.fixoffer.gravatar,
+                    'username': data.fixoffer.username,
+                    'created_at': data.fixoffer.created_at_pretty,
+                    'text': data.fixoffer.text,
+                    'value': 10
+                }).appendTo( ".fixoffers-list" );
+
                 $('#create_fix_offer_form').remove();
-
-                // update the fix offers counter
                 $('.fix-offers .lead .counter').html($('.fixoffer').length);
 
             } else {
@@ -179,14 +185,16 @@ $(document).ready(function(){
                 }
             }
         });
-});
-});
+    });
 
+    // to remove the 300ms tap delay on smartphones
+    window.addEventListener('load', function() {
+        new FastClick(document.body);
+    }, false);
 
-// to remove the 300ms tap delay on smartphones
-window.addEventListener('load', function() {
-    new FastClick(document.body);
-}, false);
+    // <-- MIGUEL
+
+});
 
 
 // TODO validate
@@ -212,6 +220,7 @@ function markFixerAsFavorite(star) {
     }
 }
 
+// MIGUEL -->
 
 // TODO not functional for now
 function pageCreateFixRequestJS() {
@@ -221,3 +230,5 @@ function pageCreateFixRequestJS() {
         confirmKeys: [ENTER_KEY, COMMA_KEY],
     });
 }
+
+// <-- MIGUEL

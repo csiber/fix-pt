@@ -88,9 +88,10 @@ Route::controller('search', 'SearchController');
 // Home page
 Route::get('/', function() {
     $pds = Search::get_distritos();
-    $dists[""] = "Escolha um distrito";
+    $dists = array();
+    
     foreach($pds as $pd) {
-    	$dists[$pd->id] = $pd->name;
+        $dists[$pd->id] = $pd->name;
     }
     return View::make('home', array('dists' => $dists));
 });
