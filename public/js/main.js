@@ -90,6 +90,10 @@ $(document).ready(function(){
             commentHtml += "</ul>";
             $('.comment-list').append(commentHtml);
             $('#comment').val('');
+            if($('.comment-list')==null)
+            {
+                location.reload();
+            }
         });
     });
 

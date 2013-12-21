@@ -41,6 +41,7 @@ class UserController extends BaseController {
      */
     public function getView($id) {
         if ($id == Auth::user()->id) {
+
             return Redirect::to("users/profile");
         }
         $user = User::getUser($id);
@@ -136,6 +137,13 @@ class UserController extends BaseController {
      */
     public function getProfile() {
         $user = User::find(Auth::user()->id);
+
+/*
+        $notifications=Notification::getNotificationsOfUser($user['id']);
+       
+        UtilFunctions::dump($notifications);
+*/
+
         return View::make('users.profile', array('user' => $user));
     }
 

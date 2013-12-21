@@ -33,7 +33,7 @@
                     <?php echo Form::text("email", $user->email, array("placeholder" => "Enter email", "class" => "form-control", "id" => "email", "disabled"))
                     ?>
                 </div>      
-                <button type="submit" form="user-edit" class="btn btn-success">Sign Up</button>
+                <button type="submit" form="user-edit" class="btn btn-success">Save</button>
                 {{ Form::close() }}
                 
             </div>

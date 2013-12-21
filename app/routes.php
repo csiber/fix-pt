@@ -62,7 +62,7 @@ Route::group(array("before" => "auth"), function()
     Route::get('users/upgrade','UserController@upgrade');
     Route::get('users/downgrade','UserController@downgrade');
 
-    //Route::post('fixrequests/addcomment','FixRequestController@addComment');
+    Route::post('fixrequests/addcomment','FixRequestController@addComment');
     Route::post('users/manage_users','UserController@postManage_Users');
 
     // # Fix Requests management

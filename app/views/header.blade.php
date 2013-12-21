@@ -45,6 +45,8 @@
                         </ul>
                     </li>               
                 </ul>
+
+
                 @if (Auth::check())
                 <ul class="nav navbar-nav navbar-right">                    
                     <li class="dropdown">
@@ -63,6 +65,35 @@
                     <button data-toggle="modal" href="#signUpModal" class="btn btn-sm">Sign Up</button>
                 </form>
                 @endif
+                
+                @if(Auth::check())
+                <?php $notifications=Notification::getNotificationsOfUser(Auth::user()->id); ?>
+
+                <ul class="nav navbar-nav navbar-right">                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Notifications <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <?php $havenew=false; ?>
+                            @foreach($notifications as $notif)
+                                @if($notif['comments']>0)
+                                    <li><a href="#" >{{$notif['comments']}} new comments on request: {{$notif['title']}}</a></li>
+                                    <?php $havenew=true; ?>
+                                @endif
+                                @if($notif['offers']>0)
+                                    <li><a href="#" >{{$notif['offers']}} new offers on request: {{$notif['title']}}</a></li>
+                                    <?php $havenew=true; ?>
+                                @endif
+                                
+                            @endforeach   
+                            @if(!$havenew)
+                                <li><a href="#" >Sem novas entradas</a></li>
+                            @endif
+                            
+                        </ul>
+                    </li>
+                </ul>    
+                @endif
+
             </div><!--/.nav-collapse -->  
         </div>      
     </div>
