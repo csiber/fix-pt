@@ -205,7 +205,7 @@ class FixRequestController extends BaseController {
 
     public function addComment()
     {
-
+/*
         $redirect = DB::transaction(function(){
             $text = Input::get('comment');
             $userId = Auth::user()->id;
@@ -229,5 +229,69 @@ class FixRequestController extends BaseController {
             return Redirect::to('fixrequests/show/' . $fix_request_id);
         });
         return $redirect;
+*/
+        $text = Input::get('comment');
+        $userId = Auth::user()->id;
+        $fix_request_id = Input::get('fixrequest_id');
+        
+        
+
+        $notifiable = new Notifiable();
+        $notifiable->save();
+        $post = new Post(array(
+                    "text" => $text,
+                    "user_id" => $userId
+                ));
+        $post = $notifiable->post()->save($post);
+        
+        $comment = new Comment(array("fix_request_id" => $fix_request_id, 
+                                     "post_id" => $post->id));
+        $comment->save();
+
+        $fixrequest = FixRequest::getFixRequest($fix_request_id);
+        $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
+
+
+        $comments = Comment::getCommentsOfFixRequest($fix_request_id);
+
+        $maxCommentId=0;
+        $lastComment=null;
+        foreach($comments as &$comment) {
+
+            $comment['created_at_pretty'] = UtilFunctions::prettyDate($comment['created_at']);
+            $comment['gravatar'] = "http://www.gravatar.com/avatar/".md5(strtolower(trim($comment->post->user->email)))."?s=48&r=pg&d=identicon";
+            if($comment['id']>$maxCommentId)
+            {
+                $maxCommentId=$comment['id'];
+                $lastComment=$comment;
+            }
+        }
+
+        return $lastComment;
+    }
+
+    function blockFixrequest($idFixrequest)
+    {
+        $fixrequest=FixRequest::getFixRequest($idFixrequest);
+        $post=$fixrequest['post'];
+        //Email::sendNotificationEmail('mainstopable@gmail.com','novo post!');
+        var_dump($post);
+        die;
+    }
+
+    function deleteFixrequest($idFixrequest)
+    {
+        $fixrequest=FixRequest::getFixRequest($idFixrequest);
+        $post=$fixrequest['post'];
+        var_dump($post);
+        die;   
+    }
+
+    function unblockFixrequest($idFixrequest)
+    {
+        $fixrequest=FixRequest::getFixRequest($idFixrequest);
+        $post=$fixrequest['post'];
+        var_dump($post);
+        die;   
     }
 }

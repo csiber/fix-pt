@@ -41,7 +41,11 @@ Route::group(array("before" => "none"), function(){
     Route::get('users/confirmation','UserController@getConfirmation');    
 });
 
-Route::get('users/favorite/{code}','UserController@addToFavourites');
+Route::get('users/favorite/{code}','UserController@addToFavorites');
+
+Route::get('users/removeFav/{code}','UserController@deleteFromFavorites');
+
+Route::get('fixrequests/blockfixrequest/{id}','FixRequestController@blockFixrequest');
 
 Route::group(array("before" => "auth"), function()
 {

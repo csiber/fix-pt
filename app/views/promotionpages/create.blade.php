@@ -89,11 +89,11 @@
     </div>
     <div class="col-md-4">
         <div class="well well-sm sidebar-steps">
-            <h3 class="text-center">How you can make a good request</h1>
+            <h3 class="text-center">How you can make a good promotion page</h1>
             <ol class="sidebar-ol">
-                <li>Use a clear title and a detailed description to describe your request</li>
-                <li>Chose the right category and add meaningful tags</li>
-                <li>Upload some photos to show what needs to be repaired</li>
+                <li>Use a clear title and a detailed description to describe what you can do</li>
+                <li>Chose the right category</li>
+                <li>Upload some photos to show other works you've done</li>
             </ol>
         </div>
     </div>

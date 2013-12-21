@@ -40,13 +40,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="well well-sm sidebar-steps">
-            <h3 class="text-center">Users Profile</h3>
-            <ol class="sidebar-ol">
-                <li>Let other users to know you better.</li>
-                <li>Show them you are credible.</li>                
-            </ol>
-        </div>       
+        @include('users.userSideBox')        
     </div>
 </div>
 @stop

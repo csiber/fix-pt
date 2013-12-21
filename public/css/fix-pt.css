@@ -149,6 +149,7 @@ a:hover, a:focus {
 body._users .navbar-inverse .navbar-nav li > a._users,
 body._home .navbar-inverse .navbar-nav li > a._home,
 body._fixrequests .navbar-inverse .navbar-nav li > a._fixrequests,
+body._promotionpages .navbar-inverse .navbar-nav li > a._promotionpages,
 .navbar-inverse .navbar-nav li > a:hover,
 .navbar-inverse .navbar-nav li > a:focus,
 .navbar-inverse .navbar-nav>.open>a,
@@ -156,6 +157,32 @@ body._fixrequests .navbar-inverse .navbar-nav li > a._fixrequests,
 .navbar-inverse .navbar-nav>.open>a:focus {
   color: #fff;
   background-color: #c0392b;
+}
+
+.tips .panel-title>a{
+    color: #e74c3c;
+    font-size: 90%; 
+    font-weight: bold;
+}
+.tips .panel-title>a:hover, .panel-title>a:focus{
+    color: #c0392b;
+}
+
+.tips .panel-group .panel {
+margin-bottom: 0;
+overflow: hidden;
+border-radius: 0px;
+}
+.tips .panel-heading {
+padding: 10px 15px;
+border-top-right-radius: 0;
+border-top-left-radius: 0;
+}
+
+.tips .panel-default>.panel-heading {
+color: #333;
+background-color: #ffffff;
+border: none;
 }
 
 #wrap > .container {
@@ -561,5 +588,4 @@ fieldset .form.group:last-child {
 .popular-tags .panel-body > div {
   margin-top: 6px;
 }
-
 
