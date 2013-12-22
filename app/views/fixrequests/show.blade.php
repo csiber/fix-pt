@@ -67,7 +67,9 @@
                             </li>  
                         </div>
                         <div class="col-md-3">
+                            @if(Auth::user() && Auth::user()->id == $fixrequest->post->user_id)
                             <button class="btn btn-success accept">Accept</button>
+                            @endif
                         </div>
                     </div>
                 </ul>
