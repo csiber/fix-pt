@@ -47,22 +47,29 @@
                 </div>
             </div>
         </div>
+        @if(Auth::user())
         <div class="well well-lg fix-offers">
             <h4 class="lead"><span class="counter">{{count($fixoffers)}}</span> Fix Offers</h4>
             <div class="fixoffers-list">
                 @foreach($fixoffers as $fixoffer)
                 <ul class="media-list fixoffer">
-                    <li class="media">
-                        <a href="#" class="pull-left">
-                            <img src="{{$fixoffer['gravatar']}}" alt="" class="media-object">
-                        </a>
-                        <div class="media-body">
-                            <h5 class="media-heading"><a href="#">{{{$fixoffer->post->user->username}}}</a><span> - {{$fixoffer->created_at_pretty}}</span></h5>
-                      {{{$fixoffer['post']->text}}}
-                            <h5>Value: {{$fixoffer->value}}€</h5>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <li class="media">
+                                <a href="#" class="pull-left">
+                                    <img src="{{$fixoffer['gravatar']}}" alt="" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <h5 class="media-heading"><a href="#">{{{$fixoffer->post->user->username}}}</a><span> - {{$fixoffer->created_at_pretty}}</span></h5>
+                                    {{{$fixoffer['post']->text}}}
+                                    <h5>Value: {{$fixoffer->value}}€</h5>
+                                </div>
+                            </li>  
                         </div>
-
-                    </li>
+                        <div class="col-md-3">
+                            <button class="btn btn-success accept">Accept</button>
+                        </div>
+                    </div>
                 </ul>
                 @endforeach
             </div>
@@ -84,6 +91,7 @@
             </form>
             @endif
         </div>
+        @endif
         <div class="well well-lg comments">
             <h4 class="lead"><span class="counter">{{count($comments)}}</span> Comments</h4>
 

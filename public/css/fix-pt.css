@@ -539,6 +539,14 @@ fieldset .form.group:last-child {
   border-radius: 1px;
 }
 
+.fixoffer {
+  border-bottom: 1px dashed #e7e7e7;
+}
+
+.fixoffer .accept {
+  width: 100%;
+}
+
 .show_comments {
   color: #e74c3c;
 }
