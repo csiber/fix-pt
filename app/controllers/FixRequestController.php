@@ -19,6 +19,8 @@ class FixRequestController extends BaseController {
             $fixrequests = FixRequest::no_offers_requests()->paginate($requests_per_page); 
         } else if ($sort == 'ending_soon') {
             $fixrequests = FixRequest::ending_soon_requests()->paginate($requests_per_page); 
+        } else if ($sort == 'in_progress') {
+            $fixrequests = FixRequest::in_progress_requests()->paginate($requests_per_page); 
         } else {
             return Redirect::to('fixrequests/index/recent');
         }

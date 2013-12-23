@@ -152,16 +152,43 @@ $(document).ready(function(){
         }).done(function(data){
             console.log(data);
 
+            if(data.result === "OK") {
+                window.location.reload(true);
+            } else {
+                alert("Something went wrong. Pleasy try again later");
+            }
+
         });
     });
 
     $("#create_fix_offer_form").submit(function(event){
         event.preventDefault();
-        if(data.result === "OK") {
-            window.location.reload(true);
-        } else {
-            alert("Something went wrong. Pleasy try again later");
-        }
+    });
+
+    $("#give_rating_form").submit(function(event){
+        event.preventDefault();
+    });
+
+    $("#give_rating_form button").click(function(event){
+        var form = $("#give_rating_form");
+        var feedback = form.find('textarea').val().trim();
+        var job_id = form.parent('.job').attr('data-job-id');
+        var job_rating_score = form.find("input[name='job_rating']").val();
+
+        $.ajax({
+            url: BASE_URL+"jobs/rate",
+            type: "POST",
+            data: {feedback: feedback, score: job_rating_score, job_id: job_id},
+            dataType: "json"
+        }).done(function(data){
+            console.log(data);
+
+            if(data.result === "OK") {
+                window.location.reload(true);
+            } else {
+                alert("Something went wrong. Pleasy try again later");
+            }
+        });
     });
 
     $("#create_fix_offer_form button").click(function(event) {

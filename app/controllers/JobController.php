@@ -29,6 +29,7 @@ class JobController extends BaseController {
                     $job = new Job(array(
                         "fix_request_id" => Input::get('fix_request_id'),
                         "user_id" => Input::get('fixer_id'),
+                        "fixer_id" => Input::get('fixer_id'),
                         "fix_offer_id" => Input::get('fix_offer_id'),
                     ));
 
@@ -44,6 +45,7 @@ class JobController extends BaseController {
                     $job = new Job(array(
                         "fix_request_id" => Input::get('fix_request_id'),
                         "fix_offer_id" => Input::get('fix_offer_id'),
+                        "fixer_id" => Input::get('fixer_id'),
                         'user_id' => Auth::user()->id,
                     ));
 
@@ -74,6 +76,45 @@ class JobController extends BaseController {
                 'fix_request_id' => $validator->messages()->first('fix_request_id'),
                 'fixer_id' => $validator->messages()->first('fixer_id'),
                 'fix_offer_id' => $validator->messages()->first('fix_offer_id')
+            ));
+        }
+    }
+
+    public function postRate()
+    {
+        $rules = array(
+            'job_id' => 'required|numeric',
+            'feedback' => 'required|min:1',
+            'score' => 'required|numeric|in:1,2,3,4,5',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if($validator->passes()) {
+
+            $job = Job::find(Input::get('job_id'));
+
+            if($job) {
+                $job->feedback = Input::get('feedback');
+                $job->score = Input::get('score');
+                $job->rated = true;
+                $job->save();
+
+                return Response::json(array('result' => 'OK', 'job' => $job));
+            }
+
+            return Response::json(array(
+                'result' => 'NOK',
+                'error_code' => 2,
+            ));
+
+        } else {
+            return Response::json(array(
+                'result' => 'NOK',
+                'error_code' => 1,
+                'job_id' => $validator->messages()->first('job_id'),
+                'feedback' => $validator->messages()->first('feedback'),
+                'score' => $validator->messages()->first('score')
             ));
         }
     }

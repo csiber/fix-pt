@@ -47,92 +47,167 @@
                 </div>
             </div>
         </div>
+
         @if(Auth::user())
 
-        @if(Auth::user() && Auth::user()->id == $fixrequest->post->user_id && $requesterJob)
-            <div class="well well-lg">
-                <h4 class="lead">Rate the fixer</h4>
-                <form id="give_rating_form" action="#">
-                    <h5>Feedback</h5>
-                    <div class="form-group">
-                        <textarea name="rating_text" id="" rows="3" class="form-control"></textarea>
-                    </div>
-                    <h5>Rating</h5>
-                    <div class="form-group">
-                        <input type="number" name="job_rating" data-max="5" data-min="1" class="rating" />
-                    </div>
-                    <button type="button" class="btn btn-success btn-sqr">Submit</button>
-                </form>
-            </div>
-        @endif
-    
-        @if(Auth::user() && $fixerJob && Auth::user()->id == $fixerJob->user_id)
-            <div class="well well-lg">
-                <h4 class="lead">Rate this requester</h4>
-                <form id="give_rating_form" action="#">
-                    <h5>Feedback</h5>
-                    <div class="form-group">
-                        <textarea name="rating_text" id="" rows="3" class="form-control"></textarea>
-                    </div>
-                    <h5>Rating</h5>
-                    <div class="form-group">
-                        <input type="number" name="job_rating" data-max="5" data-min="1" class="rating" />
-                    </div>
-                    <button type="button" class="btn btn-success btn-sqr">Submit</button>
-                </form>
-            </div>
-        @endif
-
-        <div class="well well-lg fix-offers">
-            <h4 class="lead"><span class="counter">{{count($fixoffers)}}</span> Fix Offers</h4>
-            <div class="fixoffers-list">
-                @foreach($fixoffers as $fixoffer)
-                <ul class="media-list fixoffer @if($fixerJob && $fixerJob->fix_offer_id == $fixoffer->id)accepted@endif" data-fix-offer-id="{{$fixoffer->id}}" data-fixer-id="{{$fixoffer->post->user->id}}">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <li class="media">
-                                <a href="#" class="pull-left">
-                                    <img src="{{$fixoffer['gravatar']}}" alt="" class="media-object">
-                                </a>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><a href="#">{{{$fixoffer->post->user->username}}}</a><span> - {{$fixoffer->created_at_pretty}}</span></h5>
-                                    {{{$fixoffer['post']->text}}}
-                                    <h5>Value: {{$fixoffer->value}}€</h5>
-                                </div>
-                            </li>  
+            @if(Auth::user()->id == $fixrequest->post->user_id && $requesterJob && !$requesterJob->rated)
+                <div class="well well-lg job" data-job-id="{{$requesterJob->id}}">
+                    <h4 class="lead">Rate the job done by the fixer</h4>
+                    <form id="give_rating_form" action="#">
+                        <h5>Feedback</h5>
+                        <div class="form-group">
+                            <textarea name="rating_text" id="" rows="3" class="form-control"></textarea>
                         </div>
-                        <div class="col-md-3">
-                            @if(Auth::user() && Auth::user()->id == $fixrequest->post->user_id && !$requesterJob)
-                            <button class="btn btn-success accept">Accept</button>
-                            @endif
+                        <h5>Rating</h5>
+                        <div class="form-group">
+                            <input type="number" name="job_rating" data-max="5" data-min="1" class="rating" />
                         </div>
-                    </div>
-                </ul>
-                @endforeach
-            </div>
-
-            @if(Auth::user() && Auth::user()->id != $fixrequest->post->user_id && !$hasMadeFixOffer)
-            <form id="create_fix_offer_form" action="#">
-                <h5>Make your offer</h5>
-                <div class="form-group">
-                    <textarea name="fix_offer_text" id="" rows="3" class="form-control"></textarea>
+                        <button type="button" class="btn btn-success btn-sqr">Submit</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon">€</span>
-                        <input type="number" name="value" class="form-control" value="0" min="0">
-                    </div>
-                    <p class="help-block"><?php echo $errors->first('value') ?></p>
-                </div>
-                <button type="button" class="btn btn-success">Make fix offer</button>
-            </form>
             @endif
 
-        </div>
+            @if($requesterJob && $requesterJob->rated)
+                @if(Auth::user()->id == $fixrequest->post->user_id)
+                    <div class="well well-lg">
+                        <h4 class="lead">You gave the following rating to <a href="{{ URL::to('users/show/'.$fixrequest->post->user_id) }}">{{$requesterJob->fixer->username}}</a></h4>
+                        <p>{{{$requesterJob->feedback}}}</p>
+                        <div>
+                            @for($i = 0; $i < $requesterJob->score; $i++)
+                                <i class='glyphicon glyphicon-star'></i>
+                            @endfor
+                        </div>
+                    </div>
+                @elseif(Auth::user()->id == $requesterJob->fixer_id)
+                    <div class="well well-lg">
+                        <h4 class="lead">You received the following rating for this job</h4>
+                        <p>{{{$requesterJob->feedback}}}</p>
+                        <div>
+                            @for($i = 0; $i < $requesterJob->score; $i++)
+                                <i class='glyphicon glyphicon-star'></i>
+                            @endfor
+                        </div>
+                    </div>
+                @else
+                    <div class="well well-lg">
+                        <h4 class="lead"><a href="#">{{{$fixrequest->post->user->username}}}</a> gave the following rating to <a href="#">{{$requesterJob->fixer->username}}</a></h4>
+                        <p>{{{$requesterJob->feedback}}}</p>
+                        <div>
+                            @for($i = 0; $i < $requesterJob->score; $i++)
+                                <i class='glyphicon glyphicon-star'></i>
+                            @endfor
+                        </div>
+                    </div>
+                @endif
+            @endif
+
+            @if($fixerJob && $fixerJob->rated)
+                @if(Auth::user()->id == $fixrequest->post->user_id)
+                    <div class="well well-lg">
+                        <h4 class="lead">You received the following rating for this job from <a href="#">{{$fixerJob->user->username}}</a></h4>
+                        <p>{{{$fixerJob->feedback}}}</p>
+                        <div>
+                            @for($i = 0; $i < $fixerJob->score; $i++)
+                                <i class='glyphicon glyphicon-star'></i>
+                            @endfor
+                        </div>
+                    </div>
+                @elseif(Auth::user()->id == $fixerJob->fixer_id)
+                    <div class="well well-lg">
+                        <h4 class="lead">You gave the following rating for this job</h4>
+                        <p>{{{$fixerJob->feedback}}}</p>
+                        <div>
+                            @for($i = 0; $i < $fixerJob->score; $i++)
+                                <i class='glyphicon glyphicon-star'></i>
+                            @endfor
+                        </div>
+                    </div>
+                @else
+                    <div class="well well-lg">
+                        <h4 class="lead"><a href="#">{{$fixerJob->user->username}}</a> gave the following rating to <a href="#">{{{$fixrequest->post->user->username}}}</a></h4>
+                        <p>{{{$fixerJob->feedback}}}</p>
+                        <div>
+                            @for($i = 0; $i < $fixerJob->score; $i++)
+                                <i class='glyphicon glyphicon-star'></i>
+                            @endfor
+                        </div>
+                    </div>
+                @endif
+            @endif
+        
+            @if($fixerJob && Auth::user()->id == $fixerJob->user_id && !$fixerJob->rated)
+                <div class="well well-lg job" data-job-id="{{$fixerJob->id}}">
+                    <h4 class="lead">Rate this requester</h4>
+                    <form id="give_rating_form" action="#">
+                        <h5>Feedback</h5>
+                        <div class="form-group">
+                            <textarea name="rating_text" id="" rows="3" class="form-control"></textarea>
+                        </div>
+                        <h5>Rating</h5>
+                        <div class="form-group">
+                            <input type="number" name="job_rating" data-max="5" data-min="1" class="rating" />
+                        </div>
+                        <button type="button" class="btn btn-success btn-sqr">Submit</button>
+                    </form>
+                </div>
+            @endif
+
+            @if(Auth::user()->id != $fixrequest->post->user_id && $requesterJob && !$requesterJob->rated && Auth::user()->id != $fixerJob->user_id)
+                <div class="well well-lg text-center">
+                    <span class="label brand-bc accepted-warning">The requester has accepted an offer</span>
+                </div>
+            @endif
+
+            <div class="well well-lg fix-offers">
+                <h4 class="lead"><span class="counter">{{count($fixoffers)}}</span> Fix Offers</h4>
+                <div class="fixoffers-list">
+                    @foreach($fixoffers as $fixoffer)
+                    <ul class="media-list fixoffer @if($fixerJob && $fixerJob->fix_offer_id == $fixoffer->id)accepted@endif" data-fix-offer-id="{{$fixoffer->id}}" data-fixer-id="{{$fixoffer->post->user->id}}">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <li class="media">
+                                    <a href="#" class="pull-left">
+                                        <img src="{{$fixoffer['gravatar']}}" alt="" class="media-object">
+                                    </a>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><a href="#">{{{$fixoffer->post->user->username}}}</a><span> - {{$fixoffer->created_at_pretty}}</span></h5>
+                                        {{{$fixoffer['post']->text}}}
+                                        <h5>Value: {{$fixoffer->value}}€</h5>
+                                    </div>
+                                </li>  
+                            </div>
+                            <div class="col-md-3">
+                                @if(Auth::user() && Auth::user()->id == $fixrequest->post->user_id && !$requesterJob)
+                                <button class="btn btn-success accept">Accept</button>
+                                @endif
+                            </div>
+                        </div>
+                    </ul>
+                    @endforeach
+                </div>
+
+                @if(Auth::user() && Auth::user()->id != $fixrequest->post->user_id && !$hasMadeFixOffer)
+                <form id="create_fix_offer_form" action="#">
+                    <h5>Make your offer</h5>
+                    <div class="form-group">
+                        <textarea name="fix_offer_text" id="" rows="3" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">€</span>
+                            <input type="number" name="value" class="form-control" value="0" min="0">
+                        </div>
+                        <p class="help-block"><?php echo $errors->first('value') ?></p>
+                    </div>
+                    <button type="button" class="btn btn-success">Make fix offer</button>
+                </form>
+                @endif
+
+            </div>
         @else
             @if($requesterJob)
-                <div class="well well-lg">
-                    <h4 class="lead">The requester has accepted an offer</h4>
+                <div class="well well-lg text-center">
+                    <span class="label brand-bc accepted-warning">The requester has accepted an offer</span>
                 </div>
             @endif
         @endif
@@ -197,6 +272,7 @@
                 </div>
             </div>
         </div>
+        @if(!$requesterJob)
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title lead">Recommended Fixers</h3>
@@ -205,6 +281,7 @@
                 This will show fixers that are able to do this repair
             </div>
         </div>
+        @endif
          <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title lead">Related Fix Requests</h3>
