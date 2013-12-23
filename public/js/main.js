@@ -138,6 +138,13 @@ $(document).ready(function(){
             window.location.href = url;
         });
     });
+	
+	$(".searchresults .panel").each(function(){
+        $(this).click(function(){
+            var url = $(this).find("h4 a").attr('href');
+            window.location.href = url;
+        });
+    });
 
     $('.fixoffer .accept').click(function(event){
         var fix_request_id = $('.fixrequest').attr('data-fix-request-id');

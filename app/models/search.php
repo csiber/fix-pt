@@ -7,18 +7,18 @@ class Search extends Eloquent {
     {
 		if(is_null($params) || $params == "") {
 			if(is_null($local) || $local == "") {
-				$query = "(select post_id,title,created_at,category_id from fix_requests) union (select post_id,title,created_at,category_id from promotion_pages) order by created_at desc";
+				$query = "(select id,post_id,title,created_at,category_id from fix_requests) union (select id,post_id,title,created_at,category_id from promotion_pages) order by created_at desc";
 			}
 			else {
-				$query = "(select post_id,title,created_at,category_id from fix_requests where location_id = '" . $local . "') union (select post_id,title,created_at,category_id from promotion_pages where location_id = '" . $local . "') order by created_at desc";
+				$query = "(select id,post_id,title,created_at,category_id from fix_requests where location_id = '" . $local . "') union (select id,post_id,title,created_at,category_id from promotion_pages where location_id = '" . $local . "') order by created_at desc";
 			}
 		}
 		else {
 			if(is_null($local) || $local == "") {
-				$query = "(select post_id,title,created_at,category_id from fix_requests where title like '%" . $params . "%') union (select post_id,title,created_at,category_id from promotion_pages where title like '%" . $params . "%') order by created_at desc";
+				$query = "(select id,post_id,title,created_at,category_id from fix_requests where title like '%" . $params . "%') union (select id,post_id,title,created_at,category_id from promotion_pages where title like '%" . $params . "%') order by created_at desc";
 			}
 			else {
-				$query = "(select post_id,title,created_at,category_id from fix_requests where title like '%" . $params . "%' and location_id = '" . $local . "') union (select post_id,title,created_at,category_id from promotion_pages where title like '%" . $params . "%' and location_id = '" . $local . "') order by created_at desc";
+				$query = "(select id,post_id,title,created_at,category_id from fix_requests where title like '%" . $params . "%' and location_id = '" . $local . "') union (select id,post_id,title,created_at,category_id from promotion_pages where title like '%" . $params . "%' and location_id = '" . $local . "') order by created_at desc";
 			}
 		}
 		return DB::select(DB::raw($query));

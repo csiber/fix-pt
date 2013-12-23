@@ -35,6 +35,7 @@ class SearchController extends BaseController {
                 $post = Post::find($re->post_id);
                 $user = User::find($post['user_id']);
                 $sr = new stdClass;
+				$sr->id = $re->id;
                 $sr->title = $re->title;
                 $sr->text = UtilFunctions::truncateString($post['text'], 220);
                 $sr->user_id = $post['user_id'];
@@ -49,11 +50,17 @@ class SearchController extends BaseController {
         }
         $concelhos = array();
         $concs = Search::get_concelhos_por_distritos();
+        $concelhos[""] = "Escolha um concelho";
         foreach ($concs as $conc)
         {
-            array_push($concelhos,array($conc->id, $conc->name,$conc->distrito));
+           $concelhos[$conc->id] = $conc->distrito . " - " . $conc->name;
         }
         return View::make('search.index', array('searchresults' => $searchresults, 'pags' => $res, "sort" => $sort, "concs" => $concelhos, "text" => $terms, "selconcelho" => $local));
+    }
+	
+	public function getShow($id) // enviar o post id e depois procurar se o mesmo existe em uma das tabelas
+    {
+        Redirect::to('fixrequests/show' . $id);
     }
     
     public function postIndex()
