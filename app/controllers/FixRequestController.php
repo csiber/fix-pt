@@ -84,7 +84,17 @@ class FixRequestController extends BaseController {
             }
         }
 
-        //$comments = $comment->paginate(5);
+        $jobs = Job::getJobsOfFixRequest($id);
+        $fixerJob = Null;
+        $requesterJob = Null;
+
+        foreach($jobs as &$job) {
+            if($job->user_id == $fixrequest->post->user->id) {
+                $requesterJob = $job;
+            } else {
+                $fixerJob = $job;
+            }
+        }
 
         return View::make('fixrequests/show', array(
             'fixrequest' => $fixrequest,
@@ -92,6 +102,8 @@ class FixRequestController extends BaseController {
             'photos' => $fixrequest->post->photos()->getResults(),
             'auth' => Auth::check(),
             'fixoffers' => $fixoffers,
+            'fixerJob' => $fixerJob,
+            'requesterJob' => $requesterJob,
             'hasMadeFixOffer' => $hasMadeFixOffer,
         ));
     }

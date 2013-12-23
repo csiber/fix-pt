@@ -12,8 +12,7 @@ class FixRequest extends Eloquent {
 
     public static function popular_requests()
     {
-        // TODO it should return the most popular requests (what defines popular?)
-        return FixRequest::with('tags');
+        return FixRequest::with('tags')->has('fixoffers', '>', 0)->has('comments', '>', 0)->orderBy('created_at', 'DESC');
     }
 
     public static function no_offers_requests()

@@ -46,6 +46,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->email;
     }
 
+    public static function getUser($id) {
+        return User::find($id);
+    }
+
     // Definition of relations
 
     public function posts() {
@@ -56,8 +60,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('Profile');
     }
 
-    public static function getUser($id) {
-        return User::find($id);
+    public function jobs() {
+        return $this->hasMany('Job');
     }
-
 }

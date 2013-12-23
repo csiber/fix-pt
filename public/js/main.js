@@ -139,8 +139,29 @@ $(document).ready(function(){
         });
     });
 
+    $('.fixoffer .accept').click(function(event){
+        var fix_request_id = $('.fixrequest').attr('data-fix-request-id');
+        var fixer_id = $(event.target).parents('.fixoffer').attr('data-fixer-id');
+        var fix_offer_id = $('.fixoffer').attr('data-fix-offer-id');
+
+        $.ajax({
+            url: BASE_URL+"jobs/create",
+            type: "POST",
+            data: {fix_request_id: fix_request_id, fixer_id: fixer_id, fix_offer_id: fix_offer_id},
+            dataType: "json"
+        }).done(function(data){
+            console.log(data);
+
+        });
+    });
+
     $("#create_fix_offer_form").submit(function(event){
         event.preventDefault();
+        if(data.result === "OK") {
+            window.location.reload(true);
+        } else {
+            alert("Something went wrong. Pleasy try again later");
+        }
     });
 
     $("#create_fix_offer_form button").click(function(event) {
@@ -175,7 +196,7 @@ $(document).ready(function(){
                     'username': data.fixoffer.username,
                     'created_at': data.fixoffer.created_at_pretty,
                     'text': data.fixoffer.text,
-                    'value': 10
+                    'value': data.fixoffer.value
                 }).appendTo( ".fixoffers-list" );
 
                 $('#create_fix_offer_form').remove();

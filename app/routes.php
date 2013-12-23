@@ -62,8 +62,10 @@ Route::group(array("before" => "auth"), function()
     Route::get('users/upgrade','UserController@upgrade');
     Route::get('users/downgrade','UserController@downgrade');
 
-    Route::post('fixrequests/addcomment','FixRequestController@addComment');
+    Route::post('comments/create','CommentController@postCreate');
     Route::post('users/manage_users','UserController@postManage_Users');
+
+    Route::post('jobs/create', 'JobController@postCreate');
 
     // # Fix Requests management
     Route::post('fixrequests/create', 'FixRequestController@postCreate');
@@ -81,6 +83,7 @@ Route::controller('directfixrequests', 'DirectFixRequestController');
 Route::controller('fixoffers', 'FixOfferController');
 Route::controller('notifiables', 'NotifiableController');
 Route::controller('posts', 'PostController');
+Route::controller('jobs', 'JobController');
 Route::controller('promotionpages', 'PromotionPageController');
 Route::post('search/getconcelhos', 'SearchController@getConcelhosList');
 Route::controller('search', 'SearchController');

@@ -547,6 +547,20 @@ fieldset .form.group:last-child {
   width: 100%;
 }
 
+.fixoffer.accepted {
+  border: 2px solid #FFBAB3;
+  /*background-color: #FFBAB3;*/
+}
+
+.rating-input .glyphicon {
+  color: #e74c3c;
+  font-size: 20px;
+}
+
+.btn-sqr {
+  border-radius: 1px;
+}
+
 .show_comments {
   color: #e74c3c;
 }

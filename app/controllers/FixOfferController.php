@@ -55,6 +55,7 @@ class FixOfferController extends BaseController {
                     if($fixoffer) {
                         $result = array(
                             'fix_offer_id' => $fixoffer->id,
+                            'value' => $fixoffer->value,
                             'username' => $fixoffer->post->user->username,
                             'text' => $fixoffer->post->text,
                             'gravatar' => UtilFunctions::gravatar(Auth::user()->email),

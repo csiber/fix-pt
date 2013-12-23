@@ -48,11 +48,46 @@
             </div>
         </div>
         @if(Auth::user())
+
+        @if(Auth::user() && Auth::user()->id == $fixrequest->post->user_id && $requesterJob)
+            <div class="well well-lg">
+                <h4 class="lead">Rate the fixer</h4>
+                <form id="give_rating_form" action="#">
+                    <h5>Feedback</h5>
+                    <div class="form-group">
+                        <textarea name="rating_text" id="" rows="3" class="form-control"></textarea>
+                    </div>
+                    <h5>Rating</h5>
+                    <div class="form-group">
+                        <input type="number" name="job_rating" data-max="5" data-min="1" class="rating" />
+                    </div>
+                    <button type="button" class="btn btn-success btn-sqr">Submit</button>
+                </form>
+            </div>
+        @endif
+    
+        @if(Auth::user() && $fixerJob && Auth::user()->id == $fixerJob->user_id)
+            <div class="well well-lg">
+                <h4 class="lead">Rate this requester</h4>
+                <form id="give_rating_form" action="#">
+                    <h5>Feedback</h5>
+                    <div class="form-group">
+                        <textarea name="rating_text" id="" rows="3" class="form-control"></textarea>
+                    </div>
+                    <h5>Rating</h5>
+                    <div class="form-group">
+                        <input type="number" name="job_rating" data-max="5" data-min="1" class="rating" />
+                    </div>
+                    <button type="button" class="btn btn-success btn-sqr">Submit</button>
+                </form>
+            </div>
+        @endif
+
         <div class="well well-lg fix-offers">
             <h4 class="lead"><span class="counter">{{count($fixoffers)}}</span> Fix Offers</h4>
             <div class="fixoffers-list">
                 @foreach($fixoffers as $fixoffer)
-                <ul class="media-list fixoffer">
+                <ul class="media-list fixoffer @if($fixerJob && $fixerJob->fix_offer_id == $fixoffer->id)accepted@endif" data-fix-offer-id="{{$fixoffer->id}}" data-fixer-id="{{$fixoffer->post->user->id}}">
                     <div class="row">
                         <div class="col-md-9">
                             <li class="media">
@@ -67,7 +102,7 @@
                             </li>  
                         </div>
                         <div class="col-md-3">
-                            @if(Auth::user() && Auth::user()->id == $fixrequest->post->user_id)
+                            @if(Auth::user() && Auth::user()->id == $fixrequest->post->user_id && !$requesterJob)
                             <button class="btn btn-success accept">Accept</button>
                             @endif
                         </div>
@@ -92,8 +127,16 @@
                 <button type="button" class="btn btn-success">Make fix offer</button>
             </form>
             @endif
+
         </div>
+        @else
+            @if($requesterJob)
+                <div class="well well-lg">
+                    <h4 class="lead">The requester has accepted an offer</h4>
+                </div>
+            @endif
         @endif
+
         <div class="well well-lg comments">
             <h4 class="lead"><span class="counter">{{count($comments)}}</span> Comments</h4>
 
