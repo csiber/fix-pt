@@ -31,14 +31,6 @@
                 <?php echo Form::password('password', array("class" => "form-control", "placeholder" => "Password")); ?>
             </div>
             <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        {{ Form::checkbox('remember', "remember")}}
-                        Remember me
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
                 <a id="buttonForgotPass" data-toggle="modal" data-target="#resetPassModal" href="#" >Forgot your password?</a>
             </div>
             <button type="submit" form="signin-form" class="btn btn-success">Sign In</button>

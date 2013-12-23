@@ -13,6 +13,7 @@
                 <li @if ($sort == "popular")class="active"@endif><a href="{{ URL::to('fixrequests/index/popular') }}">Popular</a></li>
                 <li @if ($sort == "ending_soon")class="active"@endif><a href="{{ URL::to('fixrequests/index/ending_soon') }}">Ending soon</a></li>
                 <li @if ($sort == "no_offers")class="active"@endif><a href="{{ URL::to('fixrequests/index/no_offers') }}">No offers</a></li>
+                <li @if ($sort == "in_progress")class="active"@endif><a href="{{ URL::to('fixrequests/index/in_progress') }}">In progress</a></li>
             </ul>
             <div class="fixrequests">
                 @if(count($fixrequests) === 0)
@@ -36,7 +37,11 @@
                                 <div class="col-md-3 col-xs-6"><i class="fa fa-user"></i> by <a href="{{ URL::to('users/view/'.$fixrequest->user_id.'')}}">{{{$fixrequest->username}}}</a></div>
                                 <div class="col-md-3 col-xs-6" title="{{$fixrequest->created_at}}"><i class="fa fa-calendar-o"></i> posted {{$fixrequest->created_at_pretty}}</div>
                                 <div class="col-md-3 col-xs-6"><i class="fa fa-location-arrow"></i> not working yet</div>
+                                @if($sort == 'in_progress')
+                                <div class="col-md-3 col-xs-6"><i class="fa fa-clock-o"></i> in progress</div>
+                                @else
                                 <div class="col-md-3 col-xs-6" title="{{$fixrequest->end_date_exact}}"><i class="fa fa-clock-o"></i> {{$fixrequest->end_date}}</div>
+                                @endif
                             </div>
                         </div>
                     </div>

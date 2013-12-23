@@ -10,7 +10,7 @@ class FixOfferController extends BaseController {
     public function postCreate()
     {
         $rules = array(
-            'text' => 'required|min:20',
+            'text' => 'required|min:1',
             'value' => 'required|numeric',
             'fix_request_id' => 'required',
         );
