@@ -31,7 +31,7 @@
                 @foreach($searchresults as $searchresult)
                 <div class="panel panel-default" data-searchresults-id="{{$searchresult->id}}">
                     <div class="panel-body">
-                        <h4 class=""><a href="{{ URL::to('fixrequests/show/'.$searchresult->id) }}">{{{$searchresult->title}}}</a></h4>
+                        <h4 class=""><a href="{{ URL::to($searchresult->tipo.'/show/'.$searchresult->id) }}">{{{$searchresult->title}}}</a></h4>
                         <p>{{{$searchresult->text}}}</p>
                         <div class="tags">
                             <span class="tag pull-right label category-label">{{$searchresult->category}}</span>
