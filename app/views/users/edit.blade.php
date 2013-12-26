@@ -11,14 +11,15 @@
         <div class="well well-lg">            
             <div class="row">
                 
-                {{ Form::open(array("url" => "users/edit/".$user->id."",
-                "id"=>"user-edit","role"=>"form"))}}       
+                {{ Form::open(array(
+                "url" => "users/edit/".$user->id."",
+                "id"=>"user-edit",
+                "role"=>"form"))}}       
                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                 
                 <div class="form-group <? echo ($errors->has('full_name')) ? "has-error" : ""; ?>">
                     <?php echo Form::label("full_name", ($errors->first('full_name')) ? "Email - " . $errors->first('full_name') : "Full name", array("class" => "control-label")) ?>
-                    <?php echo Form::text("full_name", $user->full_name, array("placeholder" => "Enter full name", "class" => "form-control", "id" => "full_name"))
-                    ?>
+                    <?php echo Form::text("full_name", $user->full_name, array("placeholder" => "Enter full name", "class" => "form-control", "id" => "full_name")) ?>
 
                 </div>
 

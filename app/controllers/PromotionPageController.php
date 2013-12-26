@@ -66,6 +66,45 @@ class PromotionPageController extends BaseController {
         }
     }
 
+    public function getEdit() {
+            $promotionpage = PromotionPage::getPromotionPageNoId();
+            return View::make('promotionpages.edit', array('promotionpage'=>$promotionpage[0]));
+    }
+
+    public $editRules = array(
+        'title' => 'required|min:8',
+    );
+
+    public function postEdit() {
+
+        $validator = Validator::make(Input::all(), $this->editRules);
+
+        if ($validator->fails()) {
+            return Redirect::to('promotionpages/edit/')
+                            ->withInput()
+                            ->withErrors($validator);
+        } else {
+            $id1 = Auth::user()->id;
+            
+            $id = PromotionPage::getPromotionPageID();
+            
+            $promotionpage = PromotionPage::find($id[0]->id);
+
+            if (Input::get('title') != null && Input::get('body') != null) {
+                $promotionpage->title = Input::get('title');
+                $promotionpage->post->text = Input::get('body');
+            }
+
+            $promotionpage->save();
+            $promotionpage->post->save();
+            // TODO is this final?
+            $msg = 'Your promotion page was successfully updated!';
+
+            Session::flash('success', $msg);
+            return Redirect::to("promotionpages/show/" . $promotionpage->id);
+        }
+    }
+
     public function postCreate() 
     {
         $rules = array(

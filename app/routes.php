@@ -95,7 +95,7 @@ Route::controller('search', 'SearchController');
 Route::get('/', function() {
     $pds = Search::get_distritos();
     $dists = array();
-    
+    $dists[""] = "Escolha um distrito";
     foreach($pds as $pd) {
         $dists[$pd->id] = $pd->name;
     }
