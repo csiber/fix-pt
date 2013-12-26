@@ -414,4 +414,11 @@ class UserController extends BaseController {
     public function upgrade($id) {
         User::where('id', $id)->update(array('user_type' => "Premium"));
     }
+
+    public function removeNotifications(){
+        if(Auth::check())
+        {
+            Notification::setNotificationsOfUser(Auth::user()->id);
+        }
+    }
 }
