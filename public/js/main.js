@@ -15,7 +15,18 @@ $(document).ready(function(){
         });
     });
 
+    $('#removeNotifications').click(function(){
+        $('.notifications-list').addClass('hide');
+        $('.zeronot').removeClass('hide');
+        var urlNotifications='public/users/removenotifications';
+        urlNotifications=window.location.toString().substring(0,window.location.toString().search("public"))+
+                        urlNotifications;
+        $.ajax({
+            type: "POST",
+            url: urlNotifications,
 
+        });
+    });
     
     $(".dropdown select").change(function(){
         var user_id =this.getAttribute("name");
