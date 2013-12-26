@@ -1,4 +1,4 @@
-var BASE_URL = 'http://localhost:8888/ldsot3g3/public/';
+var BASE_URL = 'http://127.0.0.1/ldsot3g3/public/';
 
 // key events
 var ENTER_KEY = 13;
@@ -6,6 +6,7 @@ var COMMA_KEY = 188;
 
 $(document).ready(function(){
 
+    BASE_URL = window.location.toString().substring(0,window.location.toString().search("public"))+'public/';
     $('#buttonLogin').click(function(){
         $('#signInModal').ready(function(){
             $('#buttonForgotPass').click(function(){
