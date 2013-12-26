@@ -14,7 +14,7 @@
             </ul>
             <div>
             {{ Form::open(array(    
-            "url"        => "search/index",
+            "url"        => "search/index/" . $sort,
             "method"    => "post",
             "autocomplete" => "off",
             "id"=> "search-form"
@@ -22,7 +22,7 @@
                 {{ Form::text("text", $text, array("placeholder" => "Search", "class" => "form-control", "id" => "text", "name" => "text")) }}
                 {{ Form::select('concelhos', $concs, $selconcelho, array('class' => 'form-control', 'id' => 'concelhos', 'name' => 'concelhos')) }}
                 <button type="submit" class="btn btn-danger">Search</button>
-             {{ Form::close(); }}
+            {{ Form::close(); }}
             </div>
             <div class="searchresults">
                 @if(count($searchresults) === 0)

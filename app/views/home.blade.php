@@ -7,7 +7,7 @@
         <p class="text-center">De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia?</p>
         <div class="row home-search">   
         {{ Form::open(array(    
-        "url"        => "search/index",
+        "url"        => "search/index/recent",
         "method"    => "post",
         "autocomplete" => "off",
         "id"=> "search-form"
@@ -18,9 +18,7 @@
             </div>
             <div class="col-lg-3">
                 <p>Where?</p>
-                <?php
-					echo Form::select('id', $dists, "", array('class' => 'form-control', 'id' => 'distritoshome', 'name' => 'distritoshome'));	
-				?>
+                {{ Form::select('id', $dists, "", array('class' => 'form-control', 'id' => 'distritoshome', 'name' => 'distritoshome')) }}
             	<select class="form-control" id="concelhos" name="concelhos">
                   <option value="">Escolha um concelho </option>
                 </select>
