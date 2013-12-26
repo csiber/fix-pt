@@ -7,13 +7,12 @@ class FixRequest extends Eloquent {
     
     public static function recent_requests()
     {
-        return FixRequest::with('tags')->orderBy('created_at', 'DESC');
+        return FixRequest::with('tags')->has('jobs', "=", 0)->orderBy('created_at', 'DESC');
     }
 
     public static function popular_requests()
     {
-        // TODO it should return the most popular requests (what defines popular?)
-        return FixRequest::with('tags');
+        return FixRequest::with('tags')->has('jobs', "=", 0)->has('fixoffers', '>', 0)->has('comments', '>', 0)->orderBy('created_at', 'DESC');
     }
 
     public static function no_offers_requests()
@@ -23,7 +22,12 @@ class FixRequest extends Eloquent {
 
     public static function ending_soon_requests()
     {
-        return FixRequest::endingSoon()->with('tags')->orderBy('created_at', 'DESC');
+        return FixRequest::endingSoon()->with('tags')->has('jobs', "=", 0)->orderBy('created_at', 'DESC');
+    }
+
+    public static function in_progress_requests()
+    {
+        return FixRequest::with('tags')->has('jobs', ">", 0)->orderBy('created_at', 'DESC');
     }
 
     public static function getFixRequest($id)
@@ -66,6 +70,11 @@ class FixRequest extends Eloquent {
     public function fixoffers()
     {
         return $this->hasMany('FixOffer');
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany('Job');
     }
 
     public function comments()

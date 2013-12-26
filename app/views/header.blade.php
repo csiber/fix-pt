@@ -55,28 +55,10 @@
 
 
                 @if (Auth::check())
-                <ul class="nav navbar-nav navbar-right">                    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{{ (Auth::user()->full_name)?Auth::user()->full_name:Auth::user()->username  }}} <b class="caret"></b></a>
-                        <ul class="dropdown-menu">   
-                            <li><a href="{{{ URL::to('users/dashboard') }}}">Fix.pt Dashboard</a></li>
-                            <li><a href="{{{ URL::to('users/profile') }}}">User Profile</a></li>
-                            <li><a href="{{{ URL::to('users/reset-password/') }}}">Change Password</a></li>
-                            <li><a href="{{{ URL::to('users/logout') }}}">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>                
-                @else                
-                <form class="navbar-form navbar-right" action="users/login">
-                    <button data-toggle="modal" href="#signInModal" class="btn btn-sm" id="buttonLogin">Login</button>
-                    <button data-toggle="modal" href="#signUpModal" class="btn btn-sm">Sign Up</button>
-                </form>
-                @endif
-                
-                @if(Auth::check())
+
                 <?php $notifications=Notification::getNotificationsOfUser(Auth::user()->id); ?>
 
-                <ul class="nav navbar-nav navbar-right">                    
+                <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Notifications <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -97,10 +79,23 @@
                             @if(!$havenew)
                                 <li><a href="#" >Sem novas entradas</a></li>
                             @endif
-                            
+                        </ul>
+                    </li>                  
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{{ (Auth::user()->full_name)?Auth::user()->full_name:Auth::user()->username  }}} <b class="caret"></b></a>
+                        <ul class="dropdown-menu">   
+                            <li><a href="{{{ URL::to('users/dashboard') }}}">Fix.pt Dashboard</a></li>
+                            <li><a href="{{{ URL::to('users/profile') }}}">User Profile</a></li>
+                            <li><a href="{{{ URL::to('users/reset-password/') }}}">Change Password</a></li>
+                            <li><a href="{{{ URL::to('users/logout') }}}">Logout</a></li>
                         </ul>
                     </li>
-                </ul>    
+                </ul>                
+                @else                
+                <form class="navbar-form navbar-right" action="users/login">
+                    <button data-toggle="modal" href="#signInModal" class="btn btn-sm" id="buttonLogin">Login</button>
+                    <button data-toggle="modal" href="#signUpModal" class="btn btn-sm">Sign Up</button>
+                </form>
                 @endif
 
             </div><!--/.nav-collapse -->  

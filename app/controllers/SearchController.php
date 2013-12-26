@@ -16,10 +16,11 @@ class SearchController extends BaseController {
         if ($sort == "recent") {
             $resul = Search::recent_requests($terms,$local);
             $res = Paginator::make($resul, count($resul), $posts_per_page);
+			Session::put('sort', "recent");
         } else if ($sort == "popular") {
-            //TODO: popular (?)
-            $resul = Search::recent_requests($terms,$local);
+            $resul = Search::popular_requests($terms,$local);
             $res = Paginator::make($resul, count($resul), $posts_per_page);
+			Session::put('sort', "popular");
         } else {
             return Redirect::to('search/index/recent');
         }
@@ -35,6 +36,12 @@ class SearchController extends BaseController {
                 $post = Post::find($re->post_id);
                 $user = User::find($post['user_id']);
                 $sr = new stdClass;
+				$tipo = Search::getType($re->id,$re->post_id);
+				if($tipo[0]->rowcount > 0)
+					$sr->tipo = "fixrequests";
+				else
+					$sr->tipo = "promotionpages";
+				$sr->id = $re->id;
                 $sr->title = $re->title;
                 $sr->text = UtilFunctions::truncateString($post['text'], 220);
                 $sr->user_id = $post['user_id'];
@@ -49,9 +56,10 @@ class SearchController extends BaseController {
         }
         $concelhos = array();
         $concs = Search::get_concelhos_por_distritos();
+        $concelhos[""] = "Escolha um concelho";
         foreach ($concs as $conc)
         {
-            array_push($concelhos,array($conc->id, $conc->name,$conc->distrito));
+           $concelhos[$conc->id] = $conc->distrito . " - " . $conc->name;
         }
         return View::make('search.index', array('searchresults' => $searchresults, 'pags' => $res, "sort" => $sort, "concs" => $concelhos, "text" => $terms, "selconcelho" => $local));
     }
@@ -60,7 +68,7 @@ class SearchController extends BaseController {
     {
         Session::put('terms', Input::get('text'));
         Session::put('local', Input::get('concelhos'));
-        return $this->getIndex(null);
+        return $this->getIndex(Session::get('sort'));
     }
     
     public function getConcelhosList()

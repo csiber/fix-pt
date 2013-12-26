@@ -19,24 +19,19 @@
             "autocomplete" => "off",
             "id"=> "search-form"
             )) }}
-            	<input value="{{{$text}}}" name="text" type="text" class="form-control" placeholder="Text input">
-            	<select class="form-control" id="concelhos" name="concelhos">
-                  <option value="">Escolha um concelho </option>
-                  @foreach($concs as $conc)
-                  	<option <?php if($conc[0] == $selconcelho) { echo 'selected'; } ?> value="{{{$conc[0]}}}">{{{$conc[2] . ' - ' . $conc[1]}}}</option>
-                  @endforeach
-                </select>
+                {{ Form::text("text", $text, array("placeholder" => "Search", "class" => "form-control", "id" => "text", "name" => "text")) }}
+                {{ Form::select('concelhos', $concs, $selconcelho, array('class' => 'form-control', 'id' => 'concelhos', 'name' => 'concelhos')) }}
                 <button type="submit" class="btn btn-danger">Search</button>
              {{ Form::close(); }}
             </div>
-            <div class="fixrequests">
+            <div class="searchresults">
                 @if(count($searchresults) === 0)
                 <p>Your search returned no results.</p>
                 @else
                 @foreach($searchresults as $searchresult)
-                <div class="panel panel-default">
+                <div class="panel panel-default" data-searchresults-id="{{$searchresult->id}}">
                     <div class="panel-body">
-                        <h4>{{{$searchresult->title}}}</h4>
+                        <h4 class=""><a href="{{ URL::to($searchresult->tipo.'/show/'.$searchresult->id) }}">{{{$searchresult->title}}}</a></h4>
                         <p>{{{$searchresult->text}}}</p>
                         <div class="tags">
                             <span class="tag pull-right label category-label">{{$searchresult->category}}</span>
@@ -45,7 +40,7 @@
                     </div>
                     <div class="panel-footer">
                         <div class="row">
-                            <div class="col-md-3 col-xs-6"><i class="fa fa-user"></i> {{{$searchresult->username}}}</div>
+                            <div class="col-md-3 col-xs-6"><i class="fa fa-user"></i> by <a href="{{ URL::to('users/view/'.$searchresult->user_id.'')}}">{{{$searchresult->username}}}</a></div>
                             <div class="col-md-3 col-xs-6"><i class="fa fa-calendar-o"></i> {{$searchresult->created_at_pretty}}</div>
                             <div class="col-md-3 col-xs-6"><i class="fa fa-location-arrow"></i> not working yet</div>
                             <div class="col-md-3 col-xs-6"><i class="fa fa-clock-o"></i> not working yet</div>

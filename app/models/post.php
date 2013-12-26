@@ -19,13 +19,11 @@ class Post extends Eloquent {
 
     public function fixrequest()
     {
-        // Not really sure if this is correct
         return $this->hasOne('FixRequest');
     }
 
     public function comment()
     {
-        // Not really sure if this is correct
         return $this->hasOne('Comment');
     }
 

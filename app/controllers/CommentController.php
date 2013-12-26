@@ -5,13 +5,6 @@ class CommentController extends BaseController {
     /**
     * creates a new comment
     */
-
-    public function getCreate()
-    {
-        echo "Hello world!";
-        exit();
-    }
-
     public function postCreate()
     {
         $rules = array(

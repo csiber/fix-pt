@@ -19,6 +19,8 @@ class FixRequestController extends BaseController {
             $fixrequests = FixRequest::no_offers_requests()->paginate($requests_per_page); 
         } else if ($sort == 'ending_soon') {
             $fixrequests = FixRequest::ending_soon_requests()->paginate($requests_per_page); 
+        } else if ($sort == 'in_progress') {
+            $fixrequests = FixRequest::in_progress_requests()->paginate($requests_per_page); 
         } else {
             return Redirect::to('fixrequests/index/recent');
         }
@@ -56,6 +58,9 @@ class FixRequestController extends BaseController {
     public function getShow($id)
     {
         $fixrequest = FixRequest::getFixRequest($id);
+        $fixrequest->views = $fixrequest->views + 1;
+        $fixrequest->save();
+
         $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
         $fixrequest['updated_at_pretty'] = UtilFunctions::prettyDate($fixrequest['updated_at']);
         $fixrequest['post']->text = nl2br((stripslashes($fixrequest['post']->text)));
@@ -81,7 +86,17 @@ class FixRequestController extends BaseController {
             }
         }
 
-        //$comments = $comment->paginate(5);
+        $jobs = Job::getJobsOfFixRequest($id);
+        $fixerJob = Null;
+        $requesterJob = Null;
+
+        foreach($jobs as &$job) {
+            if($job->user_id == $fixrequest->post->user->id) {
+                $requesterJob = $job;
+            } else {
+                $fixerJob = $job;
+            }
+        }
 
         return View::make('fixrequests/show', array(
             'fixrequest' => $fixrequest,
@@ -89,6 +104,8 @@ class FixRequestController extends BaseController {
             'photos' => $fixrequest->post->photos()->getResults(),
             'auth' => Auth::check(),
             'fixoffers' => $fixoffers,
+            'fixerJob' => $fixerJob,
+            'requesterJob' => $requesterJob,
             'hasMadeFixOffer' => $hasMadeFixOffer,
         ));
     }

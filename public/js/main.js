@@ -72,9 +72,13 @@ $(document).ready(function(){
         });
     });
 
-    $('.showAllComments').click(function(){
-        $('.showAllComments').css('display','none');
-        $('.comment').css('display','block');
+    // MIGUEL -->
+
+    $('.show_comments').click(function() {
+        $('.comment').each(function(){
+            $(this).removeClass('hide');
+        });
+        $(this).remove();
     });
 
     $('#create_comment_form button').click(function(event){
@@ -122,8 +126,6 @@ $(document).ready(function(){
         });
     });
 
-    // MIGUEL -->
-
     // pageCreateFixRequestJS();
 
     // fix request photo lightbox
@@ -136,9 +138,64 @@ $(document).ready(function(){
             window.location.href = url;
         });
     });
+	
+	$(".searchresults .panel").each(function(){
+        $(this).click(function(){
+            var url = $(this).find("h4 a").attr('href');
+            window.location.href = url;
+        });
+    });
+
+    $('.fixoffer .accept').click(function(event){
+        var fix_request_id = $('.fixrequest').attr('data-fix-request-id');
+        var fixer_id = $(event.target).parents('.fixoffer').attr('data-fixer-id');
+        var fix_offer_id = $('.fixoffer').attr('data-fix-offer-id');
+
+        $.ajax({
+            url: BASE_URL+"jobs/create",
+            type: "POST",
+            data: {fix_request_id: fix_request_id, fixer_id: fixer_id, fix_offer_id: fix_offer_id},
+            dataType: "json"
+        }).done(function(data){
+            console.log(data);
+
+            if(data.result === "OK") {
+                window.location.reload(true);
+            } else {
+                alert("Something went wrong. Pleasy try again later");
+            }
+
+        });
+    });
 
     $("#create_fix_offer_form").submit(function(event){
         event.preventDefault();
+    });
+
+    $("#give_rating_form").submit(function(event){
+        event.preventDefault();
+    });
+
+    $("#give_rating_form button").click(function(event){
+        var form = $("#give_rating_form");
+        var feedback = form.find('textarea').val().trim();
+        var job_id = form.parent('.job').attr('data-job-id');
+        var job_rating_score = form.find("input[name='job_rating']").val();
+
+        $.ajax({
+            url: BASE_URL+"jobs/rate",
+            type: "POST",
+            data: {feedback: feedback, score: job_rating_score, job_id: job_id},
+            dataType: "json"
+        }).done(function(data){
+            console.log(data);
+
+            if(data.result === "OK") {
+                window.location.reload(true);
+            } else {
+                alert("Something went wrong. Pleasy try again later");
+            }
+        });
     });
 
     $("#create_fix_offer_form button").click(function(event) {
@@ -173,7 +230,7 @@ $(document).ready(function(){
                     'username': data.fixoffer.username,
                     'created_at': data.fixoffer.created_at_pretty,
                     'text': data.fixoffer.text,
-                    'value': 10
+                    'value': data.fixoffer.value
                 }).appendTo( ".fixoffers-list" );
 
                 $('#create_fix_offer_form').remove();

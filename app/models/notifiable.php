@@ -6,6 +6,11 @@ class Notifiable extends Eloquent {
     {
         return $this->hasOne('Post');
     }
+
+    public function job()
+    {
+        return $this->hasOne('Job');
+    }
 }
 
 ?>

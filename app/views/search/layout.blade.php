@@ -8,7 +8,7 @@
 
     </head>
 
-    <body class="_fixrequests">
+    <body class="_searchresults">
         <div id="wrap"> <!-- this is for the sticky footer -->
             @include('header')            
             <div class="container">
