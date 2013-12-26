@@ -46,6 +46,9 @@ class PromotionPageController extends BaseController {
             $isFavorite = Favorite::checkFavorite($promotionpage->post->user->id);
         }
 
+        $promotionpage['created_at_pretty'] = UtilFunctions::prettyDate($promotionpage['created_at']);
+        $promotionpage->post['text'] = trim(nl2br(stripslashes($promotionpage->post['text'])));
+
         return View::make('promotionpages.show',
             array(
                 'promotionpage' => $promotionpage,
@@ -77,6 +80,7 @@ class PromotionPageController extends BaseController {
 
     public $editRules = array(
         'title' => 'required|min:8',
+        'body' => 'required|min:1'
     );
 
     public function postEdit() {
@@ -128,7 +132,7 @@ class PromotionPageController extends BaseController {
                 $notifiable->save();
 
                 $post = new Post(array(
-                    "text" => Input::get('body'), 
+                    "text" => trim(nl2br(Input::get('body'))), 
                     "user_id" => Auth::user()->id
                 ));
                 $post = $notifiable->post()->save($post);

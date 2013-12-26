@@ -229,7 +229,7 @@
                             </a>
                             <div class="media-body">
                                 <h5 class="media-heading"><a href="#">{{{$comments[$i]->post->user->username}}}</a><span> - {{$comments[$i]->created_at_pretty}}</span></h5>
-                                {{{$comments[$i]->post->text}}}
+                                {{$comments[$i]->post->text}}
                             </div>
                         </li>
                     </ul>

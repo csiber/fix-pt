@@ -1,5 +1,4 @@
 @extends('promotionpages/layout')
-
 @section('content')
 <div class="row">
     <div class="col-md-8">
@@ -21,7 +20,7 @@
                  {{{$promotionpage->title}}}
             </h4>
             
-            <p> {{{$promotionpage->post->text}}} </p>
+            <p>{{$promotionpage['post']->text}}</p>
         </div>
     </div>
     <div class="col-md-4">

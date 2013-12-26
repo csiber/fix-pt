@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
     <div class="jumbotron">
       <div class="container">
@@ -30,11 +29,9 @@
                 </div>
             {{ Form::close() }}
         </div> 
-        
         </div>
       </div>
     </div>
-
     <div class="container small-top-padding">
         <h1 class="text-center">How it works</h1>
         <div class="row how-it-works">
