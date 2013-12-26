@@ -1,9 +1,3 @@
-<?php
-/*
- * File: actions.blade.php
- * Left side bar to apper on user profile
- */
-?>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title lead">Actions</h3>

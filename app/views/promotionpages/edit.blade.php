@@ -6,20 +6,18 @@
         <ol class="breadcrumb">
             <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
             <li><a href="{{URL::to('promotionpages/index/recent')}}">Promotion Page</a></li>
-            <li class="active">Create</li>
+            <li class="active">Edit</li>
         </ol>
         <div class="well well-lg">
             {{ Form::open(array(
-                "url" => "promotionpages/create",
+                "url" => "promotionpages/edit/",
                 "id" => "promotionpage-form",
                 "role" => "form",
                 "files" => true)
             )}}
                 <div class="form-group <?php echo ($errors->has('title')) ? "has-error" : ""; ?>">
                     {{ Form::label("title", "Title", array("class" => "control-label")) }}
-                    {{ Form::text("title", Input::old('title'), array(
-                        "id" => "promotionpage-title",
-                        "placeholder" => "Enter a short but explicit title",
+                    {{ Form::text("title", $promotionpage->title, array("id" => "promotionpage-title","placeholder" => "Enter a short but explicit title",
                         "class" => "form-control"
                     ))}}
                     <p class="help-block"><?php echo $errors->first('title') ?></p>
@@ -47,7 +45,7 @@
                 </div>
                 <div class="form-group <?php echo ($errors->has('description')) ? "has-error" : ""; ?>">
                     {{ Form::label("body", "Body", array("class" => "control-label")) }}
-                    {{ Form::textarea("body", "", array(
+                    {{ Form::textarea("body", $promotionpage->text, array(
                         "class" => "form-control",
                         "rows" => 20,
                         "placeholder" => "Enter a detailed description of your skills"
@@ -55,34 +53,13 @@
                     <p class="help-block"><?php echo $errors->first('description') ?></p>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group <?php echo ($errors->has('city')) ? "has-error" : ""; ?>">
-                            {{ Form::label("city", "City", array("class" => "control-label")) }}
-                            {{ Form::text("city", "", array(
-                                "class" => "form-control typeahead",
-                                "id" => "promotionpage-city",
-                                "placeholder" => "Enter city"
-                            ))}}
-                            <p class="help-block"><?php echo $errors->first('city') ?></p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group <?php echo ($errors->has('location')) ? "has-error" : ""; ?>">
-                            {{ Form::label("location", "Location", array("class" => "control-label")) }}
-                            {{ Form::text("location", "", array(
-                                "class" => "form-control typeahead",
-                                "id" => "promotionpage-location",
-                                "placeholder" => "Enter location"
-                            ))}}
-                            <p class="help-block"><?php echo $errors->first('location') ?></p>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="form-group">
                     <!-- {{ Form::label("photos", "Add photos") }}
                     {{ Form::file('photos[]', array('multiple' => true))}} -->
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" form="promotionpage-form" class="btn btn-success">Save</button>
             <!-- </form> -->
             {{ Form::close() }}
         </div>

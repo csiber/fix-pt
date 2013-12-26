@@ -14,7 +14,7 @@ class UserController extends BaseController {
     );
     public $loginRules = array(
         'username' => 'required',
-        'password' => 'required'
+        'password' => 'required',
     );
     public $resetPassRules = array(
         'password' => 'required|between:4,11',
@@ -62,7 +62,8 @@ class UserController extends BaseController {
                 "password" => Input::get("password")
             );
             if (Auth::attempt($credentials)) {
-
+                $promotionPage = PromotionPage::isTherePromotionPage();
+                Session::put('haspromotionpage', $promotionPage);
                 return Redirect::to("users/profile");
             }
         }
@@ -412,5 +413,12 @@ class UserController extends BaseController {
 
     public function upgrade($id) {
         User::where('id', $id)->update(array('user_type' => "Premium"));
+    }
+
+    public function removeNotifications(){
+        if(Auth::check())
+        {
+            Notification::setNotificationsOfUser(Auth::user()->id);
+        }
     }
 }

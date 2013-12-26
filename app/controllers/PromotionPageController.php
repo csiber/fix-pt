@@ -12,7 +12,7 @@ class PromotionPageController extends BaseController {
         $requests_per_page = 5;
 
         if ($sort == "recent") {
-            $promotionpages = PromotionPage::orderBy('created_at', 'DESC')->paginate(5);
+            $promotionpages = PromotionPage::orderBy('created_at', 'DESC')->paginate($requests_per_page);
         } else {
             return Redirect::to('promotionpages/index/recent');
         }
@@ -40,14 +40,21 @@ class PromotionPageController extends BaseController {
     public function getShow($id)
     {
         $promotionpage = PromotionPage::getPromotionPage($id);
-        $user2 = $promotionpage->post->user->id;
         $isFavorite = false;
+
         if(Auth::check()){
-            $isFavorite = Favorite::checkFavorite($user2);
+            $isFavorite = Favorite::checkFavorite($promotionpage->post->user->id);
         }
+
+        $promotionpage['created_at_pretty'] = UtilFunctions::prettyDate($promotionpage['created_at']);
+        $promotionpage->post['text'] = trim(nl2br(stripslashes($promotionpage->post['text'])));
+
         return View::make('promotionpages.show',
-            array('promotionpage' => $promotionpage,
-            'favorite' => $isFavorite)
+            array(
+                'promotionpage' => $promotionpage,
+                'gravatar' => UtilFunctions::gravatar($promotionpage->post->user->email),
+                'favorite' => $isFavorite
+            )
         );
     }
 
@@ -66,12 +73,52 @@ class PromotionPageController extends BaseController {
         }
     }
 
+    public function getEdit() {
+            $promotionpage = PromotionPage::getPromotionPageNoId();
+            return View::make('promotionpages.edit', array('promotionpage'=>$promotionpage[0]));
+    }
+
+    public $editRules = array(
+        'title' => 'required|min:8',
+        'body' => 'required|min:1'
+    );
+
+    public function postEdit() {
+
+        $validator = Validator::make(Input::all(), $this->editRules);
+
+        if ($validator->fails()) {
+            return Redirect::to('promotionpages/edit/')
+                            ->withInput()
+                            ->withErrors($validator);
+        } else {
+            $id1 = Auth::user()->id;
+            
+            $id = PromotionPage::getPromotionPageID();
+            
+            $promotionpage = PromotionPage::find($id[0]->id);
+
+            if (Input::get('title') != null && Input::get('body') != null) {
+                $promotionpage->title = Input::get('title');
+                $promotionpage->post->text = Input::get('body');
+            }
+
+            $promotionpage->save();
+            $promotionpage->post->save();
+            // TODO is this final?
+            $msg = 'Your promotion page was successfully updated!';
+
+            Session::flash('success', $msg);
+            return Redirect::to("promotionpages/show/" . $promotionpage->id);
+        }
+    }
+
     public function postCreate() 
     {
         $rules = array(
             'title' => 'required|min:4',
             'category' => 'required|in:1,2,3,4,5',
-            'body' => 'required|min:20',
+            'body' => 'required|min:1',
             'city' => 'required',
             'location' => 'required'
         );
@@ -85,13 +132,15 @@ class PromotionPageController extends BaseController {
                 $notifiable->save();
 
                 $post = new Post(array(
-                    "text" => Input::get('body'), 
+                    "text" => trim(nl2br(Input::get('body'))), 
                     "user_id" => Auth::user()->id
                 ));
                 $post = $notifiable->post()->save($post);
 
                 $promotionpage = new PromotionPage(array(
-                    'title' => Input::get('title')
+                    'title' => Input::get('title'),
+                    'city' => Input::get('city'),
+                    'concelho' => Input::get('location')
                 ));
 
                 $category = Category::find(Input::get('category'));

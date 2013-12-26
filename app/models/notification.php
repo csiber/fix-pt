@@ -2,7 +2,50 @@
 
 class Notification extends Eloquent {
     
-    protected $fillable = array('user_id','notifiable_id');
+    protected $fillable = array('user_id','notifiable_id','active');
+
+    public static function setNotificationsOfUser($user_id)
+    {
+        $query1="select fix_requests.id, fix_requests.title, fix_requests.post_id 
+                 from fix_requests, posts 
+                 where ". $user_id ." = posts.user_id and 
+                        fix_requests.post_id = posts.id ";
+        $result1= DB::select(DB::raw($query1));
+
+        $idx=0;
+        foreach($result1 as $res)
+        {
+            $query2="(select notifiables.id 
+                 from comments, posts, notifiables 
+                 where ". $res->id ." = comments.fix_request_id and 
+                 posts.id = comments.post_id and 
+                 posts.notifiable_id = notifiables.id and 
+                 notifiables.active = true)";
+            
+            $result2= DB::select(DB::raw($query2));
+            foreach ($result2 as $res2) {
+                DB::update(DB::raw("update notifiables set active = false 
+                                where id = ". $res2->id));    
+            }
+            
+
+            $query3="select notifiables.id 
+                 from fix_offers, posts, notifiables 
+                 where ". $res->id ." = fix_offers.fix_request_id and 
+                 posts.id = fix_offers.post_id and 
+                 posts.notifiable_id = notifiables.id and 
+                 notifiables.active = true";
+
+            $result3= DB::select(DB::raw($query3));
+            foreach ($result3 as $res3) {
+                DB::update(DB::raw("update notifiables set active = false 
+                                where id = ". $res3->id));    
+            }
+            
+            $idx++;
+        }
+
+    }
 
     public static function getNotificationsOfUser($user_id)
     {
@@ -20,7 +63,8 @@ class Notification extends Eloquent {
                  from comments, posts, notifiables 
                  where ". $res->id ." = comments.fix_request_id and 
                  posts.id = comments.post_id and 
-                 posts.notifiable_id = notifiables.id";
+                 posts.notifiable_id = notifiables.id and 
+                 notifiables.active = true";
             
             $result2= DB::select(DB::raw($query2));
 
@@ -28,7 +72,8 @@ class Notification extends Eloquent {
                  from fix_offers, posts, notifiables 
                  where ". $res->id ." = fix_offers.fix_request_id and 
                  posts.id = fix_offers.post_id and 
-                 posts.notifiable_id = notifiables.id";
+                 posts.notifiable_id = notifiables.id and 
+                 notifiables.active = true";
 
             $result3= DB::select(DB::raw($query3));
 

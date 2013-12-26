@@ -3,7 +3,7 @@
 
 class FixRequest extends Eloquent {
 
-    protected $fillable = array('title', 'state', 'daysForOffer', 'value');
+    protected $fillable = array('title', 'state', 'daysForOffer', 'value', 'city', 'concelho');
     
     public static function recent_requests()
     {
@@ -175,6 +175,16 @@ class FixRequest extends Eloquent {
     public function jobs()
     {
         return $this->hasMany('Job');
+    }
+
+    public function district()
+    {
+        return $this->hasOne('District');
+    }
+
+    public function concelho()
+    {
+        return $this->hasOne('Concelho');
     }
 
     public function comments()

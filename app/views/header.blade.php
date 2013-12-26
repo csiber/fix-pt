@@ -37,7 +37,10 @@
                         <ul class="dropdown-menu">
                             <li><a href="{{ URL::to('promotionpages/index/recent') }}">View Promotion Pages</a></li>
                             <li><a href="#">Search Promotion Pages</a></li>
-                            @if (Auth::check())
+                            
+                            @if (Auth::check() && Session::get('haspromotionpage',Null))
+                            <li><a href="{{ URL::to('promotionpages/edit') }}">Edit Promotion Page</a></li>
+                            @else
                             <li><a href="{{ URL::to('promotionpages/create') }}">Create Promotion Page</a></li>
                             @endif
                             <!--
@@ -58,23 +61,26 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Notifications <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu ">
                             <?php $havenew=false; ?>
                             @if(isset($notifications) && count($notifications)>0)
                             @foreach($notifications as $notif)
                                 @if($notif['comments']>0)
-                                    <li><a href="#" >{{$notif['comments']}} new comments on request: {{$notif['title']}}</a></li>
+                                    <li class="notifications-list"><a href="#" >{{$notif['comments']}} new comments on request: {{$notif['title']}}</a></li>
                                     <?php $havenew=true; ?>
                                 @endif
                                 @if($notif['offers']>0)
-                                    <li><a href="#" >{{$notif['offers']}} new offers on request: {{$notif['title']}}</a></li>
+                                    <li class="notifications-list"><a href="#" >{{$notif['offers']}} new offers on request: {{$notif['title']}}</a></li>
                                     <?php $havenew=true; ?>
                                 @endif
                                 
                             @endforeach   
                             @endif
                             @if(!$havenew)
-                                <li><a href="#" >Sem novas entradas</a></li>
+                                <li><a href="#" >0 new notifications</a></li>
+                            @else
+                                <li class="zeronot hide"><a href="#" >0 new notifications</a></li>
+                                <li class="notifications-list" id="removeNotifications"><a href="#" >Remove notifications</a></li>
                             @endif
                         </ul>
                     </li>                  

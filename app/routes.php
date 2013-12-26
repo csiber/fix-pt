@@ -35,7 +35,7 @@ Route::model('search', 'Search');
 
 Route::post('users/reset-pass','UserController@postResetPass');
 Route::get('users/codetoresetpass/{code}','UserController@getCodeToResetPass');
-
+Route::post('users/removenotifications','UserController@removeNotifications');
 // TODO what is this before => none??
 Route::group(array("before" => "none"), function(){
     Route::get('users/confirmation','UserController@getConfirmation');    
@@ -85,8 +85,11 @@ Route::controller('notifiables', 'NotifiableController');
 Route::controller('posts', 'PostController');
 Route::controller('jobs', 'JobController');
 Route::controller('promotionpages', 'PromotionPageController');
+Route::controller('districts', 'DistrictController');
+Route::controller('concelhos', 'ConcelhoController');
 Route::post('search/getconcelhos', 'SearchController@getConcelhosList');
 Route::controller('search', 'SearchController');
+
 
 // Home page
 Route::get('/', function() {

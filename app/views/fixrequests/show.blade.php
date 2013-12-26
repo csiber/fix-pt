@@ -215,11 +215,12 @@
         <div class="well well-lg comments">
             <h4 class="lead"><span class="counter">{{count($comments)}}</span> Comments</h4>
 
+            <div class="comment-list">
             @if(count($comments) > 0)
                 @if(count($comments) > 5)
                     <button type="button" class="btn btn-link show_comments">Show {{count($comments) - 5}} more comments</button>
                 @endif
-            <div class="comment-list">
+            
                 @for ($i = 0; $i < count($comments); $i++)
                     <ul class="media-list comment @if( count($comments) > 5 && $i < count($comments) - 5 )hide@endif">
                         <li class="media">
@@ -228,22 +229,22 @@
                             </a>
                             <div class="media-body">
                                 <h5 class="media-heading"><a href="#">{{{$comments[$i]->post->user->username}}}</a><span> - {{$comments[$i]->created_at_pretty}}</span></h5>
-                                {{{$comments[$i]->post->text}}}
+                                {{$comments[$i]->post->text}}
                             </div>
                         </li>
                     </ul>
                 @endfor
-            </div>
             @endif
+            </div>
 
-                @if(Auth::user())
-                <form id="create_comment_form" action="#">
-                    <div class="form-group">
-                        <textarea name="comment-text" class="form-control" placeholder="Make a comment." rows="3"></textarea>
-                    </div>
-                    <button type="button" class="btn btn-success">Add Comment</button>
-                </form>
-                @endif
+            @if(Auth::user())
+            <form id="create_comment_form" action="#">
+                <div class="form-group">
+                    <textarea name="comment-text" class="form-control" placeholder="Make a comment." rows="3"></textarea>
+                </div>
+                <button type="button" class="btn btn-success">Add Comment</button>
+            </form>
+            @endif
         </div>
     </div>
     <div class="col-md-4">
