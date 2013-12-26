@@ -62,7 +62,8 @@ class UserController extends BaseController {
                 "password" => Input::get("password")
             );
             if (Auth::attempt($credentials)) {
-
+                $promotionPage = PromotionPage::isTherePromotionPage();
+                Session::put('haspromotionpage', $promotionPage);
                 return Redirect::to("users/profile");
             }
         }
