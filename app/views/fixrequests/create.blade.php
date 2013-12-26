@@ -71,10 +71,13 @@
                         <div class="form-group <?php echo ($errors->has('city')) ? "has-error" : ""; ?>">
                         {{ Form::label("city", "City", array("class" => "control-label")) }}
                         {{ Form::text("city", "", array(
-                            "class" => "form-control",
+                            "class" => "form-control typeahead",
                             "id" => "fixrequest-city",
                             "placeholder" => "Enter city"
                         ))}}
+
+                        <!-- <input type="text" class="cities typeahead" id="citiesInput" /> -->
+
                         <p class="help-block"><?php echo $errors->first('city') ?></p>
                     </div>
                     </div>
@@ -82,7 +85,7 @@
                         <div class="form-group <?php echo ($errors->has('location')) ? "has-error" : ""; ?>">
                         {{ Form::label("location", "Location", array("class" => "control-label")) }}
                         {{ Form::text("location", "", array(
-                            "class" => "form-control",
+                            "class" => "form-control typeahead",
                             "id" => "fixrequest-location",
                             "placeholder" => "Enter location"
                         ))}}

@@ -162,7 +162,9 @@ class FixRequestController extends BaseController {
                     'title' => Input::get('title'),
                     'state' => 'active',
                     'daysForOffer' => Input::get('daysForOffer'),
-                    'value' => Input::get('value')
+                    'value' => Input::get('value'),
+                    'city' => Input::get('city'),
+                    'concelho' => Input::get('location')
                 ));
 
                 $category = Category::find(Input::get('category'));

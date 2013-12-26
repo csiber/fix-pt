@@ -85,8 +85,11 @@ Route::controller('notifiables', 'NotifiableController');
 Route::controller('posts', 'PostController');
 Route::controller('jobs', 'JobController');
 Route::controller('promotionpages', 'PromotionPageController');
+Route::controller('districts', 'DistrictController');
+Route::controller('concelhos', 'ConcelhoController');
 Route::post('search/getconcelhos', 'SearchController@getConcelhosList');
 Route::controller('search', 'SearchController');
+
 
 // Home page
 Route::get('/', function() {

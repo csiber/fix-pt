@@ -14,15 +14,13 @@ $(document).ready(function(){
             });
         });
     });
-
-
     
     $(".dropdown select").change(function(){
         var user_id =this.getAttribute("name");
         var ut = this.options[this.selectedIndex].value;
         $.ajax({
             type: "POST",
-            url: '../../../users/change_permission',
+            url: BASE_URL+'users/change_permission',
             data: {
                 id: user_id,
                 user_type: ut
@@ -38,7 +36,7 @@ $(document).ready(function(){
         con.append('<option value="">Escolha um concelho</option>');
         return $.ajax({
             type: "POST",
-            url: "search/getconcelhos",
+            url: BASE_URL+"search/getconcelhos",
             data: {did: $("#distritoshome").val()},
             success: function(data) {
                 for (var i=0;i<data.length;i++) {
@@ -73,6 +71,27 @@ $(document).ready(function(){
     });
 
     // MIGUEL -->
+
+    $('#fixrequest-city').typeahead({
+        name: 'districts',
+        remote: BASE_URL+'districts/query/%QUERY',
+        limit: 5
+    });
+
+    $('#fixrequest-location').typeahead({
+        name: 'concelhos',
+        remote: {
+            url: BASE_URL+'concelhos/query/%QUERY',
+            replace: function (url, uriEncodedQuery) {
+                var q = 'concelhos/query/' + uriEncodedQuery;
+                if ($('#fixrequest-city').val()) {
+                    q += "/" + encodeURIComponent($('#fixrequest-city').val());
+                }
+                return BASE_URL + q;
+            }
+        },
+        limit: 5
+    });
 
     $('.show_comments').click(function() {
         $('.comment').each(function(){
