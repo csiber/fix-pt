@@ -82,7 +82,7 @@ class FixRequest extends Eloquent {
 
     public static function ending_soon_requests()
     {
-        return FixRequest::endingSoon()->with('tags')->has('jobs', "=", 0)->orderBy('created_at', 'DESC');
+        return FixRequest::with('tags')->has('jobs', "=", 0)->orderBy('created_at', 'DESC');
     }
     
     public static function ending_soon_requests_search($params,$local)
