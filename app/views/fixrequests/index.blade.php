@@ -17,7 +17,8 @@
             </ul>
             <div class="fixrequests">
                 @if(count($fixrequests) === 0)
-                <p>We have no fix requests to show you</p>
+                <hr>
+                <p class="lead">We don't have fix requests that fit that description</p>
                 @else
                     @foreach($fixrequests as $fixrequest)
                     <div class="panel panel-default" data-fixrequest-id="{{$fixrequest->id}}">

@@ -66,8 +66,8 @@ class FixRequestController extends BaseController {
         $fixrequest['post']->text = nl2br((stripslashes($fixrequest['post']->text)));
         $fixrequest['end_date_exact'] = date("Y-m-d H:i:s", strtotime($fixrequest->created_at." + $fixrequest->daysForOffer days"));
         $fixrequest['end_date'] = UtilFunctions::getEndDate($fixrequest['created_at'], $fixrequest['daysForOffer']);
-        $fixrequest['gravatar'] = "http://www.gravatar.com/avatar/".md5(strtolower(trim($fixrequest->post->user->email)))."?s=48&r=pg&d=identicon";
-        
+        $fixrequest['gravatar'] = UtilFunctions::gravatar($fixrequest->post->user->email);
+
         $comments = Comment::getCommentsOfFixRequest($id);
 
         foreach($comments as &$comment) {

@@ -93,6 +93,27 @@ $(document).ready(function(){
         limit: 5
     });
 
+    $('#promotionpage-city').typeahead({
+        name: 'districts',
+        remote: BASE_URL+'districts/query/%QUERY',
+        limit: 5
+    });
+
+    $('#promotionpage-location').typeahead({
+        name: 'concelhos',
+        remote: {
+            url: BASE_URL+'concelhos/query/%QUERY',
+            replace: function (url, uriEncodedQuery) {
+                var q = 'concelhos/query/' + uriEncodedQuery;
+                if ($('#promotionpage-city').val()) {
+                    q += "/" + encodeURIComponent($('#promotionpage-city').val());
+                }
+                return BASE_URL + q;
+            }
+        },
+        limit: 5
+    });
+
     $('.show_comments').click(function() {
         $('.comment').each(function(){
             $(this).removeClass('hide');
@@ -230,7 +251,7 @@ $(document).ready(function(){
                     <div class="media-body"> \
                         <h5 class="media-heading"><a href="#">${username}</a><span> - ${created_at}</span></h5> \
                         ${text} \
-                        <h5>Value: ${value}</h5> \
+                        <h5>Value: ${value}€</h5> \
             </div></li></ul>');
         $.template( "fixOfferTemplate", markup);
 

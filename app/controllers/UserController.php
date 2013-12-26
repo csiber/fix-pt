@@ -14,7 +14,7 @@ class UserController extends BaseController {
     );
     public $loginRules = array(
         'username' => 'required',
-        'password' => 'required'
+        'password' => 'required',
     );
     public $resetPassRules = array(
         'password' => 'required|between:4,11',

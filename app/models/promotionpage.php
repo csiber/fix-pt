@@ -2,7 +2,7 @@
 
 class PromotionPage extends Eloquent {
     
-    protected $fillable = array('title');
+    protected $fillable = array('title', 'city', 'concelho');
 
     public function post()
     {

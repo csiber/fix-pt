@@ -12,7 +12,7 @@ class PromotionPageController extends BaseController {
         $requests_per_page = 5;
 
         if ($sort == "recent") {
-            $promotionpages = PromotionPage::orderBy('created_at', 'DESC')->paginate(5);
+            $promotionpages = PromotionPage::orderBy('created_at', 'DESC')->paginate($requests_per_page);
         } else {
             return Redirect::to('promotionpages/index/recent');
         }
@@ -40,14 +40,18 @@ class PromotionPageController extends BaseController {
     public function getShow($id)
     {
         $promotionpage = PromotionPage::getPromotionPage($id);
-        $user2 = $promotionpage->post->user->id;
         $isFavorite = false;
+
         if(Auth::check()){
-            $isFavorite = Favorite::checkFavorite($user2);
+            $isFavorite = Favorite::checkFavorite($promotionpage->post->user->id);
         }
+
         return View::make('promotionpages.show',
-            array('promotionpage' => $promotionpage,
-            'favorite' => $isFavorite)
+            array(
+                'promotionpage' => $promotionpage,
+                'gravatar' => UtilFunctions::gravatar($promotionpage->post->user->email),
+                'favorite' => $isFavorite
+            )
         );
     }
 
@@ -110,7 +114,7 @@ class PromotionPageController extends BaseController {
         $rules = array(
             'title' => 'required|min:4',
             'category' => 'required|in:1,2,3,4,5',
-            'body' => 'required|min:20',
+            'body' => 'required|min:1',
             'city' => 'required',
             'location' => 'required'
         );
@@ -130,7 +134,9 @@ class PromotionPageController extends BaseController {
                 $post = $notifiable->post()->save($post);
 
                 $promotionpage = new PromotionPage(array(
-                    'title' => Input::get('title')
+                    'title' => Input::get('title'),
+                    'city' => Input::get('city'),
+                    'concelho' => Input::get('location')
                 ));
 
                 $category = Category::find(Input::get('category'));
