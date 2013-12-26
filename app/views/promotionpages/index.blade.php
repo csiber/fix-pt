@@ -13,7 +13,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <h4><a href="{{ URL::to('promotionpages/show/'.$promotionpage->id) }}">{{{$promotionpage->title}}}</a></h4>
-                        <p>{{{$promotionpage->body}}}</p>
+                        <p>{{{$promotionpage->post->text}}}</p>
                         <div class="tags">
                             <span class="tag pull-right label category-label">{{$promotionpage->category['name']}}</span>
                         </div>
