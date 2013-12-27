@@ -125,11 +125,8 @@ class FixRequestController extends BaseController {
 	
     public function getSearch($sort=null, $filter=null)
     {
-        $terms = Session::get('terms');
-        $local = Session::get('local');
-
-        Session::forget('terms');
-        Session::forget('local');
+        $terms = Session::get('fixrequest_terms');
+        $local = Session::get('fixrequest_local');
 
 		$requests_per_page = 6;
         if ($sort == "recent") {
@@ -178,8 +175,8 @@ class FixRequestController extends BaseController {
     
     public function postSearch()
     {
-        Session::put('terms', Input::get('text'));
-        Session::put('local', Input::get('district'));
+        Session::put('fixrequest_terms', Input::get('text'));
+        Session::put('fixrequest_local', Input::get('district'));
         return $this->getSearch(Session::get('sort'));
     }
 

@@ -14,22 +14,34 @@ class PromotionPage extends Eloquent {
         return $this->belongsTo('Category');
     }
 	
-	public static function getPromotionPages($params,$local)
+	public static function getPromotionPages($params, $local, $category=null)
     {
 		if(is_null($params) || $params == "") {
 			if(is_null($local) || $local == "") {
+                if($category != null) {
+                    return PromotionPage::whereRaw('category_id = ?', array($category))->orderBy('created_at', 'DESC');
+                }
         		return PromotionPage::orderBy('created_at', 'DESC');
 			}
 			else {
-        		return PromotionPage::where("location_id",$local)->orderBy('created_at', 'DESC');
+                if($category != null) {
+                    return PromotionPage::whereRaw('category_id = ?', array($category))->whereRaw("city", array(ucfirst(strtolower($local))))->orderBy('created_at', 'DESC');
+                }
+        		return PromotionPage::whereRaw("city = ?", array(ucfirst(strtolower($local))))->orderBy('created_at', 'DESC');
 			}
 		}
 		else {
         	if(is_null($local) || $local == "") {
+                if($category != null) {
+                    return PromotionPage::whereRaw('category_id = ?', array($category))->where("title","like","%".$params."%")->orderBy('created_at', 'DESC');
+                }
 				return PromotionPage::where("title","like","%".$params."%")->orderBy('created_at', 'DESC');
 			}
 			else {
-				return PromotionPage::where("title","like","%".$params."%","and","location_id","=",$local)->orderBy('created_at', 'DESC');				
+                if($category != null) {
+                    return PromotionPage::whereRaw('category_id = ?', array($category))->where("title","like","%".$params."%")->whereRaw("city", array(ucfirst(strtolower($local))))->orderBy('created_at', 'DESC');
+                }
+				return PromotionPage::where("title","like","%".$params."%")->whereRaw("city = ?", array(ucfirst(strtolower($local))))->orderBy('created_at', 'DESC');				
 			}
 		}
 	}

@@ -101,18 +101,18 @@ class FixRequest extends Eloquent {
     {
 		if(is_null($params) || $params == "") {
 			if(is_null($local) || $local == "") {
-        		return FixRequest::ending_soon_requests();
+        		return FixRequest::ending_soon_requests($category);
 			}
 			else {
-        		return FixRequest::ending_soon_requests()->where("location_id",$local);
+        		return FixRequest::ending_soon_requests($category)->whereRaw("city = ?", array(ucfirst(strtolower($local))));
 			}
 		}
 		else {
         	if(is_null($local) || $local == "") {
-				return FixRequest::ending_soon_requests()->where("title","like","%".$params."%");
+				return FixRequest::ending_soon_requests($category)->where("title","like","%".$params."%");
 			}
 			else {
-				return FixRequest::ending_soon_requests()->where("title","like","%".$params."%","and","location_id","=",$local);				
+				return FixRequest::ending_soon_requests($category)->where("title","like","%".$params."%")->whereRaw("city = ?", array(ucfirst(strtolower($local))));				
 			}
 		}
     }
@@ -129,18 +129,18 @@ class FixRequest extends Eloquent {
     {
 		if(is_null($params) || $params == "") {
 			if(is_null($local) || $local == "") {
-        		return FixRequest::in_progress_requests();
+        		return FixRequest::in_progress_requests($category);
 			}
 			else {
-        		return FixRequest::in_progress_requests()->where("location_id",$local);
+        		return FixRequest::in_progress_requests($category)->whereRaw("city = ?", array(ucfirst(strtolower($local))));
 			}
 		}
 		else {
         	if(is_null($local) || $local == "") {
-				return FixRequest::in_progress_requests()->where("title","like","%".$params."%");
+				return FixRequest::in_progress_requests($category)->where("title","like","%".$params."%");
 			}
 			else {
-				return FixRequest::in_progress_requests()->where("title","like","%".$params."%","and","location_id","=",$local);				
+				return FixRequest::in_progress_requests($category)->where("title","like","%".$params."%")->whereRaw("city = ?", array(ucfirst(strtolower($local))));				
 			}
 		}
     }

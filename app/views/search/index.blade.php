@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
         <ol class="breadcrumb">
             <li><a href="#">Fix.pt</a></li>
             <li class="active">Global Search</li>
@@ -26,7 +26,8 @@
             </div>
             <div class="searchresults">
                 @if(count($searchresults) === 0)
-                <p>Your search returned no results.</p>
+                <hr>
+                <p class="lead">Your search returned no results.</p>
                 @else
                 @foreach($searchresults as $searchresult)
                 <div class="panel panel-default" data-searchresults-id="{{$searchresult->id}}">
@@ -50,24 +51,6 @@
                 @endforeach
                 {{$pags->links()}}
                 @endif
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Favorite Tags</h3>
-            </div>
-            <div class="panel-body">
-                This will show the favorite tags of the user
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Popular Tags</h3>
-            </div>
-            <div class="panel-body">
-                This will show the most used tags
             </div>
         </div>
     </div>

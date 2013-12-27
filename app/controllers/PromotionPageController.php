@@ -7,15 +7,15 @@ class PromotionPageController extends BaseController {
     *
     * @return Response
     */
-    public function getIndex($sort=null)
+    public function getIndex($sort=null, $filter=null)
     {   
         $terms = Session::get('terms');
         $local = Session::get('local');
+
         $requests_per_page = 5;
 
         if ($sort == "recent") {
-            $promotionpages = PromotionPage::getPromotionPages($terms,$local)->paginate($requests_per_page);
-			echo "passou";
+            $promotionpages = PromotionPage::getPromotionPages($terms, $local, $filter)->paginate($requests_per_page);
         } else {
             return Redirect::to('promotionpages/index/recent');
         }
@@ -32,20 +32,20 @@ class PromotionPageController extends BaseController {
             $promotionpage['category'] = $promotionpage->category;
             $promotionpage['category_class'] = UtilFunctions::getCategoryIdWord($promotionpage->category['id']);
         }
-        $concelhos = array();
-        $concs = Search::get_concelhos_por_distritos();
-        $concelhos[""] = "Escolha um concelho";
-        foreach ($concs as $conc)
-        {
-           $concelhos[$conc->id] = $conc->distrito . " - " . $conc->name;
-        }
-        return View::make('promotionpages.index', array('promotionpages' => $promotionpages, "sort" => $sort, "concs" => $concelhos,"text" => $terms,"selconcelho" => $local));
+        
+        return View::make('promotionpages.index', array(
+            'promotionpages' => $promotionpages,
+            "sort" => $sort,
+            "text" => $terms,
+            "filter" => $filter,
+            "district" => $local
+        ));
     }
     
     public function postIndex()
     {
         Session::put('terms', Input::get('text'));
-        Session::put('local', Input::get('concelhos'));
+        Session::put('local', Input::get('district'));
         return $this->getIndex(null);
     }
 
@@ -58,6 +58,10 @@ class PromotionPageController extends BaseController {
     {
         $promotionpage = PromotionPage::getPromotionPage($id);
         $isFavorite = false;
+
+        if(! $promotionpage) {
+            App::abort(404, 'Article not found');
+        }
 
         if(Auth::check()){
             $isFavorite = Favorite::checkFavorite($promotionpage->post->user->id);
