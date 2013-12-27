@@ -54,7 +54,11 @@
                 <h3 class="panel-title lead">Popular Fixers</h3>
             </div>
             <div class="panel-body">
-                Show 3 or less fixers that have the most jobs
+                @foreach($best_fixers as $fixer)
+                <div>
+                    <span class="tag label brand-bc">{{{$fixer->name}}} - {{{$fixer->rating}}}</span>
+                </div>
+                @endforeach
             </div>
         </div>
     </div>
