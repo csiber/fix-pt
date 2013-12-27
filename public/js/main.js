@@ -94,7 +94,13 @@ $(document).ready(function(){
 
     $("#fixrequest-index-radios input[type='radio'").click(function(event){
         var sort = $(".fixrequests").attr('data-sort');
-        window.location = BASE_URL+"fixrequests/index/"+sort+"/"+$(this).val();
+
+        var pos = window.location.toString().search('fixrequests/search');
+        if(pos != -1) {
+            window.location = BASE_URL+"fixrequests/search/"+sort+"/"+$(this).val();
+        } else {
+            window.location = BASE_URL+"fixrequests/index/"+sort+"/"+$(this).val();
+        }
     });
 
     $('#fixrequest-city').typeahead({

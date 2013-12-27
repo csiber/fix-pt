@@ -177,8 +177,8 @@ class PromotionPageController extends BaseController {
 
                 $promotionpage = new PromotionPage(array(
                     'title' => Input::get('title'),
-                    'city' => Input::get('city'),
-                    'concelho' => Input::get('location')
+                    'city' => ucfirst(strtolower(Input::get('city'))),
+                    'concelho' => ucfirst(strtolower(Input::get('location')))
                 ));
 
                 $category = Category::find(Input::get('category'));
