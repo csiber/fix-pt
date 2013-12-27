@@ -103,6 +103,12 @@ $(document).ready(function(){
         }
     });
 
+    
+    $("#promotionpage-index-radios input[type='radio'").click(function(event){
+        var sort = $(".promotionpages").attr('data-sort');
+        window.location = BASE_URL+"promotionpages/index/"+sort+"/"+$(this).val();
+    });
+
     $('#fixrequest-city').typeahead({
         name: 'districts',
         remote: BASE_URL+'districts/query/%QUERY',

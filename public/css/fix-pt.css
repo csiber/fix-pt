@@ -344,7 +344,8 @@ fieldset .form.group:last-child {
   background-color: #e74c3c;
 }
 
-.fixrequests {
+.fixrequests,
+.promotionpages {
   margin-top: 20px;
 }
 
@@ -429,7 +430,7 @@ fieldset .form.group:last-child {
   margin-top: 0;
 }
 
-.searchresults .panel .panel-footer {
+.searchresults .searchresult .panel-footer {
   padding: 0px;
   background-color: #fff;
 }
@@ -450,7 +451,6 @@ fieldset .form.group:last-child {
 }
 
 .searchresults .panel .panel-body {
-  padding-bottom: 0;
   position: relative;
 }
 
@@ -470,6 +470,10 @@ fieldset .form.group:last-child {
 
 .searchresults .panel .tags {
   margin-bottom: 10px;
+}
+
+.searchresults .bottom-h4 {
+  margin-top: 50px;
 }
 
 .panel-body .category {

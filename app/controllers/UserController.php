@@ -151,7 +151,8 @@ class UserController extends BaseController {
 		$lastrates = User::getLast3Ratings(Auth::user()->id);
         $user = User::find(Auth::user()->id);
 
-/*
+        $favs = User::getFavorites();
+/*      
         $notifications=Notification::getNotificationsOfUser($user['id']);
        
         UtilFunctions::dump($notifications);
@@ -160,6 +161,7 @@ class UserController extends BaseController {
 		return View::make('users.profile', 
             array('search' => $search,
 				'lastrates' => $lastrates,
+                'favs' => $favs,
                 'sort' => $sort,
                 'rsort' => $rsort,
                 'user' => $user));
@@ -168,8 +170,20 @@ class UserController extends BaseController {
     /**
      * Show the profile for the current user.
      */
-    public function getDashboard() {
-        return View::make('users.dashboard');
+    public function getDashboard($sort=null) {
+        if($sort == "fixrequests") {
+            $search = null;
+        } else if($sort == "comments") {
+            $search = null;
+        } else if($sort == "favorites"){
+            $search = User::getFavorites();
+        } else {
+            return Redirect::to('users/dashboard/fixrequests');
+        }
+        return View::make('users.dashboard', array(
+            "sort" => $sort,
+            "search" => $search
+        ));
     }
 
     /**
@@ -426,10 +440,12 @@ class UserController extends BaseController {
 
     public function downgrade($id) {
         User::where('id', $id)->update(array('user_type' => "Standard"));
+        return Redirect::to('users/profile');
     }
 
     public function upgrade($id) {
         User::where('id', $id)->update(array('user_type' => "Premium"));
+        return Redirect::to('users/profile');
     }
 
     public function removeNotifications(){

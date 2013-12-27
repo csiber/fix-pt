@@ -16,13 +16,13 @@
             "autocomplete" => "off",
             "id"=> "search-form"
             )) }}
-                <div class="form-group col-lg-5">
+                <div class="form-group col-lg-5 col-sm-4 col-xs-4">
                     {{ Form::text("text", $text, array("placeholder" => "Search", "class" => "form-control", "id" => "text", "name" => "text")) }}
                 </div>
-                <div class="form-group col-lg-4">
+                <div class="form-group col-lg-4 col-sm-4 col-xs-4">
                     <input type="text" name="district" id="district-home-search" class="form-control typeahead" placeholder="where?" value="{{$district}}">
                 </div>
-                <div class="col-lg-3">
+                <div class="form-group col-lg-3 col-sm-4 col-xs-4">
                     <button type="submit" class="btn btn-danger">Search</button>
                 </div>
             {{ Form::close(); }}

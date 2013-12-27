@@ -13,6 +13,7 @@ class SearchController extends BaseController {
         $local = Session::get('local');
         $posts_per_page = 5;
         $cont = 1;
+
         if ($sort == "recent") {
             $resul = Search::recent_requests($terms,$local);
             $res = Paginator::make($resul, count($resul), $posts_per_page);
@@ -30,18 +31,23 @@ class SearchController extends BaseController {
             $pag = 1;
         $start = ($pag - 1) * $posts_per_page;
         $end = $pag * $posts_per_page;
+
         $searchresults = array();
+
         foreach($resul as &$re) {
             if(($cont > $start) && ($cont <= $end)) {
                 $post = Post::find($re->post_id);
                 $user = User::find($post['user_id']);
                 $sr = new stdClass;
 				$tipo = Search::getType($re->id,$re->post_id);
-				if($tipo[0]->rowcount > 0)
-					$sr->tipo = "fixrequests";
-				else
-					$sr->tipo = "promotionpages";
+				if($tipo[0]->rowcount > 0) {
+                    $sr->tipo = "fixrequests";
+                } else {
+                    $sr->tipo = "promotionpages";
+                }
 				$sr->id = $re->id;
+                $sr->city = $re->city;
+                $sr->concelho = $re->concelho;
                 $sr->title = $re->title;
                 $sr->text = UtilFunctions::truncateString($post['text'], 220);
                 $sr->user_id = $post['user_id'];
@@ -54,20 +60,20 @@ class SearchController extends BaseController {
             }
             $cont = $cont + 1;
         }
-        $concelhos = array();
-        $concs = Search::get_concelhos_por_distritos();
-        $concelhos[""] = "Escolha um concelho";
-        foreach ($concs as $conc)
-        {
-           $concelhos[$conc->id] = $conc->distrito . " - " . $conc->name;
-        }
-        return View::make('search.index', array('searchresults' => $searchresults, 'pags' => $res, "sort" => $sort, "concs" => $concelhos, "text" => $terms, "selconcelho" => $local));
+        
+        return View::make('search.index', array(
+            'searchresults' => $searchresults,
+            'pags' => $res,
+            "sort" => $sort,
+            "district" => $local,
+            "text" => $terms,
+        ));
     }
     
     public function postIndex()
     {
         Session::put('terms', Input::get('text'));
-        Session::put('local', Input::get('concelhos'));
+        Session::put('local', Input::get('district'));
         return $this->getIndex(Session::get('sort'));
     }
     
