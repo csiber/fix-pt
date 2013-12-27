@@ -7,8 +7,8 @@ class UtilFunctions {
         return $date['mday']." ".substr($date['month'], 0, 3)." ".$date['year'];
     }
 
-    public static function gravatar($email) {
-        $result = "http://www.gravatar.com/avatar/".md5(strtolower(trim($email)))."?s=48&r=pg&d=identicon";
+    public static function gravatar($email, $size=48) {
+        $result = "http://www.gravatar.com/avatar/".md5(strtolower(trim($email)))."?s=".$size."&r=pg&d=identicon";
         return $result;
     }
 

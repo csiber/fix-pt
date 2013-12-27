@@ -65,8 +65,12 @@ a:hover, a:focus {
   padding-bottom: 70px;
   background-color: #444;
   color: #fff;
+  line-height: inherit;
   /*background-image: url(../img/2.png);*/
+}
 
+#wrap > .jumbotron .tt-suggestion {
+  color: #666;
 }
 
 #wrap > .container.small-top-padding,
@@ -77,8 +81,14 @@ a:hover, a:focus {
 
 .home-search {
   margin-top: 30px;
+  padding: 15px 15px 15px;
   border-radius: 8px;
   background-color: #fff;
+  width: 75%;
+}
+
+.home-search .btn {
+  width: 100%;
 }
 
 .brand-color {
@@ -766,3 +776,6 @@ fieldset .form.group:last-child {
     line-height: 1.33;
 }
 
+.relatedRequest .media-heading {
+  font-size: 15px;
+}

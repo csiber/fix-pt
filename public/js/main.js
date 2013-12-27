@@ -86,6 +86,12 @@ $(document).ready(function(){
 
     // MIGUEL -->
 
+    $('#district-home-search').typeahead({
+        name: 'districts',
+        remote: BASE_URL+'districts/query/%QUERY',
+        limit: 5
+    });
+
     $('#fixrequest-city').typeahead({
         name: 'districts',
         remote: BASE_URL+'districts/query/%QUERY',

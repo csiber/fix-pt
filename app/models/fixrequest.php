@@ -35,7 +35,12 @@ class FixRequest extends Eloquent {
         return FixRequest::with(array('post', 'tags', 'category'))->find($id);
     }
 
-
+    public static function getRelatedRequests($id)
+    {
+        $fixrequest = FixRequest::getFixRequest($id);
+        $fixrequests = FixRequest::whereRaw('category_id = ?', array($fixrequest->category_id));
+        return $fixrequests->take(4)->get();
+    }
 
     // Definition of scopes
 

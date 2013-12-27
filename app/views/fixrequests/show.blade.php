@@ -20,7 +20,7 @@
                     @endforeach
                 </ul>
             @endif
-
+            
             <div class="fixrequest-author text-right">requested by <a href="{{ URL::to('users/show/'.$fixrequest->post->user_id) }}">{{{$fixrequest->post->user->username}}}</a></div>
             @if(Auth::user() && Auth::user()->user_type == 'Moderator')
                 <button type="button" onclick="window.location.href='../../fixrequests/blockfixrequest/{{$fixrequest->id}}'" class="btn btn-success">Block post</button>
@@ -273,6 +273,16 @@
                 </div>
             </div>
         </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Tags
+            </div>
+            <div class="panel-body">
+                @foreach($fixrequest->tags as $tag)
+                    <span class="tag label brand-bc">{{{$tag['name']}}}</span>
+                @endforeach
+            </div>
+        </div>
         @if(!$requesterJob)
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -288,7 +298,19 @@
                 <h3 class="panel-title lead">Related Fix Requests</h3>
             </div>
             <div class="panel-body">
-                This will show fix requests similar to this one
+                @foreach($related as $r)
+                @if($r->id != $fixrequest->id)
+                <div class="media relatedRequest">
+                    <a class="pull-left" href="{{ URL::to('users/view/'.$r->post->user->id)}}">
+                        <img class="media-object" src="{{$r['gravatar']}}" alt="{{$r->post->user->username}}">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{$r->post->user->username}}</h4>
+                        <a href="{{URL::to('fixrequests/show/'.$r->id)}}">{{{$r->title}}}</a>
+                    </div>
+                </div>
+                @endif
+                @endforeach
             </div>
         </div>
     </div>

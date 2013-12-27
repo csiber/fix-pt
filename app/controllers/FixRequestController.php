@@ -31,7 +31,7 @@ class FixRequestController extends BaseController {
             $post = Post::find($fixrequest['post_id']);
             $user = User::find($post['user_id']);
             
-            $fixrequest['text'] = UtilFunctions::truncateString($post['text'], 220);
+            $fixrequest['text'] = UtilFunctions::truncateString(trim(((stripslashes($fixrequest['post']->text)))), 220);
             $fixrequest['user_id'] = $post['user_id'];
             $fixrequest['username'] = $user['username'];
             $fixrequest['user_image'] = $user['user_image'];
@@ -99,6 +99,11 @@ class FixRequestController extends BaseController {
             }
         }
 
+        $related = Fixrequest::getRelatedRequests($fixrequest->id);
+        foreach($related as &$r) {
+            $r['gravatar'] = UtilFunctions::gravatar($r->post->user->email, 24);
+        }
+
         return View::make('fixrequests/show', array(
             'fixrequest' => $fixrequest,
             'comments' => $comments,
@@ -108,6 +113,7 @@ class FixRequestController extends BaseController {
             'fixerJob' => $fixerJob,
             'requesterJob' => $requesterJob,
             'hasMadeFixOffer' => $hasMadeFixOffer,
+            'related' => $related,
         ));
     }
 

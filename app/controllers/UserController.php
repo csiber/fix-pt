@@ -40,8 +40,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function getView($id) {
-        if ($id == Auth::user()->id) {
-
+        if (Auth::check() && $id == Auth::user()->id) {
             return Redirect::to("users/profile");
         }
         $user = User::getUser($id);
