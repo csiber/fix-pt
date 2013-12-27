@@ -20,26 +20,6 @@
                  {{{$promotionpage->title}}}
             </h4>
             
-            <p> {{{$promotionpage['post']['text']}}} </p>
-            
-            @if(count($photos) > 0)
-                <h5>Photos (click to enlarge)</h5>
-                <ul class="photo-list">
-                    @foreach($photos as $photo)
-                    <li><a class="fancybox" rel="gallery1" href="{{URL::to(''.$photo->path)}}"><img src="{{URL::to(''.$photo->path)}}" alt="" /></a></li>
-                    @endforeach
-                </ul>
-            @endif
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="well well-sm sidebar-steps">
-            <h3 class="text-center">How you can make a good promotion page</h1>
-            <ol class="sidebar-ol">
-                <li>Use a clear title and a detailed description to describe what you can do</li>
-                <li>Chose the right category</li>
-                <li>Upload some photos to show other works you've done</li>
-            </ol>
             <p>{{$promotionpage['post']->text}}</p>
         </div>
     </div>

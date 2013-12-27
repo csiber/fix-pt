@@ -91,7 +91,8 @@ class PromotionPageController extends BaseController {
 
     public function getEdit() {
             $promotionpage = PromotionPage::getPromotionPageNoId();
-            return View::make('promotionpages.edit', array('promotionpage'=>$promotionpage[0]));
+            return View::make('promotionpages.edit', 
+                array( 'promotionpage'=>$promotionpage[0]));
     }
 
     public $editRules = array(
@@ -117,6 +118,7 @@ class PromotionPageController extends BaseController {
             if (Input::get('title') != null && Input::get('body') != null) {
                 $promotionpage->title = Input::get('title');
                 $promotionpage->post->text = Input::get('body');
+                $promotionpage->category_id = Input::get('category');
             }
 
             $promotionpage->save();
@@ -134,7 +136,7 @@ class PromotionPageController extends BaseController {
                     $validator = Validator::make($input, $rules);
 
                     if($validator->passes()) {
-                        $destinationPath = 'uploads/'.Auth::user()->id.'/'.$promotionpage->post->id;
+                        $destinationPath = 'uploads/promotionpages/'.Auth::user()->id.'/'.$promotionpage->post->id;
                         $filename = str_random(8).'.'.$up_photo->getClientOriginalExtension();
                         $up_photo->move($destinationPath, $filename);
 
@@ -195,7 +197,7 @@ class PromotionPageController extends BaseController {
                         $validator = Validator::make($input, $rules);
 
                         if($validator->passes()) {
-                            $destinationPath = 'uploads/'.Auth::user()->id.'/'.$post->id;
+                            $destinationPath = 'uploads/promotionpages/'.Auth::user()->id.'/'.$post->id;
                             $filename = str_random(8).'.'.$up_photo->getClientOriginalExtension();
                             $up_photo->move($destinationPath, $filename);
 
@@ -206,6 +208,9 @@ class PromotionPageController extends BaseController {
                         }  
                     }
                 }
+
+                $promotionPage = PromotionPage::isTherePromotionPage();
+                Session::put('haspromotionpage', $promotionPage);
 
                 return Redirect::to("promotionpages/show/{$promotionpage->id}"); 
             });
