@@ -175,9 +175,28 @@ class UserController extends BaseController {
      */
     public function getDashboard($sort=null) {
         $favorites = null;
+        $fixrequests = null;
 
         if($sort == "fixrequests") {
-            $search = null;
+            $fixrequests = FixRequest::requests_from_user()->paginate(5);
+
+            foreach($fixrequests as &$fixrequest) {
+                $post = Post::find($fixrequest['post_id']);
+                $user = User::find($post['user_id']);
+                
+                $fixrequest['text'] = UtilFunctions::truncateString(trim(((stripslashes($post->text)))), 220);
+                $fixrequest['user_id'] = $post['user_id'];
+                $fixrequest['username'] = $user['username'];
+                $fixrequest['user_image'] = $user['user_image'];
+                $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
+                $fixrequest['category'] = $fixrequest->category;
+                $fixrequest['category_class'] = UtilFunctions::getCategoryIdWord($fixrequest->category['id']);
+
+                $fixrequest['end_date_exact'] = date("Y-m-d H:i:s", strtotime($fixrequest->created_at." + $fixrequest->daysForOffer days"));
+                $fixrequest['end_date'] = UtilFunctions::getEndDate($fixrequest['created_at'], $fixrequest['daysForOffer']);
+                $fixrequest['tags'] = Tag::getTagsOfRequest($fixrequest['id']);
+            }
+
         } else if($sort == "comments") {
             $search = null;
         } else if($sort == "favorites"){
@@ -191,7 +210,8 @@ class UserController extends BaseController {
         }
         return View::make('users.dashboard', array(
             "sort" => $sort,
-            "favorites" => $favorites
+            "favorites" => $favorites,
+            "fixrequests" => $fixrequests,
         ));
     }
 

@@ -25,6 +25,10 @@ class Tag extends Eloquent {
                     ->get();
     }
 
+    public static function getTagsOfRequest($id)
+    {
+        return Tag::join('fix_requests_tags', 'tags.id', "=", "fix_requests_tags.tag_id")->whereRaw('fix_requests_tags.fix_request_id = ?', array($id));
+    }
 
     // definition of relations
 

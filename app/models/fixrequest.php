@@ -12,6 +12,11 @@ class FixRequest extends Eloquent {
         }
         return FixRequest::with('tags')->has('jobs', "=", 0)->orderBy('created_at', 'DESC');
     }
+
+    public static function requests_from_user()
+    {
+        return Post::join('fix_requests','posts.id','=','fix_requests.post_id')->whereRaw('posts.user_id = ?', array(Auth::user()->id))->orderBy('posts.created_at', 'DESC');
+    }
     
     public static function recent_requests_search($params, $local, $category=null)
     {
