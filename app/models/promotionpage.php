@@ -41,7 +41,11 @@ class PromotionPage extends Eloquent {
 	
 	public static function popular()
 	{
-		return PromotionPage::orderBy('created_at', 'DESC');
+		return PromotionPage::join('posts', 'promotion_pages.post_id', '=', 'posts.id')
+		->join('jobs', 'posts.user_id', '=', 'jobs.fixer_id')
+		->select(DB::raw('*, count(*) as jobammount'))
+		->groupBy('posts.user_id')
+		->orderBy('jobammount','desc');
 	}
 	
 	public static function popular_promotion_pages($params,$local)
