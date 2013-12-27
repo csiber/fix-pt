@@ -1,4 +1,4 @@
-var BASE_URL = 'http://localhost:8888/ldsot3g3/public/';
+var BASE_URL = 'http://127.0.0.1/ldsot3g3/public/';
 
 // key events
 var ENTER_KEY = 13;
@@ -6,6 +6,7 @@ var COMMA_KEY = 188;
 
 $(document).ready(function(){
 
+    BASE_URL = window.location.toString().substring(0,window.location.toString().search("public"))+'public/';
     $('#buttonLogin').click(function(){
         $('#signInModal').ready(function(){
             $('#buttonForgotPass').click(function(){
@@ -15,14 +16,25 @@ $(document).ready(function(){
         });
     });
 
+    $('#removeNotifications').click(function(){
+        $('.notifications-list').addClass('hide');
+        $('.zeronot').removeClass('hide');
+        var urlNotifications='public/users/removenotifications';
+        urlNotifications=window.location.toString().substring(0,window.location.toString().search("public"))+
+                        urlNotifications;
+        $.ajax({
+            type: "POST",
+            url: urlNotifications,
 
+        });
+    });
     
     $(".dropdown select").change(function(){
         var user_id =this.getAttribute("name");
         var ut = this.options[this.selectedIndex].value;
         $.ajax({
             type: "POST",
-            url: '../../../users/change_permission',
+            url: BASE_URL+'users/change_permission',
             data: {
                 id: user_id,
                 user_type: ut
@@ -38,7 +50,7 @@ $(document).ready(function(){
         con.append('<option value="">Escolha um concelho</option>');
         return $.ajax({
             type: "POST",
-            url: "search/getconcelhos",
+            url: BASE_URL+"search/getconcelhos",
             data: {did: $("#distritoshome").val()},
             success: function(data) {
                 for (var i=0;i<data.length;i++) {
@@ -73,6 +85,48 @@ $(document).ready(function(){
     });
 
     // MIGUEL -->
+
+    $('#fixrequest-city').typeahead({
+        name: 'districts',
+        remote: BASE_URL+'districts/query/%QUERY',
+        limit: 5
+    });
+
+    $('#fixrequest-location').typeahead({
+        name: 'concelhos',
+        remote: {
+            url: BASE_URL+'concelhos/query/%QUERY',
+            replace: function (url, uriEncodedQuery) {
+                var q = 'concelhos/query/' + uriEncodedQuery;
+                if ($('#fixrequest-city').val()) {
+                    q += "/" + encodeURIComponent($('#fixrequest-city').val());
+                }
+                return BASE_URL + q;
+            }
+        },
+        limit: 5
+    });
+
+    $('#promotionpage-city').typeahead({
+        name: 'districts',
+        remote: BASE_URL+'districts/query/%QUERY',
+        limit: 5
+    });
+
+    $('#promotionpage-location').typeahead({
+        name: 'concelhos',
+        remote: {
+            url: BASE_URL+'concelhos/query/%QUERY',
+            replace: function (url, uriEncodedQuery) {
+                var q = 'concelhos/query/' + uriEncodedQuery;
+                if ($('#promotionpage-city').val()) {
+                    q += "/" + encodeURIComponent($('#promotionpage-city').val());
+                }
+                return BASE_URL + q;
+            }
+        },
+        limit: 5
+    });
 
     $('.show_comments').click(function() {
         $('.comment').each(function(){
@@ -211,7 +265,7 @@ $(document).ready(function(){
                     <div class="media-body"> \
                         <h5 class="media-heading"><a href="#">${username}</a><span> - ${created_at}</span></h5> \
                         ${text} \
-                        <h5>Value: ${value}</h5> \
+                        <h5>Value: ${value}€</h5> \
             </div></li></ul>');
         $.template( "fixOfferTemplate", markup);
 

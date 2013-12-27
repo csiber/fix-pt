@@ -63,14 +63,15 @@ class FixRequestController extends BaseController {
 
         $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
         $fixrequest['updated_at_pretty'] = UtilFunctions::prettyDate($fixrequest['updated_at']);
-        $fixrequest['post']->text = nl2br((stripslashes($fixrequest['post']->text)));
+        $fixrequest['post']->text = trim(nl2br((stripslashes($fixrequest['post']->text))));
         $fixrequest['end_date_exact'] = date("Y-m-d H:i:s", strtotime($fixrequest->created_at." + $fixrequest->daysForOffer days"));
         $fixrequest['end_date'] = UtilFunctions::getEndDate($fixrequest['created_at'], $fixrequest['daysForOffer']);
-        $fixrequest['gravatar'] = "http://www.gravatar.com/avatar/".md5(strtolower(trim($fixrequest->post->user->email)))."?s=48&r=pg&d=identicon";
-        
+        $fixrequest['gravatar'] = UtilFunctions::gravatar($fixrequest->post->user->email);
+
         $comments = Comment::getCommentsOfFixRequest($id);
 
         foreach($comments as &$comment) {
+            $comment->post['text'] = trim(nl2br(($comment->post['text'])));
             $comment['created_at_pretty'] = UtilFunctions::prettyDate($comment['created_at']);
             $comment['gravatar'] = "http://www.gravatar.com/avatar/".md5(strtolower(trim($comment->post->user->email)))."?s=48&r=pg&d=identicon";
         }
@@ -108,6 +109,60 @@ class FixRequestController extends BaseController {
             'requesterJob' => $requesterJob,
             'hasMadeFixOffer' => $hasMadeFixOffer,
         ));
+    }
+	
+    public function getSearch($sort=null)
+    {
+        $terms = Session::get('terms');
+        $local = Session::get('local');
+		$requests_per_page = 6;
+        if ($sort == "recent") {
+            $fixrequests = FixRequest::recent_requests_search($terms,$local)->paginate($requests_per_page);
+			Session::put('sort', "recent");
+        } else if ($sort == 'popular') {
+            $fixrequests = FixRequest::popular_requests_search($terms,$local)->paginate($requests_per_page);
+			Session::put('sort', "popular");
+        } else if ($sort == 'no_offers') {
+            $fixrequests = FixRequest::no_offers_requests_search($terms,$local)->paginate($requests_per_page); 
+			Session::put('sort', "no_offers");
+        } else if ($sort == 'ending_soon') {
+            $fixrequests = FixRequest::ending_soon_requests_search($terms,$local)->paginate($requests_per_page); 
+			Session::put('sort', "ending_soon");
+        } else if ($sort == 'in_progress') {
+            $fixrequests = FixRequest::in_progress_requests_search($terms,$local)->paginate($requests_per_page); 
+			Session::put('sort', "in_progress");
+        } else {
+            return Redirect::to('fixrequests/search/recent');
+        }
+        $popular_tags = Tag::getPopular(10);
+        foreach($fixrequests as &$fixrequest) {
+            $post = Post::find($fixrequest['post_id']);
+            $user = User::find($post['user_id']);
+            $fixrequest['text'] = UtilFunctions::truncateString($post['text'], 220);
+            $fixrequest['user_id'] = $post['user_id'];
+            $fixrequest['username'] = $user['username'];
+            $fixrequest['user_image'] = $user['user_image'];
+            $fixrequest['created_at_pretty'] = UtilFunctions::prettyDate($fixrequest['created_at']);
+            $fixrequest['category'] = $fixrequest->category;
+            $fixrequest['category_class'] = UtilFunctions::getCategoryIdWord($fixrequest->category['id']);
+            $fixrequest['end_date_exact'] = date("Y-m-d H:i:s", strtotime($fixrequest->created_at." + $fixrequest->daysForOffer days"));
+            $fixrequest['end_date'] = UtilFunctions::getEndDate($fixrequest['created_at'], $fixrequest['daysForOffer']);
+        }
+        $concelhos = array();
+        $concs = Search::get_concelhos_por_distritos();
+        $concelhos[""] = "Escolha um concelho";
+        foreach ($concs as $conc)
+        {
+           $concelhos[$conc->id] = $conc->distrito . " - " . $conc->name;
+        }
+        return View::make('fixrequests.search', array("fixrequests" => $fixrequests,"sort" => $sort,"popular_tags" => $popular_tags,"concs" => $concelhos,"text" => $terms,"selconcelho" => $local));
+	}
+    
+    public function postSearch()
+    {
+        Session::put('terms', Input::get('text'));
+        Session::put('local', Input::get('concelhos'));
+        return $this->getSearch(Session::get('sort'));
     }
 
     /**
@@ -162,7 +217,9 @@ class FixRequestController extends BaseController {
                     'title' => Input::get('title'),
                     'state' => 'active',
                     'daysForOffer' => Input::get('daysForOffer'),
-                    'value' => Input::get('value')
+                    'value' => Input::get('value'),
+                    'city' => Input::get('city'),
+                    'concelho' => Input::get('location')
                 ));
 
                 $category = Category::find(Input::get('category'));
