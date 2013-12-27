@@ -6,6 +6,6 @@
 <script src="{{ URL::asset('js/fastclick.js') }}"></script>
 <script src="{{ URL::asset('js/typeahead.min.js') }}"></script>
 <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
-<script src="{{ URL::asset('js/main.js') }}"></script>
+<script src="{{ URL::asset('js/main.min.js') }}"></script>
 <script src="{{ URL::asset('js/jquery.fancybox.min.js')}}"></script>
 <script src="{{ URL::asset('js/jquery.FlowupLabels.min.js')}}"></script>
