@@ -165,14 +165,17 @@ class UserController extends BaseController {
      */
     public function getDashboard($sort=null) {
         if($sort == "fixrequests") {
-            // do something
+            $search = null;
         } else if($sort == "comments") {
-            // do something
+            $search = null;
+        } else if($sort == "favorites"){
+            $search = User::getFavorites();
         } else {
-            $sort = "fixrequests";
+            return Redirect::to('users/dashboard/fixrequests');
         }
         return View::make('users.dashboard', array(
-            "sort" => $sort
+            "sort" => $sort,
+            "search" => $search
         ));
     }
 

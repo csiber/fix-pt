@@ -13,9 +13,21 @@
             <ul class="nav nav-pills">
                 <li @if ($sort == "fixrequests")class="active"@endif><a href="{{ URL::to('') }}">Fix requests</a></li>
                 <li @if ($sort == "comments")class="active"@endif><a href="{{ URL::to('') }}">Comments</a></li>
-                <li @if ($sort == "favorites")class="active"@endif><a href="{{ URL::to('users/profile/dashboard/favorites') }}">Favorite Users</a></li>
+                <li @if ($sort == "favorites")class="active"@endif><a href="{{ URL::to('users/dashboard/favorites') }}">Favorite Users</a></li>
                 <li @if ($sort == "feedback")class="active"@endif><a href="{{ URL::to('') }}">Feedback given</a></li>
             </ul>
+            @if($sort == "favorites")
+                @if (count($search) === 0)
+                    <hr>
+                    <p class="lead">This user don't have any favorite!</p>
+                @else
+                    @foreach($search as $fav)
+                        <hr>
+                        <a href="{{ URL::to('users/view/'.$fav->user_2) }}">{{{$fav->username}}}</a>
+                    @endforeach 
+                    <hr>
+                @endif
+            @endif
         </div>
     </div>
     <div class="col-md-4">
