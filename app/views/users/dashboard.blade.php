@@ -14,18 +14,25 @@
                 <li @if ($sort == "fixrequests")class="active"@endif><a href="{{ URL::to('') }}">Fix requests</a></li>
                 <li @if ($sort == "comments")class="active"@endif><a href="{{ URL::to('') }}">Comments</a></li>
                 <li @if ($sort == "favorites")class="active"@endif><a href="{{ URL::to('users/dashboard/favorites') }}">Favorite Users</a></li>
-                <li @if ($sort == "feedback")class="active"@endif><a href="{{ URL::to('') }}">Feedback given</a></li>
             </ul>
             @if($sort == "favorites")
-                @if (count($search) === 0)
+                @if (count($favorites) === 0)
                     <hr>
-                    <p class="lead">This user don't have any favorite!</p>
+                    <p class="lead">This user doesn't have any favorite fixer!</p>
                 @else
-                    @foreach($search as $fav)
-                        <hr>
-                        <a href="{{ URL::to('users/view/'.$fav->user_2) }}">{{{$fav->username}}}</a>
-                    @endforeach 
                     <hr>
+                    <div class="favoritesDashboard">
+                        @foreach($favorites as $fav)
+                        <div class="media favoriteDashboard">
+                            <a class="pull-left" href="{{ URL::to('users/view/'.$fav->user->id)}}">
+                                <img class="media-object" src="{{$fav['gravatar']}}" alt="{{$fav->user->username}}">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="{{ URL::to('users/view/'.$fav->user->id)}}">{{$fav->user->username}}</a></h4>
+                            </div>
+                        </div>
+                    @endforeach 
+                    </div>
                 @endif
             @endif
         </div>

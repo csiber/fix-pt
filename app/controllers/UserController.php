@@ -134,48 +134,64 @@ class UserController extends BaseController {
     /**
      * Show the profile for the current user.
      */
-    public function getProfile($sort=null, $rsort=null) {
+    public function getProfile($rating_sort="all") {
 		
-        if ($sort == 'ratings') {
-			if($rsort != null) {
-				$search = User::getRatings($rsort,Auth::user()->id);
-			} else {
-            	return Redirect::to('users/profile/ratings/all');
-			}
+        if($rating_sort == "negative"
+            || $rating_sort == "neutral"
+            || $rating_sort == "positive"
+            || $rating_sort == "all") {
+            $ratings = User::getRatings($rating_sort);
         } else {
-            return Redirect::to('users/profile/ratings');
+            return Redirect::to('users/profile/all');
+        }
+
+        foreach($ratings as &$rate) {
+            // $rate['fixrequest'] = FixRequest::find($rate['fix_request_id']);
+            $rate['fixer'] = User::find($rate['fixer_id']);
+            $rate['requester'] = User::find($rate['requester_id']);
+            $rate['fixer']['gravatar'] = UtilFunctions::gravatar($rate['fixer']->email, 16);
+            $rate['requester']['gravatar'] = UtilFunctions::gravatar($rate['requester']->email, 16);
         }
 
 		$lastrates = User::getLast3Ratings(Auth::user()->id);
+        foreach($lastrates as &$rate) {
+            $rate['requester'] = User::find($rate['requester_id']);
+            $rate['requester']['gravatar'] = UtilFunctions::gravatar($rate['requester']->email, 20);
+        }
 /*      
         $notifications=Notification::getNotificationsOfUser($user['id']);
-       
         UtilFunctions::dump($notifications);
 */
-		
-		return View::make('users.profile', 
-            array('search' => $search,
-				'lastrates' => $lastrates,
-                'sort' => $sort,
-                'rsort' => $rsort));
+		return View::make('users.profile', array(
+            'ratings' => $ratings,
+			'lastrates' => $lastrates,
+            'sort' => $rating_sort,
+            "gravatar" => UtilFunctions::gravatar(Auth::user()->email, 190),
+        ));
     }
 
     /**
      * Show the profile for the current user.
      */
     public function getDashboard($sort=null) {
+        $favorites = null;
+
         if($sort == "fixrequests") {
             $search = null;
         } else if($sort == "comments") {
             $search = null;
         } else if($sort == "favorites"){
-            $search = User::getFavorites();
+            $favorites = Auth::user()->favorites()->get();
+            foreach($favorites as &$favorite) {
+                $favorite['user'] = User::find($favorite->user_2);
+                $favorite['gravatar'] = UtilFunctions::gravatar($favorite['user']->email, 32);
+            }
         } else {
             return Redirect::to('users/dashboard/fixrequests');
         }
         return View::make('users.dashboard', array(
             "sort" => $sort,
-            "search" => $search
+            "favorites" => $favorites
         ));
     }
 

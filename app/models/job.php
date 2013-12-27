@@ -2,7 +2,7 @@
 
 class Job extends Eloquent {
     
-    protected $fillable = array('user_id', 'fixer_id', 'fix_offer_id', 'fix_request_id');
+    protected $fillable = array('user_id', 'fixer_id', 'fix_offer_id', 'fix_request_id', 'requester_id');
 
     public static function getJobsOfFixRequest($fixrequestid)
     {

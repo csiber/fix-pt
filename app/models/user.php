@@ -55,30 +55,35 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $id1 = Auth::user()->id;
         $query =  "(select favorites.user_2, users.username from favorites INNER JOIN users ON users.id = favorites.user_2 AND favorites.user_1 = '".$id1."')";
         $result = DB::select(DB::raw($query));
-        //Utilfunctions::dump($result[1]);
-        if($result)
-        {
-            return $result;
-        }
-       
+        return $result;
     }
 	
-	public static function getRatings($filter,$id)
+	public static function getRatings($filter)
 	{
+        $id = Auth::user()->id;
+
 		if ($filter == 'negative') {
-			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.user_id',$id)->where('score','<','3')->orderBy('jobs.created_at','DESC')->get();
+			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.score','<',3)->orWhere(function($query) use ($id) {
+                $query->whereRaw('jobs.fixer_id = ?', array($id))->whereRaw('jobs.requester_id = ?', array($id));
+            })->orderBy('jobs.created_at','DESC')->get();
 		} else if ($filter == 'neutral') {
-			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.user_id',$id)->where('score','=','3')->orderBy('jobs.created_at','DESC')->get(); 
+			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.score','=', 3)->orWhere(function($query) use ($id) {
+                $query->whereRaw('jobs.fixer_id = ?', array($id))->whereRaw('jobs.requester_id = ?', array($id));
+            })->orderBy('jobs.created_at','DESC')->get(); 
 		} else if ($filter == 'positive') {
-			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.user_id',$id)->where('score','>','3')->orderBy('jobs.created_at','DESC')->get();
+			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.score','>',3)->orWhere(function($query) use ($id) {
+                $query->whereRaw('jobs.fixer_id = ?', array($id))->whereRaw('jobs.requester_id = ?', array($id));
+            })->orderBy('jobs.created_at','DESC')->get();
 		} else {
-			return User::join('jobs','users.id','=','jobs.fixer_id')->where('rated','1')->where('jobs.user_id',$id)->orderBy('jobs.created_at','DESC')->get();
+			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->orWhere(function($query)  use ($id){
+                $query->whereRaw('jobs.fixer_id = ?', array($id))->whereRaw('jobs.requester_id = ?', array($id));
+            })->orderBy('jobs.created_at','DESC')->get();
 		}
 	}
 	
 	public static function getLast3Ratings($id)
 	{
-		return User::join('jobs','users.id','=','jobs.fixer_id')->where('rated','1')->where('jobs.user_id',$id)->orderBy('jobs.created_at','DESC')->take(3)->get();
+		return User::join('jobs','users.id','=','jobs.fixer_id')->where('rated','1')->whereRaw('jobs.fixer_id = ?', array($id))->whereRaw('jobs.user_id != ?', array(Auth::user()->id))->orderBy('jobs.created_at','DESC')->take(3)->get();
 	}
 
     // Definition of relations
@@ -93,5 +98,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function jobs() {
         return $this->hasMany('Job');
+    }
+
+    public function favorites()
+    {
+        return $this->hasMany('Favorite', 'user_1');
     }
 }

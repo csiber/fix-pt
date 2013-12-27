@@ -7,28 +7,27 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title lead">Ratings</h3>
+        <h3 class="panel-title lead">Latest ratings as fixer</h3>
     </div>
     <div class="panel-body">
-        <br/>
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h5 class="">Last Ratings</h5>
-                @if(count($lastrates) === 0)
-                <p>No ratings available.</p>
-                @else
-                <ul>
-                    @foreach($lastrates as $lr)
-                    <a href="{{ URL::to('fixrequests/show/'.$sch->fix_request_id) }}"><li>@if ($lr->user_id == $lr->fixer_id) Fixer @else Requester @endif {{{$lr->score}}}</li></a>
-                    @endforeach
-                </ul>
-                @endif
+        @if(count($lastrates) === 0)
+        <p class="lead">No ratings available.</p>
+        @else
+            @foreach($lastrates as $lr)
+            <div class="media favoriteDashboard">
+                <a class="pull-left" href="{{ URL::to('users/view/'.$lr->requester->id)}}">
+                    <img class="media-object" src="{{$lr->requester->gravatar}}" alt="{{$lr->requester->username}}">
+                </a>
+                <div class="media-body">
+                    <h5 class="media-heading"><a href="{{ URL::to('users/view/'.$lr->requester->id)}}">{{$lr->requester->username}}</a> gave {{$rate->score}} <i class='glyphicon glyphicon-star'></i></h5>
+                </div>
             </div>
-        </div>
+            @endforeach
+        @endif
     </div>
 </div>
 
-<div class="panel panel-default">
+<!-- <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title lead">Tips</h3>
     </div>
@@ -79,7 +78,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 @if (Auth::check())
     @include('actions')    

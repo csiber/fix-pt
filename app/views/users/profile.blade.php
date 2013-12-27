@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
         <ol class="breadcrumb">
             <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
             <li><a href="{{URL::to('users/index')}}">Users</a></li>
@@ -16,22 +16,11 @@
                 </a>         
             </div>
             <div class="row">
-                <?php
-                $spansmall = 0;
-                $spanbig = 12;
-                if (Auth::user()->user_image) {
-                    $spansmall = 3;
-                    $spanbig = 8;
-                }
-                ?>
-
-                <div class="col-md-<?php echo $spansmall ?>">
-                    <?php if (Auth::user()->user_image) : ?>
-                        <img src="{{ URL::to('img/profile/Auth::user()->user_image') }}" alt="Profile Image" 
-                             class="img-thumbnail">
-                         <?php endif; ?>
+               
+                <div class="col-md-4">
+                    <img src="{{$gravatar}}" alt="..." class="img-thumbnail">
                 </div>
-                <div class="col-md-<?php echo $spanbig ?>">
+                <div class="col-md-8">
                     <h3>{{(Auth::user()->full_name)?Auth::user()->full_name:Auth::user()->username}}</h3>
                     <br/>
                     <?php if (Auth::user()->full_name) : ?>
@@ -53,34 +42,66 @@
                         <span class="label label-fix-pt">User is not confirmed!</span>
                         <a href="{{ URL::to('users/confirm-user') }}" class="btn btn-default btn-xs">Confirm User</a>
 
-                        <br/><span class="p-shadow"><small>Not confirmed user account is removed within 3 days!</small></span>
-                    <?php endif; ?>
+<!--                         <br/><span class="p-shadow"><small>Not confirmed user account is removed within 3 days!</small></span>
+ -->                <?php endif; ?>
                 </div>
             </div>
         </div>
         <div class="well well-lg">
             <ul class="nav nav-pills">
-                <li @if ($sort == "ratings")class="active"@endif><a href="{{ URL::to('users/profile/ratings') }}">Ratings</a></li>
+                <li @if ($sort == "all")class="active"@endif><a href="{{ URL::to('users/profile/all') }}">All</a></li>
+                <li @if ($sort == "positive")class="active"@endif><a href="{{ URL::to('users/profile/positive') }}">Positive</a></li>
+                <li @if ($sort == "neutral")class="active"@endif><a href="{{ URL::to('users/profile/neutral') }}">Neutral</a></li>
+                <li @if ($sort == "negative")class="active"@endif><a href="{{ URL::to('users/profile/negative') }}">Negative</a></li>
             </ul>
-            @if ($sort == "ratings")
-                <ul class="nav nav-pills">
-                    <li @if ($rsort == "all")class="active"@endif><a href="{{ URL::to('users/profile/ratings/all') }}">All</a></li>
-                    <li @if ($rsort == "positive")class="active"@endif><a href="{{ URL::to('users/profile/ratings/positive') }}">Positive</a></li>
-                    <li @if ($rsort == "neutral")class="active"@endif><a href="{{ URL::to('users/profile/ratings/neutral') }}">Neutral</a></li>
-                    <li @if ($rsort == "negative")class="active"@endif><a href="{{ URL::to('users/profile/ratings/negative') }}">Negative</a></li>
-                </ul>
-                @if(count($search) === 0)
-                <div>No ratings available.</div>
-                @else
-                	<div>Role</div><div>Rating</div>
-                    @foreach($search as $sch)
-                    <a href="{{ URL::to('fixrequests/show/'.$sch->fix_request_id) }}"><div>@if ($sch->user_id == $sch->fixer_id) Fixer @else Requester @endif</div><div>{{{$sch->score}}}</div></a>
-                    @endforeach
-                @endif
+            <hr>
+            @if(count($ratings) === 0)
+            <p class="lead">No ratings available.</p>
+            @else
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Feedback</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($ratings as $rate)
+                            <tr>
+                                <td>
+                                    @if($rate->user_id == $rate->fixer_id && $rate->user_id == Auth::user()->id)
+                                    Fixer 
+                                    @else 
+                                    Requester
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($rate->user_id == $rate->requester_id )
+                                    <a href="{{ URL::to('users/view/'.$rate->requester->id)}}"><img src="{{$rate->requester->gravatar}}"> {{$rate->requester->username}}</a>
+                                    @else
+                                    <a href="{{ URL::to('users/view/'.$rate->fixer->id)}}"><img src="{{$rate->fixer->gravatar}}"> {{$rate->fixer->username}}</a>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($rate->user_id == $rate->requester_id )
+                                    <a href="{{ URL::to('users/view/'.$rate->fixer->id)}}"><img src="{{$rate->fixer->gravatar}}"> {{$rate->fixer->username}}</a>
+                                    @else
+                                    <a href="{{ URL::to('users/view/'.$rate->requester->id)}}"><img src="{{$rate->requester->gravatar}}"> {{$rate->requester->username}}</a>
+                                    @endif
+                                </td>
+                                <td>{{{$rate->feedback}}}</td>
+                                <td>{{{$rate->score}}} <i class='glyphicon glyphicon-star'></i></td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             @endif
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         @include('users.userSideBox')           
     </div>
 </div>

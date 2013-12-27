@@ -30,6 +30,7 @@ class JobController extends BaseController {
                         "fix_request_id" => Input::get('fix_request_id'),
                         "user_id" => Input::get('fixer_id'),
                         "fixer_id" => Input::get('fixer_id'),
+                        "requester_id" => Auth::user()->id,
                         "fix_offer_id" => Input::get('fix_offer_id'),
                     ));
 
@@ -47,6 +48,7 @@ class JobController extends BaseController {
                         "fix_offer_id" => Input::get('fix_offer_id'),
                         "fixer_id" => Input::get('fixer_id'),
                         'user_id' => Auth::user()->id,
+                        'requester_id' => Auth::user()->id
                     ));
 
                     $job = $notifiable->post()->save($job);

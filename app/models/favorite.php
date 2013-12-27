@@ -17,6 +17,10 @@ class Favorite extends Eloquent {
     	// return false;
     }
 
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
 }
 
 ?>
