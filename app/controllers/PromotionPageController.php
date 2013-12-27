@@ -67,12 +67,11 @@ class PromotionPageController extends BaseController {
         $promotionpage->post['text'] = trim(nl2br(stripslashes($promotionpage->post['text'])));
 
         return View::make('promotionpages.show',
-            array(
-                'promotionpage' => $promotionpage,
+            array('promotionpage' => $promotionpage,
+                'photos' => $promotionpage->post->photos()->getResults(),
                 'gravatar' => UtilFunctions::gravatar($promotionpage->post->user->email),
-                'favorite' => $isFavorite
-            )
-        );
+                'favorite' => $isFavorite)
+            );
     }
 
     /**
@@ -125,6 +124,28 @@ class PromotionPageController extends BaseController {
             // TODO is this final?
             $msg = 'Your promotion page was successfully updated!';
 
+            $photos = Input::file('photos');
+
+            foreach($photos as $up_photo) {
+                if(!is_null($up_photo)) {
+                    $rules = array('photo' => 'image|max:3000');
+                    $input = array('photo' => $up_photo);
+
+                    $validator = Validator::make($input, $rules);
+
+                    if($validator->passes()) {
+                        $destinationPath = 'uploads/'.Auth::user()->id.'/'.$promotionpage->post->id;
+                        $filename = str_random(8).'.'.$up_photo->getClientOriginalExtension();
+                        $up_photo->move($destinationPath, $filename);
+
+                        $photo = new Photo(array('path' => $destinationPath.'/'.$filename));
+                        $photo = $promotionpage->post->photos()->save($photo);
+                    } else {
+                        return Redirect::to('promotionpage/edit')->withInput()->withErrors($validator);
+                    }  
+                }
+            }
+
             Session::flash('success', $msg);
             return Redirect::to("promotionpages/show/" . $promotionpage->id);
         }
@@ -163,6 +184,29 @@ class PromotionPageController extends BaseController {
                 $category = Category::find(Input::get('category'));
                 $promotionpage->category()->associate($category);
                 $promotionpage = $post->promotionpage()->save($promotionpage);
+
+                $photos = Input::file('photos');
+
+                foreach($photos as $up_photo) {
+                    if(!is_null($up_photo)) {
+                        $rules = array('photo' => 'image|max:3000');
+                        $input = array('photo' => $up_photo);
+
+                        $validator = Validator::make($input, $rules);
+
+                        if($validator->passes()) {
+                            $destinationPath = 'uploads/'.Auth::user()->id.'/'.$post->id;
+                            $filename = str_random(8).'.'.$up_photo->getClientOriginalExtension();
+                            $up_photo->move($destinationPath, $filename);
+
+                            $photo = new Photo(array('path' => $destinationPath.'/'.$filename));
+                            $photo = $post->photos()->save($photo);
+                        } else {
+                            return Redirect::to('promotionpage/create')->withInput()->withErrors($validator);
+                        }  
+                    }
+                }
+
                 return Redirect::to("promotionpages/show/{$promotionpage->id}"); 
             });
             return $redirect;
