@@ -134,16 +134,21 @@ class UserController extends BaseController {
     /**
      * Show the profile for the current user.
      */
-    public function getProfile($sort=null) {
-
-        if ($sort == "favorites") {
+    public function getProfile($sort=null, $rsort=null) {
+		
+        if ($sort == 'favorites') {
             $search = User::getFavorites();
         } else if ($sort == 'ratings') {
-            $search = null;
+			if($rsort != null) {
+				$search = User::getRatings($rsort,Auth::user()->id);
+			} else {
+            	return Redirect::to('users/profile/ratings/all');
+			}
         } else {
             return Redirect::to('users/profile/favorites');
         }
 
+		$lastrates = User::getLast3Ratings(Auth::user()->id);
         $user = User::find(Auth::user()->id);
 
 /*
@@ -151,10 +156,12 @@ class UserController extends BaseController {
        
         UtilFunctions::dump($notifications);
 */
-
-        return View::make('users.profile', 
+		
+		return View::make('users.profile', 
             array('search' => $search,
+				'lastrates' => $lastrates,
                 'sort' => $sort,
+                'rsort' => $rsort,
                 'user' => $user));
     }
 

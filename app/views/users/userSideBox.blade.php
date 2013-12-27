@@ -10,21 +10,19 @@
         <h3 class="panel-title lead">Ratings</h3>
     </div>
     <div class="panel-body">
-        <ul class="nav nav-pills">
-            <li class="active"><a href="{{ URL::to('users/ratings') }}">All</a></li>
-            <li class="active"><a href="{{ URL::to('users/ratings/positive') }}">Positive</a></li>
-            <li class="active"><a href="{{ URL::to('users/ratings/neutral') }}">Neutral</a></li>
-            <li class="active"><a href="{{ URL::to('users/ratings/negative') }}">Negative</a></li>
-        </ul>
         <br/>
         <div class="panel panel-default">
             <div class="panel-body">
                 <h5 class="">Last Ratings</h5>
+                @if(count($lastrates) === 0)
+                <p>No ratings available.</p>
+                @else
                 <ul>
-                    <li>last user rating 1</li>
-                    <li>last user rating 2</li>
-                    <li>last user rating 3</li>
+                    @foreach($lastrates as $lr)
+                    <a href="{{ URL::to('fixrequests/show/'.$sch->fix_request_id) }}"><li>@if ($lr->user_id == $lr->fixer_id) Fixer @else Requester @endif {{{$lr->score}}}</li></a>
+                    @endforeach
                 </ul>
+                @endif
             </div>
         </div>
     </div>

@@ -51,8 +51,26 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     }
 
     public static function getFavorites(){
-       $query =  
+        
     }
+	
+	public static function getRatings($filter,$id)
+	{
+		if ($filter == 'negative') {
+			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.user_id',$id)->where('score','<','3')->orderBy('jobs.created_at','DESC')->get();
+		} else if ($filter == 'neutral') {
+			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.user_id',$id)->where('score','=','3')->orderBy('jobs.created_at','DESC')->get(); 
+		} else if ($filter == 'positive') {
+			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.user_id',$id)->where('score','>','3')->orderBy('jobs.created_at','DESC')->get();
+		} else {
+			return User::join('jobs','users.id','=','jobs.fixer_id')->where('rated','1')->where('jobs.user_id',$id)->orderBy('jobs.created_at','DESC')->get();
+		}
+	}
+	
+	public static function getLast3Ratings($id)
+	{
+		return User::join('jobs','users.id','=','jobs.fixer_id')->where('rated','1')->where('jobs.user_id',$id)->orderBy('jobs.created_at','DESC')->take(3)->get();
+	}
 
     // Definition of relations
 

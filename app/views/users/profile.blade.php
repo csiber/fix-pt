@@ -61,8 +61,24 @@
         <div class="well well-lg">
             <ul class="nav nav-pills">
                 <li @if ($sort == "favorites")class="active"@endif><a href="{{ URL::to('users/profile/favorites') }}">Favorite Users</a></li>
-                <li @if ($sort == "ratings")class="active"@endif><a href="{{ URL::to('users/profile/rstings') }}">Ratings</a></li>
+                <li @if ($sort == "ratings")class="active"@endif><a href="{{ URL::to('users/profile/ratings') }}">Ratings</a></li>
             </ul>
+            @if ($sort == "ratings")
+                <ul class="nav nav-pills">
+                    <li @if ($rsort == "all")class="active"@endif><a href="{{ URL::to('users/profile/ratings/all') }}">All</a></li>
+                    <li @if ($rsort == "positive")class="active"@endif><a href="{{ URL::to('users/profile/ratings/positive') }}">Positive</a></li>
+                    <li @if ($rsort == "neutral")class="active"@endif><a href="{{ URL::to('users/profile/ratings/neutral') }}">Neutral</a></li>
+                    <li @if ($rsort == "negative")class="active"@endif><a href="{{ URL::to('users/profile/ratings/negative') }}">Negative</a></li>
+                </ul>
+                @if(count($search) === 0)
+                <div>No ratings available.</div>
+                @else
+                	<div>Role</div><div>Rating</div>
+                    @foreach($search as $sch)
+                    <a href="{{ URL::to('fixrequests/show/'.$sch->fix_request_id) }}"><div>@if ($sch->user_id == $sch->fixer_id) Fixer @else Requester @endif</div><div>{{{$sch->score}}}</div></a>
+                    @endforeach
+                @endif
+            @endif
         </div>
     </div>
     <div class="col-md-4">
