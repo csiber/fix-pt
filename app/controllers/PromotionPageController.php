@@ -13,11 +13,15 @@ class PromotionPageController extends BaseController {
         $local = Session::get('local');
         $requests_per_page = 5;
 
-        if ($sort == "recent") {
+        if ($sort == 'recent') {
             $promotionpages = PromotionPage::recent_promotion_pages($terms,$local)->paginate($requests_per_page);
+			Session::put('sort', 'recent');
+        } else if ($sort == 'popular') {
+            $promotionpages = PromotionPage::popular_promotion_pages($terms,$local)->paginate($requests_per_page);
+			Session::put('sort', 'popular');
         } else {
-            return Redirect::to('promotionpages/index/recent');
-        }
+			return Redirect::to('promotionpages/index/recent');
+		}
 
         foreach($promotionpages as $promotionpage) {
             $post = Post::find($promotionpage['post_id']);
@@ -51,7 +55,7 @@ class PromotionPageController extends BaseController {
     {
         Session::put('terms', Input::get('text'));
         Session::put('local', Input::get('concelhos'));
-        return $this->getIndex(null);
+        return $this->getIndex(Session::get('sort'));
     }
 
     /**

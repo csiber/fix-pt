@@ -38,6 +38,31 @@ class PromotionPage extends Eloquent {
 			}
 		}
 	}
+	
+	public static function popular()
+	{
+		return PromotionPage::orderBy('created_at', 'DESC');
+	}
+	
+	public static function popular_promotion_pages($params,$local)
+    {
+		if(is_null($params) || $params == "") {
+			if(is_null($local) || $local == "") {
+        		return PromotionPage::popular();
+			}
+			else {
+        		return PromotionPage::popular()->where("location_id",$local);
+			}
+		}
+		else {
+        	if(is_null($local) || $local == "") {
+				return PromotionPage::popular()->where("title","like","%".$params."%");
+			}
+			else {
+				return PromotionPage::popular()->where("title","like","%".$params."%","and","location_id","=",$local);				
+			}
+		}
+	}
 
     public static function getPromotionPage($id)
     {
