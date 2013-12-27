@@ -55,9 +55,10 @@
                 <div class="row">
                     
                 </div>
-                <div class="form-group">
-                    <!-- {{ Form::label("photos", "Add photos") }}
-                    {{ Form::file('photos[]', array('multiple' => true))}} -->
+                <div class="form-group <?php echo ($errors->has('photo')) ? "has-error" : ""; ?>">
+                    {{ Form::label("photos", "Add photos", array("class" => "control-label")) }}
+                    {{ Form::file('photos[]', array('multiple' => true))}}
+                    <p class="help-block"><?php echo $errors->first('photo') ?></p>
                 </div>
                 <button type="submit" form="promotionpage-form" class="btn btn-success">Save</button>
             <!-- </form> -->
