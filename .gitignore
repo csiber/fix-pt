@@ -1,0 +1,7 @@
+/nbproject
+app/config/database.php
+public/.htaccess
+app/config/local/
+vendor/
+composer.phar
+composer.lock
