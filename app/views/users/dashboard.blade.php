@@ -10,22 +10,15 @@
             <li class="active">{{{Auth::user()->username}}}</li>
         </ol>
         <div class="well well-lg">
-
-            <div c  lass="panel panel-default">
-                <div class="panel-body"><h3>My Fix Requests</h3></div>
-
-
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body"><h3>My Promotion Page</h3></div>
-            </div>
-
-
-
+            <ul class="nav nav-pills">
+                <li @if ($sort == "fixrequests")class="active"@endif><a href="{{ URL::to('') }}">Fix requests</a></li>
+                <li @if ($sort == "comments")class="active"@endif><a href="{{ URL::to('') }}">Comments</a></li>
+                <li @if ($sort == "favorites")class="active"@endif><a href="{{ URL::to('') }}">Favorite fixers</a></li>
+                <li @if ($sort == "feedback")class="active"@endif><a href="{{ URL::to('') }}">Feedback given</a></li>
+            </ul>
         </div>
     </div>
     <div class="col-md-4">
-        @include('users.userSideBox')   
     </div>
 </div>
 @stop

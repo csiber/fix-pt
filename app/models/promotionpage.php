@@ -13,38 +13,62 @@ class PromotionPage extends Eloquent {
     {
         return $this->belongsTo('Category');
     }
-	
-	public static function getPromotionPages($params, $local, $category=null)
+
+    public static function recent($category)
     {
-		if(is_null($params) || $params == "") {
-			if(is_null($local) || $local == "") {
-                if($category != null) {
-                    return PromotionPage::whereRaw('category_id = ?', array($category))->orderBy('created_at', 'DESC');
-                }
-        		return PromotionPage::orderBy('created_at', 'DESC');
-			}
-			else {
-                if($category != null) {
-                    return PromotionPage::whereRaw('category_id = ?', array($category))->whereRaw("city", array(ucfirst(strtolower($local))))->orderBy('created_at', 'DESC');
-                }
-        		return PromotionPage::whereRaw("city = ?", array(ucfirst(strtolower($local))))->orderBy('created_at', 'DESC');
-			}
-		}
-		else {
-        	if(is_null($local) || $local == "") {
-                if($category != null) {
-                    return PromotionPage::whereRaw('category_id = ?', array($category))->where("title","like","%".$params."%")->orderBy('created_at', 'DESC');
-                }
-				return PromotionPage::where("title","like","%".$params."%")->orderBy('created_at', 'DESC');
-			}
-			else {
-                if($category != null) {
-                    return PromotionPage::whereRaw('category_id = ?', array($category))->where("title","like","%".$params."%")->whereRaw("city", array(ucfirst(strtolower($local))))->orderBy('created_at', 'DESC');
-                }
-				return PromotionPage::where("title","like","%".$params."%")->whereRaw("city = ?", array(ucfirst(strtolower($local))))->orderBy('created_at', 'DESC');				
-			}
-		}
-	}
+        if($category != null) {
+            return PromotionPage::whereRaw('category_id = ?', array($category))->orderBy('created_at', 'DESC');
+        }
+        return PromotionPage::orderBy('created_at', 'DESC');
+    }
+    
+    public static function recent_promotion_pages($params,$local,$category=null)
+    {
+        if(is_null($params) || $params == "") {
+            if(is_null($local) || $local == "") {
+                return PromotionPage::recent($category);
+            }
+            else {
+                return PromotionPage::recent($category)->where("location_id",$local);
+            }
+        }
+        else {
+            if(is_null($local) || $local == "") {
+                return PromotionPage::recent($category)->where("title","like","%".$params."%");
+            }
+            else {
+                return PromotionPage::recent($category)->where("title","like","%".$params."%","and","location_id","=",$local);               
+            }
+        }
+    }
+    
+    public static function popular($category)
+    {
+        if($category != null) {
+            return PromotionPage::whereRaw('category_id = ?', array($category))->orderBy('created_at', 'DESC');
+        }
+        return PromotionPage::orderBy('created_at', 'DESC');
+    }
+    
+    public static function popular_promotion_pages($params,$local,$category=null)
+    {
+        if(is_null($params) || $params == "") {
+            if(is_null($local) || $local == "") {
+                return PromotionPage::popular($category);
+            }
+            else {
+                return PromotionPage::popular($category)->where("location_id",$local);
+            }
+        }
+        else {
+            if(is_null($local) || $local == "") {
+                return PromotionPage::popular($category)->where("title","like","%".$params."%");
+            }
+            else {
+                return PromotionPage::popular($category)->where("title","like","%".$params."%","and","location_id","=",$local);              
+            }
+        }
+    }
 
     public static function getPromotionPage($id)
     {
@@ -77,6 +101,11 @@ class PromotionPage extends Eloquent {
         $id1 = Auth::user()->id;
         $query = "(select promotion_pages.id, promotion_pages.post_id, promotion_pages.title, posts.text, promotion_pages.category_id from promotion_pages INNER JOIN posts ON promotion_pages.post_id = posts.id AND posts.user_id = '".$id1."')";
         return DB::select(DB::raw($query));
+    }
+
+    public static function getBestFixers()
+    {
+        return Job::with('user')->select(DB::raw("*, avg(score) as rating"))->groupBy('fixer_id')->orderBy('rating','desc')->take(3)->get();
     }
 }
 

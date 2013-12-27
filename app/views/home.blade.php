@@ -12,13 +12,13 @@
                 "autocomplete" => "off",
                 "id"=> "search-form"
             )) }}
-                <div class="col-lg-6">   
+                <div class="col-lg-6 col-sm-4 col-xs-4">   
                     <input name="text" type="text" class="form-control" placeholder="What?">
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-4 col-xs-4">
                     <input type="text" id="district-home-search" class="form-control typeahead" placeholder="where?">
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-4 col-xs-4">
                     <button type="submit" class="btn btn-danger">Search</button>
                 </div>
             {{ Form::close() }}
@@ -48,35 +48,35 @@
         <div class="container small-top-padding white-bc home-categories">
             <h1 class="text-center">Categories</h1>
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-md-2 col-sm-4">
                     <div class="thumbnail gardening">
                         <div class="caption">
                             <h3>Gardening</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-md-2 col-sm-4">
                     <div class="thumbnail mechanics">
                         <div class="caption">
                             <h3>Mechanics</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-4 col-sm-4">
                     <div class="thumbnail home">
                         <div class="caption">
                             <h3>Home</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-md-2 col-sm-6">
                     <div class="thumbnail electronics">
                         <div class="caption">
                             <h3>Electronics</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-md-2 col-sm-6">
                     <div class="thumbnail appliances">
                         <div class="caption">
                             <h3>Appliances</h3>

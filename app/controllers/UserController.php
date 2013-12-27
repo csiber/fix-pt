@@ -149,8 +149,17 @@ class UserController extends BaseController {
     /**
      * Show the profile for the current user.
      */
-    public function getDashboard() {
-        return View::make('users.dashboard');
+    public function getDashboard($sort=null) {
+        if($sort == "fixrequests") {
+            // do something
+        } else if($sort == "comments") {
+            // do something
+        } else {
+            $sort = "fixrequests";
+        }
+        return View::make('users.dashboard', array(
+            "sort" => $sort
+        ));
     }
 
     /**

@@ -14,11 +14,16 @@ class PromotionPageController extends BaseController {
 
         $requests_per_page = 5;
 
-        if ($sort == "recent") {
-            $promotionpages = PromotionPage::getPromotionPages($terms, $local, $filter)->paginate($requests_per_page);
+
+        if ($sort == 'recent') {
+            $promotionpages = PromotionPage::recent_promotion_pages($terms,$local,$filter)->paginate($requests_per_page);
+			Session::put('sort', 'recent');
+        } else if ($sort == 'popular') {
+            $promotionpages = PromotionPage::popular_promotion_pages($terms,$local,$filter)->paginate($requests_per_page);
+			Session::put('sort', 'popular');
         } else {
-            return Redirect::to('promotionpages/index/recent');
-        }
+			return Redirect::to('promotionpages/index/recent');
+		}
 
         foreach($promotionpages as $promotionpage) {
             $post = Post::find($promotionpage['post_id']);
@@ -32,13 +37,24 @@ class PromotionPageController extends BaseController {
             $promotionpage['category'] = $promotionpage->category;
             $promotionpage['category_class'] = UtilFunctions::getCategoryIdWord($promotionpage->category['id']);
         }
-        
+
+		$bestfixers = PromotionPage::getBestFixers();
+		foreach($bestfixers as &$bestf)
+        {
+		   $user_fixer = User::find($bestf['fixer_id']);
+		   $bestf['username'] = $user_fixer['username'];
+           $bestf['gravatar'] = UtilFunctions::gravatar($user_fixer['email'], 30);
+           $bestf['id'] = $user_fixer['id'];
+           $bestf['rating'] = round($bestf['rating'], 2);
+        }
+
         return View::make('promotionpages.index', array(
             'promotionpages' => $promotionpages,
             "sort" => $sort,
-            "text" => $terms,
             "filter" => $filter,
-            "district" => $local
+            "district" => $local,
+            "text" => $terms,
+            "best_fixers" => $bestfixers
         ));
     }
     
@@ -46,7 +62,7 @@ class PromotionPageController extends BaseController {
     {
         Session::put('terms', Input::get('text'));
         Session::put('local', Input::get('district'));
-        return $this->getIndex(null);
+        return $this->getIndex(Session::get('sort'));
     }
 
     /**
