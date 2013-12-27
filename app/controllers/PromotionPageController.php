@@ -92,7 +92,7 @@ class PromotionPageController extends BaseController {
     public function getEdit() {
             $promotionpage = PromotionPage::getPromotionPageNoId();
             return View::make('promotionpages.edit', 
-                array(  'promotionpage'=>$promotionpage[0]));
+                array( 'promotionpage'=>$promotionpage[0]));
     }
 
     public $editRules = array(
@@ -118,6 +118,7 @@ class PromotionPageController extends BaseController {
             if (Input::get('title') != null && Input::get('body') != null) {
                 $promotionpage->title = Input::get('title');
                 $promotionpage->post->text = Input::get('body');
+                $promotionpage->category_id = Input::get('category');
             }
 
             $promotionpage->save();
