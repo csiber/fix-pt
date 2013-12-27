@@ -234,7 +234,9 @@ class UserController extends BaseController {
     public function getEdit($id) {
         if ($id == Auth::user()->id || Auth::user()->user_type == 'Administrator') {
             $user = User::getUser($id);
-            return View::make('users.edit', compact('user'));
+            $lastrates = array();
+            return View::make('users.edit', 
+                compact('user', "lastrates"));
         } else {
             $msg = "You cannot edit this content! ";
             Session::flash('error', $msg);

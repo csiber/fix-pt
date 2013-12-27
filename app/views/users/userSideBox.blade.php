@@ -10,7 +10,7 @@
         <h3 class="panel-title lead">Latest ratings as fixer</h3>
     </div>
     <div class="panel-body">
-        @if(count($lastrates) === 0)
+        @if($lastrates && count($lastrates) === 0)
         <p class="lead">No ratings available.</p>
         @else
             @foreach($lastrates as $lr)
