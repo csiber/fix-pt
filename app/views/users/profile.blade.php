@@ -58,6 +58,12 @@
                 </div>
             </div>
         </div>
+        <div class="well well-lg">
+            <ul class="nav nav-pills">
+                <li @if ($sort == "favorites")class="active"@endif><a href="{{ URL::to('users/profile/favorites') }}">Favorite Users</a></li>
+                <li @if ($sort == "ratings")class="active"@endif><a href="{{ URL::to('users/profile/rstings') }}">Ratings</a></li>
+            </ul>
+        </div>
     </div>
     <div class="col-md-4">
         @include('users.userSideBox')           

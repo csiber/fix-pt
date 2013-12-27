@@ -135,7 +135,16 @@ class UserController extends BaseController {
     /**
      * Show the profile for the current user.
      */
-    public function getProfile() {
+    public function getProfile($sort=null) {
+
+        if ($sort == "favorites") {
+            $search = User::getFavorites();
+        } else if ($sort == 'ratings') {
+            $search = null;
+        } else {
+            return Redirect::to('users/profile/favorites');
+        }
+
         $user = User::find(Auth::user()->id);
 
 /*
@@ -144,7 +153,10 @@ class UserController extends BaseController {
         UtilFunctions::dump($notifications);
 */
 
-        return View::make('users.profile', array('user' => $user));
+        return View::make('users.profile', 
+            array('search' => $search,
+                'sort' => $sort,
+                'user' => $user));
     }
 
     /**

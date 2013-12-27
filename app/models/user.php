@@ -50,6 +50,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return User::find($id);
     }
 
+    public static function getFavorites(){
+       $query =  
+    }
+
     // Definition of relations
 
     public function posts() {
