@@ -29,7 +29,7 @@ class PromotionPage extends Eloquent {
                 return PromotionPage::recent($category);
             }
             else {
-                return PromotionPage::recent($category)->where("location_id",$local);
+                return PromotionPage::recent($category)->whereRaw("city = ?", array(ucfirst(strtolower($local))));
             }
         }
         else {
@@ -37,7 +37,7 @@ class PromotionPage extends Eloquent {
                 return PromotionPage::recent($category)->where("title","like","%".$params."%");
             }
             else {
-                return PromotionPage::recent($category)->where("title","like","%".$params."%","and","location_id","=",$local);               
+                return PromotionPage::recent($category)->where("title","like","%".$params."%")->whereRaw("city = ?", array(ucfirst(strtolower($local))));              
             }
         }
     }
@@ -58,7 +58,7 @@ class PromotionPage extends Eloquent {
                 return PromotionPage::popular($category);
             }
             else {
-                return PromotionPage::popular($category)->where("location_id",$local);
+                return PromotionPage::popular($category)->whereRaw("city = ?", array(ucfirst(strtolower($local))));
             }
         }
         else {
@@ -66,7 +66,7 @@ class PromotionPage extends Eloquent {
                 return PromotionPage::popular($category)->where("title","like","%".$params."%");
             }
             else {
-                return PromotionPage::popular($category)->where("title","like","%".$params."%","and","location_id","=",$local);              
+                return PromotionPage::popular($category)->where("title","like","%".$params."%")->whereRaw("city = ?", array(ucfirst(strtolower($local))));
             }
         }
     }
