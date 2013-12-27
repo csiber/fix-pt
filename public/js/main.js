@@ -92,6 +92,11 @@ $(document).ready(function(){
         limit: 5
     });
 
+    $("#fixrequest-index-radios input[type='radio'").click(function(event){
+        var sort = $(".fixrequests").attr('data-sort');
+        window.location = BASE_URL+"fixrequests/index/"+sort+"/"+$(this).val();
+    });
+
     $('#fixrequest-city').typeahead({
         name: 'districts',
         remote: BASE_URL+'districts/query/%QUERY',

@@ -9,10 +9,13 @@ class PromotionPageController extends BaseController {
     */
     public function getIndex($sort=null)
     {   
+        $terms = Session::get('terms');
+        $local = Session::get('local');
         $requests_per_page = 5;
 
         if ($sort == "recent") {
-            $promotionpages = PromotionPage::orderBy('created_at', 'DESC')->paginate($requests_per_page);
+            $promotionpages = PromotionPage::getPromotionPages($terms,$local)->paginate($requests_per_page);
+			echo "passou";
         } else {
             return Redirect::to('promotionpages/index/recent');
         }
@@ -29,7 +32,21 @@ class PromotionPageController extends BaseController {
             $promotionpage['category'] = $promotionpage->category;
             $promotionpage['category_class'] = UtilFunctions::getCategoryIdWord($promotionpage->category['id']);
         }
-        return View::make('promotionpages.index', array('promotionpages' => $promotionpages, "sort" => $sort));
+        $concelhos = array();
+        $concs = Search::get_concelhos_por_distritos();
+        $concelhos[""] = "Escolha um concelho";
+        foreach ($concs as $conc)
+        {
+           $concelhos[$conc->id] = $conc->distrito . " - " . $conc->name;
+        }
+        return View::make('promotionpages.index', array('promotionpages' => $promotionpages, "sort" => $sort, "concs" => $concelhos,"text" => $terms,"selconcelho" => $local));
+    }
+    
+    public function postIndex()
+    {
+        Session::put('terms', Input::get('text'));
+        Session::put('local', Input::get('concelhos'));
+        return $this->getIndex(null);
     }
 
     /**

@@ -779,3 +779,50 @@ fieldset .form.group:last-child {
 .relatedRequest .media-heading {
   font-size: 15px;
 }
+
+.home-categories .row {
+  margin-top: 40px;
+}
+
+.home-categories .thumbnail {
+  height: 150px;
+}
+
+.home-categories .home {
+  background-image: url('../img/home.jpg');
+  background-position: center 50%;
+}
+
+.home-categories .gardening {
+  background-image: url('../img/gardening.jpg');
+  background-position: center 50%;
+}
+
+.home-categories .mechanics {
+  background-image: url('../img/mechanics.jpg');
+  background-position: center 75%;
+}
+
+.home-categories .electronics {
+  background-image: url('../img/electronics.jpg');
+  background-position: center 50%;
+}
+
+.home-categories .appliances {
+  background-image: url('../img/appliances.jpg');
+  background-position: center 50%;
+}
+
+.home-categories .thumbnail .caption {
+  text-align: center;
+  padding: 0;
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 10px;
+  color: #555;
+}
+
+.page_404 h1 {
+  color: #e74c3c;
+  font-size: 64px;
+  font-weight: bold;
+}

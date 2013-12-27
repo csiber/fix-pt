@@ -82,3 +82,17 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+/*
+|--------------------------------------------------------------------------
+| 404 Page Handler
+|--------------------------------------------------------------------------
+|
+| 
+|
+*/
+
+App::missing(function($exception)
+{
+    return Response::view('errors.404', array(), 404);
+});

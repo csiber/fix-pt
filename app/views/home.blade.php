@@ -45,51 +45,41 @@
     </div>
 
     <div class="white-bc">
-        <div class="container small-top-padding white-bc">
+        <div class="container small-top-padding white-bc home-categories">
             <h1 class="text-center">Categories</h1>
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="thumbnail">
-                        <img data-src="holder.js/300x200" alt="...">
+                <div class="col-lg-2">
+                    <div class="thumbnail gardening">
+                        <div class="caption">
+                            <h3>Gardening</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="thumbnail mechanics">
+                        <div class="caption">
+                            <h3>Mechanics</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="thumbnail home">
                         <div class="caption">
                             <h3>Home</h3>
-                            <p>...</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="thumbnail">
-                        <img data-src="holder.js/300x200" alt="...">
+                <div class="col-lg-2">
+                    <div class="thumbnail electronics">
                         <div class="caption">
-                            <h3>Gardening</h3>
-                            <p>...</p>
+                            <h3>Electronics</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="thumbnail">
-                        <img data-src="holder.js/300x200" alt="...">
+                <div class="col-lg-2">
+                    <div class="thumbnail appliances">
                         <div class="caption">
-                            <h3>Mechanics</h3>
-                            <p>...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="thumbnail">
-                        <img data-src="holder.js/300x200" alt="...">
-                        <div class="caption">
-                            <h3>Gardening</h3>
-                            <p>...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg2-6">
-                    <div class="thumbnail">
-                        <img data-src="holder.js/300x200" alt="...">
-                        <div class="caption">
-                            <h3>Mechanics</h3>
-                            <p>...</p>
+                            <h3>Appliances</h3>
                         </div>
                     </div>
                 </div>

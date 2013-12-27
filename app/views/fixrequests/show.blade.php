@@ -283,16 +283,6 @@
                 @endforeach
             </div>
         </div>
-        @if(!$requesterJob)
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title lead">Recommended Fixers</h3>
-            </div>
-            <div class="panel-body">
-                This will show fixers that are able to do this repair
-            </div>
-        </div>
-        @endif
          <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title lead">Related Fix Requests</h3>

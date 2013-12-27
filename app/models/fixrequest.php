@@ -5,29 +5,144 @@ class FixRequest extends Eloquent {
 
     protected $fillable = array('title', 'state', 'daysForOffer', 'value', 'city', 'concelho');
     
-    public static function recent_requests()
+    public static function recent_requests($category=null)
     {
+        if($category != null) {
+            return FixRequest::with('tags')->whereRaw('category_id = ?', array($category))->has('jobs', "=", 0)->orderBy('created_at', 'DESC');
+        }
         return FixRequest::with('tags')->has('jobs', "=", 0)->orderBy('created_at', 'DESC');
     }
-
-    public static function popular_requests()
+    
+    public static function recent_requests_search($params,$local)
     {
+		if(is_null($params) || $params == "") {
+			if(is_null($local) || $local == "") {
+        		return FixRequest::recent_requests();
+			}
+			else {
+        		return FixRequest::recent_requests()->where("location_id",$local);
+			}
+		}
+		else {
+        	if(is_null($local) || $local == "") {
+				return FixRequest::recent_requests()->where("title","like","%".$params."%");
+			}
+			else {
+				return FixRequest::recent_requests()->where("title","like","%".$params."%","and","location_id","=",$local);				
+			}
+		}
+    }
+
+    public static function popular_requests($category=null)
+    {
+        if($category != null) {
+            return FixRequest::with('tags')->whereRaw('category_id = ?', array($category))->has('jobs', "=", 0)->has('fixoffers', '>', 0)->has('comments', '>', 0)->orderBy('created_at', 'DESC');
+        }
         return FixRequest::with('tags')->has('jobs', "=", 0)->has('fixoffers', '>', 0)->has('comments', '>', 0)->orderBy('created_at', 'DESC');
     }
-
-    public static function no_offers_requests()
+    
+    public static function popular_requests_search($params,$local)
     {
+		if(is_null($params) || $params == "") {
+			if(is_null($local) || $local == "") {
+        		return FixRequest::popular_requests();
+			}
+			else {
+        		return FixRequest::popular_requests()->where("location_id",$local);
+			}
+		}
+		else {
+        	if(is_null($local) || $local == "") {
+				return FixRequest::popular_requests()->where("title","like","%".$params."%");
+			}
+			else {
+				return FixRequest::popular_requests()->where("title","like","%".$params."%","and","location_id","=",$local);				
+			}
+		}
+    }
+
+    public static function no_offers_requests($category=null)
+    {
+        if($category != null) {
+            return FixRequest::with('tags')->whereRaw('category_id = ?', array($category))->has('fixoffers', "=", 0)->orderBy('created_at', 'DESC');
+        }
         return FixRequest::with('tags')->has('fixoffers', "=", 0)->orderBy('created_at', 'DESC');
     }
-
-    public static function ending_soon_requests()
+    
+    public static function no_offers_requests_search($params,$local)
     {
-        return FixRequest::endingSoon()->with('tags')->has('jobs', "=", 0)->orderBy('created_at', 'DESC');
+		if(is_null($params) || $params == "") {
+			if(is_null($local) || $local == "") {
+        		return FixRequest::no_offers_requests();
+			}
+			else {
+        		return FixRequest::no_offers_requests()->where("location_id",$local);
+			}
+		}
+		else {
+        	if(is_null($local) || $local == "") {
+				return FixRequest::no_offers_requests()->where("title","like","%".$params."%");
+			}
+			else {
+				return FixRequest::no_offers_requests()->where("title","like","%".$params."%","and","location_id","=",$local);				
+			}
+		}
     }
 
-    public static function in_progress_requests()
+    public static function ending_soon_requests($category=null)
     {
+        if($category != null) {
+            return FixRequest::endingSoon()->with('tags')->whereRaw('category_id = ?', array($category))->has('jobs', "=", 0)->orderBy('created_at', 'DESC');
+        }
+        return FixRequest::endingSoon()->with('tags')->has('jobs', "=", 0)->orderBy('created_at', 'DESC');
+    }
+    
+    public static function ending_soon_requests_search($params,$local)
+    {
+		if(is_null($params) || $params == "") {
+			if(is_null($local) || $local == "") {
+        		return FixRequest::ending_soon_requests();
+			}
+			else {
+        		return FixRequest::ending_soon_requests()->where("location_id",$local);
+			}
+		}
+		else {
+        	if(is_null($local) || $local == "") {
+				return FixRequest::ending_soon_requests()->where("title","like","%".$params."%");
+			}
+			else {
+				return FixRequest::ending_soon_requests()->where("title","like","%".$params."%","and","location_id","=",$local);				
+			}
+		}
+    }
+
+    public static function in_progress_requests($category=null)
+    {
+        if($category != null) {
+            return FixRequest::with('tags')->whereRaw('category_id = ?', array($category))->has('jobs', ">", 0)->orderBy('created_at', 'DESC');
+        }
         return FixRequest::with('tags')->has('jobs', ">", 0)->orderBy('created_at', 'DESC');
+    }
+    
+    public static function in_progress_requests_search($params,$local)
+    {
+		if(is_null($params) || $params == "") {
+			if(is_null($local) || $local == "") {
+        		return FixRequest::in_progress_requests();
+			}
+			else {
+        		return FixRequest::in_progress_requests()->where("location_id",$local);
+			}
+		}
+		else {
+        	if(is_null($local) || $local == "") {
+				return FixRequest::in_progress_requests()->where("title","like","%".$params."%");
+			}
+			else {
+				return FixRequest::in_progress_requests()->where("title","like","%".$params."%","and","location_id","=",$local);				
+			}
+		}
     }
 
     public static function getFixRequest($id)

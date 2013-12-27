@@ -15,7 +15,7 @@
                 <li @if ($sort == "no_offers")class="active"@endif><a href="{{ URL::to('fixrequests/index/no_offers') }}">No offers</a></li>
                 <li @if ($sort == "in_progress")class="active"@endif><a href="{{ URL::to('fixrequests/index/in_progress') }}">In progress</a></li>
             </ul>
-            <div class="fixrequests">
+            <div class="fixrequests" data-sort="{{$sort}}">
                 @if(count($fixrequests) === 0)
                 <hr>
                 <p class="lead">We don't have fix requests that fit that description</p>
@@ -53,14 +53,43 @@
         </div>
     </div>
     <div class="col-md-3">
-        <!-- <div class="panel panel-default">
+        <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Favorite Tags</h3>
+                <h3 class="panel-title">Filter by category</h3>
             </div>
-            <div class="panel-body">
-                This will show the favorite tags of the user
+            <div class="panel-body" id="fixrequest-index-radios">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="categoryRadios" id="categoryRadios1" value="1" @if($filter && $filter == "1")checked@endif>
+                        Home
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="categoryRadios" id="categoryRadios2" value="2" @if($filter && $filter == "2")checked@endif>
+                        Gardening
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="categoryRadios" id="categoryRadios3" value="3" @if($filter && $filter == "3")checked@endif>
+                        Mechanics
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="categoryRadios" id="categoryRadios4" value="4" @if($filter && $filter == "4")checked@endif>
+                        Electronics
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="categoryRadios" id="categoryRadios5" value="5" @if($filter && $filter == "5")checked@endif>
+                        Appliances
+                    </label>
+                </div>
             </div>
-        </div> -->
+        </div>
         <div class="panel panel-default popular-tags">
             <div class="panel-heading">
                 <h3 class="panel-title lead">Popular Tags</h3>
