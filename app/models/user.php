@@ -50,6 +50,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return User::find($id);
     }
 
+    public static function getFavorites(){
+        $id1 = Auth::user()->id;
+        $query =  "(select favorites.user_2, users.username from favorites INNER JOIN users ON users.id = favorites.user_2 AND favorites.user_1 = '".$id1."')";
+        $result = DB::select(DB::raw($query));
+        //Utilfunctions::dump($result[1]);
+        if($result)
+        {
+            return $result;
+        }
+       
+    }
+
     // Definition of relations
 
     public function posts() {

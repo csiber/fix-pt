@@ -44,11 +44,12 @@ class PromotionPage extends Eloquent {
     
     public static function popular($category)
     {
-        if($category != null) {
-            return PromotionPage::whereRaw('category_id = ?', array($category))->orderBy('created_at', 'DESC');
-        }
-        return PromotionPage::orderBy('created_at', 'DESC');
-    }
+		return PromotionPage::join('posts', 'promotion_pages.post_id', '=', 'posts.id')
+            ->join('jobs', 'posts.user_id', '=', 'jobs.fixer_id')
+            ->select(DB::raw('*, count(*) as jobammount'))
+            ->groupBy('posts.user_id')
+            ->orderBy('jobammount','desc');
+	}
     
     public static function popular_promotion_pages($params,$local,$category=null)
     {
