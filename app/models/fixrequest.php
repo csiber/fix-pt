@@ -13,22 +13,22 @@ class FixRequest extends Eloquent {
         return FixRequest::with('tags')->has('jobs', "=", 0)->orderBy('created_at', 'DESC');
     }
     
-    public static function recent_requests_search($params,$local)
+    public static function recent_requests_search($params, $local, $category=null)
     {
 		if(is_null($params) || $params == "") {
 			if(is_null($local) || $local == "") {
-        		return FixRequest::recent_requests();
+        		return FixRequest::recent_requests($category);
 			}
 			else {
-        		return FixRequest::recent_requests()->where("location_id",$local);
+                return FixRequest::recent_requests($category)->whereRaw("city = ?", array(ucfirst(strtolower($local))));
 			}
 		}
 		else {
         	if(is_null($local) || $local == "") {
-				return FixRequest::recent_requests()->where("title","like","%".$params."%");
+				return FixRequest::recent_requests($category)->where("title","like","%".$params."%");
 			}
 			else {
-				return FixRequest::recent_requests()->where("title","like","%".$params."%","and","location_id","=",$local);				
+            return FixRequest::recent_requests($category)->where("city", "=", ucfirst(strtolower($local)))->where("title","like","%".$params."%");
 			}
 		}
     }
@@ -41,22 +41,22 @@ class FixRequest extends Eloquent {
         return FixRequest::with('tags')->has('jobs', "=", 0)->has('fixoffers', '>', 0)->has('comments', '>', 0)->orderBy('created_at', 'DESC');
     }
     
-    public static function popular_requests_search($params,$local)
+    public static function popular_requests_search($params,$local, $category=null)
     {
 		if(is_null($params) || $params == "") {
 			if(is_null($local) || $local == "") {
-        		return FixRequest::popular_requests();
+        		return FixRequest::popular_requests($category);
 			}
 			else {
-        		return FixRequest::popular_requests()->where("location_id",$local);
+        		return FixRequest::popular_requests($category)->whereRaw("city = ?",array(ucfirst(strtolower($local))));
 			}
 		}
 		else {
         	if(is_null($local) || $local == "") {
-				return FixRequest::popular_requests()->where("title","like","%".$params."%");
+				return FixRequest::popular_requests($category)->where("title","like","%".$params."%");
 			}
 			else {
-				return FixRequest::popular_requests()->where("title","like","%".$params."%","and","location_id","=",$local);				
+				return FixRequest::popular_requests($category)->where("title","like","%".$params."%")->where("city","=", ucfirst(strtolower($local)));				
 			}
 		}
     }
@@ -69,22 +69,22 @@ class FixRequest extends Eloquent {
         return FixRequest::with('tags')->has('fixoffers', "=", 0)->orderBy('created_at', 'DESC');
     }
     
-    public static function no_offers_requests_search($params,$local)
+    public static function no_offers_requests_search($params,$local, $category=null)
     {
 		if(is_null($params) || $params == "") {
 			if(is_null($local) || $local == "") {
-        		return FixRequest::no_offers_requests();
+        		return FixRequest::no_offers_requests($category);
 			}
 			else {
-        		return FixRequest::no_offers_requests()->where("location_id",$local);
+        		return FixRequest::no_offers_requests($category)->whereRaw("city = ?", array(ucfirst(strtolower($local))));
 			}
 		}
 		else {
         	if(is_null($local) || $local == "") {
-				return FixRequest::no_offers_requests()->where("title","like","%".$params."%");
+				return FixRequest::no_offers_requests($category)->where("title","like","%".$params."%");
 			}
 			else {
-				return FixRequest::no_offers_requests()->where("title","like","%".$params."%","and","location_id","=",$local);				
+				return FixRequest::no_offers_requests($category)->where("title","like","%".$params."%")->whereRaw("city = ?", array(ucfirst(strtolower($local))));				
 			}
 		}
     }
@@ -97,7 +97,7 @@ class FixRequest extends Eloquent {
         return FixRequest::endingSoon()->with('tags')->has('jobs', "=", 0)->orderBy('created_at', 'DESC');
     }
     
-    public static function ending_soon_requests_search($params,$local)
+    public static function ending_soon_requests_search($params,$local, $category=null)
     {
 		if(is_null($params) || $params == "") {
 			if(is_null($local) || $local == "") {
@@ -125,7 +125,7 @@ class FixRequest extends Eloquent {
         return FixRequest::with('tags')->has('jobs', ">", 0)->orderBy('created_at', 'DESC');
     }
     
-    public static function in_progress_requests_search($params,$local)
+    public static function in_progress_requests_search($params,$local, $category=null)
     {
 		if(is_null($params) || $params == "") {
 			if(is_null($local) || $local == "") {

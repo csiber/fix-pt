@@ -41,7 +41,6 @@ class PromotionPage extends Eloquent {
 
     public static function getPromotionPage($id)
     {
-
         return PromotionPage::with(array('post'))->find($id);
     }
 
@@ -69,7 +68,7 @@ class PromotionPage extends Eloquent {
     public static function getPromotionPageNoId()
     {
         $id1 = Auth::user()->id;
-        $query = "(select promotion_pages.id, promotion_pages.post_id, promotion_pages.title, posts.text from promotion_pages INNER JOIN posts ON promotion_pages.post_id = posts.id AND posts.user_id = '".$id1."')";
+        $query = "(select promotion_pages.id, promotion_pages.post_id, promotion_pages.title, posts.text, promotion_pages.category_id from promotion_pages INNER JOIN posts ON promotion_pages.post_id = posts.id AND posts.user_id = '".$id1."')";
         return DB::select(DB::raw($query));
     }
 	
