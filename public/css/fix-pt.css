@@ -826,3 +826,11 @@ fieldset .form.group:last-child {
   font-size: 64px;
   font-weight: bold;
 }
+
+.search .form-group {
+  margin-bottom: 0;
+}
+
+.search button {
+  width: 100%;
+}

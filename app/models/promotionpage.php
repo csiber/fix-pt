@@ -14,22 +14,56 @@ class PromotionPage extends Eloquent {
         return $this->belongsTo('Category');
     }
 	
-	public static function getPromotionPages($params,$local)
+	public static function recent()
+	{
+		return PromotionPage::orderBy('created_at', 'DESC');
+	}
+	
+	public static function recent_promotion_pages($params,$local)
     {
 		if(is_null($params) || $params == "") {
 			if(is_null($local) || $local == "") {
-        		return PromotionPage::orderBy('created_at', 'DESC');
+        		return PromotionPage::recent();
 			}
 			else {
-        		return PromotionPage::where("location_id",$local)->orderBy('created_at', 'DESC');
+        		return PromotionPage::recent()->where("location_id",$local);
 			}
 		}
 		else {
         	if(is_null($local) || $local == "") {
-				return PromotionPage::where("title","like","%".$params."%")->orderBy('created_at', 'DESC');
+				return PromotionPage::recent()->where("title","like","%".$params."%");
 			}
 			else {
-				return PromotionPage::where("title","like","%".$params."%","and","location_id","=",$local)->orderBy('created_at', 'DESC');				
+				return PromotionPage::recent()->where("title","like","%".$params."%","and","location_id","=",$local);				
+			}
+		}
+	}
+	
+	public static function popular()
+	{
+		return PromotionPage::join('posts', 'promotion_pages.post_id', '=', 'posts.id')
+		->join('jobs', 'posts.user_id', '=', 'jobs.fixer_id')
+		->select(DB::raw('*, count(*) as jobammount'))
+		->groupBy('posts.user_id')
+		->orderBy('jobammount','desc');
+	}
+	
+	public static function popular_promotion_pages($params,$local)
+    {
+		if(is_null($params) || $params == "") {
+			if(is_null($local) || $local == "") {
+        		return PromotionPage::popular();
+			}
+			else {
+        		return PromotionPage::popular()->where("location_id",$local);
+			}
+		}
+		else {
+        	if(is_null($local) || $local == "") {
+				return PromotionPage::popular()->where("title","like","%".$params."%");
+			}
+			else {
+				return PromotionPage::popular()->where("title","like","%".$params."%","and","location_id","=",$local);				
 			}
 		}
 	}
@@ -66,6 +100,11 @@ class PromotionPage extends Eloquent {
         $query = "(select promotion_pages.id, promotion_pages.post_id, promotion_pages.title, posts.text, promotion_pages.category_id from promotion_pages INNER JOIN posts ON promotion_pages.post_id = posts.id AND posts.user_id = '".$id1."')";
         return DB::select(DB::raw($query));
     }
+	
+	public static function getBestFixers()
+	{
+		return Job::with('user')->select(DB::raw("*, avg(rated) as rating"))->groupBy('fixer_id')->orderBy('rating','desc')->take(3)->get();
+	}
 }
 
 ?>

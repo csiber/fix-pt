@@ -123,29 +123,34 @@ class FixRequestController extends BaseController {
         ));
     }
 	
-    public function getSearch($sort=null)
+    public function getSearch($sort=null, $filter=null)
     {
         $terms = Session::get('terms');
         $local = Session::get('local');
+
+        Session::forget('terms');
+        Session::forget('local');
+
 		$requests_per_page = 6;
         if ($sort == "recent") {
-            $fixrequests = FixRequest::recent_requests_search($terms,$local)->paginate($requests_per_page);
+            $fixrequests = FixRequest::recent_requests_search($terms, $local, $filter)->paginate($requests_per_page);
 			Session::put('sort', "recent");
         } else if ($sort == 'popular') {
-            $fixrequests = FixRequest::popular_requests_search($terms,$local)->paginate($requests_per_page);
+            $fixrequests = FixRequest::popular_requests_search($terms, $local, $filter)->paginate($requests_per_page);
 			Session::put('sort', "popular");
         } else if ($sort == 'no_offers') {
-            $fixrequests = FixRequest::no_offers_requests_search($terms,$local)->paginate($requests_per_page); 
+            $fixrequests = FixRequest::no_offers_requests_search($terms, $local, $filter)->paginate($requests_per_page); 
 			Session::put('sort', "no_offers");
         } else if ($sort == 'ending_soon') {
-            $fixrequests = FixRequest::ending_soon_requests_search($terms,$local)->paginate($requests_per_page); 
+            $fixrequests = FixRequest::ending_soon_requests_search($terms, $local, $filter)->paginate($requests_per_page); 
 			Session::put('sort', "ending_soon");
         } else if ($sort == 'in_progress') {
-            $fixrequests = FixRequest::in_progress_requests_search($terms,$local)->paginate($requests_per_page); 
+            $fixrequests = FixRequest::in_progress_requests_search($terms, $local, $filter)->paginate($requests_per_page); 
 			Session::put('sort', "in_progress");
         } else {
             return Redirect::to('fixrequests/search/recent');
         }
+
         $popular_tags = Tag::getPopular(10);
         foreach($fixrequests as &$fixrequest) {
             $post = Post::find($fixrequest['post_id']);
@@ -160,20 +165,21 @@ class FixRequestController extends BaseController {
             $fixrequest['end_date_exact'] = date("Y-m-d H:i:s", strtotime($fixrequest->created_at." + $fixrequest->daysForOffer days"));
             $fixrequest['end_date'] = UtilFunctions::getEndDate($fixrequest['created_at'], $fixrequest['daysForOffer']);
         }
-        $concelhos = array();
-        $concs = Search::get_concelhos_por_distritos();
-        $concelhos[""] = "Escolha um concelho";
-        foreach ($concs as $conc)
-        {
-           $concelhos[$conc->id] = $conc->distrito . " - " . $conc->name;
-        }
-        return View::make('fixrequests.search', array("fixrequests" => $fixrequests,"sort" => $sort,"popular_tags" => $popular_tags,"concs" => $concelhos,"text" => $terms,"selconcelho" => $local));
+
+        return View::make('fixrequests.search', array(
+            "fixrequests" => $fixrequests,
+            "sort" => $sort,
+            "popular_tags" => $popular_tags,
+            "text" => $terms,
+            "district" => $local,
+            "filter" => $filter,
+        ));
 	}
     
     public function postSearch()
     {
         Session::put('terms', Input::get('text'));
-        Session::put('local', Input::get('concelhos'));
+        Session::put('local', Input::get('district'));
         return $this->getSearch(Session::get('sort'));
     }
 
@@ -230,8 +236,8 @@ class FixRequestController extends BaseController {
                     'state' => 'active',
                     'daysForOffer' => Input::get('daysForOffer'),
                     'value' => Input::get('value'),
-                    'city' => Input::get('city'),
-                    'concelho' => Input::get('location')
+                    'city' => ucfirst(strtolower(Input::get('city'))),
+                    'concelho' => ucfirst(strtolower(Input::get('location')))
                 ));
 
                 $category = Category::find(Input::get('category'));

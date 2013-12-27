@@ -20,6 +20,13 @@
                 <button type="submit" class="btn btn-danger">Search</button>
             {{ Form::close(); }}
             </div>
+        </div>
+
+        <div class="well well-lg">
+            <ul class="nav nav-pills">
+                <li @if ($sort == "recent")class="active"@endif><a href="{{ URL::to('promotionpages/index/recent') }}">Recent</a></li>
+                <li @if ($sort == "popular")class="active"@endif><a href="{{ URL::to('promotionpages/index/popular') }}">Popular</a></li>
+            </ul>
             <div class="promotionpages">
                 @if(count($promotionpages) === 0)
                 <p>We have no promotion pages to show you</p>
@@ -54,7 +61,11 @@
                 <h3 class="panel-title lead">Popular Fixers</h3>
             </div>
             <div class="panel-body">
-                Show 3 or less fixers that have the most jobs
+                @foreach($best_fixers as $fixer)
+                <div>
+                    <span class="tag label brand-bc">{{{$fixer->name}}} - {{{$fixer->rating}}}</span>
+                </div>
+                @endforeach
             </div>
         </div>
     </div>

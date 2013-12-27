@@ -13,12 +13,15 @@ class PromotionPageController extends BaseController {
         $local = Session::get('local');
         $requests_per_page = 5;
 
-        if ($sort == "recent") {
-            $promotionpages = PromotionPage::getPromotionPages($terms,$local)->paginate($requests_per_page);
-			echo "passou";
+        if ($sort == 'recent') {
+            $promotionpages = PromotionPage::recent_promotion_pages($terms,$local)->paginate($requests_per_page);
+			Session::put('sort', 'recent');
+        } else if ($sort == 'popular') {
+            $promotionpages = PromotionPage::popular_promotion_pages($terms,$local)->paginate($requests_per_page);
+			Session::put('sort', 'popular');
         } else {
-            return Redirect::to('promotionpages/index/recent');
-        }
+			return Redirect::to('promotionpages/index/recent');
+		}
 
         foreach($promotionpages as $promotionpage) {
             $post = Post::find($promotionpage['post_id']);
@@ -32,6 +35,12 @@ class PromotionPageController extends BaseController {
             $promotionpage['category'] = $promotionpage->category;
             $promotionpage['category_class'] = UtilFunctions::getCategoryIdWord($promotionpage->category['id']);
         }
+		$bestfixers = PromotionPage::getBestFixers();
+		foreach ($bestfixers as $bestf)
+        {
+		   $user_fixer = User::find($bestf['fixer_id']);
+		   $bestf['name'] = $user_fixer['username'];
+        }
         $concelhos = array();
         $concs = Search::get_concelhos_por_distritos();
         $concelhos[""] = "Escolha um concelho";
@@ -39,14 +48,14 @@ class PromotionPageController extends BaseController {
         {
            $concelhos[$conc->id] = $conc->distrito . " - " . $conc->name;
         }
-        return View::make('promotionpages.index', array('promotionpages' => $promotionpages, "sort" => $sort, "concs" => $concelhos,"text" => $terms,"selconcelho" => $local));
+        return View::make('promotionpages.index', array('promotionpages' => $promotionpages, "sort" => $sort, "concs" => $concelhos,"text" => $terms,"selconcelho" => $local, "best_fixers" => $bestfixers));
     }
     
     public function postIndex()
     {
         Session::put('terms', Input::get('text'));
         Session::put('local', Input::get('concelhos'));
-        return $this->getIndex(null);
+        return $this->getIndex(Session::get('sort'));
     }
 
     /**
@@ -179,8 +188,8 @@ class PromotionPageController extends BaseController {
 
                 $promotionpage = new PromotionPage(array(
                     'title' => Input::get('title'),
-                    'city' => Input::get('city'),
-                    'concelho' => Input::get('location')
+                    'city' => ucfirst(strtolower(Input::get('city'))),
+                    'concelho' => ucfirst(strtolower(Input::get('location')))
                 ));
 
                 $category = Category::find(Input::get('category'));
