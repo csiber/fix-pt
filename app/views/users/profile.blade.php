@@ -60,21 +60,8 @@
         </div>
         <div class="well well-lg">
             <ul class="nav nav-pills">
-                <li @if ($sort == "favorites")class="active"@endif><a href="{{ URL::to('users/profile/favorites') }}">Favorite Users</a></li>
                 <li @if ($sort == "ratings")class="active"@endif><a href="{{ URL::to('users/profile/ratings') }}">Ratings</a></li>
             </ul>
-            @if (count($favs) === 0)
-                <hr>
-                <p class="lead">This user don't have any favorite!</p>
-            @else
-                @if($sort == "favorites")
-                    @foreach($favs as $fav)
-                        <hr>
-                        <a href="{{ URL::to('users/view/'.$fav->user_2) }}">{{{$fav->username}}}</a>
-                    @endforeach 
-                    <hr>
-                @endif
-            @endif
         </div>
     </div>
     <div class="col-md-4">
