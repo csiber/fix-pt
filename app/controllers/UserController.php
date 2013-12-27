@@ -146,7 +146,8 @@ class UserController extends BaseController {
 
         $user = User::find(Auth::user()->id);
 
-/*
+        $favs = User::getFavorites();
+/*      
         $notifications=Notification::getNotificationsOfUser($user['id']);
        
         UtilFunctions::dump($notifications);
@@ -154,6 +155,7 @@ class UserController extends BaseController {
 
         return View::make('users.profile', 
             array('search' => $search,
+                'favs' => $favs,
                 'sort' => $sort,
                 'user' => $user));
     }
