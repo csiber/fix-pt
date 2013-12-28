@@ -18,9 +18,12 @@
             <div class="row">
                
                 <div class="col-md-4">
+		@if(isset($gravatar))
                     <img src="{{$gravatar}}" alt="..." class="img-thumbnail">
+		@endif
                 </div>
                 <div class="col-md-8">
+		
                     <h3>{{(Auth::user()->full_name)?Auth::user()->full_name:Auth::user()->username}}</h3>
                     <br/>
                     <?php if (Auth::user()->full_name) : ?>
@@ -48,14 +51,17 @@
             </div>
         </div>
         <div class="well well-lg">
+	
             <ul class="nav nav-pills">
                 <li @if ($sort == "all")class="active"@endif><a href="{{ URL::to('users/profile/all') }}">All</a></li>
                 <li @if ($sort == "positive")class="active"@endif><a href="{{ URL::to('users/profile/positive') }}">Positive</a></li>
                 <li @if ($sort == "neutral")class="active"@endif><a href="{{ URL::to('users/profile/neutral') }}">Neutral</a></li>
                 <li @if ($sort == "negative")class="active"@endif><a href="{{ URL::to('users/profile/negative') }}">Negative</a></li>
             </ul>
+	
             <hr>
-            @if(count($ratings) === 0)
+	@if(isset($ratings))
+            @if(count($ratings) == 0)
             <p class="lead">No ratings available.</p>
             @else
                 <table class="table table-hover">
@@ -69,6 +75,7 @@
                         </tr>
                     </thead>
                     <tbody>
+			@if(isset($rate))
                         @foreach($ratings as $rate)
                             <tr>
                                 <td>
@@ -96,9 +103,11 @@
                                 <td>{{{$rate->score}}} <i class='glyphicon glyphicon-star'></i></td>
                             </tr>
                         @endforeach
-                    </tbody>
+			@endif
+		    </tbody>
                 </table>
             @endif
+	@endif
         </div>
     </div>
     <div class="col-md-3">

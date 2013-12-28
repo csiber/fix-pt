@@ -150,13 +150,14 @@ class UserController extends BaseController {
             $rate['fixer'] = User::find($rate['fixer_id']);
             $rate['requester'] = User::find($rate['requester_id']);
             $rate['fixer']['gravatar'] = UtilFunctions::gravatar($rate['fixer']->email, 16);
-            $rate['requester']['gravatar'] = UtilFunctions::gravatar($rate['requester']->email, 16);
+//            $rate['requester']['gravatar'] = ($rate['requester']->email != null)? UtilFunctions::gravatar($rate['requester']->email, 16):null;
         }
+
 
 		$lastrates = User::getLast3Ratings(Auth::user()->id);
         foreach($lastrates as &$rate) {
             $rate['requester'] = User::find($rate['requester_id']);
-            $rate['requester']['gravatar'] = UtilFunctions::gravatar($rate['requester']->email, 20);
+            //$rate['requester']['gravatar'] = UtilFunctions::gravatar($rate['requester']->email, 20);
         }
 /*      
         $notifications=Notification::getNotificationsOfUser($user['id']);
@@ -164,9 +165,9 @@ class UserController extends BaseController {
 */
 		return View::make('users.profile', array(
             'ratings' => $ratings,
-			'lastrates' => $lastrates,
+ 	    'lastrates' => $lastrates,
             'sort' => $rating_sort,
-            "gravatar" => UtilFunctions::gravatar(Auth::user()->email, 190),
+            //"gravatar" => UtilFunctions::gravatar(Auth::user()->email, 190),
         ));
     }
 
