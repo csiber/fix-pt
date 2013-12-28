@@ -68,7 +68,7 @@ class UserController extends BaseController {
             $rate['requester'] = User::find($rate['requester_id']);
             $rate['requester']['gravatar'] = UtilFunctions::gravatar($rate['requester']->email, 20);
         }
-/*      
+        /*      
         $notifications=Notification::getNotificationsOfUser($user['id']);
         UtilFunctions::dump($notifications);
 */
@@ -78,16 +78,6 @@ class UserController extends BaseController {
             'lastrates' => $lastrates,
             'sort' => $rating_sort,
             "gravatar" => UtilFunctions::gravatar(User::find($id)->email, 190),
-        ));
-
-
-        if (Auth::check() && $id == Auth::user()->id) {
-            return Redirect::to("users/profile");
-        }
-        $user = User::getUser($id);
-        return View::make('users.view', array(
-            'user' => $user,
-            'lastrates' => null
         ));
     }
 

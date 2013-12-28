@@ -16,7 +16,7 @@
                     <span class="glyphicon glyphicon-pencil"></span> Edit Profile
                 </a>         
             </div>
-            @endif
+            @endifg
             <div class="row">
                
                 <div class="col-md-4">
@@ -93,14 +93,15 @@
     <div class="panel-body">
         @if($lastrates && count($lastrates) === 0)
         <p>No ratings available.</p>
-        @elseif($lastrates)
+        @else
         @foreach($lastrates as $lr)
         <div class="media favoriteDashboard">
             <a class="pull-left" href="{{ URL::to('users/view/'.$lr->requester->id)}}">
                 <img class="media-object" src="{{$lr->requester->gravatar}}" alt="{{$lr->requester->username}}">
             </a>
             <div class="media-body">
-                <h5 class="media-heading"><a href="{{ URL::to('users/view/'.$lr->requester->id)}}">{{$lr->requester->username}}</a> gave {{$rate->score}} <i class='glyphicon glyphicon-star'></i></h5>
+                <h5 class="media-heading"><a href="{{ URL::to('users/view/'.$lr->requester->id)}}">{{$lr->requester->username}}</a> gave {{$lr->score}} <i class='glyphicon glyphicon-star'></i></h5>
+                <p>{{{$lr->feedback}}}</p>
             </div>
         </div>
         @endforeach
