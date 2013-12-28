@@ -81,7 +81,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	
 	public static function getLast3Ratings($id)
 	{
-		return User::join('jobs','users.id','=','jobs.fixer_id')->where('rated','1')->whereRaw('jobs.fixer_id = ?', array($id))->whereRaw('jobs.user_id != ?', array(Auth::user()->id))->orderBy('jobs.created_at','DESC')->take(3)->get();
+		return User::join('jobs','users.id','=','jobs.fixer_id')->where('rated','1')->whereRaw('jobs.fixer_id = ?', array($id))->orderBy('jobs.created_at','DESC')->take(3)->get();
 	}
 
     // Definition of relations

@@ -7,14 +7,16 @@
         <ol class="breadcrumb">
             <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
             <li><a href="{{URL::to('users/index')}}">Users</a></li>
-            <li class="active">{{{Auth::user()->username}}}</li>
+            <li class="active">{{{$user->username}}}</li>
         </ol>
         <div class="well well-lg">
+            @if(Auth::check() && Auth::user()->id == $user->id)
             <div class="row">               
                 <a href="{{ URL::to('users/edit/'.Auth::user()->id.'') }}"  class="btn btn-default btn pull-right">
                     <span class="glyphicon glyphicon-pencil"></span> Edit Profile
                 </a>         
             </div>
+            @endif
             <div class="row">
                
                 <div class="col-md-4">
