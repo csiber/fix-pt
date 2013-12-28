@@ -58,25 +58,23 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $result;
     }
 	
-	public static function getRatings($filter)
+	public static function getRatings($filter, $id)
 	{
-        $id = Auth::user()->id;
-
 		if ($filter == 'negative') {
-			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.score','<',3)->orWhere(function($query) use ($id) {
-                $query->whereRaw('jobs.fixer_id = ?', array($id))->whereRaw('jobs.requester_id = ?', array($id));
+			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.score','<',3)->where(function($query) use ($id) {
+                $query->where('jobs.fixer_id', $id)->orWhere('jobs.requester_id', $id);
             })->orderBy('jobs.created_at','DESC')->get();
 		} else if ($filter == 'neutral') {
-			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.score','=', 3)->orWhere(function($query) use ($id) {
-                $query->whereRaw('jobs.fixer_id = ?', array($id))->whereRaw('jobs.requester_id = ?', array($id));
+			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.score','=', 3)->where(function($query) use ($id) {
+                $query->whereRaw('jobs.fixer_id = ?', array($id))->orWhere('jobs.requester_id', $id);
             })->orderBy('jobs.created_at','DESC')->get(); 
 		} else if ($filter == 'positive') {
-			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.score','>',3)->orWhere(function($query) use ($id) {
-                $query->whereRaw('jobs.fixer_id = ?', array($id))->whereRaw('jobs.requester_id = ?', array($id));
+			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where('jobs.score','>',3)->where(function($query) use ($id) {
+                $query->whereRaw('jobs.fixer_id = ?', array($id))->orWhere('jobs.requester_id', $id);
             })->orderBy('jobs.created_at','DESC')->get();
 		} else {
-			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->orWhere(function($query)  use ($id){
-                $query->whereRaw('jobs.fixer_id = ?', array($id))->whereRaw('jobs.requester_id = ?', array($id));
+			return User::join('jobs','jobs.fixer_id','=','users.id')->where('rated','1')->where(function($query) use ($id){
+                $query->where('jobs.fixer_id', $id)->orWhere('jobs.requester_id', $id);
             })->orderBy('jobs.created_at','DESC')->get();
 		}
 	}

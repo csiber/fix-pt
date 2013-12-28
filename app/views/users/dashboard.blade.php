@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <ol class="breadcrumb">
             <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
             <li><a href="{{URL::to('users/index')}}">Users</a></li>
@@ -71,8 +71,6 @@
             </div>
             @endif
         </div>
-    </div>
-    <div class="col-md-4">
     </div>
 </div>
 @stop

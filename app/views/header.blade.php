@@ -24,12 +24,6 @@
                             @if (Auth::check())
                             <li><a href="{{ URL::to('fixrequests/create') }}">Add Fix Request</a></li>
                             @endif
-                            <!--
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                            -->
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -38,15 +32,9 @@
                             <li><a href="{{ URL::to('promotionpages/index/recent') }}">View Promotion Pages</a></li>                            
                             @if (Auth::check() && Session::get('haspromotionpage', Null))
                             <li><a href="{{ URL::to('promotionpages/edit') }}">Edit Promotion Page</a></li>
-                            @else
+                            @elseif(Auth::check())
                             <li><a href="{{ URL::to('promotionpages/create') }}">Create Promotion Page</a></li>
                             @endif
-                            <!--
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                            -->
                         </ul>
                     </li>               
                 </ul>

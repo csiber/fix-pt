@@ -8,13 +8,13 @@
             <li class="active"><a href="{{{ URL::to('users/index') }}}" class="_users">Manage Users</a></li>
             @endif
             @if (Auth::user()->user_type == 'Premium')
-            <li class="active"><a href="{{ URL::to('users/downgrade/'.Auth::user()->id.'') }}"  class="_users">Downgrade Account</a></li>
+            <li class="active"><a href="{{ URL::to('users/downgrade/'.Auth::user()->id) }}"  class="_users">Downgrade Account</a></li>
             @endif
             @if (Auth::user()->user_type == 'Standard')
-            <li class="active"><a href="{{ URL::to('users/upgrade/'.Auth::user()->id.'') }}"  class="_users">Upgrade Account</a></li>
+            <li class="active"><a href="{{ URL::to('users/upgrade/'.Auth::user()->id) }}"  class="_users">Upgrade Account</a></li>
             @endif
             @if (Auth::user()->user_type == 'Moderator')
-            <li class="active"><a href="{{ URL::to('users/downgrade/'.Auth::user()->id.'') }}"  class="_users">Revoke Moderator Rights</a></li>
+            <li class="active"><a href="{{ URL::to('users/downgrade/'.Auth::user()->id) }}"  class="_users">Revoke Moderator Rights</a></li>
             @endif
             <li class="active"><a href="{{ URL::to('users/dashboard') }}"  class="_users">Dashboard</a></li>                    
         </ul>

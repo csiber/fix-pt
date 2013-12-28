@@ -8,6 +8,9 @@
             <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
             <li class="active">Sign In</a></li>
         </ol>
+    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
         <div class="well well-lg">
             <h4 class="modal-title">Sign In</h4>
             {{ Form::open(array(    
@@ -40,6 +43,7 @@
              
         </div>
     </div>
+    <div class="col-md-3"></div>
 </div>
 
 

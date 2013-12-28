@@ -14,6 +14,10 @@
 					<li @if ($users_type == "premium")class="active"@endif><a href="{{ URL::to('users/index/premium') }}">Premium</a></li>
 					<li @if ($users_type == "standard")class="active"@endif><a href="{{ URL::to('users/index/standard') }}">Standard</a></li>
 				</ul>
+                <hr>
+                @if(count($users) == 0)
+                <p class="lead">We don't have any users that fit that description.</p>
+                @else
                 <table class="table">
                     <thead>
                         <tr>
@@ -30,7 +34,7 @@
                     </thead>
                     <tbody>
                         <?php $counter = 1; ?>
-
+        
                         @foreach($users as $user)
                         <tr>
                             <td><?php echo $counter++; ?></td>
@@ -45,7 +49,7 @@
                             @endif
                             @else
                             <td>{{ $user->full_name }}</td>
-                            <td>{{ $user->username }}</td>
+                            <td><a href="{{ URL::to('users/view/'.$user->id.'')}}">{{ $user->username }}</a></td>
                             <td>{{ $user->email }}</td>
                             <td></td>
                             @endif
@@ -59,7 +63,8 @@
                         </tr>
                         @endforeach
                     </tbody>
-                </table>   
+                </table>
+                @endif
 				{{ Form::close() }}
             </div>
         </div>    

@@ -2,12 +2,15 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <ol class="breadcrumb">
             <li><a href="{{URL::to('/')}}">Fix.pt</a></li>
             <li><a href="{{URL::to('users/index')}}">Users</a></li>
-            <li class="active">{{{$user->username}}}</li>
+            <li class="active">Edit {{{$user->username}}} info</li>
         </ol>
+    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
         <div class="well well-lg">            
             <div class="row">
                 
@@ -36,13 +39,10 @@
                 </div>      
                 <button type="submit" form="user-edit" class="btn btn-success">Save</button>
                 {{ Form::close() }}
-                
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        @include('users.userSideBox')        
-    </div>
+    <div class="col-md-3"></div>
 </div>
 @stop
 

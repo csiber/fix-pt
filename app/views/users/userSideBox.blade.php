@@ -1,18 +1,11 @@
-<?php
-/*
- * File: userSideBox.blade.php
- * Left side bar to apper on user profile
- */
-?>
-
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title lead">Latest ratings as fixer</h3>
     </div>
     <div class="panel-body">
         @if($lastrates && count($lastrates) === 0)
-        <p class="lead">No ratings available.</p>
-        @else
+        <p>No ratings available.</p>
+        @elseif($lastrates)
             @foreach($lastrates as $lr)
             <div class="media favoriteDashboard">
                 <a class="pull-left" href="{{ URL::to('users/view/'.$lr->requester->id)}}">
@@ -20,6 +13,7 @@
                 </a>
                 <div class="media-body">
                     <h5 class="media-heading"><a href="{{ URL::to('users/view/'.$lr->requester->id)}}">{{$lr->requester->username}}</a> gave {{$rate->score}} <i class='glyphicon glyphicon-star'></i></h5>
+                    <p>{{{$rate->feedback}}}</p>
                 </div>
             </div>
             @endforeach

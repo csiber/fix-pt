@@ -61,7 +61,6 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Role</th>
                             <th>From</th>
                             <th>To</th>
                             <th>Feedback</th>
@@ -71,13 +70,6 @@
                     <tbody>
                         @foreach($ratings as $rate)
                             <tr>
-                                <td>
-                                    @if($rate->user_id == $rate->fixer_id && $rate->user_id == Auth::user()->id)
-                                    Fixer 
-                                    @else 
-                                    Requester
-                                    @endif
-                                </td>
                                 <td>
                                     @if($rate->user_id == $rate->requester_id )
                                     <a href="{{ URL::to('users/view/'.$rate->requester->id)}}"><img src="{{$rate->requester->gravatar}}"> {{$rate->requester->username}}</a>

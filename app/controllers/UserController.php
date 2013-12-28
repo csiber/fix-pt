@@ -39,12 +39,56 @@ class UserController extends BaseController {
      * View displays profile of a given user
      * @return Response
      */
-    public function getView($id) {
+    public function getView($id, $rating_sort="all") {
+
+        $user = User::find($id);
+        if(! $user) {
+            App::abort(404, 'Article not found');
+        }
+
+        if($rating_sort == "negative"
+            || $rating_sort == "neutral"
+            || $rating_sort == "positive"
+            || $rating_sort == "all") {
+            $ratings = User::getRatings($rating_sort, $id);
+        } else {
+            return Redirect::to('users/view/'.$id.'/all');
+        }
+
+        foreach($ratings as &$rate) {
+            // $rate['fixrequest'] = FixRequest::find($rate['fix_request_id']);
+            $rate['fixer'] = User::find($rate['fixer_id']);
+            $rate['requester'] = User::find($rate['requester_id']);
+            $rate['fixer']['gravatar'] = UtilFunctions::gravatar($rate['fixer']->email, 16);
+            $rate['requester']['gravatar'] = UtilFunctions::gravatar($rate['requester']->email, 16);
+        }
+
+        $lastrates = User::getLast3Ratings($id);
+        foreach($lastrates as &$rate) {
+            $rate['requester'] = User::find($rate['requester_id']);
+            $rate['requester']['gravatar'] = UtilFunctions::gravatar($rate['requester']->email, 20);
+        }
+/*      
+        $notifications=Notification::getNotificationsOfUser($user['id']);
+        UtilFunctions::dump($notifications);
+*/
+        return View::make('users.view', array(
+            'user' => $user,
+            'ratings' => $ratings,
+            'lastrates' => $lastrates,
+            'sort' => $rating_sort,
+            "gravatar" => UtilFunctions::gravatar(User::find($id)->email, 190),
+        ));
+
+
         if (Auth::check() && $id == Auth::user()->id) {
             return Redirect::to("users/profile");
         }
         $user = User::getUser($id);
-        return View::make('users.view', array('user' => $user));
+        return View::make('users.view', array(
+            'user' => $user,
+            'lastrates' => null
+        ));
     }
 
     public function getLogin() {
@@ -140,7 +184,7 @@ class UserController extends BaseController {
             || $rating_sort == "neutral"
             || $rating_sort == "positive"
             || $rating_sort == "all") {
-            $ratings = User::getRatings($rating_sort);
+            $ratings = User::getRatings($rating_sort, Auth::user()->id);
         } else {
             return Redirect::to('users/profile/all');
         }
