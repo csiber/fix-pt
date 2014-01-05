@@ -40,7 +40,7 @@
                         <span class="label label-fix-pt">Confirmed User</span>    
                     <?php else : ?>
                         <span class="label label-fix-pt">User is not confirmed!</span>
-                        <a href="{{ URL::to('users/confirm-user') }}" class="btn btn-default btn-xs">Confirm User</a>
+                        <!-- <a href="{{ URL::to('users/confirm-user') }}" class="btn btn-default btn-xs">Confirm User</a> -->
 
 <!--                         <br/><span class="p-shadow"><small>Not confirmed user account is removed within 3 days!</small></span>
  -->                <?php endif; ?>
