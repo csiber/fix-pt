@@ -101,7 +101,7 @@
             </a>
             <div class="media-body">
                 <h5 class="media-heading"><a href="{{ URL::to('users/view/'.$lr->requester->id)}}">{{$lr->requester->username}}</a> gave {{$lr->score}} <i class='glyphicon glyphicon-star'></i></h5>
-                <p>{{{$lrgi->feedback}}}</p>
+                <p>{{{$lr->feedback}}}</p>
             </div>
         </div>
         @endforeach

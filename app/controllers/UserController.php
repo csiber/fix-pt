@@ -156,7 +156,28 @@ class UserController extends BaseController {
             //$user->update(array('password' => $newPass));
             User::where('id', Auth::user()->id)->update(array('password' => $newPass));
             Session::flash('success', 'Password changed successfully.');
-            return View::make('users.profile', array('user' => $user));
+
+            $ratings = User::getRatings("all", Auth::user()->id);
+            foreach($ratings as &$rate) {
+            // $rate['fixrequest'] = FixRequest::find($rate['fix_request_id']);
+                $rate['fixer'] = User::find($rate['fixer_id']);
+                $rate['requester'] = User::find($rate['requester_id']);
+                $rate['fixer']['gravatar'] = UtilFunctions::gravatar($rate['fixer']->email, 16);
+                $rate['requester']['gravatar'] = UtilFunctions::gravatar($rate['requester']->email, 16);
+            }
+
+            $lastrates = User::getLast3Ratings(Auth::user()->id);
+            foreach($lastrates as &$rate) {
+                $rate['requester'] = User::find($rate['requester_id']);
+                $rate['requester']['gravatar'] = UtilFunctions::gravatar($rate['requester']->email, 20);
+            }
+
+            return View::make('users.profile', array(
+                'ratings' => $ratings,
+                'lastrates' => $lastrates,
+                'sort' => "all",
+                "gravatar" => UtilFunctions::gravatar(Auth::user()->email, 190),
+                ));
         } else {
             //erro
             Session::flash('error', 'Wrong Password.');

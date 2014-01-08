@@ -21,6 +21,8 @@
             </h4>
             
             <p>{{$promotionpage['post']->text}}</p>
+            
+
         </div>
     </div>
     <div class="col-md-4">
@@ -28,14 +30,6 @@
             <div class="panel-body text-center">
                 <img src="{{{$gravatar}}}" alt="...">
                 <h3><a href="{{ URL::to('users/view/'.$promotionpage->post->user->id)}}">{{{$promotionpage->post->user->username}}}</a></h3>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title lead">Similar promotion pages</h3>
-            </div>
-            <div class="panel-body">
-                This will show similiar promotion pages
             </div>
         </div>
     </div>

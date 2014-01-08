@@ -57,7 +57,6 @@
                             <td>
 								<a href="{{{ URL::to('users/index/'.$users_type.'/'.$user->id.'') }}}" class="_users"><span class="label label-danger">Change Permission</span></a>
                                 <a href="{{{ URL::to('users/edit/'.$user->id.'') }}}" class="_users"><span class="label label-danger">Edit</span></a>
-                                <a href="{{{ URL::to('users/delete/'.$user->id.'') }}}" class="_users"><span class="label label-danger">Delete</span></a>
                             </td>  
                             @endif
                         </tr>
